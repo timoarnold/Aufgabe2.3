@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Lieferant
+comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 2.0\ (14.\ November\ 2022)\r\n\r\n\ Die\ Klasse\ Lieferant\ erm\u00F6glicht\ es\ Bestellungen\ an\ den\ Lieferanten\ aufzugeben.\r\n
+comment1.params=holzEinheiten\ schrauben\ farbEinheiten\ kartonEinheiten\ kissen
+comment1.target=boolean\ wareBestellen(int,\ int,\ int,\ int,\ int)
+comment1.text=\r\n\ Instanzvariabeln?\r\n\r\n
+numComments=2

@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Stuhl
+comment0.text=\r\n\ @author\ Gruppe\ 29\ \r\n\ @version\ 1.0\ (28.\ Oktober\ 2022)\r\n\ \r\n\ Die\ Klasse\ Stuhl\ bildet\ eine\ Erweiterung\ /\ Subklasse\ der\ Klasse\ Produkt.\ \r\n\ Sie\ erbt\ somit\ die\ Funktionalit\u00E4ten\ sowie\ die\ globalen\ Variabeln\ der\ Klasse\ Produkt.\r\n\ Zudem\ enth\u00E4lt\ sie\ Variabeln,\ welche\ f\u00FCr\ den\ Produkttyp\ <Stuhl>\ einzigartig\ sind.\r\n
+comment1.params=
+comment1.target=Stuhl()
+comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Stuhl\:\ initialisiert\ alle\ Instanzvariabeln\ (siehe\ oben)\ der\ Klasse\ Stuhl\r\n\ Mit\ super(1)\ wird\ "Zustand"\ aus\ der\ Superklasse\ Produkt\ initialisiert\r\n
+comment2.params=
+comment2.target=int\ getHolzeinheiten()
+comment2.text=\r\n\ Gib\ die\ Anzahl\ Holzeinheiten\ wieder.\r\n\ @return\ die\ Anzahl\ ben\u00F6tigter\ Holzeinheiten\ f\u00FCr\ die\ Produktion\ eines\ Stuhls\r\n
+comment3.params=
+comment3.target=int\ getSchrauben()
+comment3.text=\r\n\ Gib\ die\ Anzahl\ Schrauben\ wieder.\r\n\ @return\ die\ Anzahl\ ben\u00F6tigter\ Schrauben\ f\u00FCr\ die\ Produktion\ eines\ Stuhls\r\n
+comment4.params=
+comment4.target=int\ getFarbEinheiten()
+comment4.text=\r\n\ Gib\ die\ Anzahl\ Farbeinheiten\ wieder.\r\n\ @return\ die\ Anzahl\ ben\u00F6tigter\ Farbeinheiten\ f\u00FCr\ die\ Produktion\ eines\ Stuhls\r\n
+comment5.params=
+comment5.target=int\ getKartoneinheiten()
+comment5.text=\r\n\ Gib\ die\ Anzahl\ Kartoneinheiten\ wieder.\r\n\ @return\ die\ Anzahl\ ben\u00F6tigter\ Kartoneinheiten\ f\u00FCr\ die\ Produktion\ eines\ Stuhls\r\n
+comment6.params=
+comment6.target=int\ getProduktionsZeit()
+comment6.text=\r\n\ Gib\ die\ Produktionszeit\ wieder.\r\n\ @return\ die\ Produktionszeit\ f\u00FCr\ einen\ Stuhl\r\n
+numComments=7

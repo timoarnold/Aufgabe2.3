@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Fabrik
+comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 1.0\ (28.\ Oktober\ 2022)\r\n\ \r\n\ Die\ Klasse\ Fabrik\ bildet\ die\ Schnittstelle\ zwischen\ Kund\:innen\ und\ Produktion.\r\n\ Sie\ nimmt\ Bestellungen\ entgegen\ und\ verwaltet\ diese.\r\n
+comment1.params=
+comment1.target=Fabrik()
+comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Fabrik\:\ Hier\ werden\ die\ Instanzvariabeln\ (siehe\ oben)\ initialisiert.\r\n
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment2.text=\r\n\ Erm\u00F6glichst\ den\ Einstieg\ ins\ Programm\r\n\ -\ weiterBestellen\:\ Gibt\ an,\ ob\ weiterbestellt\ wird\ oder\ nicht.\r\n\ -\ validerInput\:\ Gibt\ an,\ ob\ die\ Bestelleingabe\ valide\ ist\ oder\ nicht.\r\n\ \r\n\ Anmerkung\:\ \r\n\ Durch\ die\ Main-Methode\ wird\ ein\ Dioalogsystem\ aufgerufen,\ in\ welcher\ der\ User\ Bestellungen\ f\u00FCr\ Sofas\ und\ St\u00FChle\ aufgeben\ kann\r\n\ (Durchf\u00FChrung\ der\ Methode\ bestellungAufgeben).\r\n\ Der\ User\ kann\ nach\ einer\ Bestellung\ entscheiden,\ ob\ er\ weiter\ bestellen\ m\u00F6chte.\r\n\ Sobald\ sich\ der\ User\ entscheidet,\ nicht\ mehr\ weiterzubestellen,\ wird\ eine\ Zusammenfassung\ der\ Bestellungen\ ausgegeben\ \r\n\ (Durchf\u00FChrung\ der\ Methode\ bestellungsAusgeben).\r\n\ Ausserdem\ die\ Inputs\ des\ Users\ \u00FCberpr\u00FCft,\ sodass\ die\ geforderten\ Informationen\ angegeben\ werden.\r\n
+comment3.params=sofa\ stuhl
+comment3.target=void\ bestellungAufgeben(int,\ int)
+comment3.text=\ \r\n\ Bestellung\ aufgeben.\r\n\ @param\ sofa\:\ Anzahl\ Sofas,\ die\ in\ einer\ Bestellung\ bestellt\ wurden.\r\n\ @param\ stuhl\:\ Anzahl\ St\u00FChle,\ die\ in\ einer\ Bestellung\ bestellt\ wurden.\r\n\ \r\n\ Anmerkung\:\ Durch\ bestellungAufgeben\ wird\ eine\ neue\ Instanz\ der\ Klasse\ Bestellung\ erstellt,\ die\ Bestellung\ best\u00E4tigt\ und\ in\ der\ Array\ "bestellungen"\ gespeichert.\ \r\n\ Bei\ jeder\ erfolgreichen\ Bestellausgabe,\ wird\ auf\ der\ Konsole\ eine\ Message\ ausgespielt.\r\n\ In\ der\ folgenden\ Methode\ wird\ zudem\ festgelegt,\ dass\ die\ Bestellung\ nur\ positive\ Werte\ enthalten\ darf\ (Keine\ Minusbestellungen,\ sonst\ Fehlermeldung).\r\n
+comment4.params=
+comment4.target=int\ gibBestellungsNr()
+comment4.text=\r\n\ Gib\ die\ Bestellungsnummer\ wieder.\r\n\ @return\ die\ Nummer\ der\ letzten\ Bestellung,\ die\ aufgegeben\ wurde\ (\=Totale\ Anzahl\ Bestellungen\ bisher)\r\n
+comment5.params=
+comment5.target=java.util.ArrayList\ gibBestellungen()
+comment5.text=\r\n\ Gib\ die\ Bestellungen\ wieder.\r\n\ @return\ ArrayListe\ bestellungen\r\n\ \r\n\ Anmerkung\:\ Diese\ Methode\ dient\ den\ Unit-Tests\ im\ Rahmen\ der\ Testklasse\ FabrikTest.\r\n\ Sie\ gibt\ die\ Bestellungsinformationen\ f\u00FCr\ den\ Unit-Test\ zur\ Methode\ Bestellung\ auf-\ und\ ausgeben\ wieder.\r\n
+comment6.params=
+comment6.target=void\ bestellungenAusgeben()
+comment6.text=\r\n\ Gib\ die\ Bestellungen\ inkl.\ Details\ wieder.\r\n\ \r\n\ Anmerkung\:\ F\u00FCr\ jede\ Bestellung\ aus\ der\ Liste\ bestellungen,\ gibt\ die\ Konsole\ die\ unten\ programmierte\ Print-Meldung\ aus.\ \r\n\ Diese\ Methode\ gibt\ somit\ alle\ Informationen\ (Anzahl\ St\u00FChle\ /\ Anzahl\ Sofas\ /\ Bestellungen\ Total\ /\ Bestellungsnummer)\ \r\n\ f\u00FCr\ alle\ aufgegebenen\ Bestellungen\ wieder.\r\n
+comment7.params=spannendeBestellungNr
+comment7.target=void\ bestellungAusgeben(int)
+comment7.text=\r\n\ Gib\ die\ Informationen\ einer\ spezifischen\ Bestellung\ wieder.\r\n\ @param\ spannendeBestellungNr\:\ Nummer\ einer\ einzelnen,\ ausgegebenen\ Bestellung.\r\n\ \ \ \r\n\ Anmerkung\:\ Dazu\ muss\ diese\ Methode\ mit\ der\ gew\u00FCnschten\ Bestellungsnummer\ aufgerufen\ werden.\r\n
+numComments=8
