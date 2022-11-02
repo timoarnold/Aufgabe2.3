@@ -18,11 +18,11 @@ public class Stuhl extends Produkt {
      * - kartoneinheiten: Anzahl Kartoneinheiten, welche zur Herstellung eines Stuhls benötigt werden (int).
      * - produktionsZeit: Produktionszeit in Stunden, die zur Produktion eines Stuhls nötig ist (int).
      */ 
-    private static int holzeinheiten;
-    private static int schrauben;
-    private static int farbeinheiten;
-    private static int kartoneinheiten;
-    private static int produktionsZeit;
+    private static int holzeinheiten = 2;
+    private static int schrauben = 10;
+    private static int farbeinheiten = 2;
+    private static int kartoneinheiten = 1;
+    private static int produktionsZeit = 22;
 
     /**
      * Konstruktor für Objekte der Klasse Stuhl: initialisiert alle Instanzvariabeln (siehe oben) der Klasse Stuhl
@@ -30,18 +30,13 @@ public class Stuhl extends Produkt {
      */
     public Stuhl() {
         super (1);
-        holzeinheiten = 2;
-        schrauben = 10;
-        farbeinheiten = 2;
-        kartoneinheiten = 1;
-        produktionsZeit = 22;
     }
     
     /**
      * Gib die Anzahl Holzeinheiten wieder.
      * @return die Anzahl benötigter Holzeinheiten für die Produktion eines Stuhls
      */
-    public int getHolzeinheiten() {
+    public static int getHolzeinheiten() {
         return holzeinheiten;
     }
     
@@ -49,7 +44,7 @@ public class Stuhl extends Produkt {
      * Gib die Anzahl Schrauben wieder.
      * @return die Anzahl benötigter Schrauben für die Produktion eines Stuhls
      */
-    public int getSchrauben() {
+    public static int getSchrauben() {
         return schrauben;
     }
     
@@ -57,7 +52,7 @@ public class Stuhl extends Produkt {
      * Gib die Anzahl Farbeinheiten wieder.
      * @return die Anzahl benötigter Farbeinheiten für die Produktion eines Stuhls
      */
-    public int getFarbEinheiten() {
+    public static int getFarbEinheiten() {
         return farbeinheiten;
     }
     
@@ -65,7 +60,7 @@ public class Stuhl extends Produkt {
      * Gib die Anzahl Kartoneinheiten wieder.
      * @return die Anzahl benötigter Kartoneinheiten für die Produktion eines Stuhls
      */
-    public int getKartoneinheiten() {
+    public static int getKartoneinheiten() {
         return kartoneinheiten;
     }
     
@@ -73,7 +68,7 @@ public class Stuhl extends Produkt {
      * Gib die Produktionszeit wieder.
      * @return die Produktionszeit für einen Stuhl
      */
-    public int getProduktionsZeit() {
+    public static int getProduktionsZeit() {
         return produktionsZeit;
     }
 }

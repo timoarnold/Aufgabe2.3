@@ -8,7 +8,7 @@ import java.io.*;
  * Sie nimmt Bestellungen entgegen und verwaltet diese.
  * 
  *
- * Test Timo Test Flo
+ * 
  */
 public class Fabrik {
     /** 
@@ -20,6 +20,7 @@ public class Fabrik {
    
     private ArrayList<Bestellung> bestellungen; 
     private int bestellungsNr;
+    private Lager lager;
 
     /**
      * Konstruktor für Objekte der Klasse Fabrik: Hier werden die Instanzvariabeln (siehe oben) initialisiert.
@@ -28,6 +29,7 @@ public class Fabrik {
     public Fabrik() {
         bestellungen = new ArrayList<Bestellung>();
         bestellungsNr = 0;
+        lager = new Lager();
     }
 
     /**

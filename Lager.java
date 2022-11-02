@@ -26,11 +26,11 @@ public class Lager {
     */
 
     //Klassenvariabeln
-    private static int maxHolzeinheiten;
-    private static int maxSchrauben;
-    private static int maxFarbeinheiten;
-    private static int maxKartoneinheiten;
-    private static int maxKissen;
+    private static int maxHolzeinheiten = 1000;
+    private static int maxSchrauben = 5000;
+    private static int maxFarbeinheiten = 1000;
+    private static int maxKartoneinheiten = 1000;
+    private static int maxKissen = 100;
     
     //Instanzvariabeln
     private int vorhandeneHolzeinheiten;
@@ -42,46 +42,73 @@ public class Lager {
     private Lieferant lieferant;
 
 
-    public Lager(int maxHolzeinheiten, int maxSchrauben , int maxFarbeinheiten, int maxKartoneinheiten, int maxKissen)
+    public Lager()
     {
-        this.maxHolzeinheiten = 1000;
-        this.maxSchrauben = 5000;
-        this.maxFarbeinheiten = 1000;
-        this.maxKartoneinheiten = 1000;
-        this.maxKissen = 100;
+        lieferant = new Lieferant();
     }
 
-    public int gibBeschaffungszeit (Bestellung kundenBestellung) {
-        int beschaffungszeit = 0;
-        
-        //if(product instanceof Stuhl){
-            //
-        //}else if(product instanceof Sofa){
-            //
-        //}
-        
-        return beschaffungszeit;
-    }
-    
     /**
      * Kommentar zu gibBeschaffungszeit
      */
+    public int gibBeschaffungszeit (Bestellung kundenBestellung) {
+        int beschaffungszeit = 0;
+        
+        int benHolzeinheiten = 0;
+        int benSchrauben =  0;
+        int benFarbeinheiten =  0;
+        int benKartoneinheiten =  0;
+        int benKissen =  0;
+        
+        for(Produkt product : kundenBestellung.gibBestellteProdukte()){
+            if(product instanceof Stuhl){
+                benHolzeinheiten += Stuhl.getHolzeinheiten();
+                benSchrauben += Stuhl.getSchrauben();
+                benFarbeinheiten +=  Stuhl.getFarbEinheiten();
+                benKartoneinheiten +=  Stuhl.getKartoneinheiten();
+            }else if(product instanceof Sofa){
+                benHolzeinheiten += Sofa.getHolzeinheiten();
+                benSchrauben += Sofa.getSchrauben();
+                benFarbeinheiten +=  Sofa.getFarbEinheiten();
+                benKartoneinheiten +=  Sofa.getKartoneinheiten();
+                benKissen += Sofa.getKissen();
+            }
+        }
+        
+        if(benHolzeinheiten < vorhandeneHolzeinheiten || benSchrauben < vorhandeneSchrauben || benFarbeinheiten < vorhandeneFarbeinheiten || benKartoneinheiten < vorhandeneKartoneinheiten || benKissen < vorhandeneKissen){
+            beschaffungszeit = 2;
+        }
+        
+        else{
+            lagerAuffüllen();
+        }
+        
+        return  beschaffungszeit;
+        
+        }
+        
 
-    public void lagerAuffüllen () {
-        //if(vorhandeneHolzeinheiten==maxHolzeinheiten){
-            //
-        //}
-
-    }
-    
     /**
      * Kommentar zu lagerAuffüllen
      */
-
-    public void lagerBestandAusgeben (){
-
+    public void lagerAuffüllen () {
+        lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen);
+        
+        vorhandeneHolzeinheiten = maxHolzeinheiten;
+        vorhandeneSchrauben = maxSchrauben;
+        vorhandeneFarbeinheiten = maxFarbeinheiten;
+        vorhandeneKartoneinheiten = maxKartoneinheiten;
+        vorhandeneKissen = maxKissen;
+        
+        //System Print falls gewollt -->Aktuell keine Zeitverzögerung einprogrammiert. Lager wird direkt gefüllt
+        
     }
+    
+    
     /**
      * Kommentar zu lagerBestandAusgeben
      */
+    public void lagerBestandAusgeben (){
+
+    }
+    
 }

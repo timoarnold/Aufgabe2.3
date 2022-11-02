@@ -1,14 +1,15 @@
 #BlueJ class context
 comment0.target=Lager
 comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 2.0\ (14.\ November\ 2022)\r\n\r\n\ Die\ Klasse\ Lager\ beinhaltet\ die\ Informationen\ zu\ den\ maximal\ lagerbaren\ Materialeinheiten\ sowie\ den\ aktuellen\r\n\ Best\u00E4nden\ der\ Materialien.\r\n
-comment1.params=maxHolzeinheiten\ maxSchrauben\ maxFarbeinheiten\ maxKartoneinheiten\ maxKissen
-comment1.target=Lager(int,\ int,\ int,\ int,\ int)
+comment1.params=
+comment1.target=Lager()
 comment2.params=kundenBestellung
 comment2.target=int\ gibBeschaffungszeit(Bestellung)
+comment2.text=\r\n\ Kommentar\ zu\ gibBeschaffungszeit\r\n
 comment3.params=
 comment3.target=void\ lagerAuff\u00FCllen()
-comment3.text=\r\n\ Kommentar\ zu\ gibBeschaffungszeit\r\n
+comment3.text=\r\n\ Kommentar\ zu\ lagerAuff\u00FCllen\r\n
 comment4.params=
 comment4.target=void\ lagerBestandAusgeben()
-comment4.text=\r\n\ Kommentar\ zu\ lagerAuff\u00FCllen\r\n
+comment4.text=\r\n\ Kommentar\ zu\ lagerBestandAusgeben\r\n
 numComments=5

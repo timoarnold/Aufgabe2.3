@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Fabrik
-comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 1.0\ (28.\ Oktober\ 2022)\r\n\ \r\n\ Die\ Klasse\ Fabrik\ bildet\ die\ Schnittstelle\ zwischen\ Kund\:innen\ und\ Produktion.\r\n\ Sie\ nimmt\ Bestellungen\ entgegen\ und\ verwaltet\ diese.\r\n\ \r\n\r\n\ Test\ Timo\ Test\ Flo\r\n
+comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 1.0\ (28.\ Oktober\ 2022)\r\n\ \r\n\ Die\ Klasse\ Fabrik\ bildet\ die\ Schnittstelle\ zwischen\ Kund\:innen\ und\ Produktion.\r\n\ Sie\ nimmt\ Bestellungen\ entgegen\ und\ verwaltet\ diese.\r\n\ \r\n\r\n\ \r\n
 comment1.params=
 comment1.target=Fabrik()
 comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Fabrik\:\ Hier\ werden\ die\ Instanzvariabeln\ (siehe\ oben)\ initialisiert.\r\n

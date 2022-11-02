@@ -82,6 +82,20 @@ public class Bestellung {
     }
     
     /**
+     * !!! Anschauen, gibt noch den Speicherort aus, aber immerhin erkennt es die Stühle und Sofas.
+     * Beschrieb Methode
+     */
+    public void liefereBestellteProdukte(){
+        System.out.println("Total bestellte Produkte bisher:");
+        
+        for(Produkt einProdukt: bestellteProdukte) {
+            
+            System.out.println(einProdukt);
+            
+        }
+    }
+    
+    /**
      * Setze die jeweilige Beschaffungszeit in Abstimmung mit den Lieferanten.
      * @param neueBeschaffungsZeit: Neu gesetzte Zahl für die Beschaffungszeit. 
      */
@@ -103,6 +117,13 @@ public class Bestellung {
      */
     public int gibBestellNummer() {
         return bestellNummer;
+    }
+    /**
+     * Gib die Liste der Bestellten Produkte wieder.
+     * @return Liste der Produkte in der Bestellung
+     */
+    public ArrayList<Produkt> gibBestellteProdukte() {
+        return bestellteProdukte;
     }
     
     /**
@@ -141,19 +162,7 @@ public class Bestellung {
         BestellnummerGenerator = 1;
     }
     
-    /**
-     * !!! Anschauen, gibt noch den Speicherort aus, aber immerhin erkennt es die Stühle und Sofas.
-     * Beschrieb Methode
-     */
-    public void liefereBestellteProdukte(){
-        System.out.println("Total bestellte Produkte bisher:");
-        
-        for(Produkt einProdukt: bestellteProdukte) {
-            
-            System.out.println(einProdukt);
-            
-        }
-    }
+    
     
     /**
      * Kommentar zu Methode
