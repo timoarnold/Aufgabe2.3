@@ -4,7 +4,6 @@
  *
  * Die Klasse Lager beinhaltet die Informationen zu den maximal lagerbaren Materialeinheiten sowie den aktuellen
  * Beständen der Materialien.
- * Test
  */
 
 public class Lager {
