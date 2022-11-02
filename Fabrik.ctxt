@@ -22,4 +22,6 @@ comment6.text=\r\n\ Gib\ die\ Bestellungen\ inkl.\ Details\ wieder.\r\n\ \r\n\ A
 comment7.params=spannendeBestellungNr
 comment7.target=void\ bestellungAusgeben(int)
 comment7.text=\r\n\ Gib\ die\ Informationen\ einer\ spezifischen\ Bestellung\ wieder.\r\n\ @param\ spannendeBestellungNr\:\ Nummer\ einer\ einzelnen,\ ausgegebenen\ Bestellung.\r\n\ \ \ \r\n\ Anmerkung\:\ Dazu\ muss\ diese\ Methode\ mit\ der\ gew\u00FCnschten\ Bestellungsnummer\ aufgerufen\ werden.\r\n
-numComments=8
+comment8.params=
+comment8.target=float\ berechneKonfigZeit()
+numComments=9

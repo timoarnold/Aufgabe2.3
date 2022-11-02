@@ -103,6 +103,15 @@ public class Lager {
         
     }
     
+    public boolean bestandNiedrig(){
+        float unteresLimit = 4; //bei einem 4tel der max Menge wird der Bestand als niedrig angegeben
+        if(maxHolzeinheiten/unteresLimit> vorhandeneHolzeinheiten || maxSchrauben/unteresLimit> vorhandeneSchrauben || maxFarbeinheiten/unteresLimit> vorhandeneFarbeinheiten || maxKartoneinheiten/unteresLimit> vorhandeneKartoneinheiten || maxKissen /unteresLimit> vorhandeneKissen){
+            return true;
+        }else
+        return false;
+        
+    }
+    
     
     /**
      * Kommentar zu lagerBestandAusgeben

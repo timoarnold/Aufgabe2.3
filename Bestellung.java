@@ -33,6 +33,7 @@ public class Bestellung {
     private ArrayList<Produkt> bestellteProdukte;
     private boolean bestellBestaetigung;
     private int beschaffungsZeit;
+    private float lieferZeit; //float weil nicht nur ganze Zahlen / Tage
     private int bestellNummer;
     private int anzahlStuehle;
     private int anzahlSofas;
@@ -167,8 +168,8 @@ public class Bestellung {
     /**
      * Kommentar zu Methode
      */
-    public void setzeLieferzeit(float lieferZeit){
-        //
+    public void setzLieferZeit(float lieferZeit){
+        this.lieferZeit = lieferZeit;
     }
     
     /**

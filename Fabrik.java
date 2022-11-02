@@ -109,10 +109,29 @@ public class Fabrik {
                bestellungsNr++;
                
                Bestellung bestellung = new Bestellung(sofa, stuhl);
+               
+               int beschaffungsZeit = lager.gibBeschaffungszeit(bestellung);
+               bestellung.setzBeschaffungsZeit(beschaffungsZeit);
+               
+               float prodZeit = 0;
+               prodZeit += bestellung.gibAnzahlStuehle()*21 /60 /24;
+               prodZeit += bestellung.gibAnzahlSofas()*21 /60 /24; 
+               prodZeit += berechneKonfigZeit(); //im moment noch 0
+               
+               float standardLieferZeit = 1;
+               if(lager.bestandNiedrig()){
+                   standardLieferZeit += 2;
+                   lager.lagerAuffüllen();
+               }
+               
+               bestellung.setzLieferZeit(prodZeit + (float) beschaffungsZeit + standardLieferZeit);
+               
                bestellung.bestellungBestaetigen();
                bestellungen.add(bestellung);
+               
            
                System.out.println("Bestellung erfolgreich aufgegeben");
+               //Hier System Out print mit Lieferzeit ergänzen
            }
     }
     
@@ -172,5 +191,9 @@ public class Fabrik {
     
         }
     
+    }
+    
+    private float berechneKonfigZeit(){ 
+      return 0; //falls benötigt - SIehe kommentar oben in BestellungAufgeben
     }
 }
