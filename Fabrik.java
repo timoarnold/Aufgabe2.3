@@ -114,9 +114,10 @@ public class Fabrik {
                bestellung.setzBeschaffungsZeit(beschaffungsZeit);
                
                float prodZeit = 0;
-               prodZeit += bestellung.gibAnzahlStuehle()*21 /60 /24;
-               prodZeit += bestellung.gibAnzahlSofas()*21 /60 /24; 
+               prodZeit += (float)bestellung.gibAnzahlStuehle()*21 /60 /24;
+               prodZeit += (float)bestellung.gibAnzahlSofas()*60 /60 /24; //
                prodZeit += berechneKonfigZeit(); //im moment noch 0
+               
                
                float standardLieferZeit = 1;
                if(lager.bestandNiedrig()){
@@ -133,6 +134,16 @@ public class Fabrik {
                System.out.println("Bestellung erfolgreich aufgegeben");
                //Hier System Out print mit Lieferzeit ergänzen
            }
+    }
+    
+    
+    
+    /**
+     * Fülle Lager auf
+     * @return die Nummer der letzten Bestellung, die aufgegeben wurde (=Totale Anzahl Bestellungen bisher)
+     */
+    public void lagerAuffüllen() {
+            lager.lagerAuffüllen();
     }
     
     /**

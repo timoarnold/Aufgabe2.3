@@ -52,7 +52,6 @@ public class Lager {
      */
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
-        
         int benHolzeinheiten = 0;
         int benSchrauben =  0;
         int benFarbeinheiten =  0;
@@ -119,5 +118,14 @@ public class Lager {
     public void lagerBestandAusgeben (){
 
     }
+    
+    /**
+     * Kommentar zu lagerBestandAusgeben
+     */
+    public Lieferant gibLieferant(){ //getter Methode um den Lieferant eines Lagers zu erhalten (wird für Testklasse benötigt)
+        return this.lieferant;
+    }
+    
+    
     
 }

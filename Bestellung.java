@@ -151,7 +151,10 @@ public class Bestellung {
      * damit diese im Unit-Test auf Übereinstimmung getestet werden kann.
      */
     public String toString() {
-        return "Bestellnummer:" + bestellNummer + "\nStühle bestellt:" + anzahlStuehle + "\nSofas bestellt:" + anzahlSofas;
+        return "Bestellnummer:" + bestellNummer
+        + "\nStühle bestellt:" + anzahlStuehle
+        + "\nSofas bestellt:" + anzahlSofas
+        + "\nIhre Leiferzeit beträgt:" + this.genaueZeit(lieferZeit);
     }
     
     /**
@@ -163,8 +166,6 @@ public class Bestellung {
         BestellnummerGenerator = 1;
     }
     
-    
-    
     /**
      * Kommentar zu Methode
      */
@@ -173,9 +174,19 @@ public class Bestellung {
     }
     
     /**
+     * Kommentar zu Methode
+     */
+    public String genaueZeit(float lieferZeit){
+        String genaueZeit = Math.floor(lieferZeit)+"Tage, ";
+        genaueZeit += Math.ceil(lieferZeit%1 *24) + "Stunden"; //wird immer aufgerundet
+        //minuten werden (noch) nicht berechnet
+        return genaueZeit;
+    }
+    
+    /**
      * Methodenkommentar
      */
-    //public float gibLieferzeit(){
-        //return lieferZeit;
-    //}
+    public float gibLieferzeit(){
+        return lieferZeit;
+    }
 }

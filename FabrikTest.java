@@ -63,8 +63,8 @@ public class FabrikTest
         fabrik.bestellungAufgeben(6,6);
         
         //Assert: Check, ob Ausgabe der Bestellung == erwartete / korrekte Ausgabe
-        assertEquals("Bestellnummer:"+1+"\nStühle bestellt:"+2+"\nSofas bestellt:"+3,fabrik.gibBestellungen().get(0).toString());
-        assertEquals("Bestellnummer:"+2+"\nStühle bestellt:"+6+"\nSofas bestellt:"+6,fabrik.gibBestellungen().get(1).toString());
+        assertEquals("Bestellnummer:"+1+"\nStühle bestellt:"+2+"\nSofas bestellt:"+3+"\nIhre Leiferzeit beträgt:1.0Tage, 4.0Stunden",fabrik.gibBestellungen().get(0).toString());
+        assertEquals("Bestellnummer:"+2+"\nStühle bestellt:"+6+"\nSofas bestellt:"+6+"\nIhre Leiferzeit beträgt:3.0Tage, 9.0Stunden",fabrik.gibBestellungen().get(1).toString());
     }
     
     /**
@@ -85,5 +85,42 @@ public class FabrikTest
         
         Bestellung.resetBestellnummerGenerator();
     }
+    
+    /**
+     * Merke:BestellnummerGenerator wird nach diesem Test auf 1 zurückgesetzt, damit die Bestellnummern in weiteren Unit-Tests erneut 
+     * von Anfang an hochzählen können. 
+     */
+    @Test
+    public void TestMehrereBestellungenAufgeben(){
+        //Arrange: Siehe BeforeEach
+        
+        //Act: Testbestellungen werden aufgegeben
+        fabrik.bestellungAufgeben(4,7);
+        fabrik.bestellungAufgeben(3,2);
+        fabrik.bestellungAufgeben(9,5);
+        
+        assertEquals(1,fabrik.gibBestellungen().get(0).gibBestellNummer());
+        assertEquals(2,fabrik.gibBestellungen().get(1).gibBestellNummer());
+        assertEquals(3,fabrik.gibBestellungen().get(2).gibBestellNummer());
+        //Assert: Check, ob die richtige Anzahl Stühle und Sofas ausgegeben wird
+        assertEquals(3, fabrik.gibBestellungen().get(1).gibAnzahlStuehle());
+        assertEquals(2, fabrik.gibBestellungen().get(1).gibAnzahlSofas());
+        
+        Bestellung.resetBestellnummerGenerator();
+    }
+    
+    @Test
+    public void TestBestellBestätigung(){
+        //Arrange: Siehe BeforeEach
+        
+        //Act: Testbestellungen werden aufgegeben
+        fabrik.bestellungAufgeben(4,7);
+        
+        assertEquals(true,fabrik.gibBestellungen().get(0).gibBestellBestaetigung());
+        
+        Bestellung.resetBestellnummerGenerator();
+    }
+    
+    
 }
 

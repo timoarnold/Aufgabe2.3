@@ -11,17 +11,20 @@ comment3.params=sofa\ stuhl
 comment3.target=void\ bestellungAufgeben(int,\ int)
 comment3.text=\ \r\n\ Bestellung\ aufgeben.\r\n\ @param\ sofa\:\ Anzahl\ Sofas,\ die\ in\ einer\ Bestellung\ bestellt\ wurden.\r\n\ @param\ stuhl\:\ Anzahl\ St\u00FChle,\ die\ in\ einer\ Bestellung\ bestellt\ wurden.\r\n\ \r\n\ Anmerkung\:\ Durch\ bestellungAufgeben\ wird\ eine\ neue\ Instanz\ der\ Klasse\ Bestellung\ erstellt,\ die\ Bestellung\ best\u00E4tigt\ und\ in\ der\ Array\ "bestellungen"\ gespeichert.\ \r\n\ Bei\ jeder\ erfolgreichen\ Bestellausgabe,\ wird\ auf\ der\ Konsole\ eine\ Message\ ausgespielt.\r\n\ In\ der\ folgenden\ Methode\ wird\ zudem\ festgelegt,\ dass\ die\ Bestellung\ nur\ positive\ Werte\ enthalten\ darf\ (Keine\ Minusbestellungen,\ sonst\ Fehlermeldung).\r\n
 comment4.params=
-comment4.target=int\ gibBestellungsNr()
-comment4.text=\r\n\ Gib\ die\ Bestellungsnummer\ wieder.\r\n\ @return\ die\ Nummer\ der\ letzten\ Bestellung,\ die\ aufgegeben\ wurde\ (\=Totale\ Anzahl\ Bestellungen\ bisher)\r\n
+comment4.target=void\ lagerAuff\u00FCllen()
+comment4.text=\r\n\ F\u00FClle\ Lager\ auf\r\n\ @return\ die\ Nummer\ der\ letzten\ Bestellung,\ die\ aufgegeben\ wurde\ (\=Totale\ Anzahl\ Bestellungen\ bisher)\r\n
 comment5.params=
-comment5.target=java.util.ArrayList\ gibBestellungen()
-comment5.text=\r\n\ Gib\ die\ Bestellungen\ wieder.\r\n\ @return\ ArrayListe\ bestellungen\r\n\ \r\n\ Anmerkung\:\ Diese\ Methode\ dient\ den\ Unit-Tests\ im\ Rahmen\ der\ Testklasse\ FabrikTest.\r\n\ Sie\ gibt\ die\ Bestellungsinformationen\ f\u00FCr\ den\ Unit-Test\ zur\ Methode\ Bestellung\ auf-\ und\ ausgeben\ wieder.\r\n
+comment5.target=int\ gibBestellungsNr()
+comment5.text=\r\n\ Gib\ die\ Bestellungsnummer\ wieder.\r\n\ @return\ die\ Nummer\ der\ letzten\ Bestellung,\ die\ aufgegeben\ wurde\ (\=Totale\ Anzahl\ Bestellungen\ bisher)\r\n
 comment6.params=
-comment6.target=void\ bestellungenAusgeben()
-comment6.text=\r\n\ Gib\ die\ Bestellungen\ inkl.\ Details\ wieder.\r\n\ \r\n\ Anmerkung\:\ F\u00FCr\ jede\ Bestellung\ aus\ der\ Liste\ bestellungen,\ gibt\ die\ Konsole\ die\ unten\ programmierte\ Print-Meldung\ aus.\ \r\n\ Diese\ Methode\ gibt\ somit\ alle\ Informationen\ (Anzahl\ St\u00FChle\ /\ Anzahl\ Sofas\ /\ Bestellungen\ Total\ /\ Bestellungsnummer)\ \r\n\ f\u00FCr\ alle\ aufgegebenen\ Bestellungen\ wieder.\r\n
-comment7.params=spannendeBestellungNr
-comment7.target=void\ bestellungAusgeben(int)
-comment7.text=\r\n\ Gib\ die\ Informationen\ einer\ spezifischen\ Bestellung\ wieder.\r\n\ @param\ spannendeBestellungNr\:\ Nummer\ einer\ einzelnen,\ ausgegebenen\ Bestellung.\r\n\ \ \ \r\n\ Anmerkung\:\ Dazu\ muss\ diese\ Methode\ mit\ der\ gew\u00FCnschten\ Bestellungsnummer\ aufgerufen\ werden.\r\n
-comment8.params=
-comment8.target=float\ berechneKonfigZeit()
-numComments=9
+comment6.target=java.util.ArrayList\ gibBestellungen()
+comment6.text=\r\n\ Gib\ die\ Bestellungen\ wieder.\r\n\ @return\ ArrayListe\ bestellungen\r\n\ \r\n\ Anmerkung\:\ Diese\ Methode\ dient\ den\ Unit-Tests\ im\ Rahmen\ der\ Testklasse\ FabrikTest.\r\n\ Sie\ gibt\ die\ Bestellungsinformationen\ f\u00FCr\ den\ Unit-Test\ zur\ Methode\ Bestellung\ auf-\ und\ ausgeben\ wieder.\r\n
+comment7.params=
+comment7.target=void\ bestellungenAusgeben()
+comment7.text=\r\n\ Gib\ die\ Bestellungen\ inkl.\ Details\ wieder.\r\n\ \r\n\ Anmerkung\:\ F\u00FCr\ jede\ Bestellung\ aus\ der\ Liste\ bestellungen,\ gibt\ die\ Konsole\ die\ unten\ programmierte\ Print-Meldung\ aus.\ \r\n\ Diese\ Methode\ gibt\ somit\ alle\ Informationen\ (Anzahl\ St\u00FChle\ /\ Anzahl\ Sofas\ /\ Bestellungen\ Total\ /\ Bestellungsnummer)\ \r\n\ f\u00FCr\ alle\ aufgegebenen\ Bestellungen\ wieder.\r\n
+comment8.params=spannendeBestellungNr
+comment8.target=void\ bestellungAusgeben(int)
+comment8.text=\r\n\ Gib\ die\ Informationen\ einer\ spezifischen\ Bestellung\ wieder.\r\n\ @param\ spannendeBestellungNr\:\ Nummer\ einer\ einzelnen,\ ausgegebenen\ Bestellung.\r\n\ \ \ \r\n\ Anmerkung\:\ Dazu\ muss\ diese\ Methode\ mit\ der\ gew\u00FCnschten\ Bestellungsnummer\ aufgerufen\ werden.\r\n
+comment9.params=
+comment9.target=float\ berechneKonfigZeit()
+numComments=10
