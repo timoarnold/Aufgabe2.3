@@ -9,20 +9,20 @@
 public class Lager {
     /**
      * KlassenVariabeln:
-     * @param maxHolzeinheiten: Anzahl maximal lagerbarer Einheiten des Rohstoffs Holz (int).
-     * @param maxSchrauben: Anzahl maximal lagerbarer Einheiten Schrauben (int).
-     * @param maxFarbeinheiten: Anzahl maximal lagerbarer Einheiten Farbe (int).
-     * @param maxKartoneinheiten: Anzahl maximal lagerbarer Einheiten des Rohstoffs Karton (int).
-     * @param maxKissen: Anzahl maximal lagerbarer Einheiten Kissen (int).
+     * - maxHolzeinheiten: Anzahl maximal lagerbarer Einheiten des Rohstoffs Holz (int).
+     * - maxSchrauben: Anzahl maximal lagerbarer Einheiten Schrauben (int).
+     * - maxFarbeinheiten: Anzahl maximal lagerbarer Einheiten Farbe (int).
+     * - maxKartoneinheiten: Anzahl maximal lagerbarer Einheiten des Rohstoffs Karton (int).
+     * - maxKissen: Anzahl maximal lagerbarer Einheiten Kissen (int).
      *
      * InstanzVariabeln:
-     * @param vorhandeneHolzeinheiten: Anzahl aktuell gelagerter Einheiten des Rohstoffs Holz (int).
-     * @param vorhandeneSchrauben: Anzahl aktuell gelagerter Einheiten Schrauben (int).
-     * @param vorhandeneFarbeinheiten: Anzahl aktuell gelagerter Einheiten Farben (int).
-     * @param vorhandeneKartoneinheiten: Anzahl aktuell gelagerter Einheiten des Rohstoffs Karton (int).
-     * @param vorhandeneKissen: Anzahl aktuell gelagerter Einheiten Kissen (int).
+     * - vorhandeneHolzeinheiten: Anzahl aktuell gelagerter Einheiten des Rohstoffs Holz (int).
+     * - vorhandeneSchrauben: Anzahl aktuell gelagerter Einheiten Schrauben (int).
+     * - vorhandeneFarbeinheiten: Anzahl aktuell gelagerter Einheiten Farben (int).
+     * - vorhandeneKartoneinheiten: Anzahl aktuell gelagerter Einheiten des Rohstoffs Karton (int).
+     * - vorhandeneKissen: Anzahl aktuell gelagerter Einheiten Kissen (int).
      *
-     * @param lieferant:
+     * - lieferant: Beschreibt den Lieferanten, bei welchem die Fabrik Materialien bestellt (Lieferant).
     */
 
     //Klassenvariabeln
@@ -42,13 +42,28 @@ public class Lager {
     private Lieferant lieferant;
 
 
+    /**
+     * Konstruktor der Klasse Lager: initialisiert alle Instanzvariabeln der Klasse Lager. 
+     * Bei Erzeugung eines Lagers wird auch ein zugehöriger Lieferant instanziert.
+     */
     public Lager()
     {
+        int vorhandeneHolzeinheiten = 0;
+        int vorhandeneSchrauben = 0;
+        int vorhandeneFarbeinheiten = 0;
+        int vorhandeneKartoneinheiten = 0;
+        int vorhandeneKissen = 0;
+        
         lieferant = new Lieferant();
     }
 
     /**
-     * Kommentar zu gibBeschaffungszeit
+     * Kontrolliert, ob die benötigten Materialien für die Kundenbestellung im Lager vorhanden sind und berechnet die zugehörige Beschaffungszeit.
+     * Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt.
+     * Die Beschaffungszeit wird anschliessend ausgegeben.
+     * 
+     * @param kundenBestellung: Die Inhalte einer aufgegebenen Kundenbestellung. 
+     * @return die Beschaffungszeit, welche für die Kundenbestellung benötigt wird.
      */
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
@@ -87,7 +102,12 @@ public class Lager {
         
 
     /**
-     * Kommentar zu lagerAuffüllen
+     * Kontrolliert, ob die benötigten Materialien für die Kundenbestellung im Lager vorhanden sind und berechnet die zugehörige Beschaffungszeit.
+     * Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt.
+     * Die Beschaffungszeit wird anschliessend ausgegeben.
+     * 
+     * @param kundenBestellung: Die Inhalte einer aufgegebenen Kundenbestellung. 
+     * @return die Beschaffungszeit, welche für die Kundenbestellung benötigt wird.
      */
     public void lagerAuffüllen () {
         lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen);
@@ -102,6 +122,10 @@ public class Lager {
         
     }
     
+    /**
+     * Kontrolliert, ob der aktuelle Lagerbestand unter einem festgelegten Minimalbetrag liegt.
+     * Liegt der Bestand unter einem 4tel der max. Menge, dann wird der Lagerbestand als niedrig festgelegt (true).
+     */
     public boolean bestandNiedrig(){
         float unteresLimit = 4; //bei einem 4tel der max Menge wird der Bestand als niedrig angegeben
         if(maxHolzeinheiten/unteresLimit> vorhandeneHolzeinheiten || maxSchrauben/unteresLimit> vorhandeneSchrauben || maxFarbeinheiten/unteresLimit> vorhandeneFarbeinheiten || maxKartoneinheiten/unteresLimit> vorhandeneKartoneinheiten || maxKissen /unteresLimit> vorhandeneKissen){
@@ -113,7 +137,7 @@ public class Lager {
     
     
     /**
-     * Kommentar zu lagerBestandAusgeben
+     * Druckt den aktuellen Lagerbestand (vorhandene Materialien im Lager) auf der Konsole aus.
      */
     public void lagerBestandAusgeben (){
         System.out.println("Folgende Materialien befinden sich aktuell im Lager:");
@@ -126,10 +150,13 @@ public class Lager {
         
     }
         
-        /**
-     * Kommentar zu lagerBestandAusgeben
+    /**
+     * Getter-Methode, um den Lieferanten eines Lagers zu erhalten. 
+     * Anmerkung: Diese Methode wird für die Testklasse "LagerTest" benötigt,um den Lieferanten anzusprechen und dessen Methodenergebnis zu testen.
+     * 
+     * @return den Lieferanten des Lagers.
      */
-    public Lieferant gibLieferant(){ //getter Methode um den Lieferant eines Lagers zu erhalten (wird für Testklasse benötigt)
+    public Lieferant gibLieferant(){ 
         return this.lieferant;
     }
     
