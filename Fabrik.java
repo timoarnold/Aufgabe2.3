@@ -16,6 +16,7 @@ public class Fabrik {
      * 
      * - bestellungen: Array-Liste, in der alle eingegangenen Bestellungen als Typ <Bestellung> abgespeichert werden.
      * - bestellungsNr: Nummer, welche jeder Bestellung aufsteigend zugeordnet wird, beginnend bei 1 (int).
+     * - lager: Das zur Fabrik gehörende Lager (jeweils eines).
      */
    
     private ArrayList<Bestellung> bestellungen; 
@@ -98,7 +99,8 @@ public class Fabrik {
      * @param stuhl: Anzahl Stühle, die in einer Bestellung bestellt wurden.
      * 
      * Anmerkung: Durch bestellungAufgeben wird eine neue Instanz der Klasse Bestellung erstellt, die Bestellung bestätigt und in der Array "bestellungen" gespeichert. 
-     * Bei jeder erfolgreichen Bestellausgabe, wird auf der Konsole eine Message ausgespielt.
+     * Zu jeder aufgegebenen Bestellung wird hier die jeweilige Lieferzeit ausgerechnet und gesetzt und die Bestellbestätigung auf true gesetzt.
+     * Bei erfolgreicher Bestellafgabe, wird auf der Konsole anschliessend eine Message ausgespielt.
      * In der folgenden Methode wird zudem festgelegt, dass die Bestellung nur positive Werte enthalten darf (Keine Minusbestellungen, sonst Fehlermeldung).
      */
     public void bestellungAufgeben(int sofa, int stuhl) {
@@ -139,8 +141,7 @@ public class Fabrik {
     
     
     /**
-     * Fülle Lager auf
-     * @return die Nummer der letzten Bestellung, die aufgegeben wurde (=Totale Anzahl Bestellungen bisher)
+     * Füllt die Lagerbestände an Materialien bis zum Maximum auf.
      */
     public void lagerAuffüllen() {
             lager.lagerAuffüllen();
@@ -204,7 +205,14 @@ public class Fabrik {
     
     }
     
+    /**
+     * Gibt die Konfigurationszeit für die Produktion einer Bestellung aus.
+     * @return Konfigurationszeit (muss in einem nächsten Schritt berechnet und gesetzt werden, in Abstimmung mit den Maschinen).
+     *   
+     * Anmerkung: Aktuell nur provisorisch inkludiert, da in nächstem Schritt benötigt.
+     */
+
     private float berechneKonfigZeit(){ 
-      return 0; //falls benötigt - SIehe kommentar oben in BestellungAufgeben
+      return 0; //falls benötigt - Siehe kommentar oben in BestellungAufgeben
     }
 }
