@@ -1,15 +1,16 @@
 #BlueJ class context
 comment0.target=LagerTest
-comment0.text=\r\n\ Die\ Test-Klasse\ LagerTest.\r\n\r\n\ @author\ \ (Ihr\ Name)\r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 2.0\ (13.\ November\ 2022)\r\n\ \r\n\ Die\ Test-Klasse\ LagerTest\ verwaltet\ den\ Unit-Test\ zur\ Kontrolle\ der\ Bestellaufgabe\ beim\ Lieferanten.\ \r\n
 comment1.params=
 comment1.target=LagerTest()
 comment1.text=\r\n\ Konstruktor\ fuer\ die\ Test-Klasse\ LagerTest\r\n
 comment2.params=
 comment2.target=void\ setUp()
-comment2.text=\r\n\ \ Setzt\ das\ Testger\u00FCst\ fuer\ den\ Test.\r\n\r\n\ Wird\ vor\ jeder\ Testfall-Methode\ aufgerufen.\r\n
+comment2.text=\r\n\ Vor\ jedem\ Unit-Test\ der\ Klasse\ Lager\ und\ deren\ Inhalten,\ wird\ eine\ neue\ Lagerinstanz\ erstellt.\r\n
 comment3.params=
 comment3.target=void\ tearDown()
-comment3.text=\r\n\ Gibt\ das\ Testger\u00FCst\ wieder\ frei.\r\n\r\n\ Wird\ nach\ jeder\ Testfall-Methode\ aufgerufen.\r\n
+comment3.text=\r\n\ Anweisungen,\ welche\ nach\ jedem\ Unit-Test\ ausgef\u00FChrt\ werden.\ \r\n\ In\ diesem\ Fall\:\ (Noch)\ keine.\r\n
 comment4.params=
 comment4.target=void\ TestBestellungAnLieferant()
+comment4.text=\r\n\ Hier\ wird\ getestet,\ ob\ das\ Lager\ eine\ Bestellung\ an\ den\ Lieferanten\ aufgeben\ kann.\ \r\n
 numComments=5

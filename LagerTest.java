@@ -6,14 +6,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Die Test-Klasse LagerTest.
- *
- * @author  (Ihr Name)
- * @version (eine Versionsnummer oder ein Datum)
+ * @author Gruppe 29
+ * @version 2.0 (13. November 2022)
+ * 
+ * Die Test-Klasse LagerTest verwaltet den Unit-Test zur Kontrolle der Bestellaufgabe beim Lieferanten. 
  */
 public class LagerTest
 {   
     private Lager testLager;
+        
     /**
      * Konstruktor fuer die Test-Klasse LagerTest
      */
@@ -22,9 +23,7 @@ public class LagerTest
     }
 
     /**
-     *  Setzt das Testgerüst fuer den Test.
-     *
-     * Wird vor jeder Testfall-Methode aufgerufen.
+     * Vor jedem Unit-Test der Klasse Lager und deren Inhalten, wird eine neue Lagerinstanz erstellt.
      */
     @BeforeEach
     public void setUp()
@@ -33,20 +32,22 @@ public class LagerTest
     }
 
     /**
-     * Gibt das Testgerüst wieder frei.
-     *
-     * Wird nach jeder Testfall-Methode aufgerufen.
+     * Anweisungen, welche nach jedem Unit-Test ausgeführt werden. 
+     * In diesem Fall: (Noch) keine.
      */
     @AfterEach
     public void tearDown()
     {
     }
     
+    /**
+     * Hier wird getestet, ob das Lager eine Bestellung an den Lieferanten aufgeben kann. 
+     */
     @Test
     public void TestBestellungAnLieferant(){
         //Arrange: Siehe BeforeEach
         
-        //Act: Testbestellungen werden aufgegeben
+        //Act: Testbestellung wird aufgegeben & Check, ob die Bestellung beim Lieferanten eintrifft (true).
         assertEquals(true,testLager.gibLieferant().wareBestellen(1,1,1,1,1));
     }
 }

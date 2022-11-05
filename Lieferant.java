@@ -1,7 +1,7 @@
 
 /**
  * @author Gruppe 29
- * @version 2.0 (14. November 2022)
+ * @version 2.0 (13. November 2022)
  *
  * Die Klasse Lieferant ermöglicht es Bestellungen an den Lieferanten aufzugeben.
  */

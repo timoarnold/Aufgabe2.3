@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Bestellung
-comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 1.0\ (28.\ Oktober\ 2022)\r\n\ \r\n\ Die\ Klasse\ Bestellung\ verwaltet\ die\ Array-Liste,\ in\ der\ alle\ \u00FCber\ die\ Fabrik\ bestellten\r\n\ Produkte\ gespeichert\ werden.\ Dies\ k\u00F6nnen\ Sofas\ oder\ St\u00FChle\ sein.\r\n
+comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 2.0\ (13.\ November\ 2022)\r\n\ \r\n\ Die\ Klasse\ Bestellung\ verwaltet\ die\ Array-Liste,\ in\ der\ alle\ \u00FCber\ die\ Fabrik\ bestellten\r\n\ Produkte\ gespeichert\ werden.\ Dies\ k\u00F6nnen\ Sofas\ oder\ St\u00FChle\ sein.\r\n
 comment1.params=anzahlStuehle\ anzahlSofas
 comment1.target=Bestellung(int,\ int)
 comment1.text=\r\n\ Konstruktor\ der\ Klasse\ Bestellung\:\ initialisiert\ alle\ Instanzvariabeln\ der\ Klasse\ Bestellung.\ \r\n\ Bei\ der\ Initalisierung\ der\ Klasse\ Bestellung\ wird\ auch\ gleichzeitig\ die\ ArrayList\ "bestellteProdukte"\ mit\ der\ Anzahl\ an\ bestellten\ St\u00FChlen\ und\ Sofas\ aufgef\u00FCllt.\r\n\ \r\n\ @param\ anzahlSofas\:\ Anzahl\ bestellter\ Sofas\ einer\ Bestellung.\r\n\ @param\ anzahlStuehle\:\ Anzahl\ bestellter\ St\u00FChle\ einer\ Bestellung.\r\n

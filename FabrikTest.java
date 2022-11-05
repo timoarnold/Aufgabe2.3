@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  * @author Gruppe 29
- * @version 1.0 (28. Oktober 2022)
+ * @version 2.0 (13. November 2022)
  * 
  * Die Test-Klasse FabrikTest verwaltet alle Unit-Tests der Software. 
  */
@@ -68,6 +68,7 @@ public class FabrikTest
     }
     
     /**
+     * Hier wird getestet, ob Bestellungen korrekt aufgegeben werden können.
      * Merke:BestellnummerGenerator wird nach diesem Test auf 1 zurückgesetzt, damit die Bestellnummern in weiteren Unit-Tests erneut 
      * von Anfang an hochzählen können. 
      */
@@ -87,6 +88,8 @@ public class FabrikTest
     }
     
     /**
+     * Hier wird getestet, ob mehrere Bestellungen korrekt aufgegeben und ausgegeben werden können.
+     * Dazu wird die zweite Bestellung auf die Korrektheit ihrer Werte (Stühle & Sofas) geprüft.
      * Merke:BestellnummerGenerator wird nach diesem Test auf 1 zurückgesetzt, damit die Bestellnummern in weiteren Unit-Tests erneut 
      * von Anfang an hochzählen können. 
      */
@@ -102,13 +105,19 @@ public class FabrikTest
         assertEquals(1,fabrik.gibBestellungen().get(0).gibBestellNummer());
         assertEquals(2,fabrik.gibBestellungen().get(1).gibBestellNummer());
         assertEquals(3,fabrik.gibBestellungen().get(2).gibBestellNummer());
-        //Assert: Check, ob die richtige Anzahl Stühle und Sofas ausgegeben wird
+        
+        //Assert: Check, ob die richtige Anzahl Stühle und Sofas ausgegeben werden
         assertEquals(3, fabrik.gibBestellungen().get(1).gibAnzahlStuehle());
         assertEquals(2, fabrik.gibBestellungen().get(1).gibAnzahlSofas());
         
         Bestellung.resetBestellnummerGenerator();
     }
     
+    /**
+     * Hier wird getestet, ob eine Bestellung nach der Aufgabe bestätigt wird (true).
+     * Merke:BestellnummerGenerator wird nach diesem Test auf 1 zurückgesetzt, damit die Bestellnummern in weiteren Unit-Tests erneut 
+     * von Anfang an hochzählen können. 
+     */
     @Test
     public void TestBestellBestätigung(){
         //Arrange: Siehe BeforeEach
@@ -120,7 +129,6 @@ public class FabrikTest
         
         Bestellung.resetBestellnummerGenerator();
     }
-    
     
 }
 

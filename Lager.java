@@ -1,6 +1,6 @@
 /**
  * @author Gruppe 29
- * @version 2.0 (14. November 2022)
+ * @version 2.0 (13. November 2022)
  *
  * Die Klasse Lager beinhaltet die Informationen zu den maximal lagerbaren Materialeinheiten sowie den aktuellen
  * Beständen der Materialien.
