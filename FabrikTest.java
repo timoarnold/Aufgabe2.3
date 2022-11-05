@@ -51,6 +51,7 @@ public class FabrikTest
     
     /**
      * Hier wird getestet, ob die erste (Index 0) und die zweite (Index 1) Bestellung der ArrayList bestellungen den Erwartungen entspricht.
+     * 
      * Merke: Testfabrik.gibBestellungen().get(0).toString() entspricht System.out.println(eineBestellung) aus Fabrik.bestellungAusgeben
      */
     
@@ -69,6 +70,7 @@ public class FabrikTest
     
     /**
      * Hier wird getestet, ob Bestellungen korrekt aufgegeben werden können.
+     * 
      * Merke:BestellnummerGenerator wird nach diesem Test auf 1 zurückgesetzt, damit die Bestellnummern in weiteren Unit-Tests erneut 
      * von Anfang an hochzählen können. 
      */
@@ -90,6 +92,7 @@ public class FabrikTest
     /**
      * Hier wird getestet, ob mehrere Bestellungen korrekt aufgegeben und ausgegeben werden können.
      * Dazu wird die zweite Bestellung auf die Korrektheit ihrer Werte (Stühle & Sofas) geprüft.
+     * 
      * Merke:BestellnummerGenerator wird nach diesem Test auf 1 zurückgesetzt, damit die Bestellnummern in weiteren Unit-Tests erneut 
      * von Anfang an hochzählen können. 
      */
@@ -115,6 +118,7 @@ public class FabrikTest
     
     /**
      * Hier wird getestet, ob eine Bestellung nach der Aufgabe bestätigt wird (true).
+     * 
      * Merke:BestellnummerGenerator wird nach diesem Test auf 1 zurückgesetzt, damit die Bestellnummern in weiteren Unit-Tests erneut 
      * von Anfang an hochzählen können. 
      */

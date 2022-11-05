@@ -59,11 +59,11 @@ public class Lager {
 
     /**
      * Kontrolliert, ob die benötigten Materialien für die Kundenbestellung im Lager vorhanden sind und berechnet die zugehörige Beschaffungszeit.
-     * Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt.
      * Die Beschaffungszeit wird anschliessend ausgegeben.
-     * 
      * @param kundenBestellung: Die Inhalte einer aufgegebenen Kundenbestellung. 
      * @return die Beschaffungszeit, welche für die Kundenbestellung benötigt wird.
+     * 
+     * Anmerkung: Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt.
      */
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
@@ -102,12 +102,9 @@ public class Lager {
         
 
     /**
-     * Kontrolliert, ob die benötigten Materialien für die Kundenbestellung im Lager vorhanden sind und berechnet die zugehörige Beschaffungszeit.
-     * Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt.
-     * Die Beschaffungszeit wird anschliessend ausgegeben.
+     * Füllt die im Lager vorhandenen Materialien auf ihre Maximalwerte aus, sobald die Lieferung des Lieferanten eingetroffen ist.
      * 
-     * @param kundenBestellung: Die Inhalte einer aufgegebenen Kundenbestellung. 
-     * @return die Beschaffungszeit, welche für die Kundenbestellung benötigt wird.
+     * Anmerkung: mit dieser Methode werden die Werte vorhandener Materialien in der Software wieder auf das Max. gesetzt.
      */
     public void lagerAuffüllen () {
         lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen);
@@ -125,6 +122,8 @@ public class Lager {
     /**
      * Kontrolliert, ob der aktuelle Lagerbestand unter einem festgelegten Minimalbetrag liegt.
      * Liegt der Bestand unter einem 4tel der max. Menge, dann wird der Lagerbestand als niedrig festgelegt (true).
+     * 
+     * @return true, falls Lagerbestand niedrig / false, sonst.
      */
     public boolean bestandNiedrig(){
         float unteresLimit = 4; //bei einem 4tel der max Menge wird der Bestand als niedrig angegeben
@@ -152,9 +151,9 @@ public class Lager {
         
     /**
      * Getter-Methode, um den Lieferanten eines Lagers zu erhalten. 
-     * Anmerkung: Diese Methode wird für die Testklasse "LagerTest" benötigt,um den Lieferanten anzusprechen und dessen Methodenergebnis zu testen.
-     * 
      * @return den Lieferanten des Lagers.
+     * 
+     * Anmerkung: Diese Methode wird für die Testklasse "LagerTest" benötigt,um den Lieferanten anzusprechen und dessen Methodenergebnis zu testen.
      */
     public Lieferant gibLieferant(){ 
         return this.lieferant;

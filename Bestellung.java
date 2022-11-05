@@ -42,7 +42,6 @@ public class Bestellung {
     /**
      * Konstruktor der Klasse Bestellung: initialisiert alle Instanzvariabeln der Klasse Bestellung. 
      * Bei der Initalisierung der Klasse Bestellung wird auch gleichzeitig die ArrayList "bestellteProdukte" mit der Anzahl an bestellten Stühlen und Sofas aufgefüllt.
-     * 
      * @param anzahlSofas: Anzahl bestellter Sofas einer Bestellung.
      * @param anzahlStuehle: Anzahl bestellter Stühle einer Bestellung.
      */
@@ -87,8 +86,10 @@ public class Bestellung {
      * Frage Flo: Was wollen wir hier machen, Maschinen und Produktion ist ja noch nicht implementiert.
      * 
      * Liefert eine fertig produzierte und zum Versand bereite Kundenbestellung aus. 
-     * Anmerkung: Noch nicht fertig implementiert, dient noch als Platzhalten für eine künftige Implementation sobald Produktion & Maschinen eingerichtet.
      * Aktuell gibt diese Methode nur alle bisher bestellten Produkte aus.
+     * 
+     * 
+     * Anmerkung: Noch nicht fertig implementiert, dient noch als Platzhalten für eine künftige Implementation sobald Produktion & Maschinen eingerichtet.
      */
     public void liefereBestellteProdukte(){
         System.out.println("Total bestellte Produkte bisher:");
@@ -102,7 +103,6 @@ public class Bestellung {
     
     /**
      * Setze die jeweilige Beschaffungszeit in Abstimmung mit den Lieferanten.
-     *
      * @param neueBeschaffungsZeit: Neu gesetzte Zahl für die Beschaffungszeit. 
      */
     public void setzBeschaffungsZeit(int neueBeschaffungsZeit) {
