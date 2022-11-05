@@ -116,10 +116,17 @@ public class Lager {
      * Kommentar zu lagerBestandAusgeben
      */
     public void lagerBestandAusgeben (){
-
+        System.out.println("Folgende Materialien befinden sich aktuell im Lager:");
+        
+        System.out.println("Holzeinheiten:" +vorhandeneHolzeinheiten);
+        System.out.println("Schrauben:" +vorhandeneSchrauben);
+        System.out.println("Farbeinheiten:" +vorhandeneFarbeinheiten);
+        System.out.println("Kartoneinheiten:" +vorhandeneKartoneinheiten);
+        System.out.println("Kissen:" +vorhandeneKissen);
+        
     }
-    
-    /**
+        
+        /**
      * Kommentar zu lagerBestandAusgeben
      */
     public Lieferant gibLieferant(){ //getter Methode um den Lieferant eines Lagers zu erhalten (wird für Testklasse benötigt)
