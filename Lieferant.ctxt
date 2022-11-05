@@ -3,5 +3,5 @@ comment0.target=Lieferant
 comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 2.0\ (13.\ November\ 2022)\r\n\r\n\ Die\ Klasse\ Lieferant\ erm\u00F6glicht\ es\ Bestellungen\ an\ den\ Lieferanten\ aufzugeben.\r\n
 comment1.params=holzEinheiten\ schrauben\ farbEinheiten\ kartonEinheiten\ kissen
 comment1.target=boolean\ wareBestellen(int,\ int,\ int,\ int,\ int)
-comment1.text=\r\n\ Instanzvariabeln?\r\n\r\n
+comment1.text=\r\n\ Bestellt\ ben\u00F6tigte\ Produktionsmaterialien\ beim\ Fabriklieferanten\ nach.\r\n\ \r\n\ @param\ holzEinheiten\:\ Holzeinheiten,\ welche\ im\ Lager\ gehalten\ &\ zur\ Produktion\ ben\u00F6tigt\ werden\r\n\ @param\ schrauben\:\ Schrauben,\ welche\ im\ Lager\ gehalten\ &\ zur\ Produktion\ ben\u00F6tigt\ werden\r\n\ @param\ farbEinheiten\:\ Farbeinheiten,\ welche\ im\ Lager\ gehalten\ &\ zur\ Produktion\ ben\u00F6tigt\ werden\r\n\ @param\ kartonEinheiten\:\ Kartoneinheiten,\ welche\ im\ Lager\ gehalten\ &\ zur\ Produktion\ ben\u00F6tigt\ werden\r\n\ @param\ kissen\:\ Kissen,\ welche\ im\ Lager\ gehalten\ &\ zur\ Produktion\ ben\u00F6tigt\ werden\r\n\ @return\:\ Setze\ auf\ true,\ falls\ eine\ Bestellung\ vom\ Lager\ eingegangen\ ist.\r\n
 numComments=2
