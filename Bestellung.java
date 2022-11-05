@@ -13,7 +13,8 @@ public class Bestellung {
      * 
      * - Liste bestellteProdukte: Liste alle Produkte, die bestellt wurden.
      * - bestellBestaetigung: Indikator, ob eine Bestellung erfolgreich bestätigt wurde oder nicht (boolean).
-     * - beschaffungsZeit: Lieferzeit (in Tagen) für die Produkte (int).
+     * - beschaffungsZeit: Beschaffungszeit (in Tagen) für die Produkte (int).
+     * - lieferZeit: Lieferzeit (in Tagen) für die jeweiligen Bestellungen (float).
      * - bestellNummer: Nummer einer Bestellung bei Empfang (int).
      * - anzahlStuehle: Anzahl Stühle, die in einer Bestellung nachgefragt wurden (int).
      * - anzahlSofas: Anzahl Sofas, die in einer Bestellung nachgefragt wurden (int).
@@ -33,7 +34,7 @@ public class Bestellung {
     private ArrayList<Produkt> bestellteProdukte;
     private boolean bestellBestaetigung;
     private int beschaffungsZeit;
-    private float lieferZeit; //float weil nicht nur ganze Zahlen / Tage
+    private float lieferZeit; 
     private int bestellNummer;
     private int anzahlStuehle;
     private int anzahlSofas;
@@ -83,8 +84,11 @@ public class Bestellung {
     }
     
     /**
-     * !!! Anschauen, gibt noch den Speicherort aus, aber immerhin erkennt es die Stühle und Sofas.
-     * Beschrieb Methode
+     * Frage Flo: Was wollen wir hier machen, Maschinen und Produktion ist ja noch nicht implementiert.
+     * 
+     * Liefert eine fertig produzierte und zum Versand bereite Kundenbestellung aus. 
+     * Anmerkung: Noch nicht fertig implementiert, dient noch als Platzhalten für eine künftige Implementation sobald Produktion & Maschinen eingerichtet.
+     * Aktuell gibt diese Methode nur alle bisher bestellten Produkte aus.
      */
     public void liefereBestellteProdukte(){
         System.out.println("Total bestellte Produkte bisher:");
@@ -98,6 +102,7 @@ public class Bestellung {
     
     /**
      * Setze die jeweilige Beschaffungszeit in Abstimmung mit den Lieferanten.
+     *
      * @param neueBeschaffungsZeit: Neu gesetzte Zahl für die Beschaffungszeit. 
      */
     public void setzBeschaffungsZeit(int neueBeschaffungsZeit) {
@@ -119,6 +124,7 @@ public class Bestellung {
     public int gibBestellNummer() {
         return bestellNummer;
     }
+    
     /**
      * Gib die Liste der Bestellten Produkte wieder.
      * @return Liste der Produkte in der Bestellung
@@ -145,7 +151,7 @@ public class Bestellung {
     
     /**
      * Wandelt unterschiedliche Typen in den Typ String um.
-     * @return die Bestellnummer, die Anzahl Stühle und die Anzahl Sofas in der Form des nachfolgend definierten Strings
+     * @return die Bestellnummer, die Anzahl Stühle,die Anzahl Sofas sowie die zugehörige Lieferzeit in der Form des nachfolgend definierten Strings
      * 
      * Anmerkung: Wandelt die Konsolenausgabe der Methode bestellungenAusgeben in die Form String um, 
      * damit diese im Unit-Test auf Übereinstimmung getestet werden kann.
@@ -167,14 +173,17 @@ public class Bestellung {
     }
     
     /**
-     * Kommentar zu Methode
+     * Setze die aktuelle Lieferzeit einer Bestellung.
      */
     public void setzLieferZeit(float lieferZeit){
         this.lieferZeit = lieferZeit;
     }
     
     /**
-     * Kommentar zu Methode
+     * Berechne die Lieferzeit einer Bestellung in Tagen und Stunden. 
+     * @return die berechnete Lieferzeit einer Bestellung in Tagen und Stunden
+     * 
+     * Anmerkung: Stunden werden jeweils aufgerundet, um dem Kunden keine zu kurze Lieferzeit zu versprechen.
      */
     public String genaueZeit(float lieferZeit){
         String genaueZeit = Math.floor(lieferZeit)+"Tage, ";
@@ -184,7 +193,8 @@ public class Bestellung {
     }
     
     /**
-     * Methodenkommentar
+     * Gib die Lieferzeit einer Bestellung.
+     * @return Lieferzeit einer Bestellung
      */
     public float gibLieferzeit(){
         return lieferZeit;
