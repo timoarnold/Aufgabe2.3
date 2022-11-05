@@ -28,7 +28,7 @@ public class Sofa extends Produkt {
     private static int produktionsZeit = 60;
 
     /**
-     * Konstruktor für Objekte der Klasse Sofa: initialisiert alle Instanzvariabeln (siehe oben) der Klasse Sofa
+     * Konstruktor für Objekte der Klasse Sofa.
      * Mit super(1) wird "Zustand" aus der Superklasse Produkt initialisiert
      */
     public Sofa() {

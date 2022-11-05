@@ -25,7 +25,7 @@ public class Stuhl extends Produkt {
     private static int produktionsZeit = 22;
 
     /**
-     * Konstruktor für Objekte der Klasse Stuhl: initialisiert alle Instanzvariabeln (siehe oben) der Klasse Stuhl
+     * Konstruktor für Objekte der Klasse Stuhl.
      * Mit super(1) wird "Zustand" aus der Superklasse Produkt initialisiert
      */
     public Stuhl() {
