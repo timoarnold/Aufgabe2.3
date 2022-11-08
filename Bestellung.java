@@ -196,6 +196,9 @@ public class Bestellung {
      * Gib die Lieferzeit einer Bestellung.
      * @return Lieferzeit einer Bestellung
      */
+    
+    // Feedback Cha: Achtung Schreibweise von Lieferzeit --> LieferZeit (bei gibLieferzeit())
+    
     public float gibLieferzeit(){
         return lieferZeit;
     }
