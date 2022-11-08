@@ -11,7 +11,7 @@ public class Bestellung {
     /** 
      * InstanzVariabeln:
      * 
-     * - Liste bestellteProdukte: Liste alle Produkte, die bestellt wurden.
+     * - Liste bestellteProdukte: Liste aller Produkte, die bestellt wurden.
      * - bestellBestaetigung: Indikator, ob eine Bestellung erfolgreich bestätigt wurde oder nicht (boolean).
      * - beschaffungsZeit: Beschaffungszeit (in Tagen) für die Produkte (int).
      * - lieferZeit: Lieferzeit (in Tagen) für die jeweiligen Bestellungen (float).
@@ -151,7 +151,7 @@ public class Bestellung {
     
     /**
      * Wandelt unterschiedliche Typen in den Typ String um.
-     * @return die Bestellnummer, die Anzahl Stühle,die Anzahl Sofas sowie die zugehörige Lieferzeit in der Form des nachfolgend definierten Strings
+     * @return die Bestellnummer, die Anzahl Stühle, die Anzahl Sofas sowie die zugehörige Lieferzeit in der Form des nachfolgend definierten Strings
      * 
      * Anmerkung: Wandelt die Konsolenausgabe der Methode bestellungenAusgeben in die Form String um, 
      * damit diese im Unit-Test auf Übereinstimmung getestet werden kann.
