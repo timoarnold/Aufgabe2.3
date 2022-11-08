@@ -134,8 +134,7 @@ public class Lager {
         return false;
         
     }
-    
-    
+
     /**
      * Druckt den aktuellen Lagerbestand (vorhandene Materialien im Lager) auf der Konsole aus.
      */

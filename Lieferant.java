@@ -9,7 +9,7 @@
 public class Lieferant {
     
     /**
-     * Instanzvariabeln: bisher keine.
+     * Keine Instanzvariabeln
      */
     
     /**
