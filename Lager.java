@@ -65,6 +65,9 @@ public class Lager {
      * 
      * Anmerkung: Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt.
      */
+    
+    // Feedback Cha: Achtung Schreibweise bei: Stuhl.getFarbEinheiten --> Einheiten klein oder? (damit überall consistent)
+    
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
         int benHolzeinheiten = 0;
@@ -106,6 +109,15 @@ public class Lager {
      * 
      * Anmerkung: mit dieser Methode werden die Werte vorhandener Materialien in der Software wieder auf das Max. gesetzt.
      */
+    
+    /**
+    * Feedback Cha: die einzelnen zu bestellenden Waren sind jetzt noch wie in einer Formel. Das könnten wir evtl auch noch bennen?
+    * Bspw:
+    * zuBestellendeHolzeinheiten = maxHolzeinheiten - vorhandeneHolzeinheiten
+    * etc. 
+    * was meint ihr? :)
+    */
+    
     public void lagerAuffüllen () {
         lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen);
         
@@ -117,6 +129,16 @@ public class Lager {
         
         //System Print falls gewollt -->Aktuell keine Zeitverzögerung einprogrammiert. Lager wird direkt gefüllt
         
+        /**
+        * Feedback Cha
+        * Nice wäre, wenn das System noch sagen würde, dass die Ware nachbestellt wurde oder nicht :)
+        * so evtl?
+        * if(lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen)) {
+        * System.out.println("Ware wurde bestellt");
+        * }else{
+        * System.out.println("Ware konnte nicht nachbestellt werden! ");
+        * }
+        */
     }
     
     /**
