@@ -63,7 +63,7 @@ public class Lager {
      * @param kundenBestellung: Die Inhalte einer aufgegebenen Kundenbestellung. 
      * @return die Beschaffungszeit, welche für die Kundenbestellung benötigt wird.
      * 
-     * Anmerkung: Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt.
+     * Anmerkung: Falls zu wenig Material vorhanden ist, wird automatisch nachbestellt und das Lager aufgefüllt.
      */
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
@@ -91,7 +91,7 @@ public class Lager {
         if(benHolzeinheiten < vorhandeneHolzeinheiten || benSchrauben < vorhandeneSchrauben || benFarbeinheiten < vorhandeneFarbeinheiten || benKartoneinheiten < vorhandeneKartoneinheiten || benKissen < vorhandeneKissen){
             beschaffungszeit = 2;
         }
-        
+
         else{
             lagerAuffüllen();
         }
@@ -116,7 +116,6 @@ public class Lager {
         vorhandeneKissen = maxKissen;
         
         //System Print falls gewollt -->Aktuell keine Zeitverzögerung einprogrammiert. Lager wird direkt gefüllt
-        
     }
     
     /**
@@ -124,6 +123,8 @@ public class Lager {
      * Liegt der Bestand unter einem 4tel der max. Menge, dann wird der Lagerbestand als niedrig festgelegt (true).
      * 
      * @return true, falls Lagerbestand niedrig / false, sonst.
+     *
+     * Frage an Flo: Woher kommt dieser Bolean? In der Aufgabenstellung finde ich ihn nicht? und wann kommt dies zur Anwendung?
      */
     public boolean bestandNiedrig(){
         float unteresLimit = 4; //bei einem 4tel der max Menge wird der Bestand als niedrig angegeben

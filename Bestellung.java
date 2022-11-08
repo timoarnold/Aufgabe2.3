@@ -84,12 +84,15 @@ public class Bestellung {
     
     /**
      * Frage Flo: Was wollen wir hier machen, Maschinen und Produktion ist ja noch nicht implementiert.
+         *  Antwort Timo: Wird in Aufgabe 3 nicht explizit weiterausgearbeitet. Die "Produktion mit Maschinen" findet in
+         *  anderen Methoden/Thread statt. Denke diese Methode "liefereBestellteProdukte" wird dann im anderen Threada
+         *  aufgerufen.  Hier wird sie vermutlich lediglich die Produkte aus der Array Liste löschen?
      * 
      * Liefert eine fertig produzierte und zum Versand bereite Kundenbestellung aus. 
      * Aktuell gibt diese Methode nur alle bisher bestellten Produkte aus.
      * 
      * 
-     * Anmerkung: Noch nicht fertig implementiert, dient noch als Platzhalten für eine künftige Implementation sobald Produktion & Maschinen eingerichtet.
+     * Anmerkung: Noch nicht fertig implementiert, dient noch als Platzhalter für eine künftige Implementation sobald Produktion & Maschinen eingerichtet.
      */
     public void liefereBestellteProdukte(){
         System.out.println("Total bestellte Produkte bisher:");

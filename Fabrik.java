@@ -6,9 +6,6 @@ import java.io.*;
  * 
  * Die Klasse Fabrik bildet die Schnittstelle zwischen Kund:innen und Produktion.
  * Sie nimmt Bestellungen entgegen und verwaltet diese.
- * 
- *
- * 
  */
 public class Fabrik {
     /** 
@@ -16,7 +13,7 @@ public class Fabrik {
      * 
      * - bestellungen: Array-Liste, in der alle eingegangenen Bestellungen als Typ <Bestellung> abgespeichert werden.
      * - bestellungsNr: Nummer, welche jeder Bestellung aufsteigend zugeordnet wird, beginnend bei 1 (int).
-     * - lager: Das zur Fabrik gehörende Lager (jeweils eines).
+     * - lager: Das zur Fabrik gehörende Lager (ein Lager pro Fabrik).
      */
    
     private ArrayList<Bestellung> bestellungen; 
