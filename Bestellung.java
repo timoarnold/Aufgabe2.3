@@ -90,6 +90,7 @@ public class Bestellung {
      * 
      * 
      * Anmerkung: Noch nicht fertig implementiert, dient noch als Platzhalten für eine künftige Implementation sobald Produktion & Maschinen eingerichtet.
+     * Tim: Platzhalter finde ich vorerst gut, werde es noch mit anderen Gruppen besprechen
      */
     public void liefereBestellteProdukte(){
         System.out.println("Total bestellte Produkte bisher:");
