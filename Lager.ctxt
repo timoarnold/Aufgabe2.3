@@ -8,8 +8,8 @@ comment2.params=kundenBestellung
 comment2.target=int\ gibBeschaffungszeit(Bestellung)
 comment2.text=\r\n\ Kontrolliert,\ ob\ die\ ben\u00F6tigten\ Materialien\ f\u00FCr\ die\ Kundenbestellung\ im\ Lager\ vorhanden\ sind\ und\ berechnet\ die\ zugeh\u00F6rige\ Beschaffungszeit.\r\n\ Die\ Beschaffungszeit\ wird\ anschliessend\ ausgegeben.\r\n\ @param\ kundenBestellung\:\ Die\ Inhalte\ einer\ aufgegebenen\ Kundenbestellung.\ \r\n\ @return\ die\ Beschaffungszeit,\ welche\ f\u00FCr\ die\ Kundenbestellung\ ben\u00F6tigt\ wird.\r\n\ \r\n\ Anmerkung\:\ Falls\ zu\ wenig\ Material\ vorhanden\ ist,\ wird\ das\ Lager\ automatisch\ aufgef\u00FCllt.\r\n
 comment3.params=
-comment3.target=void\ lagerAuff\u00FCllen()
-comment3.text=\r\n\ F\u00FCllt\ die\ im\ Lager\ vorhandenen\ Materialien\ auf\ ihre\ Maximalwerte\ aus,\ sobald\ die\ Lieferung\ des\ Lieferanten\ eingetroffen\ ist.\r\n\ \r\n\ Anmerkung\:\ mit\ dieser\ Methode\ werden\ die\ Werte\ vorhandener\ Materialien\ in\ der\ Software\ wieder\ auf\ das\ Max.\ gesetzt.\r\n
+comment3.target=void\ lagerAuffuellen()
+comment3.text=\r\n\ Feedback\ Cha\:\ die\ einzelnen\ zu\ bestellenden\ Waren\ sind\ jetzt\ noch\ wie\ in\ einer\ Formel.\ Das\ k\u00F6nnten\ wir\ evtl\ auch\ noch\ bennen?\r\n\ Bspw\:\r\n\ zuBestellendeHolzeinheiten\ \=\ maxHolzeinheiten\ -\ vorhandeneHolzeinheiten\r\n\ etc.\ \r\n\ was\ meint\ ihr?\ \:)\r\n\ \r\n\ "BenHolzeinheiten\ etc.\ gibt\ es\ schon.\ Diese\ beschreiben\ die\ ben\u00F6togten\ f\u00FCr\ eine\ Bestellung.\ Falls\ gewollt\ k\u00F6nnen\ wir\ gerne\ noch\ eine\ extra\ Variable\ mehr\ machen\ f\u00FCr\ die\ im\ Lager\ fehlenden?\ (Auch\ von\ mir\:\ Was\ meint\ ihr?\ \:)\ )\r\n
 comment4.params=
 comment4.target=boolean\ bestandNiedrig()
 comment4.text=\r\n\ Kontrolliert,\ ob\ der\ aktuelle\ Lagerbestand\ unter\ einem\ festgelegten\ Minimalbetrag\ liegt.\r\n\ Liegt\ der\ Bestand\ unter\ einem\ 4tel\ der\ max.\ Menge,\ dann\ wird\ der\ Lagerbestand\ als\ niedrig\ festgelegt\ (true).\r\n\ \r\n\ @return\ true,\ falls\ Lagerbestand\ niedrig\ /\ false,\ sonst.\r\n

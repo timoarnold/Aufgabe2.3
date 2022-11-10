@@ -33,6 +33,8 @@ public class Lieferant {
     *    start();   
     *    return true;
     * }
+    * 
+    * Flo: Guten Input. Frage: Wollen wir das automatisch auslösen? Weil: Grosse Bestellungen sind günstiger als viele kleine.
     */
     
     public boolean wareBestellen (int holzEinheiten, int schrauben, int farbEinheiten,int kartonEinheiten,int kissen) {

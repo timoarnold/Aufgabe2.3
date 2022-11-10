@@ -67,6 +67,7 @@ public class Lager {
      */
     
     // Feedback Cha: Achtung Schreibweise bei: Stuhl.getFarbEinheiten --> Einheiten klein oder? (damit überall consistent)
+    //Antwort Flo: Muss hier so geschrieben werden, da Methode referenziert und nicht die Variable :)
     
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
@@ -96,7 +97,7 @@ public class Lager {
         }
         
         else{
-            lagerAuffüllen();
+            lagerAuffuellen();
         }
         
         return  beschaffungszeit;
@@ -116,9 +117,11 @@ public class Lager {
     * zuBestellendeHolzeinheiten = maxHolzeinheiten - vorhandeneHolzeinheiten
     * etc. 
     * was meint ihr? :)
+    * 
+    * "BenHolzeinheiten etc. gibt es schon. Diese beschreiben die benötogten für eine Bestellung. Falls gewollt können wir gerne noch eine extra Variable mehr machen für die im Lager fehlenden? (Auch von mir: Was meint ihr? :) )
     */
     
-    public void lagerAuffüllen () {
+    public void lagerAuffuellen () {
         lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen);
         
         vorhandeneHolzeinheiten = maxHolzeinheiten;
@@ -127,6 +130,7 @@ public class Lager {
         vorhandeneKartoneinheiten = maxKartoneinheiten;
         vorhandeneKissen = maxKissen;
         
+        System.out.println("Ihre Bestellung wurde dem Lieferanten zugestellt.");
         //System Print falls gewollt -->Aktuell keine Zeitverzögerung einprogrammiert. Lager wird direkt gefüllt
         
         /**
@@ -137,6 +141,8 @@ public class Lager {
         * System.out.println("Ware wurde bestellt");
         * }else{
         * System.out.println("Ware konnte nicht nachbestellt werden! ");
+        * 
+        * Flo: Habe die Methode um deine Print-Methode ergänzt. Diese wird nur angegeben, wenn nachbestellt wurde.
         * }
         */
     }

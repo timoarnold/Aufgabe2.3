@@ -117,14 +117,14 @@ public class Fabrik {
                
                float prodZeit = 0;
                prodZeit += (float)bestellung.gibAnzahlStuehle()*21 /60 /24;
-               prodZeit += (float)bestellung.gibAnzahlSofas()*60 /60 /24; //
+               prodZeit += (float)bestellung.gibAnzahlSofas()*60 /60 /24; 
                prodZeit += berechneKonfigZeit(); //im moment noch 0
                
                
                float standardLieferZeit = 1;
                if(lager.bestandNiedrig()){
                    standardLieferZeit += 2;
-                   lager.lagerAuffüllen();
+                   lager.lagerAuffuellen();
                }
                
                bestellung.setzLieferZeit(prodZeit + (float) beschaffungsZeit + standardLieferZeit);
@@ -133,7 +133,7 @@ public class Fabrik {
                bestellungen.add(bestellung);
                
            
-               System.out.println("Bestellung erfolgreich aufgegeben!);
+               System.out.println("Bestellung erfolgreich aufgegeben!");
                //Hier System Out print mit Lieferzeit ergänzen
            }
     }
@@ -145,9 +145,10 @@ public class Fabrik {
      */
     
     // Feedback Cha: Kleinigkeit, die ich nicht direkt abändern möchte, da ich unsicher bin, ob es weiteres auslöst --> würde ü zu ue umschreiben bei "Auffüllen" --> siehe Guidelines
+    // Wurde angepasst :)
    
-    public void lagerAuffüllen() {
-            lager.lagerAuffüllen();
+    public void lagerAuffuellen() {
+            lager.lagerAuffuellen();
     }
     
     /**
@@ -175,9 +176,7 @@ public class Fabrik {
      * Anmerkung: Für jede Bestellung aus der Liste bestellungen, gibt die Konsole die unten programmierte Print-Meldung aus. 
      * Diese Methode gibt somit alle Informationen (Anzahl Stühle / Anzahl Sofas / Bestellungen Total / Bestellungsnummer) 
      * für alle aufgegebenen Bestellungen wieder.
-     */
-    
-    /**
+     
     * Feedback Cha:
     * werden hier nun wirklich alle Details geprintet? Oder soll das system.out.println für alle Details aufgerufen werden? (vielleicht auch zu kompliziert...)
     * evtl so?:
@@ -189,6 +188,8 @@ public class Fabrik {
     * System.out.println("Bestellbestätigung: " + bestellung.gibBestellBestaetigung());
     * System.out.println(); 
     * System.out.println();
+    * 
+    * Antwort Flo: Es werden alle Details ausgegeben :)
     */
     
     public void bestellungenAusgeben() {
