@@ -112,11 +112,11 @@ public class Fabrik {
                
                Bestellung bestellung = new Bestellung(sofa, stuhl);
                
-               int beschaffungsZeit = lager.gibBeschaffungszeit(bestellung);
+               int beschaffungsZeit = lager.gibBeschaffungsZeit(bestellung);
                bestellung.setzBeschaffungsZeit(beschaffungsZeit);
                
                float prodZeit = 0;
-               prodZeit += (float)bestellung.gibAnzahlStuehle()*21 /60 /24;
+               prodZeit += (float)bestellung.gibAnzahlStuehle()*21 /60 /24; //Feedback Tim: 21 hier Minuten zum herstellen oder? Sollten 22min sein nach meinen Berechnungen :D
                prodZeit += (float)bestellung.gibAnzahlSofas()*60 /60 /24; 
                prodZeit += berechneKonfigZeit(); //im moment noch 0
                
@@ -128,7 +128,11 @@ public class Fabrik {
                }
                
                bestellung.setzLieferZeit(prodZeit + (float) beschaffungsZeit + standardLieferZeit);
-               
+                 /**
+                 * Feedback Tim: in der Ausgabe wird je nachdem 24 Stunden ausgegeben, wahrscheinlich wegen runden, aber verstehe es nicht ganz
+                 * Für die Lieferung macht es aber für mich Sinn, einfach die Tage aufzurunden, es wird ja einmal pro Tag ausgeliefert
+                 * geht das mit der Aufgabestellung, was meint ihr?
+                 */
                bestellung.bestellungBestaetigen();
                bestellungen.add(bestellung);
                

@@ -69,7 +69,7 @@ public class Lager {
     // Feedback Cha: Achtung Schreibweise bei: Stuhl.getFarbEinheiten --> Einheiten klein oder? (damit überall consistent)
     //Antwort Flo: Muss hier so geschrieben werden, da Methode referenziert und nicht die Variable :)
     
-    public int gibBeschaffungszeit (Bestellung kundenBestellung) {
+    public int gibBeschaffungsZeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
         int benHolzeinheiten = 0;
         int benSchrauben =  0;

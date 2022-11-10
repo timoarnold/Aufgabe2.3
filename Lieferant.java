@@ -30,11 +30,12 @@ public class Lieferant {
     *
     * public boolean wareBestellen (int zuBestellendeHolzeinheiten, int zuBestellendeSchrauben, int zuBestellendeFarbeinheiten,
     * int zuBestellendeKartoneinheiten,int zuBestellendeKissen) {
-    *    start();   
+    *    start();   (Tim: was würde die start() methode machen?)
     *    return true;
     * }
     * 
     * Flo: Guten Input. Frage: Wollen wir das automatisch auslösen? Weil: Grosse Bestellungen sind günstiger als viele kleine.
+    * Tim: Macht schon Sinn :D Aber: schlussendlich müsste für MTO am Ende des Tages die Bestellung aufgegeben werden egal wie viel, sonst würden die Lieferzeiten nicht mehr stimmen, oder? (Falls ich es richtig verstanden habe)
     */
     
     public boolean wareBestellen (int holzEinheiten, int schrauben, int farbEinheiten,int kartonEinheiten,int kissen) {

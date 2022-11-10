@@ -189,7 +189,7 @@ public class Bestellung {
         String genaueZeit = Math.floor(lieferZeit)+"Tage, ";
         genaueZeit += Math.ceil(lieferZeit%1 *24) + "Stunden"; //wird immer aufgerundet
         //minuten werden (noch) nicht berechnet
-        return genaueZeit;
+        return genaueZeit;  
     }
     
     /**
