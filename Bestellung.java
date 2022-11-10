@@ -28,7 +28,7 @@ public class Bestellung {
      */
     
     //Klassenvariablen:
-    private static int BestellnummerGenerator=1;
+    private static int bestellnummerGenerator=1;
     
     //Intanzvariablen:
     private ArrayList<Produkt> bestellteProdukte;
@@ -59,7 +59,7 @@ public class Bestellung {
         
         bestellBestaetigung = false;
         beschaffungsZeit = 2;
-        bestellNummer = BestellnummerGenerator++;
+        bestellNummer = bestellnummerGenerator++;
         this.anzahlStuehle = anzahlStuehle;
         this.anzahlSofas = anzahlSofas;
     }
@@ -167,12 +167,12 @@ public class Bestellung {
     }
     
     /**
-     * Setze den Bestellnummergenerator (Klassenvariable) auf 0 zurück.
+     * Setze den bestellnummergenerator (Klassenvariable) auf 0 zurück.
      * 
      * Amnmerkung: Dies dient u. A. zum Unit-Testing.
      */
     public static void resetBestellnummerGenerator() {
-        BestellnummerGenerator = 1;
+        bestellnummerGenerator = 1;
     }
     
     /**

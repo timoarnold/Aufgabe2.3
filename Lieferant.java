@@ -30,7 +30,7 @@ public class Lieferant {
     *
     * public boolean wareBestellen (int zuBestellendeHolzeinheiten, int zuBestellendeSchrauben, int zuBestellendeFarbeinheiten,
     * int zuBestellendeKartoneinheiten,int zuBestellendeKissen) {
-    *    start();   
+    *    start();
     *    return true;
     * }
     * 
