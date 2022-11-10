@@ -21,14 +21,14 @@ public class Bestellung {
      * 
      * Klassenvariabeln: 
      * 
-     * - BestellnummerGenerator: Generiert bei der ersten Bestellung die Nummer 1, danach wird bei jeder Bestellung +1 zu dieser Zahl addiert. 
+     * - bestellnummerGenerator: Generiert bei der ersten Bestellung die Nummer 1, danach wird bei jeder Bestellung +1 zu dieser Zahl addiert. 
      * 
      * Anmerkung: Dies ergibt die Bestellnummer-Variable für jede Bestellung (damit nicht nur die Bestellungsanzahl Total ausgegeben wird)
      * Hier direkt auf 1 initialisiert, damit Bestellung 1 = 1. Danach bei jeder neuen Bestellung plus 1 (Siehe "++" im Konstruktor).
      */
     
     //Klassenvariablen:
-    private static int BestellnummerGenerator=1;
+    private static int bestellnummerGenerator=1;
     
     //Intanzvariablen:
     private ArrayList<Produkt> bestellteProdukte;
@@ -59,7 +59,7 @@ public class Bestellung {
         
         bestellBestaetigung = false;
         beschaffungsZeit = 2;
-        bestellNummer = BestellnummerGenerator++;
+        bestellNummer = bestellnummerGenerator++;
         this.anzahlStuehle = anzahlStuehle;
         this.anzahlSofas = anzahlSofas;
     }
@@ -90,8 +90,10 @@ public class Bestellung {
      * 
      * 
      * Anmerkung: Noch nicht fertig implementiert, dient noch als Platzhalten für eine künftige Implementation sobald Produktion & Maschinen eingerichtet.
+     * 
+     * Jeff: Auskommentiert (besprechen)
      */
-    public void liefereBestellteProdukte(){
+    /*public void liefereBestellteProdukte(){
         System.out.println("Total bestellte Produkte bisher:");
         
         for(Produkt einProdukt: bestellteProdukte) {
@@ -100,7 +102,7 @@ public class Bestellung {
             
         }
     }
-    
+    */
     /**
      * Setze die jeweilige Beschaffungszeit in Abstimmung mit den Lieferanten.
      * @param neueBeschaffungsZeit: Neu gesetzte Zahl für die Beschaffungszeit. 
@@ -160,23 +162,31 @@ public class Bestellung {
         return "Bestellnummer:" + bestellNummer
         + "\nStühle bestellt:" + anzahlStuehle
         + "\nSofas bestellt:" + anzahlSofas
-        + "\nIhre Leiferzeit beträgt:" + this.genaueZeit(lieferZeit);
+        + "\nIhre Lieferzeit beträgt: " + genaueZeit();
     }
     
     /**
-     * Setze den Bestellnummergenerator (Klassenvariable) auf 0 zurück.
+     * Setze den bestellnummerGenerator (Klassenvariable) auf 0 zurück.
      * 
      * Amnmerkung: Dies dient u. A. zum Unit-Testing.
      */
     public static void resetBestellnummerGenerator() {
-        BestellnummerGenerator = 1;
+        bestellnummerGenerator = 1;
     }
     
     /**
      * Setze die aktuelle Lieferzeit einer Bestellung.
      */
-    public void setzLieferZeit(float lieferZeit){
+    public void setzLieferzeit(float lieferZeit){
         this.lieferZeit = lieferZeit;
+    }
+    
+    /**
+     * Gib die Lieferzeit einer Bestellung.
+     * @return Lieferzeit einer Bestellung
+     */
+    public float gibLieferzeit(){
+        return lieferZeit;
     }
     
     /**
@@ -185,21 +195,12 @@ public class Bestellung {
      * 
      * Anmerkung: Stunden werden jeweils aufgerundet, um dem Kunden keine zu kurze Lieferzeit zu versprechen.
      */
-    public String genaueZeit(float lieferZeit){
-        String genaueZeit = Math.floor(lieferZeit)+"Tage, ";
-        genaueZeit += Math.ceil(lieferZeit%1 *24) + "Stunden"; //wird immer aufgerundet
+    private String genaueZeit(){
+        String genaueZeit = Math.floor(lieferZeit)+" Tag(e), ";
+        genaueZeit += Math.ceil(lieferZeit%1 * 24) + " Stunden";
         //minuten werden (noch) nicht berechnet
         return genaueZeit;
     }
     
-    /**
-     * Gib die Lieferzeit einer Bestellung.
-     * @return Lieferzeit einer Bestellung
-     */
-    
-    // Feedback Cha: Achtung Schreibweise von Lieferzeit --> LieferZeit (bei gibLieferzeit())
-    
-    public float gibLieferzeit(){
-        return lieferZeit;
-    }
+
 }

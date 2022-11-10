@@ -48,11 +48,11 @@ public class Lager {
      */
     public Lager()
     {
-        int vorhandeneHolzeinheiten = 0;
-        int vorhandeneSchrauben = 0;
-        int vorhandeneFarbeinheiten = 0;
-        int vorhandeneKartoneinheiten = 0;
-        int vorhandeneKissen = 0;
+        vorhandeneHolzeinheiten = maxHolzeinheiten;
+        vorhandeneSchrauben = maxSchrauben;
+        vorhandeneFarbeinheiten = maxFarbeinheiten;
+        vorhandeneKartoneinheiten = maxKartoneinheiten;
+        vorhandeneKissen = maxKissen;
         
         lieferant = new Lieferant();
     }
@@ -71,33 +71,41 @@ public class Lager {
     
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
-        int benHolzeinheiten = 0;
-        int benSchrauben =  0;
-        int benFarbeinheiten =  0;
-        int benKartoneinheiten =  0;
-        int benKissen =  0;
+        int benoetigteHolzeinheiten = 0;
+        int benoetigteSchrauben =  0;
+        int benoetigteFarbeinheiten =  0;
+        int benoetigteKartoneinheiten =  0;
+        int benoetigteKissen =  0;
         
         for(Produkt product : kundenBestellung.gibBestellteProdukte()){
             if(product instanceof Stuhl){
-                benHolzeinheiten += Stuhl.getHolzeinheiten();
-                benSchrauben += Stuhl.getSchrauben();
-                benFarbeinheiten +=  Stuhl.getFarbEinheiten();
-                benKartoneinheiten +=  Stuhl.getKartoneinheiten();
+                benoetigteHolzeinheiten += Stuhl.getHolzeinheiten();
+                benoetigteSchrauben += Stuhl.getSchrauben();
+                benoetigteFarbeinheiten +=  Stuhl.getFarbEinheiten();
+                benoetigteKartoneinheiten +=  Stuhl.getKartoneinheiten();
             }else if(product instanceof Sofa){
-                benHolzeinheiten += Sofa.getHolzeinheiten();
-                benSchrauben += Sofa.getSchrauben();
-                benFarbeinheiten +=  Sofa.getFarbEinheiten();
-                benKartoneinheiten +=  Sofa.getKartoneinheiten();
-                benKissen += Sofa.getKissen();
+                benoetigteHolzeinheiten += Sofa.getHolzeinheiten();
+                benoetigteSchrauben += Sofa.getSchrauben();
+                benoetigteFarbeinheiten +=  Sofa.getFarbEinheiten();
+                benoetigteKartoneinheiten +=  Sofa.getKartoneinheiten();
+                benoetigteKissen += Sofa.getKissen();
             }
         }
         
-        if(benHolzeinheiten < vorhandeneHolzeinheiten || benSchrauben < vorhandeneSchrauben || benFarbeinheiten < vorhandeneFarbeinheiten || benKartoneinheiten < vorhandeneKartoneinheiten || benKissen < vorhandeneKissen){
+        if(benoetigteHolzeinheiten > vorhandeneHolzeinheiten 
+            || benoetigteSchrauben > vorhandeneSchrauben 
+            || benoetigteFarbeinheiten > vorhandeneFarbeinheiten 
+            || benoetigteKartoneinheiten > vorhandeneKartoneinheiten 
+            || benoetigteKissen > vorhandeneKissen){
             beschaffungszeit = 2;
         }
         
         else{
-            lagerAuffuellen();
+            vorhandeneHolzeinheiten -= benoetigteHolzeinheiten;
+            vorhandeneSchrauben -= benoetigteSchrauben;
+            vorhandeneFarbeinheiten -= benoetigteFarbeinheiten;
+            vorhandeneKartoneinheiten -= benoetigteKartoneinheiten;
+            vorhandeneKissen -= benoetigteKissen;
         }
         
         return  beschaffungszeit;
@@ -118,11 +126,15 @@ public class Lager {
     * etc. 
     * was meint ihr? :)
     * 
-    * "BenHolzeinheiten etc. gibt es schon. Diese beschreiben die benötogten für eine Bestellung. Falls gewollt können wir gerne noch eine extra Variable mehr machen für die im Lager fehlenden? (Auch von mir: Was meint ihr? :) )
+    * "benoetigteHolzeinheiten etc. gibt es schon. Diese beschreiben die benötogten für eine Bestellung. Falls gewollt können wir gerne noch eine extra Variable mehr machen für die im Lager fehlenden? (Auch von mir: Was meint ihr? :) )
     */
     
     public void lagerAuffuellen () {
-        lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen);
+        lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten,
+                                maxSchrauben - vorhandeneSchrauben, 
+                                maxFarbeinheiten - vorhandeneFarbeinheiten, 
+                                maxKartoneinheiten - vorhandeneKartoneinheiten, 
+                                maxKissen - vorhandeneKissen);
         
         vorhandeneHolzeinheiten = maxHolzeinheiten;
         vorhandeneSchrauben = maxSchrauben;
@@ -152,15 +164,17 @@ public class Lager {
      * Liegt der Bestand unter einem 4tel der max. Menge, dann wird der Lagerbestand als niedrig festgelegt (true).
      * 
      * @return true, falls Lagerbestand niedrig / false, sonst.
+     * 
+     * Jeff: Auskommentiert (besprechen)
      */
-    public boolean bestandNiedrig(){
+    /*public boolean bestandNiedrig(){
         float unteresLimit = 4; //bei einem 4tel der max Menge wird der Bestand als niedrig angegeben
-        if(maxHolzeinheiten/unteresLimit> vorhandeneHolzeinheiten || maxSchrauben/unteresLimit> vorhandeneSchrauben || maxFarbeinheiten/unteresLimit> vorhandeneFarbeinheiten || maxKartoneinheiten/unteresLimit> vorhandeneKartoneinheiten || maxKissen /unteresLimit> vorhandeneKissen){
-            return true;
-        }else
-        return false;
-        
-    }
+        return maxHolzeinheiten / unteresLimit > vorhandeneHolzeinheiten 
+            || maxSchrauben / unteresLimit > vorhandeneSchrauben 
+            || maxFarbeinheiten / unteresLimit > vorhandeneFarbeinheiten 
+            || maxKartoneinheiten / unteresLimit > vorhandeneKartoneinheiten 
+            || maxKissen / unteresLimit > vorhandeneKissen;
+    }*/
     
     
     /**
@@ -169,11 +183,11 @@ public class Lager {
     public void lagerBestandAusgeben (){
         System.out.println("Folgende Materialien befinden sich aktuell im Lager:");
         
-        System.out.println("Holzeinheiten:" +vorhandeneHolzeinheiten);
-        System.out.println("Schrauben:" +vorhandeneSchrauben);
-        System.out.println("Farbeinheiten:" +vorhandeneFarbeinheiten);
-        System.out.println("Kartoneinheiten:" +vorhandeneKartoneinheiten);
-        System.out.println("Kissen:" +vorhandeneKissen);
+        System.out.println("Holzeinheiten: " + vorhandeneHolzeinheiten);
+        System.out.println("Schrauben: " + vorhandeneSchrauben);
+        System.out.println("Farbeinheiten: " + vorhandeneFarbeinheiten);
+        System.out.println("Kartoneinheiten: " + vorhandeneKartoneinheiten);
+        System.out.println("Kissen: " + vorhandeneKissen);
         
     }
         
@@ -184,7 +198,7 @@ public class Lager {
      * Anmerkung: Diese Methode wird für die Testklasse "LagerTest" benötigt,um den Lieferanten anzusprechen und dessen Methodenergebnis zu testen.
      */
     public Lieferant gibLieferant(){ 
-        return this.lieferant;
+        return lieferant;
     }
     
     
