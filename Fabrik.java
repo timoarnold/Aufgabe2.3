@@ -31,7 +31,7 @@ public class Fabrik {
     }
 
     /**
-     * Ermöglichst den Einstieg ins Programm
+     * Ermöglicht den Einstieg ins Programm
      * - weiterBestellen: Gibt an, ob weiterbestellt wird oder nicht.
      * - validerInput: Gibt an, ob die Bestelleingabe valide ist oder nicht.
      * 
@@ -41,7 +41,7 @@ public class Fabrik {
      * Der User kann nach einer Bestellung entscheiden, ob er weiter bestellen möchte.
      * Sobald sich der User entscheidet, nicht mehr weiterzubestellen, wird eine Zusammenfassung der Bestellungen ausgegeben 
      * (Durchführung der Methode bestellungsAusgeben).
-     * Ausserdem die Inputs des Users überprüft, sodass die geforderten Informationen angegeben werden.
+     * Ausserdem werden die Inputs des Users überprüft, sodass die geforderten Informationen angegeben werden.
      */
     
     public static void main(String[] args) {
@@ -97,12 +97,12 @@ public class Fabrik {
      * 
      * Anmerkung: Durch bestellungAufgeben wird eine neue Instanz der Klasse Bestellung erstellt, die Bestellung bestätigt und in der Array "bestellungen" gespeichert. 
      * Zu jeder aufgegebenen Bestellung wird hier die jeweilige Lieferzeit ausgerechnet und gesetzt und die Bestellbestätigung auf true gesetzt.
-     * Bei erfolgreicher Bestellafgabe, wird auf der Konsole anschliessend eine Message ausgespielt.
-     * In der folgenden Methode wird zudem festgelegt, dass die Bestellung nur positive Werte enthalten darf (Keine Minusbestellungen, sonst Fehlermeldung).
+     * Bei erfolgreicher Bestellafgabe, wird auf der Konsole anschliessend eine Nachricht ausgespielt.
+     * In der folgenden Methode wird zudem festgelegt, dass die Bestellung nur positive Werte enthalten darf (Keine Minusbestellungen, ansonsten Fehlermeldung).
      */
     public void bestellungAufgeben(int sofa, int stuhl) {
           if (sofa<0 || stuhl<0 || sofa+stuhl==0){
-               System.out.println("Bitte geben sie eine positiven Bestellbetrag ein");
+               System.out.println("Bitte geben Sie einen positiven Bestellbetrag ein.");
            }
            else {
                bestellungsNr++;
@@ -113,39 +113,38 @@ public class Fabrik {
                bestellung.setzBeschaffungsZeit(beschaffungsZeit);
                
                float prodZeit = 0;
-               prodZeit += (float)bestellung.gibAnzahlStuehle()*21 /60 /24;
-               prodZeit += (float)bestellung.gibAnzahlSofas()*60 /60 /24; //
+               prodZeit += (float) bestellung.gibAnzahlStuehle() * Stuhl.getProduktionsZeit() / 60 / 24;
+               prodZeit += (float) bestellung.gibAnzahlSofas() * Sofa.getProduktionsZeit() / 60 / 24;
+               //Jeff: Denke kann man für jetzt rausnehmen 
                prodZeit += berechneKonfigZeit(); //im moment noch 0
                
                
                float standardLieferZeit = 1;
-               if(lager.bestandNiedrig()){
-                   standardLieferZeit += 2;
-                   lager.lagerAuffüllen();
+               // Jeff: habe bestandNiedrig rausgenommen
+               if(beschaffungsZeit == 2){
+                   lager.lagerAuffuellen();
                }
                
-               bestellung.setzLieferZeit(prodZeit + (float) beschaffungsZeit + standardLieferZeit);
+               bestellung.setzLieferzeit(prodZeit + (float) beschaffungsZeit + standardLieferZeit);
                
                bestellung.bestellungBestaetigen();
                bestellungen.add(bestellung);
                
            
-               System.out.println("Bestellung erfolgreich aufgegeben");
+               System.out.println("Bestellung erfolgreich aufgegeben!");
                //Hier System Out print mit Lieferzeit ergänzen
            }
     }
     
-    
-    
     /**
-     * Füllt die Lagerbestände an Materialien bis zum Maximum auf.
-     */
-    public void lagerAuffüllen() {
-            lager.lagerAuffüllen();
+     * Mit dieser Methode wird das Lager angeordnet Material nachzubestellen
+     */   
+    public void lagerAuffuellen() {
+        lager.lagerAuffuellen();
     }
     
     /**
-     * Gib die Bestellungsnummer wieder.
+     * Mit dieser Methode wird die Bestellungsnummer wiedergegeben.
      * @return die Nummer der letzten Bestellung, die aufgegeben wurde (=Totale Anzahl Bestellungen bisher)
      */
     public int gibBestellungsNr() {
@@ -153,7 +152,7 @@ public class Fabrik {
     }
     
     /**
-     * Gib die Bestellungen wieder.
+     * Mit dieser Methode werden die Bestellungen wiedergegeben.
      * @return ArrayListe bestellungen
      * 
      * Anmerkung: Diese Methode dient den Unit-Tests im Rahmen der Testklasse FabrikTest.
@@ -164,12 +163,27 @@ public class Fabrik {
     }
    
     /**
-     * Gib die Bestellungen inkl. Details wieder.
+     * Mit dieser Methode werden die detaillierten Informationen zu allen Bestellungen ausgegeben.
      * 
      * Anmerkung: Für jede Bestellung aus der Liste bestellungen, gibt die Konsole die unten programmierte Print-Meldung aus. 
      * Diese Methode gibt somit alle Informationen (Anzahl Stühle / Anzahl Sofas / Bestellungen Total / Bestellungsnummer) 
      * für alle aufgegebenen Bestellungen wieder.
-     */
+     
+    * Feedback Cha:
+    * werden hier nun wirklich alle Details geprintet? Oder soll das system.out.println für alle Details aufgerufen werden? (vielleicht auch zu kompliziert...)
+    * evtl so?:
+    * System.out.println("Bestellnummer: " + bestellung.gibBestellungsNr());
+    * System.out.println("Anzahl Stühle: " + bestellung.gibAnzahlStuehle());
+    * System.out.println("Anzahl Sofas: " + bestellung.gibAnzahlSofas());
+    * System.out.println("Beschaffungszeit: " + bestellung.gibBeschaffungsZeit());
+    * System.out.println("Lieferzeit: " + bestellung.gibLieferZeit());            
+    * System.out.println("Bestellbestätigung: " + bestellung.gibBestellBestaetigung());
+    * System.out.println(); 
+    * System.out.println();
+    * 
+    * Antwort Flo: Es werden alle Details ausgegeben :)
+    */
+    
     public void bestellungenAusgeben() {
 
         System.out.println("Total Bestellungen bisher:"+bestellungsNr);
@@ -188,10 +202,8 @@ public class Fabrik {
      * Anmerkung: Dazu muss diese Methode mit der gewünschten Bestellungsnummer aufgerufen werden.
      */
     public void bestellungAusgeben(int spannendeBestellungNr) {
-        
-        
         System.out.println("Details der Bestellung mit der Nummer:" + spannendeBestellungNr);
-        
+
         for(Bestellung eineBestellung: bestellungen) {
             
             if(spannendeBestellungNr==eineBestellung.gibBestellNummer()){
@@ -207,6 +219,8 @@ public class Fabrik {
      * @return Konfigurationszeit (muss in einem nächsten Schritt berechnet und gesetzt werden, in Abstimmung mit den Maschinen).
      *   
      * Anmerkung: Aktuell nur provisorisch inkludiert, da in nächstem Schritt benötigt.
+     * 
+     * Jeff: Denke können wir rauslassen for now
      */
 
     private float berechneKonfigZeit(){ 
