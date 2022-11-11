@@ -115,21 +115,39 @@ public class Lager {
     * etc. 
     * was meint ihr? :)
     * 
-    * "BenHolzeinheiten etc. gibt es schon. Diese beschreiben die benötogten für eine Bestellung. Falls gewollt können wir gerne noch eine extra Variable mehr machen für die im Lager fehlenden? (Auch von mir: Was meint ihr? :) )
+    * "BenHolzeinheiten" etc. gibt es schon. Diese beschreiben die benötogten für eine Bestellung. Falls gewollt können wir gerne noch eine extra Variable mehr machen für die im Lager fehlenden? (Auch von mir: Was meint ihr? :) )*
+     *
+     * Feedback Timo: "können wir gerne machen, könnte einerseits übersichtlicher werden und zur verzögerten Auffüllung des Lagers in Aufgabe 3 vermutlich notwendig."
+     *
     */
     
     public void lagerAuffuellen () {
-        lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen);
-        
+
+        int zuBestellendeHolzeinheiten = maxHolzeinheiten - vorhandeneHolzeinheiten;
+        int zuBestellendeSchrauben = maxSchrauben - vorhandeneSchrauben;
+        int zuBestellendeFarbeinheiten = maxFarbeinheiten - vorhandeneFarbeinheiten;
+        int zuBestellendeKartoneinheiten = maxKartoneinheiten - vorhandeneKartoneinheiten;
+        int zuBestellendeKissen = maxKissen - vorhandeneKissen;
+
+        lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen);
+
         vorhandeneHolzeinheiten = maxHolzeinheiten;
         vorhandeneSchrauben = maxSchrauben;
         vorhandeneFarbeinheiten = maxFarbeinheiten;
         vorhandeneKartoneinheiten = maxKartoneinheiten;
         vorhandeneKissen = maxKissen;
-        
-        System.out.println("Ihre Bestellung wurde dem Lieferanten zugestellt.");
-        //System Print falls gewollt -->Aktuell keine Zeitverzögerung einprogrammiert. Lager wird direkt gefüllt
-        
+
+        /** Kommentar Timo: Alter Code, wollte diesen noch nicht entfernen, falls wir es doch nicht ändern
+        lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen);
+
+        vorhandeneHolzeinheiten = maxHolzeinheiten;
+        vorhandeneSchrauben = maxSchrauben;
+        vorhandeneFarbeinheiten = maxFarbeinheiten;
+        vorhandeneKartoneinheiten = maxKartoneinheiten;
+        vorhandeneKissen = maxKissen;
+        */
+        System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt. Akutell wird diese unverzüglich geliefert.");
+       
         /**
         * Feedback Cha
         * Nice wäre, wenn das System noch sagen würde, dass die Ware nachbestellt wurde oder nicht :)

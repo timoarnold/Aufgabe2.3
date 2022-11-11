@@ -6,9 +6,6 @@ import java.io.*;
  * 
  * Die Klasse Fabrik bildet die Schnittstelle zwischen Kund:innen und Produktion.
  * Sie nimmt Bestellungen entgegen und verwaltet diese.
- * 
- *
- * 
  */
 public class Fabrik {
     /** 
@@ -117,6 +114,7 @@ public class Fabrik {
                
                float prodZeit = 0;
                prodZeit += (float)bestellung.gibAnzahlStuehle()*21 /60 /24;
+              //Kommentar Timo (neu): proZeit für Stühle 21min. ist mMn. falsch, solte 22min sein (10+5+5+2 in Augfabenstellung)
                prodZeit += (float)bestellung.gibAnzahlSofas()*60 /60 /24; 
                prodZeit += berechneKonfigZeit(); //im moment noch 0
                
