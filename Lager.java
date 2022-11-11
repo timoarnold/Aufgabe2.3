@@ -89,7 +89,7 @@ public class Lager {
             }
         }
         
-        if(benHolzeinheiten < vorhandeneHolzeinheiten || benSchrauben < vorhandeneSchrauben || benFarbeinheiten < vorhandeneFarbeinheiten || benKartoneinheiten < vorhandeneKartoneinheiten || benKissen < vorhandeneKissen){
+        if(benHolzeinheiten > vorhandeneHolzeinheiten || benSchrauben > vorhandeneSchrauben || benFarbeinheiten > vorhandeneFarbeinheiten || benKartoneinheiten > vorhandeneKartoneinheiten || benKissen > vorhandeneKissen){
             beschaffungszeit = 2;
         }
         
