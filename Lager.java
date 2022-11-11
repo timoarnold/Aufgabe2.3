@@ -66,9 +66,6 @@ public class Lager {
      * Anmerkung: Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt.
      */
     
-    // Feedback Cha: Achtung Schreibweise bei: Stuhl.getFarbEinheiten --> Einheiten klein oder? (damit überall consistent)
-    //Antwort Flo: Muss hier so geschrieben werden, da Methode referenziert und nicht die Variable :)
-    
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
         int benHolzeinheiten = 0;
