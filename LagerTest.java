@@ -47,7 +47,7 @@ public class LagerTest
     public void TestBestellungAnLieferant(){
         //Arrange: Siehe BeforeEach
         
-        //Act: Testbestellung wird aufgegeben und check, ob die Bestellung beim Lieferanten eintrifft (true).
+        //Act: Testbestellung wird aufgegeben & Check, ob die Bestellung beim Lieferanten eintrifft (true).
         assertEquals(true,testLager.gibLieferant().wareBestellen(1,1,1,1,1));
     }
 }

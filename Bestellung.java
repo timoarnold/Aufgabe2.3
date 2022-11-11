@@ -11,7 +11,7 @@ public class Bestellung {
     /** 
      * InstanzVariabeln:
      * 
-     * - Liste bestellteProdukte: Liste alle Produkte, die bestellt wurden.
+     * - Liste bestellteProdukte: Liste aller Produkte, die bestellt wurden.
      * - bestellBestaetigung: Indikator, ob eine Bestellung erfolgreich bestätigt wurde oder nicht (boolean).
      * - beschaffungsZeit: Beschaffungszeit (in Tagen) für die Produkte (int).
      * - lieferZeit: Lieferzeit (in Tagen) für die jeweiligen Bestellungen (float).
@@ -28,7 +28,7 @@ public class Bestellung {
      */
     
     //Klassenvariablen:
-    private static int bestellnummerGenerator=1;
+    private static int BestellnummerGenerator=1;
     
     //Intanzvariablen:
     private ArrayList<Produkt> bestellteProdukte;
@@ -59,7 +59,7 @@ public class Bestellung {
         
         bestellBestaetigung = false;
         beschaffungsZeit = 2;
-        bestellNummer = bestellnummerGenerator++;
+        bestellNummer = BestellnummerGenerator++;
         this.anzahlStuehle = anzahlStuehle;
         this.anzahlSofas = anzahlSofas;
     }
@@ -84,15 +84,12 @@ public class Bestellung {
     
     /**
      * Frage Flo: Was wollen wir hier machen, Maschinen und Produktion ist ja noch nicht implementiert.
-         *  Antwort Timo: Wird in Aufgabe 3 nicht explizit weiterausgearbeitet. Die "Produktion mit Maschinen" findet in
-         *  anderen Methoden/Thread statt. Denke diese Methode "liefereBestellteProdukte" wird dann im anderen Threada
-         *  aufgerufen.  Hier wird sie vermutlich lediglich die Produkte aus der Array Liste löschen?
      * 
      * Liefert eine fertig produzierte und zum Versand bereite Kundenbestellung aus. 
      * Aktuell gibt diese Methode nur alle bisher bestellten Produkte aus.
      * 
      * 
-     * Anmerkung: Noch nicht fertig implementiert, dient noch als Platzhalter für eine künftige Implementation sobald Produktion & Maschinen eingerichtet.
+     * Anmerkung: Noch nicht fertig implementiert, dient noch als Platzhalten für eine künftige Implementation sobald Produktion & Maschinen eingerichtet.
      */
     public void liefereBestellteProdukte(){
         System.out.println("Total bestellte Produkte bisher:");
@@ -154,7 +151,7 @@ public class Bestellung {
     
     /**
      * Wandelt unterschiedliche Typen in den Typ String um.
-     * @return die Bestellnummer, die Anzahl Stühle,die Anzahl Sofas sowie die zugehörige Lieferzeit in der Form des nachfolgend definierten Strings
+     * @return die Bestellnummer, die Anzahl Stühle, die Anzahl Sofas sowie die zugehörige Lieferzeit in der Form des nachfolgend definierten Strings
      * 
      * Anmerkung: Wandelt die Konsolenausgabe der Methode bestellungenAusgeben in die Form String um, 
      * damit diese im Unit-Test auf Übereinstimmung getestet werden kann.
@@ -167,12 +164,12 @@ public class Bestellung {
     }
     
     /**
-     * Setze den bestellnummergenerator (Klassenvariable) auf 0 zurück.
+     * Setze den Bestellnummergenerator (Klassenvariable) auf 0 zurück.
      * 
      * Amnmerkung: Dies dient u. A. zum Unit-Testing.
      */
     public static void resetBestellnummerGenerator() {
-        bestellnummerGenerator = 1;
+        BestellnummerGenerator = 1;
     }
     
     /**
@@ -199,6 +196,9 @@ public class Bestellung {
      * Gib die Lieferzeit einer Bestellung.
      * @return Lieferzeit einer Bestellung
      */
+    
+    // Feedback Cha: Achtung Schreibweise von Lieferzeit --> LieferZeit (bei gibLieferzeit())
+    
     public float gibLieferzeit(){
         return lieferZeit;
     }
