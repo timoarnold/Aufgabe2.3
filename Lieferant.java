@@ -9,7 +9,7 @@
 public class Lieferant {
     
     /**
-     * Instanzvariabeln: bisher keine.
+     * Keine Instanzvariabeln
      */
     
     /**
@@ -30,15 +30,16 @@ public class Lieferant {
     *
     * public boolean wareBestellen (int zuBestellendeHolzeinheiten, int zuBestellendeSchrauben, int zuBestellendeFarbeinheiten,
     * int zuBestellendeKartoneinheiten,int zuBestellendeKissen) {
-    *    start();   
+    *    start();
     *    return true;
     * }
     * 
     * Flo: Guten Input. Frage: Wollen wir das automatisch auslösen? Weil: Grosse Bestellungen sind günstiger als viele kleine.
+    * 
+    * Jeff: 
     */
     
-    public boolean wareBestellen (int holzEinheiten, int schrauben, int farbEinheiten,int kartonEinheiten,int kissen) {
-        
+    public boolean wareBestellen (int holzEinheiten, int schrauben, int farbEinheiten, int kartonEinheiten, int kissen) {
         return true;
     }
 

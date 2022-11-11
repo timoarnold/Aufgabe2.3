@@ -6,9 +6,6 @@ import java.io.*;
  * 
  * Die Klasse Fabrik bildet die Schnittstelle zwischen Kund:innen und Produktion.
  * Sie nimmt Bestellungen entgegen und verwaltet diese.
- * 
- *
- * 
  */
 public class Fabrik {
     /** 
@@ -16,7 +13,7 @@ public class Fabrik {
      * 
      * - bestellungen: Array-Liste, in der alle eingegangenen Bestellungen als Typ <Bestellung> abgespeichert werden.
      * - bestellungsNr: Nummer, welche jeder Bestellung aufsteigend zugeordnet wird, beginnend bei 1 (int).
-     * - lager: Das zur Fabrik gehörende Lager (jeweils eines).
+     * - lager: Das zur Fabrik gehörende Lager (ein Lager pro Fabrik).
      */
    
     private ArrayList<Bestellung> bestellungen; 
@@ -116,18 +113,19 @@ public class Fabrik {
                bestellung.setzBeschaffungsZeit(beschaffungsZeit);
                
                float prodZeit = 0;
-               prodZeit += (float)bestellung.gibAnzahlStuehle()*21 /60 /24;
-               prodZeit += (float)bestellung.gibAnzahlSofas()*60 /60 /24; 
+               prodZeit += (float) bestellung.gibAnzahlStuehle() * Stuhl.getProduktionsZeit() / 60 / 24;
+               prodZeit += (float) bestellung.gibAnzahlSofas() * Sofa.getProduktionsZeit() / 60 / 24;
+               //Jeff: Denke kann man für jetzt rausnehmen 
                prodZeit += berechneKonfigZeit(); //im moment noch 0
                
                
                float standardLieferZeit = 1;
-               if(lager.bestandNiedrig()){
-                   standardLieferZeit += 2;
+               // Jeff: habe bestandNiedrig rausgenommen
+               if(beschaffungsZeit == 2){
                    lager.lagerAuffuellen();
                }
                
-               bestellung.setzLieferZeit(prodZeit + (float) beschaffungsZeit + standardLieferZeit);
+               bestellung.setzLieferzeit(prodZeit + (float) beschaffungsZeit + standardLieferZeit);
                
                bestellung.bestellungBestaetigen();
                bestellungen.add(bestellung);
@@ -138,17 +136,11 @@ public class Fabrik {
            }
     }
     
-    
-    
     /**
      * Mit dieser Methode wird das Lager angeordnet Material nachzubestellen
-     */
-    
-    // Feedback Cha: Kleinigkeit, die ich nicht direkt abändern möchte, da ich unsicher bin, ob es weiteres auslöst --> würde ü zu ue umschreiben bei "Auffüllen" --> siehe Guidelines
-    // Wurde angepasst :)
-   
+     */   
     public void lagerAuffuellen() {
-            lager.lagerAuffuellen();
+        lager.lagerAuffuellen();
     }
     
     /**
@@ -210,10 +202,8 @@ public class Fabrik {
      * Anmerkung: Dazu muss diese Methode mit der gewünschten Bestellungsnummer aufgerufen werden.
      */
     public void bestellungAusgeben(int spannendeBestellungNr) {
-        
-        
         System.out.println("Details der Bestellung mit der Nummer:" + spannendeBestellungNr);
-        
+
         for(Bestellung eineBestellung: bestellungen) {
             
             if(spannendeBestellungNr==eineBestellung.gibBestellNummer()){
@@ -229,6 +219,8 @@ public class Fabrik {
      * @return Konfigurationszeit (muss in einem nächsten Schritt berechnet und gesetzt werden, in Abstimmung mit den Maschinen).
      *   
      * Anmerkung: Aktuell nur provisorisch inkludiert, da in nächstem Schritt benötigt.
+     * 
+     * Jeff: Denke können wir rauslassen for now
      */
 
     private float berechneKonfigZeit(){ 

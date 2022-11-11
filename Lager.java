@@ -63,9 +63,9 @@ public class Lager {
      * @param kundenBestellung: Die Inhalte einer aufgegebenen Kundenbestellung. 
      * @return die Beschaffungszeit, welche für die Kundenbestellung benötigt wird.
      * 
-     * Anmerkung: Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt.
+     * Anmerkung: Falls zu wenig Material vorhanden ist, wird automatisch nachbestellt und das Lager aufgefüllt.
      */
-    
+
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
         int benHolzeinheiten = 0;
@@ -92,9 +92,9 @@ public class Lager {
         if(benHolzeinheiten < vorhandeneHolzeinheiten || benSchrauben < vorhandeneSchrauben || benFarbeinheiten < vorhandeneFarbeinheiten || benKartoneinheiten < vorhandeneKartoneinheiten || benKissen < vorhandeneKissen){
             beschaffungszeit = 2;
         }
-        
+
         else{
-            lagerAuffuellen();
+            lagerAuffüllen();
         }
         
         return  beschaffungszeit;
@@ -107,18 +107,7 @@ public class Lager {
      * 
      * Anmerkung: mit dieser Methode werden die Werte vorhandener Materialien in der Software wieder auf das Max. gesetzt.
      */
-    
-    /**
-    * Feedback Cha: die einzelnen zu bestellenden Waren sind jetzt noch wie in einer Formel. Das könnten wir evtl auch noch bennen?
-    * Bspw:
-    * zuBestellendeHolzeinheiten = maxHolzeinheiten - vorhandeneHolzeinheiten
-    * etc. 
-    * was meint ihr? :)
-    * 
-    * "BenHolzeinheiten etc. gibt es schon. Diese beschreiben die benötogten für eine Bestellung. Falls gewollt können wir gerne noch eine extra Variable mehr machen für die im Lager fehlenden? (Auch von mir: Was meint ihr? :) )
-    */
-    
-    public void lagerAuffuellen () {
+    public void lagerAuffüllen () {
         lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen);
         
         vorhandeneHolzeinheiten = maxHolzeinheiten;
@@ -127,21 +116,7 @@ public class Lager {
         vorhandeneKartoneinheiten = maxKartoneinheiten;
         vorhandeneKissen = maxKissen;
         
-        System.out.println("Ihre Bestellung wurde dem Lieferanten zugestellt.");
         //System Print falls gewollt -->Aktuell keine Zeitverzögerung einprogrammiert. Lager wird direkt gefüllt
-        
-        /**
-        * Feedback Cha
-        * Nice wäre, wenn das System noch sagen würde, dass die Ware nachbestellt wurde oder nicht :)
-        * so evtl?
-        * if(lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen)) {
-        * System.out.println("Ware wurde bestellt");
-        * }else{
-        * System.out.println("Ware konnte nicht nachbestellt werden! ");
-        * 
-        * Flo: Habe die Methode um deine Print-Methode ergänzt. Diese wird nur angegeben, wenn nachbestellt wurde.
-        * }
-        */
     }
     
     /**
@@ -149,6 +124,8 @@ public class Lager {
      * Liegt der Bestand unter einem 4tel der max. Menge, dann wird der Lagerbestand als niedrig festgelegt (true).
      * 
      * @return true, falls Lagerbestand niedrig / false, sonst.
+     *
+     * Frage an Flo: Woher kommt dieser Bolean? In der Aufgabenstellung finde ich ihn nicht? und wann kommt dies zur Anwendung?
      */
     public boolean bestandNiedrig(){
         float unteresLimit = 4; //bei einem 4tel der max Menge wird der Bestand als niedrig angegeben
@@ -158,8 +135,7 @@ public class Lager {
         return false;
         
     }
-    
-    
+
     /**
      * Druckt den aktuellen Lagerbestand (vorhandene Materialien im Lager) auf der Konsole aus.
      */
