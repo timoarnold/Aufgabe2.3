@@ -105,7 +105,7 @@ public class Lager {
             lagerAuffuellen();
         }*/
         
-        //Jeff: Alternativvorschlag
+        //Jeff: Alternativvorschlag -->Minusbestände im Lager besprechen
         if(benoetigteHolzeinheiten > vorhandeneHolzeinheiten 
         || benoetigteSchrauben > vorhandeneSchrauben 
         || benoetigteFarbeinheiten > vorhandeneFarbeinheiten 

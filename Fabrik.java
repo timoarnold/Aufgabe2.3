@@ -143,9 +143,6 @@ public class Fabrik {
     /**
      * Mit dieser Methode wird das Lager angeordnet Material nachzubestellen
      */
-    
-    // Feedback Cha: Kleinigkeit, die ich nicht direkt abändern möchte, da ich unsicher bin, ob es weiteres auslöst --> würde ü zu ue umschreiben bei "Auffüllen" --> siehe Guidelines
-    // Wurde angepasst :)
    
     public void lagerAuffuellen() {
             lager.lagerAuffuellen();
