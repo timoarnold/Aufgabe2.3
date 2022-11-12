@@ -114,18 +114,9 @@ public class Fabrik {
                
                float prodZeit = 0;
                prodZeit += (float) bestellung.gibAnzahlStuehle() * Stuhl.getProduktionsZeit() / 60 / 24;
-              //Kommentar Timo (neu): proZeit für Stühle 21min. ist mMn. falsch, solte 22min sein (10+5+5+2 in Augfabenstellung). Jeff: angepasst mit getProduktionsZeit
                prodZeit += (float) bestellung.gibAnzahlSofas() * Sofa.getProduktionsZeit() / 60 / 24; 
-                //prodZeit += berechneKonfigZeit(); //im moment noch 0. Jeff: Würde das vorerst rausnehmen, weil wir das noch nicht brauchen.
-               
                
                float standardLieferZeit = 1;
-               
-               //Jeff: auskommentiert, weil bei lager.gibBeschaffungszeit bereits kontrolliert wird, falls es zu wenig ist und nachbestellt wird.
-               /*if(lager.bestandNiedrig()){
-                   standardLieferZeit += 2;
-                   lager.lagerAuffuellen();
-               }*/
                
                bestellung.setzLieferZeit(prodZeit + (float) beschaffungsZeit + standardLieferZeit);
                
@@ -134,18 +125,14 @@ public class Fabrik {
                
            
                System.out.println("Bestellung erfolgreich aufgegeben!");
-               //Hier System Out print mit Lieferzeit ergänzen
            }
     }
-    
-    
     
     /**
      * Mit dieser Methode wird das Lager angeordnet Material nachzubestellen
      */
-   
     public void lagerAuffuellen() {
-            lager.lagerAuffuellen();
+        lager.lagerAuffuellen();
     }
     
     /**
@@ -173,22 +160,7 @@ public class Fabrik {
      * Anmerkung: Für jede Bestellung aus der Liste bestellungen, gibt die Konsole die unten programmierte Print-Meldung aus. 
      * Diese Methode gibt somit alle Informationen (Anzahl Stühle / Anzahl Sofas / Bestellungen Total / Bestellungsnummer) 
      * für alle aufgegebenen Bestellungen wieder.
-     
-    * Feedback Cha:
-    * werden hier nun wirklich alle Details geprintet? Oder soll das system.out.println für alle Details aufgerufen werden? (vielleicht auch zu kompliziert...)
-    * evtl so?:
-    * System.out.println("Bestellnummer: " + bestellung.gibBestellungsNr());
-    * System.out.println("Anzahl Stühle: " + bestellung.gibAnzahlStuehle());
-    * System.out.println("Anzahl Sofas: " + bestellung.gibAnzahlSofas());
-    * System.out.println("Beschaffungszeit: " + bestellung.gibBeschaffungsZeit());
-    * System.out.println("Lieferzeit: " + bestellung.gibLieferZeit());            
-    * System.out.println("Bestellbestätigung: " + bestellung.gibBestellBestaetigung());
-    * System.out.println(); 
-    * System.out.println();
-    * 
-    * Antwort Flo: Es werden alle Details ausgegeben :)
     */
-    
     public void bestellungenAusgeben() {
 
         System.out.println("Total Bestellungen bisher:"+bestellungsNr);
@@ -220,15 +192,5 @@ public class Fabrik {
         }
     
     }
-    
-    /**
-     * Gibt die Konfigurationszeit für die Produktion einer Bestellung aus.
-     * @return Konfigurationszeit (muss in einem nächsten Schritt berechnet und gesetzt werden, in Abstimmung mit den Maschinen).
-     *   
-     * Anmerkung: Aktuell nur provisorisch inkludiert, da in nächstem Schritt benötigt.
-     */
-    //Jeff: Würde ich vorerst rausnehmen, darum rauskommentiert.
-    /*private float berechneKonfigZeit(){ 
-      return 0; //falls benötigt - Siehe kommentar oben in BestellungAufgeben
-    }*/
+
 }

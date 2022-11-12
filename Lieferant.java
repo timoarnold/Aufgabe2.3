@@ -13,7 +13,6 @@ public class Lieferant {
      */
     
     /**
-    * Vorschlag Cha, dass die sich auch selbst aufruft durch run methode:
     * Diese Methode nimmt die zu bestellenden Einheiten entgegen und ruft diese sich selbst auch auf (run methode).
     * 
     * @param holzEinheiten: Holzeinheiten, welche im Lager gehalten & zur Produktion benötigt werden
@@ -22,23 +21,8 @@ public class Lieferant {
     * @param kartonEinheiten: Kartoneinheiten, welche im Lager gehalten & zur Produktion benötigt werden
     * @param kissen: Kissen, welche im Lager gehalten & zur Produktion benötigt werden
     * @return: Setze auf true, falls eine Bestellung vom Lager eingegangen ist.
-    */
-
-    /** Feedback Cha
-    * falls wir bei dem Lager die Einheiten abgeändert haben zu --> zuBestellendeHolzeinheiten etc, dann können wir diese nun abrufen (und nur diese...)
-    * Vorschlag eine run Methode zu implementieren, damit das automatisch ausgelöst wird
-    *
-    * public boolean wareBestellen (int zuBestellendeHolzeinheiten, int zuBestellendeSchrauben, int zuBestellendeFarbeinheiten,
-    * int zuBestellendeKartoneinheiten,int zuBestellendeKissen) {
-    *    start();   
-    *    return true;
-    * }
-    * 
-    * Flo: Guten Input. Frage: Wollen wir das automatisch auslösen? Weil: Grosse Bestellungen sind günstiger als viele kleine.
-     * Timo: Ich denke das macht Sinn, idealerweise wird 1x am Tag eine Grossbestellung ausgegeben, sofern das Lager sich leert?
-     *      dies könnten wir aber erst mir einer Zeitsimulation (Aufgabe 3) implementieren.
-    */
-    
+    */  
+   
     public boolean wareBestellen (int holzEinheiten, int schrauben, int farbEinheiten, int kartonEinheiten, int kissen) {
         return true;
     }

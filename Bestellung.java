@@ -46,7 +46,7 @@ public class Bestellung {
      * @param anzahlStuehle: Anzahl bestellter Stühle einer Bestellung.
      */
     
-    public Bestellung(int anzahlStuehle, int anzahlSofas) {
+    public Bestellung(int anzahlSofas, int anzahlStuehle) {
         bestellteProdukte = new ArrayList<Produkt>();
         
         for (int i = 0; i < anzahlStuehle; i++){
@@ -81,26 +81,6 @@ public class Bestellung {
     public boolean gibBestellBestaetigung() {
         return bestellBestaetigung;
     }
-    
-    /**
-     * Frage Flo: Was wollen wir hier machen, Maschinen und Produktion ist ja noch nicht implementiert.
-     * 
-     * Liefert eine fertig produzierte und zum Versand bereite Kundenbestellung aus. 
-     * Aktuell gibt diese Methode nur alle bisher bestellten Produkte aus.
-     * 
-     * 
-     * Anmerkung: Noch nicht fertig implementiert, dient noch als Platzhalten für eine künftige Implementation sobald Produktion & Maschinen eingerichtet.
-     */
-    //Jeff: Auskommentiert, weil noch nicht benötigt.
-    /*public void liefereBestellteProdukte(){
-        System.out.println("Total bestellte Produkte bisher:");
-        
-        for(Produkt einProdukt: bestellteProdukte) {
-            
-            System.out.println(einProdukt);
-            
-        }
-    }*/
     
     /**
      * Setze die jeweilige Beschaffungszeit in Abstimmung mit den Lieferanten.
@@ -139,7 +119,6 @@ public class Bestellung {
      * Gib die Liste der Bestellten Produkte wieder.
      * @return Liste der Produkte in der Bestellung
      */
-    //Jeff: von "gib" zu "liefere" geändert
     public ArrayList<Produkt> liefereBestellteProdukte() {
         return bestellteProdukte;
     }
@@ -169,8 +148,8 @@ public class Bestellung {
      */
     public String toString() {
         return "Bestellnummer:" + bestellNummer
-        + "\nStühle bestellt:" + anzahlStuehle
         + "\nSofas bestellt:" + anzahlSofas
+        + "\nStühle bestellt:" + anzahlStuehle
         + "\nIhre Lieferzeit beträgt:" + genaueZeit(lieferZeit);
     }
     
@@ -185,7 +164,6 @@ public class Bestellung {
      * Gib die Lieferzeit einer Bestellung.
      * @return Lieferzeit einer Bestellung
      */
-
     public float gibLieferZeit(){
         return lieferZeit;
     }

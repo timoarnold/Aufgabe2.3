@@ -47,15 +47,7 @@ public class Lager {
      * Bei Erzeugung eines Lagers wird auch ein zugehöriger Lieferant instanziert.
      */
     public Lager()
-    {
-        /*int vorhandeneHolzeinheiten = 0;
-        int vorhandeneSchrauben = 0;
-        int vorhandeneFarbeinheiten = 0;
-        int vorhandeneKartoneinheiten = 0;
-        int vorhandeneKissen = 0;*/
-        
-        //Jeff: Alternativvorschlag
-        
+    {   
         vorhandeneHolzeinheiten = maxHolzeinheiten;
         vorhandeneSchrauben = maxSchrauben;
         vorhandeneFarbeinheiten = maxFarbeinheiten;
@@ -71,7 +63,7 @@ public class Lager {
      * @param kundenBestellung: Die Inhalte einer aufgegebenen Kundenbestellung. 
      * @return die Beschaffungszeit, welche für die Kundenbestellung benötigt wird.
      * 
-     * Anmerkung: Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt.
+     * Anmerkung: Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt. Jeff fügt hier noch was zu
      */
     
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
@@ -86,26 +78,17 @@ public class Lager {
             if(product instanceof Stuhl){
                 benoetigteHolzeinheiten += Stuhl.getHolzeinheiten();
                 benoetigteSchrauben += Stuhl.getSchrauben();
-                benoetigteFarbeinheiten +=  Stuhl.getFarbEinheiten();
-                benoetigteKartoneinheiten +=  Stuhl.getKartoneinheiten();
+                benoetigteFarbeinheiten += Stuhl.getFarbEinheiten();
+                benoetigteKartoneinheiten += Stuhl.getKartoneinheiten();
             }else if(product instanceof Sofa){
                 benoetigteHolzeinheiten += Sofa.getHolzeinheiten();
-                benoetigteSchrauben += Sofa.getSchrauben();
-                benoetigteFarbeinheiten +=  Sofa.getFarbEinheiten();
-                benoetigteKartoneinheiten +=  Sofa.getKartoneinheiten();
+                benoetigteSchrauben +=Sofa.getSchrauben();
+                benoetigteFarbeinheiten += Sofa.getFarbEinheiten();
+                benoetigteKartoneinheiten += Sofa.getKartoneinheiten();
                 benoetigteKissen += Sofa.getKissen();
             }
         }
         
-        /*if(benoetigteHolzeinheiten > vorhandeneHolzeinheiten || benoetigteSchrauben > vorhandeneSchrauben || benoetigteFarbeinheiten > vorhandeneFarbeinheiten || benoetigteKartoneinheiten > vorhandeneKartoneinheiten || benoetigteKissen > vorhandeneKissen){
-            beschaffungszeit = 2;
-        }
-        
-        else{
-            lagerAuffuellen();
-        }*/
-        
-        //Jeff: Alternativvorschlag -->Minusbestände im Lager besprechen
         if(benoetigteHolzeinheiten > vorhandeneHolzeinheiten 
         || benoetigteSchrauben > vorhandeneSchrauben 
         || benoetigteFarbeinheiten > vorhandeneFarbeinheiten 
@@ -130,7 +113,7 @@ public class Lager {
         
         return  beschaffungszeit;
         
-        }
+    }
         
 
     /**
@@ -138,20 +121,6 @@ public class Lager {
      * 
      * Anmerkung: mit dieser Methode werden die Werte vorhandener Materialien in der Software wieder auf das Max. gesetzt.
      */
-    
-    /**
-    * Feedback Cha: die einzelnen zu bestellenden Waren sind jetzt noch wie in einer Formel. Das könnten wir evtl auch noch bennen?
-    * Bspw:
-    * zuBestellendeHolzeinheiten = maxHolzeinheiten - vorhandeneHolzeinheiten
-    * etc. 
-    * was meint ihr? :)
-    * 
-    * "benoetigteHolzeinheiten" etc. gibt es schon. Diese beschreiben die benötogten für eine Bestellung. Falls gewollt können wir gerne noch eine extra Variable mehr machen für die im Lager fehlenden? (Auch von mir: Was meint ihr? :) )*
-     *
-     * Feedback Timo: "können wir gerne machen, könnte einerseits übersichtlicher werden und zur verzögerten Auffüllung des Lagers in Aufgabe 3 vermutlich notwendig."
-     *
-    */
-    
     public void lagerAuffuellen () {
 
         int zuBestellendeHolzeinheiten = maxHolzeinheiten - vorhandeneHolzeinheiten;
@@ -168,30 +137,7 @@ public class Lager {
         vorhandeneKartoneinheiten = maxKartoneinheiten;
         vorhandeneKissen = maxKissen;
 
-        /** Kommentar Timo: Alter Code, wollte diesen noch nicht entfernen, falls wir es doch nicht ändern
-        lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen);
-
-        vorhandeneHolzeinheiten = maxHolzeinheiten;
-        vorhandeneSchrauben = maxSchrauben;
-        vorhandeneFarbeinheiten = maxFarbeinheiten;
-        vorhandeneKartoneinheiten = maxKartoneinheiten;
-        vorhandeneKissen = maxKissen;
-        */
         System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt. Akutell wird diese unverzüglich geliefert.");
-       
-        /**
-        * Feedback Cha
-        * Nice wäre, wenn das System noch sagen würde, dass die Ware nachbestellt wurde oder nicht :)
-        * so evtl?
-        * if(lieferant.wareBestellen(maxHolzeinheiten - vorhandeneHolzeinheiten, maxSchrauben - vorhandeneSchrauben, maxFarbeinheiten - vorhandeneFarbeinheiten, maxKartoneinheiten - vorhandeneKartoneinheiten, maxKissen - vorhandeneKissen)) {
-        * System.out.println("Ware wurde bestellt");
-        * }else{
-        * System.out.println("Ware konnte nicht nachbestellt werden! ");
-        * 
-        * Flo: Habe die Methode um deine Print-Methode ergänzt. Diese wird nur angegeben, wenn nachbestellt wurde.
-         * Timo: Habe den Print sprachlich noch kurz ergänzt :)
-        * }
-        */
     }
     
     /**
