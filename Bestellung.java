@@ -91,7 +91,8 @@ public class Bestellung {
      * 
      * Anmerkung: Noch nicht fertig implementiert, dient noch als Platzhalten für eine künftige Implementation sobald Produktion & Maschinen eingerichtet.
      */
-    public void liefereBestellteProdukte(){
+    //Jeff: Auskommentiert, weil noch nicht benötigt.
+    /*public void liefereBestellteProdukte(){
         System.out.println("Total bestellte Produkte bisher:");
         
         for(Produkt einProdukt: bestellteProdukte) {
@@ -99,14 +100,14 @@ public class Bestellung {
             System.out.println(einProdukt);
             
         }
-    }
+    }*/
     
     /**
      * Setze die jeweilige Beschaffungszeit in Abstimmung mit den Lieferanten.
      * @param neueBeschaffungsZeit: Neu gesetzte Zahl für die Beschaffungszeit. 
      */
-    public void setzBeschaffungsZeit(int neueBeschaffungsZeit) {
-        beschaffungsZeit = neueBeschaffungsZeit; 
+    public void setzBeschaffungsZeit(int beschaffungsZeit) {
+        this.beschaffungsZeit = beschaffungsZeit; 
     }
     
     /**
@@ -126,10 +127,20 @@ public class Bestellung {
     }
     
     /**
+     * Setze den Bestellnummergenerator (Klassenvariable) auf 0 zurück.
+     * 
+     * Amnmerkung: Dies dient u. A. zum Unit-Testing.
+     */
+    public static void resetBestellnummerGenerator() {
+        BestellnummerGenerator = 1;
+    }
+    
+    /**
      * Gib die Liste der Bestellten Produkte wieder.
      * @return Liste der Produkte in der Bestellung
      */
-    public ArrayList<Produkt> gibBestellteProdukte() {
+    //Jeff: von "gib" zu "liefere" geändert
+    public ArrayList<Produkt> liefereBestellteProdukte() {
         return bestellteProdukte;
     }
     
@@ -160,16 +171,7 @@ public class Bestellung {
         return "Bestellnummer:" + bestellNummer
         + "\nStühle bestellt:" + anzahlStuehle
         + "\nSofas bestellt:" + anzahlSofas
-        + "\nIhre Leiferzeit beträgt:" + this.genaueZeit(lieferZeit);
-    }
-    
-    /**
-     * Setze den Bestellnummergenerator (Klassenvariable) auf 0 zurück.
-     * 
-     * Amnmerkung: Dies dient u. A. zum Unit-Testing.
-     */
-    public static void resetBestellnummerGenerator() {
-        BestellnummerGenerator = 1;
+        + "\nIhre Lieferzeit beträgt:" + genaueZeit(lieferZeit);
     }
     
     /**
@@ -177,6 +179,15 @@ public class Bestellung {
      */
     public void setzLieferZeit(float lieferZeit){
         this.lieferZeit = lieferZeit;
+    }
+    
+    /**
+     * Gib die Lieferzeit einer Bestellung.
+     * @return Lieferzeit einer Bestellung
+     */
+
+    public float gibLieferZeit(){
+        return lieferZeit;
     }
     
     /**
@@ -192,12 +203,5 @@ public class Bestellung {
         return genaueZeit;
     }
     
-    /**
-     * Gib die Lieferzeit einer Bestellung.
-     * @return Lieferzeit einer Bestellung
-     */
 
-    public float gibLieferZeit(){
-        return lieferZeit;
-    }
 }

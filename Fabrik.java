@@ -113,17 +113,19 @@ public class Fabrik {
                bestellung.setzBeschaffungsZeit(beschaffungsZeit);
                
                float prodZeit = 0;
-               prodZeit += (float)bestellung.gibAnzahlStuehle()*21 /60 /24;
-              //Kommentar Timo (neu): proZeit für Stühle 21min. ist mMn. falsch, solte 22min sein (10+5+5+2 in Augfabenstellung)
-               prodZeit += (float)bestellung.gibAnzahlSofas()*60 /60 /24; 
-               prodZeit += berechneKonfigZeit(); //im moment noch 0
+               prodZeit += (float) bestellung.gibAnzahlStuehle() * Stuhl.getProduktionsZeit() / 60 / 24;
+              //Kommentar Timo (neu): proZeit für Stühle 21min. ist mMn. falsch, solte 22min sein (10+5+5+2 in Augfabenstellung). Jeff: angepasst mit getProduktionsZeit
+               prodZeit += (float) bestellung.gibAnzahlSofas() * Sofa.getProduktionsZeit() / 60 / 24; 
+                //prodZeit += berechneKonfigZeit(); //im moment noch 0. Jeff: Würde das vorerst rausnehmen, weil wir das noch nicht brauchen.
                
                
                float standardLieferZeit = 1;
-               if(lager.bestandNiedrig()){
+               
+               //Jeff: auskommentiert, weil bei lager.gibBeschaffungszeit bereits kontrolliert wird, falls es zu wenig ist und nachbestellt wird.
+               /*if(lager.bestandNiedrig()){
                    standardLieferZeit += 2;
                    lager.lagerAuffuellen();
-               }
+               }*/
                
                bestellung.setzLieferZeit(prodZeit + (float) beschaffungsZeit + standardLieferZeit);
                
@@ -228,8 +230,8 @@ public class Fabrik {
      *   
      * Anmerkung: Aktuell nur provisorisch inkludiert, da in nächstem Schritt benötigt.
      */
-
-    private float berechneKonfigZeit(){ 
+    //Jeff: Würde ich vorerst rausnehmen, darum rauskommentiert.
+    /*private float berechneKonfigZeit(){ 
       return 0; //falls benötigt - Siehe kommentar oben in BestellungAufgeben
-    }
+    }*/
 }

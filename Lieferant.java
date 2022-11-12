@@ -39,8 +39,7 @@ public class Lieferant {
      *      dies könnten wir aber erst mir einer Zeitsimulation (Aufgabe 3) implementieren.
     */
     
-    public boolean wareBestellen (int holzEinheiten, int schrauben, int farbEinheiten,int kartonEinheiten,int kissen) {
-        
+    public boolean wareBestellen (int holzEinheiten, int schrauben, int farbEinheiten, int kartonEinheiten, int kissen) {
         return true;
     }
 

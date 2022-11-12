@@ -64,8 +64,8 @@ public class FabrikTest
         fabrik.bestellungAufgeben(6,6);
         
         //Assert: Check, ob Ausgabe der Bestellung == erwartete / korrekte Ausgabe
-        assertEquals("Bestellnummer:"+1+"\nStühle bestellt:"+2+"\nSofas bestellt:"+3+"\nIhre Leiferzeit beträgt:1.0Tage, 4.0Stunden",fabrik.gibBestellungen().get(0).toString());
-        assertEquals("Bestellnummer:"+2+"\nStühle bestellt:"+6+"\nSofas bestellt:"+6+"\nIhre Leiferzeit beträgt:3.0Tage, 9.0Stunden",fabrik.gibBestellungen().get(1).toString());
+        assertEquals("Bestellnummer:"+1+"\nStühle bestellt:"+2+"\nSofas bestellt:"+3+"\nIhre Lieferzeit beträgt:1.0Tage, 4.0Stunden",fabrik.gibBestellungen().get(0).toString());
+        assertEquals("Bestellnummer:"+2+"\nStühle bestellt:"+6+"\nSofas bestellt:"+6+"\nIhre Lieferzeit beträgt:1.0Tage, 9.0Stunden",fabrik.gibBestellungen().get(1).toString());
     }
     
     /**
@@ -128,8 +128,12 @@ public class FabrikTest
         
         //Act: Testbestellungen werden aufgegeben
         fabrik.bestellungAufgeben(4,7);
+        fabrik.bestellungAufgeben(5,3);
+        fabrik.bestellungAufgeben(2,1);
         
-        assertEquals(true,fabrik.gibBestellungen().get(0).gibBestellBestaetigung());
+        for (Bestellung bestellung : fabrik.gibBestellungen()) {
+            assertEquals(true, bestellung.gibBestellBestaetigung());
+        }
         
         Bestellung.resetBestellnummerGenerator();
     }
