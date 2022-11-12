@@ -1,19 +1,19 @@
 #BlueJ class context
 comment0.target=Lager
-comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 2.0\ (13.\ November\ 2022)\n\n\ Die\ Klasse\ Lager\ beinhaltet\ die\ Informationen\ zu\ den\ maximal\ lagerbaren\ Materialeinheiten\ sowie\ den\ aktuellen\n\ Best\u00E4nden\ der\ Materialien.\n
+comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 2.0\ (13.\ November\ 2022)\r\n\r\n\ Die\ Klasse\ Lager\ beinhaltet\ die\ Informationen\ zu\ den\ maximal\ lagerbaren\ Materialeinheiten\ sowie\ den\ aktuellen\r\n\ Best\u00E4nden\ der\ Materialien.\r\n
 comment1.params=
 comment1.target=Lager()
-comment1.text=\n\ Konstruktor\ der\ Klasse\ Lager\:\ initialisiert\ alle\ Instanzvariabeln\ der\ Klasse\ Lager.\ \n\ Bei\ Erzeugung\ eines\ Lagers\ wird\ auch\ ein\ zugeh\u00F6riger\ Lieferant\ instanziert.\n
+comment1.text=\r\n\ Konstruktor\ der\ Klasse\ Lager\:\ initialisiert\ alle\ Instanzvariabeln\ der\ Klasse\ Lager.\ \r\n\ Bei\ Erzeugung\ eines\ Lagers\ wird\ auch\ ein\ zugeh\u00F6riger\ Lieferant\ instanziert.\r\n
 comment2.params=kundenBestellung
 comment2.target=int\ gibBeschaffungszeit(Bestellung)
-comment2.text=\n\ Kontrolliert,\ ob\ die\ ben\u00F6tigten\ Materialien\ f\u00FCr\ die\ Kundenbestellung\ im\ Lager\ vorhanden\ sind\ und\ berechnet\ die\ zugeh\u00F6rige\ Beschaffungszeit.\n\ Die\ Beschaffungszeit\ wird\ anschliessend\ ausgegeben.\n\ @param\ kundenBestellung\:\ Die\ Inhalte\ einer\ aufgegebenen\ Kundenbestellung.\ \n\ @return\ die\ Beschaffungszeit,\ welche\ f\u00FCr\ die\ Kundenbestellung\ ben\u00F6tigt\ wird.\n\ \n\ Anmerkung\:\ Falls\ zu\ wenig\ Material\ vorhanden\ ist,\ wird\ das\ Lager\ automatisch\ aufgef\u00FCllt.\n
+comment2.text=\r\n\ Kontrolliert,\ ob\ die\ ben\u00F6tigten\ Materialien\ f\u00FCr\ die\ Kundenbestellung\ im\ Lager\ vorhanden\ sind\ und\ berechnet\ die\ zugeh\u00F6rige\ Beschaffungszeit.\r\n\ Die\ Beschaffungszeit\ wird\ anschliessend\ ausgegeben.\r\n\ @param\ kundenBestellung\:\ Die\ Inhalte\ einer\ aufgegebenen\ Kundenbestellung.\ \r\n\ @return\ die\ Beschaffungszeit,\ welche\ f\u00FCr\ die\ Kundenbestellung\ ben\u00F6tigt\ wird.\r\n\ \r\n\ Anmerkung\:\ Falls\ zu\ wenig\ Material\ vorhanden\ ist,\ wird\ das\ Lager\ automatisch\ aufgef\u00FCllt.\r\n
 comment3.params=
 comment3.target=void\ lagerAuffuellen()
-comment3.text=\n\ Feedback\ Cha\:\ die\ einzelnen\ zu\ bestellenden\ Waren\ sind\ jetzt\ noch\ wie\ in\ einer\ Formel.\ Das\ k\u00F6nnten\ wir\ evtl\ auch\ noch\ bennen?\n\ Bspw\:\n\ zuBestellendeHolzeinheiten\ \=\ maxHolzeinheiten\ -\ vorhandeneHolzeinheiten\n\ etc.\ \n\ was\ meint\ ihr?\ \:)\n\ \n\ "benoetigteHolzeinheiten"\ etc.\ gibt\ es\ schon.\ Diese\ beschreiben\ die\ ben\u00F6togten\ f\u00FCr\ eine\ Bestellung.\ Falls\ gewollt\ k\u00F6nnen\ wir\ gerne\ noch\ eine\ extra\ Variable\ mehr\ machen\ f\u00FCr\ die\ im\ Lager\ fehlenden?\ (Auch\ von\ mir\:\ Was\ meint\ ihr?\ \:)\ )*\n\n\ Feedback\ Timo\:\ "k\u00F6nnen\ wir\ gerne\ machen,\ k\u00F6nnte\ einerseits\ \u00FCbersichtlicher\ werden\ und\ zur\ verz\u00F6gerten\ Auff\u00FCllung\ des\ Lagers\ in\ Aufgabe\ 3\ vermutlich\ notwendig."\n\n
+comment3.text=\r\n\ Feedback\ Cha\:\ die\ einzelnen\ zu\ bestellenden\ Waren\ sind\ jetzt\ noch\ wie\ in\ einer\ Formel.\ Das\ k\u00F6nnten\ wir\ evtl\ auch\ noch\ bennen?\r\n\ Bspw\:\r\n\ zuBestellendeHolzeinheiten\ \=\ maxHolzeinheiten\ -\ vorhandeneHolzeinheiten\r\n\ etc.\ \r\n\ was\ meint\ ihr?\ \:)\r\n\ \r\n\ "benoetigteHolzeinheiten"\ etc.\ gibt\ es\ schon.\ Diese\ beschreiben\ die\ ben\u00F6togten\ f\u00FCr\ eine\ Bestellung.\ Falls\ gewollt\ k\u00F6nnen\ wir\ gerne\ noch\ eine\ extra\ Variable\ mehr\ machen\ f\u00FCr\ die\ im\ Lager\ fehlenden?\ (Auch\ von\ mir\:\ Was\ meint\ ihr?\ \:)\ )*\r\n\r\n\ Feedback\ Timo\:\ "k\u00F6nnen\ wir\ gerne\ machen,\ k\u00F6nnte\ einerseits\ \u00FCbersichtlicher\ werden\ und\ zur\ verz\u00F6gerten\ Auff\u00FCllung\ des\ Lagers\ in\ Aufgabe\ 3\ vermutlich\ notwendig."\r\n\r\n
 comment4.params=
 comment4.target=void\ lagerBestandAusgeben()
-comment4.text=\n\ Druckt\ den\ aktuellen\ Lagerbestand\ (vorhandene\ Materialien\ im\ Lager)\ auf\ der\ Konsole\ aus.\n
+comment4.text=\r\n\ Druckt\ den\ aktuellen\ Lagerbestand\ (vorhandene\ Materialien\ im\ Lager)\ auf\ der\ Konsole\ aus.\r\n
 comment5.params=
 comment5.target=Lieferant\ gibLieferant()
-comment5.text=\n\ Getter-Methode,\ um\ den\ Lieferanten\ eines\ Lagers\ zu\ erhalten.\ \n\ @return\ den\ Lieferanten\ des\ Lagers.\n\ \n\ Anmerkung\:\ Diese\ Methode\ wird\ f\u00FCr\ die\ Testklasse\ "LagerTest"\ ben\u00F6tigt,um\ den\ Lieferanten\ anzusprechen\ und\ dessen\ Methodenergebnis\ zu\ testen.\n
+comment5.text=\r\n\ Getter-Methode,\ um\ den\ Lieferanten\ eines\ Lagers\ zu\ erhalten.\ \r\n\ @return\ den\ Lieferanten\ des\ Lagers.\r\n\ \r\n\ Anmerkung\:\ Diese\ Methode\ wird\ f\u00FCr\ die\ Testklasse\ "LagerTest"\ ben\u00F6tigt,um\ den\ Lieferanten\ anzusprechen\ und\ dessen\ Methodenergebnis\ zu\ testen.\r\n
 numComments=6
