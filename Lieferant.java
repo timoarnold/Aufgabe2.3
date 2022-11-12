@@ -35,6 +35,8 @@ public class Lieferant {
     * }
     * 
     * Flo: Guten Input. Frage: Wollen wir das automatisch auslösen? Weil: Grosse Bestellungen sind günstiger als viele kleine.
+     * Timo: Ich denke das macht Sinn, idealerweise wird 1x am Tag eine Grossbestellung ausgegeben, sofern das Lager sich leert?
+     *      dies könnten wir aber erst mir einer Zeitsimulation (Aufgabe 3) implementieren.
     */
     
     public boolean wareBestellen (int holzEinheiten, int schrauben, int farbEinheiten,int kartonEinheiten,int kissen) {

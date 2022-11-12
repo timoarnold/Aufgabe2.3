@@ -158,6 +158,7 @@ public class Lager {
         * System.out.println("Ware konnte nicht nachbestellt werden! ");
         * 
         * Flo: Habe die Methode um deine Print-Methode ergänzt. Diese wird nur angegeben, wenn nachbestellt wurde.
+         * Timo: Habe den Print sprachlich noch kurz ergänzt :)
         * }
         */
     }
@@ -189,9 +190,8 @@ public class Lager {
         System.out.println("Farbeinheiten:" +vorhandeneFarbeinheiten);
         System.out.println("Kartoneinheiten:" +vorhandeneKartoneinheiten);
         System.out.println("Kissen:" +vorhandeneKissen);
-        
     }
-        
+    
     /**
      * Getter-Methode, um den Lieferanten eines Lagers zu erhalten. 
      * @return den Lieferanten des Lagers.
