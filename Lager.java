@@ -38,6 +38,12 @@ public class Lager {
     private int vorhandeneFarbeinheiten;
     private int vorhandeneKartoneinheiten;
     private int vorhandeneKissen;
+    
+    private int benoetigteHolzeinheiten;
+    private int benoetigteSchrauben;
+    private int benoetigteFarbeinheiten;
+    private int benoetigteKartoneinheiten;
+    private int benoetigteKissen;
 
     private Lieferant lieferant;
 
@@ -68,11 +74,6 @@ public class Lager {
     
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
-        int benoetigteHolzeinheiten = 0;
-        int benoetigteSchrauben =  0;
-        int benoetigteFarbeinheiten =  0;
-        int benoetigteKartoneinheiten =  0;
-        int benoetigteKissen =  0;
         
         for(Produkt product : kundenBestellung.liefereBestellteProdukte()){
             if(product instanceof Stuhl){
@@ -89,32 +90,36 @@ public class Lager {
             }
         }
         
-        if(benoetigteHolzeinheiten > vorhandeneHolzeinheiten 
-        || benoetigteSchrauben > vorhandeneSchrauben 
-        || benoetigteFarbeinheiten > vorhandeneFarbeinheiten 
-        || benoetigteKartoneinheiten > vorhandeneKartoneinheiten 
-        || benoetigteKissen > vorhandeneKissen){
+        if(istBestandNiedrig()) {
             beschaffungszeit = 2;
-            lagerAuffuellen();
-            vorhandeneHolzeinheiten -= benoetigteHolzeinheiten;
-            vorhandeneSchrauben -= benoetigteSchrauben;
-            vorhandeneFarbeinheiten -= benoetigteFarbeinheiten;
-            vorhandeneKartoneinheiten -= benoetigteKartoneinheiten;
-            vorhandeneKissen -= benoetigteKissen;
         }
         
-        else{
-            vorhandeneHolzeinheiten -= benoetigteHolzeinheiten;
-            vorhandeneSchrauben -= benoetigteSchrauben;
-            vorhandeneFarbeinheiten -= benoetigteFarbeinheiten;
-            vorhandeneKartoneinheiten -= benoetigteKartoneinheiten;
-            vorhandeneKissen -= benoetigteKissen;
-        }
-        
-        return  beschaffungszeit;
+        return beschaffungszeit;
         
     }
-        
+    
+    /**
+     * Kontrolliert, ob der aktuelle Lagerbestand unter einem festgelegten Minimalbetrag liegt.
+     * Liegt der Bestand unter einem 4tel der max. Menge, dann wird der Lagerbestand als niedrig festgelegt (true).
+     * 
+     * @return true, falls Lagerbestand niedrig / false, sonst.
+     */
+    private boolean istBestandNiedrig(){
+        float unteresLimit = 4; //bei einem 4tel der max Menge wird der Bestand als niedrig angegeben
+        return maxHolzeinheiten / unteresLimit > vorhandeneHolzeinheiten 
+        || maxSchrauben / unteresLimit > vorhandeneSchrauben 
+        || maxFarbeinheiten / unteresLimit > vorhandeneFarbeinheiten 
+        || maxKartoneinheiten / unteresLimit > vorhandeneKartoneinheiten 
+        || maxKissen / unteresLimit > vorhandeneKissen; 
+    }
+    
+    public void zieheBenoetigteMaterialienVomLagerAb() {
+        vorhandeneHolzeinheiten -= benoetigteHolzeinheiten;
+        vorhandeneSchrauben -= benoetigteSchrauben;
+        vorhandeneFarbeinheiten -= benoetigteFarbeinheiten;
+        vorhandeneKartoneinheiten -= benoetigteKartoneinheiten;
+        vorhandeneKissen -= benoetigteKissen;
+    }
 
     /**
      * Füllt die im Lager vorhandenen Materialien auf ihre Maximalwerte aus, sobald die Lieferung des Lieferanten eingetroffen ist.
@@ -139,24 +144,7 @@ public class Lager {
 
         System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt. Akutell wird diese unverzüglich geliefert.");
     }
-    
-    /**
-     * Kontrolliert, ob der aktuelle Lagerbestand unter einem festgelegten Minimalbetrag liegt.
-     * Liegt der Bestand unter einem 4tel der max. Menge, dann wird der Lagerbestand als niedrig festgelegt (true).
-     * 
-     * @return true, falls Lagerbestand niedrig / false, sonst.
-     */
-    //Jeff: Auskommentiert, weil nicht benötigt
-    /*public boolean bestandNiedrig(){
-        float unteresLimit = 4; //bei einem 4tel der max Menge wird der Bestand als niedrig angegeben
-        if(maxHolzeinheiten/unteresLimit> vorhandeneHolzeinheiten || maxSchrauben/unteresLimit> vorhandeneSchrauben || maxFarbeinheiten/unteresLimit> vorhandeneFarbeinheiten || maxKartoneinheiten/unteresLimit> vorhandeneKartoneinheiten || maxKissen /unteresLimit> vorhandeneKissen){
-            return true;
-        }else
-        return false;
         
-    }*/
-    
-    
     /**
      * Druckt den aktuellen Lagerbestand (vorhandene Materialien im Lager) auf der Konsole aus.
      */

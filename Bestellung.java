@@ -27,15 +27,12 @@ public class Bestellung {
      * Hier direkt auf 1 initialisiert, damit Bestellung 1 = 1. Danach bei jeder neuen Bestellung plus 1 (Siehe "++" im Konstruktor).
      */
     
-    //Klassenvariablen:
-    private static int BestellnummerGenerator=1;
-    
     //Intanzvariablen:
     private ArrayList<Produkt> bestellteProdukte;
     private boolean bestellBestaetigung;
     private int beschaffungsZeit;
     private float lieferZeit; 
-    private int bestellNummer;
+    private int bestellungsNr;
     private int anzahlStuehle;
     private int anzahlSofas;
     
@@ -46,7 +43,7 @@ public class Bestellung {
      * @param anzahlStuehle: Anzahl bestellter Stühle einer Bestellung.
      */
     
-    public Bestellung(int anzahlSofas, int anzahlStuehle) {
+    public Bestellung(int bestellungsNr, int anzahlSofas, int anzahlStuehle) {
         bestellteProdukte = new ArrayList<Produkt>();
         
         for (int i = 0; i < anzahlStuehle; i++){
@@ -59,7 +56,7 @@ public class Bestellung {
         
         bestellBestaetigung = false;
         beschaffungsZeit = 2;
-        bestellNummer = BestellnummerGenerator++;
+        this.bestellungsNr = bestellungsNr;
         this.anzahlStuehle = anzahlStuehle;
         this.anzahlSofas = anzahlSofas;
     }
@@ -103,16 +100,7 @@ public class Bestellung {
      * @return Nummer einer Bestellung
      */
     public int gibBestellNummer() {
-        return bestellNummer;
-    }
-    
-    /**
-     * Setze den Bestellnummergenerator (Klassenvariable) auf 0 zurück.
-     * 
-     * Amnmerkung: Dies dient u. A. zum Unit-Testing.
-     */
-    public static void resetBestellnummerGenerator() {
-        BestellnummerGenerator = 1;
+        return bestellungsNr;
     }
     
     /**
@@ -147,10 +135,10 @@ public class Bestellung {
      * damit diese im Unit-Test auf Übereinstimmung getestet werden kann.
      */
     public String toString() {
-        return "Bestellnummer:" + bestellNummer
-        + "\nSofas bestellt:" + anzahlSofas
-        + "\nStühle bestellt:" + anzahlStuehle
-        + "\nIhre Lieferzeit beträgt:" + genaueZeit(lieferZeit);
+        return "Bestellnummer: " + bestellungsNr
+        + "\nSofas bestellt: " + anzahlSofas
+        + "\nStühle bestellt: " + anzahlStuehle
+        + "\nIhre Lieferzeit beträgt: " + gibGenaueZeit();
     }
     
     /**
@@ -174,9 +162,9 @@ public class Bestellung {
      * 
      * Anmerkung: Stunden werden jeweils aufgerundet, um dem Kunden keine zu kurze Lieferzeit zu versprechen.
      */
-    public String genaueZeit(float lieferZeit){
-        String genaueZeit = Math.floor(lieferZeit)+"Tage, ";
-        genaueZeit += Math.ceil(lieferZeit%1 *24) + "Stunden"; //wird immer aufgerundet
+    public String gibGenaueZeit(){
+        String genaueZeit = (int) Math.floor(lieferZeit)+" Tag(e), ";
+        genaueZeit += (int) Math.ceil(lieferZeit%1 *24) + " Stunde(n)"; //wird immer aufgerundet
         //minuten werden (noch) nicht berechnet
         return genaueZeit;
     }

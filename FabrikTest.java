@@ -20,7 +20,7 @@ public class FabrikTest
     @BeforeEach
     public void setUp()
     {
-       fabrik = new Fabrik(); 
+       fabrik = new Fabrik();
     }
 
     /**
@@ -49,6 +49,33 @@ public class FabrikTest
         assertEquals(2, fabrik.gibBestellungsNr());
     }
     
+    @Test
+    public void TestBestellungAufgebenWennWenigMaterial() {
+        //Arrange: Siehe BeforeEach
+        
+        //Act:
+        int anzahlSofas = 16;
+        int anzahlStuehle = 0;
+        fabrik.bestellungAufgeben(anzahlSofas, anzahlStuehle);
+        
+        //Assert: Check, ob Ausgabe der Bestellung == erwartete / korrekte Ausgabe
+        assertEquals(1, fabrik.gibBestellungsNr());
+        assertEquals(anzahlSofas, fabrik.gibBestellungen().get(0).gibAnzahlSofas());
+        assertEquals(anzahlStuehle, fabrik.gibBestellungen().get(0).gibAnzahlStuehle());
+        assertEquals("1 Tag(e), 17 Stunde(n)", fabrik.gibBestellungen().get(0).gibGenaueZeit());
+        
+        //Act:
+        anzahlSofas = 1;
+        anzahlStuehle = 0;
+        fabrik.bestellungAufgeben(anzahlSofas, anzahlStuehle);
+        
+        //Assert: Check, ob Ausgabe der Bestellung == erwartete / korrekte Ausgabe
+        assertEquals(2, fabrik.gibBestellungsNr());
+        assertEquals(anzahlSofas, fabrik.gibBestellungen().get(1).gibAnzahlSofas());
+        assertEquals(anzahlStuehle, fabrik.gibBestellungen().get(1).gibAnzahlStuehle());
+        assertEquals("3 Tag(e), 2 Stunde(n)", fabrik.gibBestellungen().get(1).gibGenaueZeit());
+    }
+    
     /**
      * Hier wird getestet, ob die erste (Index 0) und die zweite (Index 1) Bestellung der ArrayList bestellungen den Erwartungen entspricht.
      * 
@@ -58,15 +85,18 @@ public class FabrikTest
     @Test
     public void TestBestellungAusgeben(){
         //Arrange: Siehe BeforeEach
+        Fabrik fabrik = new Fabrik();
         
         //Act: Zwei Testbestellungen werden aufgegeben
         fabrik.bestellungAufgeben(2,3);
         fabrik.bestellungAufgeben(6,6);
         
         //Assert: Check, ob Ausgabe der Bestellung == erwartete / korrekte Ausgabe
-        assertEquals("Bestellnummer:"+1+"\nSofas bestellt:"+2+"\nStühle bestellt:"+3+"\nIhre Lieferzeit beträgt:1.0Tage, 4.0Stunden",fabrik.gibBestellungen().get(0).toString());
-        assertEquals("Bestellnummer:"+2+"\nSofas bestellt:"+6+"\nStühle bestellt:"+6+"\nIhre Lieferzeit beträgt:1.0Tage, 9.0Stunden",fabrik.gibBestellungen().get(1).toString());
+        assertEquals("Bestellnummer: "+1+"\nSofas bestellt: "+2+"\nStühle bestellt: "+3+"\nIhre Lieferzeit beträgt: 1 Tag(e), 4 Stunde(n)",fabrik.gibBestellungen().get(0).toString());
+        assertEquals("Bestellnummer: "+2+"\nSofas bestellt: "+6+"\nStühle bestellt: "+6+"\nIhre Lieferzeit beträgt: 1 Tag(e), 9 Stunde(n)",fabrik.gibBestellungen().get(1).toString());
     }
+    
+
     
     /**
      * Hier wird getestet, ob Bestellungen korrekt aufgegeben werden können.
@@ -86,7 +116,6 @@ public class FabrikTest
         assertEquals(4, fabrik.gibBestellungen().get(0).gibAnzahlSofas());
         assertEquals(7, fabrik.gibBestellungen().get(0).gibAnzahlStuehle());
         
-        Bestellung.resetBestellnummerGenerator();
     }
     
     /**
@@ -113,7 +142,6 @@ public class FabrikTest
         assertEquals(3, fabrik.gibBestellungen().get(1).gibAnzahlSofas());
         assertEquals(2, fabrik.gibBestellungen().get(1).gibAnzahlStuehle());
         
-        Bestellung.resetBestellnummerGenerator();
     }
     
     /**
@@ -135,7 +163,6 @@ public class FabrikTest
             assertEquals(true, bestellung.gibBestellBestaetigung());
         }
         
-        Bestellung.resetBestellnummerGenerator();
     }
     
 }

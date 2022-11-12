@@ -26,7 +26,6 @@ public class Fabrik {
     
     public Fabrik() {
         bestellungen = new ArrayList<Bestellung>();
-        bestellungsNr = 0;
         lager = new Lager();
     }
 
@@ -107,10 +106,20 @@ public class Fabrik {
            else {
                bestellungsNr++;
                
-               Bestellung bestellung = new Bestellung(sofa, stuhl);
+               Bestellung bestellung = new Bestellung(bestellungsNr, sofa, stuhl);
                
                int beschaffungsZeit = lager.gibBeschaffungszeit(bestellung);
+               
                bestellung.setzBeschaffungsZeit(beschaffungsZeit);
+               
+               if(beschaffungsZeit==2) {
+                   lager.lagerAuffuellen();
+                   lager.zieheBenoetigteMaterialienVomLagerAb();
+               }
+               else {
+                   lager.zieheBenoetigteMaterialienVomLagerAb();
+               }    
+        
                
                float prodZeit = 0;
                prodZeit += (float) bestellung.gibAnzahlStuehle() * Stuhl.getProduktionsZeit() / 60 / 24;
@@ -179,18 +188,13 @@ public class Fabrik {
      * Anmerkung: Dazu muss diese Methode mit der gewünschten Bestellungsnummer aufgerufen werden.
      */
     public void bestellungAusgeben(int spannendeBestellungNr) {
-        
-        
         System.out.println("Details der Bestellung mit der Nummer:" + spannendeBestellungNr);
         
-        for(Bestellung eineBestellung: bestellungen) {
-            
+        for(Bestellung eineBestellung: bestellungen) {     
             if(spannendeBestellungNr==eineBestellung.gibBestellNummer()){
             System.out.println(eineBestellung);
             }
-    
         }
-    
     }
 
 }
