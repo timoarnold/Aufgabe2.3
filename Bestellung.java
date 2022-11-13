@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 /**
  * @author Gruppe 29
- * @version 2.0 (13. November 2022)
+ * @version 2.3 (13. November 2022)
  * 
  * Die Klasse Bestellung verwaltet die Array-Liste, in der alle über die Fabrik bestellten
  * Produkte gespeichert werden. Dies können Sofas oder Stühle sein.
@@ -151,7 +151,7 @@ public class Bestellung {
     }
     
     /**
-     * Berechne die Lieferzeit einer Bestellung in Tagen, Stunden und Minuten. 
+     * Berechnet die Lieferzeit einer Bestellung in Tagen, Stunden und Minuten.
      * @return die berechnete Lieferzeit einer Bestellung in Tagen, Stunden und Minuten
      * 
      * Anmerkung: Stunden werden jeweils aufgerundet, um dem Kunden keine zu kurze Lieferzeit zu versprechen.

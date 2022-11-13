@@ -1,6 +1,6 @@
 /**
  * @author Gruppe 29
- * @version 2.0 (13. November 2022)
+ * @version 2.3 (13. November 2022)
  *
  * Die Klasse Lager beinhaltet die Informationen zu den maximal lagerbaren Materialeinheiten sowie den aktuellen
  * Beständen der Materialien.
@@ -77,7 +77,7 @@ public class Lager {
     /**
      * Berechnet, wieviele Materialen für die Kundenbestellung benötigt werden und gibt die Beschaffungszeit zurück je nach Bestand des Lagers.
      * @param kundenBestellung: Die Inhalte einer aufgegebenen Kundenbestellung. 
-     * @return die Beschaffungszeit, welche für die Kundenbestellung benötigt wird.
+     * @return Beschaffungszeit, welche für die Kundenbestellung benötigt wird.
      */
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;

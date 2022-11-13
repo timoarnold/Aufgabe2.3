@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  * @author Gruppe 29
- * @version 2.0 (13. November 2022)
+ * @version 2.3 (13. November 2022)
  * 
  * Die Test-Klasse FabrikTest verwaltet alle Unit-Tests der Software. 
  */
@@ -76,7 +76,7 @@ public class FabrikTest
     /**
      * Hier wird getestet, ob die erste (Index 0) und die zweite (Index 1) Bestellung der ArrayList bestellungen den Erwartungen entspricht.
      * 
-     * Merke: Testfabrik.gibBestellungen().get(0).toString() entspricht System.out.println(eineBestellung) aus Fabrik.bestellungAusgeben
+     * Anmerkung: Testfabrik.gibBestellungen().get(0).toString() entspricht System.out.println(eineBestellung) aus Fabrik.bestellungAusgeben
      */
     
     @Test
@@ -94,8 +94,7 @@ public class FabrikTest
     }
         
     /**
-     * Hier wird getestet, ob Bestellungen korrekt aufgegeben werden können.
-     * 
+     * Testet, ob Bestellungen korrekt aufgegeben werden können.
      */
     @Test
     public void TestBestellungAufgeben(){
@@ -111,9 +110,8 @@ public class FabrikTest
     }
     
     /**
-     * Hier wird getestet, ob mehrere Bestellungen korrekt aufgegeben und ausgegeben werden können.
+     * Testet, ob mehrere Bestellungen korrekt aufgegeben und ausgegeben werden können.
      * Dazu wird die zweite Bestellung auf die Korrektheit ihrer Werte (Stühle & Sofas) geprüft.
-     * 
      */
     @Test
     public void TestMehrereBestellungenAufgeben(){
@@ -134,8 +132,7 @@ public class FabrikTest
     }
     
     /**
-     * Hier wird getestet, ob eine Bestellung nach der Aufgabe bestätigt wird (true).
-     * 
+     * Testet, ob eine Bestellung nach der Aufgabe bestätigt wird (true).
      */
     @Test
     public void TestBestellBestätigung(){

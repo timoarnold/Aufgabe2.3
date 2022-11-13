@@ -1,17 +1,13 @@
 
 /**
  * @author Gruppe 29
- * @version 2.0 (13. November 2022)
+ * @version 2.3 (13. November 2022)
  *
  * Die Klasse Lieferant ermöglicht es Bestellungen an den Lieferanten aufzugeben.
  */
 
 public class Lieferant {
-    
-    /**
-     * Instanzvariabeln: bisher keine.
-     */
-    
+
     /**
     * Diese Methode nimmt die zu bestellenden Einheiten entgegen.
     * 
