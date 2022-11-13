@@ -1,5 +1,3 @@
-
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -48,6 +46,6 @@ public class LagerTest
         //Arrange: Siehe BeforeEach
         
         //Act: Testbestellung wird aufgegeben & Check, ob die Bestellung beim Lieferanten eintrifft (true).
-        assertEquals(true,testLager.gibLieferant().wareBestellen(1,1,1,1,1));
+        assertTrue(testLager.gibLieferant().wareBestellen(1,1,1,1,1));
     }
 }

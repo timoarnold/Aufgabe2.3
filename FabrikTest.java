@@ -49,31 +49,28 @@ public class FabrikTest
         assertEquals(2, fabrik.gibBestellungsNr());
     }
     
+    /**
+     * Testet, ob nach Überschreitung des festgelegten Minimalbetrags des Lagers, die Beschaffungszeit auf zwei Tage festgelegt und somit die Lieferzeit um zwei Tage erhöht wird.
+     */
     @Test
     public void TestBestellungAufgebenWennWenigMaterial() {
         //Arrange: Siehe BeforeEach
         
-        //Act:
+        //Act: Eine Testbestellung, welche 80 Kissen für die Produktion benötigt. Nach der Produktion sollten noch 20 Kissen im Lager vorhanden sein und überschreitet somit den Minimalbetrag des Lagers für Kissen (25).
         int anzahlSofas = 16;
         int anzahlStuehle = 0;
         fabrik.bestellungAufgeben(anzahlSofas, anzahlStuehle);
         
-        //Assert: Check, ob Ausgabe der Bestellung == erwartete / korrekte Ausgabe
-        assertEquals(1, fabrik.gibBestellungsNr());
-        assertEquals(anzahlSofas, fabrik.gibBestellungen().get(0).gibAnzahlSofas());
-        assertEquals(anzahlStuehle, fabrik.gibBestellungen().get(0).gibAnzahlStuehle());
-        assertEquals("1 Tag(e), 17 Stunde(n)", fabrik.gibBestellungen().get(0).gibGenaueZeit());
+        //Assert: Check, ob die korrekte Beschaffungszeit (0 Tage, da genug Materialien vorhanden sind) in die Lieferzeit berechnet wurde.
+        assertEquals("1 Tag(e) 16 Stunde(n) 0 Minute(n)", fabrik.gibBestellungen().get(0).gibFormatierteLieferzeit());
         
-        //Act:
+        //Act: Eine Testbestellung, welche nach der vorherigen Überschreiung des Minimalbetrags ebenfalls Kissen benötigt.
         anzahlSofas = 1;
         anzahlStuehle = 0;
         fabrik.bestellungAufgeben(anzahlSofas, anzahlStuehle);
         
-        //Assert: Check, ob Ausgabe der Bestellung == erwartete / korrekte Ausgabe
-        assertEquals(2, fabrik.gibBestellungsNr());
-        assertEquals(anzahlSofas, fabrik.gibBestellungen().get(1).gibAnzahlSofas());
-        assertEquals(anzahlStuehle, fabrik.gibBestellungen().get(1).gibAnzahlStuehle());
-        assertEquals("3 Tag(e), 2 Stunde(n)", fabrik.gibBestellungen().get(1).gibGenaueZeit());
+        //Assert: Check, ob die korrekte Beschaffungszeit (2 Tage, da bei vorheriger Bestellung der Minimalbetrag überschreitet worden ist und somit beim Lieferanten nachbestellt werden muss) in die Lieferzeit berechnet wurde.
+        assertEquals("3 Tag(e) 1 Stunde(n) 0 Minute(n)", fabrik.gibBestellungen().get(1).gibFormatierteLieferzeit());
     }
     
     /**
@@ -92,17 +89,13 @@ public class FabrikTest
         fabrik.bestellungAufgeben(6,6);
         
         //Assert: Check, ob Ausgabe der Bestellung == erwartete / korrekte Ausgabe
-        assertEquals("Bestellnummer: "+1+"\nSofas bestellt: "+2+"\nStühle bestellt: "+3+"\nIhre Lieferzeit beträgt: 1 Tag(e), 4 Stunde(n)",fabrik.gibBestellungen().get(0).toString());
-        assertEquals("Bestellnummer: "+2+"\nSofas bestellt: "+6+"\nStühle bestellt: "+6+"\nIhre Lieferzeit beträgt: 1 Tag(e), 9 Stunde(n)",fabrik.gibBestellungen().get(1).toString());
+        assertEquals("Bestellnummer: "+1+"\nSofas bestellt: "+2+"\nStühle bestellt: "+3+"\nIhre Lieferzeit beträgt: 1 Tag(e) 3 Stunde(n) 6 Minute(n)",fabrik.gibBestellungen().get(0).toString());
+        assertEquals("Bestellnummer: "+2+"\nSofas bestellt: "+6+"\nStühle bestellt: "+6+"\nIhre Lieferzeit beträgt: 1 Tag(e) 8 Stunde(n) 12 Minute(n)",fabrik.gibBestellungen().get(1).toString());
     }
-    
-
-    
+        
     /**
      * Hier wird getestet, ob Bestellungen korrekt aufgegeben werden können.
      * 
-     * Merke:BestellnummerGenerator wird nach diesem Test auf 1 zurückgesetzt, damit die Bestellnummern in weiteren Unit-Tests erneut 
-     * von Anfang an hochzählen können. 
      */
     @Test
     public void TestBestellungAufgeben(){
@@ -115,15 +108,12 @@ public class FabrikTest
         //Assert: Check, ob die richtige Anzahl Stühle und Sofas ausgegeben wird
         assertEquals(4, fabrik.gibBestellungen().get(0).gibAnzahlSofas());
         assertEquals(7, fabrik.gibBestellungen().get(0).gibAnzahlStuehle());
-        
     }
     
     /**
      * Hier wird getestet, ob mehrere Bestellungen korrekt aufgegeben und ausgegeben werden können.
      * Dazu wird die zweite Bestellung auf die Korrektheit ihrer Werte (Stühle & Sofas) geprüft.
      * 
-     * Merke:BestellnummerGenerator wird nach diesem Test auf 1 zurückgesetzt, damit die Bestellnummern in weiteren Unit-Tests erneut 
-     * von Anfang an hochzählen können. 
      */
     @Test
     public void TestMehrereBestellungenAufgeben(){
@@ -141,14 +131,11 @@ public class FabrikTest
         //Assert: Check, ob die richtige Anzahl Stühle und Sofas ausgegeben werden
         assertEquals(3, fabrik.gibBestellungen().get(1).gibAnzahlSofas());
         assertEquals(2, fabrik.gibBestellungen().get(1).gibAnzahlStuehle());
-        
     }
     
     /**
      * Hier wird getestet, ob eine Bestellung nach der Aufgabe bestätigt wird (true).
      * 
-     * Merke:BestellnummerGenerator wird nach diesem Test auf 1 zurückgesetzt, damit die Bestellnummern in weiteren Unit-Tests erneut 
-     * von Anfang an hochzählen können. 
      */
     @Test
     public void TestBestellBestätigung(){
@@ -159,11 +146,10 @@ public class FabrikTest
         fabrik.bestellungAufgeben(5,3);
         fabrik.bestellungAufgeben(2,1);
         
+        //Assert: Check, ob die Bestellungen bestätigt wurden
         for (Bestellung bestellung : fabrik.gibBestellungen()) {
             assertEquals(true, bestellung.gibBestellBestaetigung());
-        }
-        
-    }
-    
+        }    
+    }   
 }
 

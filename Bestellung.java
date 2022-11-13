@@ -19,12 +19,6 @@ public class Bestellung {
      * - anzahlStuehle: Anzahl Stühle, die in einer Bestellung nachgefragt wurden (int).
      * - anzahlSofas: Anzahl Sofas, die in einer Bestellung nachgefragt wurden (int).
      * 
-     * Klassenvariabeln: 
-     * 
-     * - BestellnummerGenerator: Generiert bei der ersten Bestellung die Nummer 1, danach wird bei jeder Bestellung +1 zu dieser Zahl addiert. 
-     * 
-     * Anmerkung: Dies ergibt die Bestellnummer-Variable für jede Bestellung (damit nicht nur die Bestellungsanzahl Total ausgegeben wird)
-     * Hier direkt auf 1 initialisiert, damit Bestellung 1 = 1. Danach bei jeder neuen Bestellung plus 1 (Siehe "++" im Konstruktor).
      */
     
     //Intanzvariablen:
@@ -47,15 +41,15 @@ public class Bestellung {
         bestellteProdukte = new ArrayList<Produkt>();
         
         for (int i = 0; i < anzahlStuehle; i++){
-        bestellteProdukte.add(new Stuhl());
+            bestellteProdukte.add(new Stuhl());
         }
         
         for (int i = 0; i < anzahlSofas; i++){
-        bestellteProdukte.add(new Sofa());
+            bestellteProdukte.add(new Sofa());
         }
         
         bestellBestaetigung = false;
-        beschaffungsZeit = 2;
+        beschaffungsZeit = 0;
         this.bestellungsNr = bestellungsNr;
         this.anzahlStuehle = anzahlStuehle;
         this.anzahlSofas = anzahlSofas;
@@ -104,7 +98,7 @@ public class Bestellung {
     }
     
     /**
-     * Gib die Liste der Bestellten Produkte wieder.
+     * Gib die Liste der bestellten Produkte wieder.
      * @return Liste der Produkte in der Bestellung
      */
     public ArrayList<Produkt> liefereBestellteProdukte() {
@@ -138,13 +132,13 @@ public class Bestellung {
         return "Bestellnummer: " + bestellungsNr
         + "\nSofas bestellt: " + anzahlSofas
         + "\nStühle bestellt: " + anzahlStuehle
-        + "\nIhre Lieferzeit beträgt: " + gibGenaueZeit();
+        + "\nIhre Lieferzeit beträgt: " + gibFormatierteLieferzeit();
     }
     
     /**
      * Setze die aktuelle Lieferzeit einer Bestellung.
      */
-    public void setzLieferZeit(float lieferZeit){
+    public void setzLieferZeit(float lieferZeit) {
         this.lieferZeit = lieferZeit;
     }
     
@@ -152,22 +146,20 @@ public class Bestellung {
      * Gib die Lieferzeit einer Bestellung.
      * @return Lieferzeit einer Bestellung
      */
-    public float gibLieferZeit(){
+    public float gibLieferZeit() {
         return lieferZeit;
     }
     
     /**
-     * Berechne die Lieferzeit einer Bestellung in Tagen und Stunden. 
-     * @return die berechnete Lieferzeit einer Bestellung in Tagen und Stunden
+     * Berechne die Lieferzeit einer Bestellung in Tagen, Stunden und Minuten. 
+     * @return die berechnete Lieferzeit einer Bestellung in Tagen, Stunden und Minuten
      * 
      * Anmerkung: Stunden werden jeweils aufgerundet, um dem Kunden keine zu kurze Lieferzeit zu versprechen.
      */
-    public String gibGenaueZeit(){
-        String genaueZeit = (int) Math.floor(lieferZeit)+" Tag(e), ";
-        genaueZeit += (int) Math.ceil(lieferZeit%1 *24) + " Stunde(n)"; //wird immer aufgerundet
-        //minuten werden (noch) nicht berechnet
-        return genaueZeit;
+    public String gibFormatierteLieferzeit() {
+        int tage = (int) lieferZeit;
+        int stunden = (int) (lieferZeit % 1 * 24);
+        int minuten = Math.round((lieferZeit % 1 * 24) % 1 * 60);
+        return tage + " Tag(e) " + stunden + " Stunde(n) " + minuten + " Minute(n)";
     }
-    
-
 }

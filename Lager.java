@@ -22,6 +22,12 @@ public class Lager {
      * - vorhandeneKartoneinheiten: Anzahl aktuell gelagerter Einheiten des Rohstoffs Karton (int).
      * - vorhandeneKissen: Anzahl aktuell gelagerter Einheiten Kissen (int).
      *
+     * - benoetigteHolzeinheiten; Anzahl Einheiten des Rohstoffs Holz (int), welche für die Produktion der Bestellung benötigt werden.
+     * - benoetigteSchrauben; Anzahl Einheiten Schrauben (int), welche für die Produktion der Bestellung benötigt werden.
+     * - benoetigteFarbeinheiten; Anzahl Einheiten Farben (int), welche für die Produktion der Bestellung benötigt werden.
+     * - benoetigteKartoneinheiten; Anzahl Einheiten Karton (int), welche für die Produktion der Bestellung benötigt werden.
+     * - benoetigteKissen; Anzahl Einheiten Kissen (int), welche für die Produktion der Bestellung benötigt werden.
+     * 
      * - lieferant: Beschreibt den Lieferanten, bei welchem die Fabrik Materialien bestellt (Lieferant).
     */
 
@@ -47,7 +53,6 @@ public class Lager {
 
     private Lieferant lieferant;
 
-
     /**
      * Konstruktor der Klasse Lager: initialisiert alle Instanzvariabeln der Klasse Lager. 
      * Bei Erzeugung eines Lagers wird auch ein zugehöriger Lieferant instanziert.
@@ -60,18 +65,20 @@ public class Lager {
         vorhandeneKartoneinheiten = maxKartoneinheiten;
         vorhandeneKissen = maxKissen;
         
+        benoetigteHolzeinheiten = 0;
+        benoetigteSchrauben = 0;
+        benoetigteFarbeinheiten = 0;
+        benoetigteKartoneinheiten = 0;
+        benoetigteKissen = 0;
+        
         lieferant = new Lieferant();
     }
 
     /**
-     * Kontrolliert, ob die benötigten Materialien für die Kundenbestellung im Lager vorhanden sind und berechnet die zugehörige Beschaffungszeit.
-     * Die Beschaffungszeit wird anschliessend ausgegeben.
+     * Berechnet, wieviele Materialen für die Kundenbestellung benötigt werden und gibt die Beschaffungszeit zurück je nach Bestand des Lagers.
      * @param kundenBestellung: Die Inhalte einer aufgegebenen Kundenbestellung. 
      * @return die Beschaffungszeit, welche für die Kundenbestellung benötigt wird.
-     * 
-     * Anmerkung: Falls zu wenig Material vorhanden ist, wird das Lager automatisch aufgefüllt. Jeff fügt hier noch was zu
      */
-    
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
         
@@ -94,8 +101,7 @@ public class Lager {
             beschaffungszeit = 2;
         }
         
-        return beschaffungszeit;
-        
+        return beschaffungszeit; 
     }
     
     /**
@@ -104,8 +110,8 @@ public class Lager {
      * 
      * @return true, falls Lagerbestand niedrig / false, sonst.
      */
-    private boolean istBestandNiedrig(){
-        float unteresLimit = 4; //bei einem 4tel der max Menge wird der Bestand als niedrig angegeben
+    private boolean istBestandNiedrig() {
+        float unteresLimit = 4;
         return maxHolzeinheiten / unteresLimit > vorhandeneHolzeinheiten 
         || maxSchrauben / unteresLimit > vorhandeneSchrauben 
         || maxFarbeinheiten / unteresLimit > vorhandeneFarbeinheiten 
@@ -113,6 +119,9 @@ public class Lager {
         || maxKissen / unteresLimit > vorhandeneKissen; 
     }
     
+    /**
+     * Zieht die benötigten Materialien für die Kundenbestellung von den vorhanden Materialiem im Lager ab.
+     */
     public void zieheBenoetigteMaterialienVomLagerAb() {
         vorhandeneHolzeinheiten -= benoetigteHolzeinheiten;
         vorhandeneSchrauben -= benoetigteSchrauben;
@@ -127,7 +136,6 @@ public class Lager {
      * Anmerkung: mit dieser Methode werden die Werte vorhandener Materialien in der Software wieder auf das Max. gesetzt.
      */
     public void lagerAuffuellen () {
-
         int zuBestellendeHolzeinheiten = maxHolzeinheiten - vorhandeneHolzeinheiten;
         int zuBestellendeSchrauben = maxSchrauben - vorhandeneSchrauben;
         int zuBestellendeFarbeinheiten = maxFarbeinheiten - vorhandeneFarbeinheiten;
@@ -164,10 +172,8 @@ public class Lager {
      * 
      * Anmerkung: Diese Methode wird für die Testklasse "LagerTest" benötigt,um den Lieferanten anzusprechen und dessen Methodenergebnis zu testen.
      */
-    public Lieferant gibLieferant(){ 
-        return this.lieferant;
+    public Lieferant gibLieferant() { 
+        return lieferant;
     }
-    
-    
-    
+      
 }

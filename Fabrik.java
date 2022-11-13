@@ -44,9 +44,8 @@ public class Fabrik {
      */
     
     public static void main(String[] args) {
-        
         System.out.println("Ausgabe aus der main()-Methode:");
-        Fabrik fabrik= new Fabrik();
+        Fabrik fabrik = new Fabrik();
         
         boolean weiterBestellen = true;
         boolean validerInput = true;
@@ -96,11 +95,12 @@ public class Fabrik {
      * 
      * Anmerkung: Durch bestellungAufgeben wird eine neue Instanz der Klasse Bestellung erstellt, die Bestellung bestätigt und in der Array "bestellungen" gespeichert. 
      * Zu jeder aufgegebenen Bestellung wird hier die jeweilige Lieferzeit ausgerechnet und gesetzt und die Bestellbestätigung auf true gesetzt.
-     * Bei erfolgreicher Bestellafgabe, wird auf der Konsole anschliessend eine Nachricht ausgespielt.
+     * Falls ein niedriger Lagerbestand erreicht wurde, wird beim Lieferanten nachbestellt, um das Lager komplett aufzufüllen.
+     * Bei erfolgreicher Bestellabgabe, wird auf der Konsole anschliessend eine Nachricht ausgespielt.
      * In der folgenden Methode wird zudem festgelegt, dass die Bestellung nur positive Werte enthalten darf (Keine Minusbestellungen, ansonsten Fehlermeldung).
      */
     public void bestellungAufgeben(int sofa, int stuhl) {
-          if (sofa<0 || stuhl<0 || sofa+stuhl==0){
+          if (sofa<0 || stuhl<0 || sofa+stuhl == 0){
                System.out.println("Bitte geben Sie einen positiven Bestellbetrag ein.");
            }
            else {
@@ -109,17 +109,12 @@ public class Fabrik {
                Bestellung bestellung = new Bestellung(bestellungsNr, sofa, stuhl);
                
                int beschaffungsZeit = lager.gibBeschaffungszeit(bestellung);
-               
                bestellung.setzBeschaffungsZeit(beschaffungsZeit);
                
                if(beschaffungsZeit==2) {
                    lager.lagerAuffuellen();
-                   lager.zieheBenoetigteMaterialienVomLagerAb();
-               }
-               else {
-                   lager.zieheBenoetigteMaterialienVomLagerAb();
-               }    
-        
+               }   
+               lager.zieheBenoetigteMaterialienVomLagerAb();
                
                float prodZeit = 0;
                prodZeit += (float) bestellung.gibAnzahlStuehle() * Stuhl.getProduktionsZeit() / 60 / 24;
@@ -132,7 +127,6 @@ public class Fabrik {
                bestellung.bestellungBestaetigen();
                bestellungen.add(bestellung);
                
-           
                System.out.println("Bestellung erfolgreich aufgegeben!");
            }
     }
@@ -171,13 +165,10 @@ public class Fabrik {
      * für alle aufgegebenen Bestellungen wieder.
     */
     public void bestellungenAusgeben() {
-
         System.out.println("Total Bestellungen bisher:"+bestellungsNr);
         
-        for(Bestellung eineBestellung: bestellungen) {
-            
+        for(Bestellung eineBestellung : bestellungen) {
             System.out.println(eineBestellung);
-            
         }
     }
     
@@ -190,11 +181,10 @@ public class Fabrik {
     public void bestellungAusgeben(int spannendeBestellungNr) {
         System.out.println("Details der Bestellung mit der Nummer:" + spannendeBestellungNr);
         
-        for(Bestellung eineBestellung: bestellungen) {     
-            if(spannendeBestellungNr==eineBestellung.gibBestellNummer()){
-            System.out.println(eineBestellung);
+        for(Bestellung eineBestellung : bestellungen) {     
+            if(spannendeBestellungNr == eineBestellung.gibBestellNummer()) {
+                System.out.println(eineBestellung);
             }
         }
     }
-
 }

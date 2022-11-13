@@ -13,7 +13,7 @@ public class Lieferant {
      */
     
     /**
-    * Diese Methode nimmt die zu bestellenden Einheiten entgegen und ruft diese sich selbst auch auf (run methode).
+    * Diese Methode nimmt die zu bestellenden Einheiten entgegen.
     * 
     * @param holzEinheiten: Holzeinheiten, welche im Lager gehalten & zur Produktion benötigt werden
     * @param schrauben: Schrauben, welche im Lager gehalten & zur Produktion benötigt werden
