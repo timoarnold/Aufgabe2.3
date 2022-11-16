@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=FabrikTest
+comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 2.0\ (13.\ November\ 2022)\r\n\ \r\n\ Die\ Test-Klasse\ FabrikTest\ verwaltet\ alle\ Unit-Tests\ der\ Software.\ \r\n
+comment1.params=
+comment1.target=void\ setUp()
+comment1.text=\r\n\ Vor\ jedem\ Unit-Test\ der\ Klasse\ Fabrik\ und\ deren\ Inhalten,\ wird\ eine\ neue\ Fabrikinstanz\ erstellt.\r\n
+comment2.params=
+comment2.target=void\ tearDown()
+comment2.text=\r\n\ Anweisungen,\ welche\ nach\ jedem\ Unit-Test\ ausgef\u00FChrt\ werden.\ \r\n\ In\ diesem\ Fall\:\ (Noch)\ keine.\r\n
+comment3.params=
+comment3.target=void\ TestBestellungsNummer()
+comment3.text=\r\n\ Testet,\ ob\ die\ richtige\ Bestellnummer\ ausgegeben\ wird,\ wenn\ Instanz\ Fabrik\ \r\n\ erzeugt\ und\ 2\ Testbestellungen\ aufgegeben\ werden.\r\n
+comment4.params=
+comment4.target=void\ TestBestellungAusgeben()
+comment4.text=\r\n\ Hier\ wird\ getestet,\ ob\ die\ erste\ (Index\ 0)\ und\ die\ zweite\ (Index\ 1)\ Bestellung\ der\ ArrayList\ bestellungen\ den\ Erwartungen\ entspricht.\r\n\ \r\n\ Merke\:\ Testfabrik.gibBestellungen().get(0).toString()\ entspricht\ System.out.println(eineBestellung)\ aus\ Fabrik.bestellungAusgeben\r\n
+comment5.params=
+comment5.target=void\ TestBestellungAufgeben()
+comment5.text=\r\n\ Hier\ wird\ getestet,\ ob\ Bestellungen\ korrekt\ aufgegeben\ werden\ k\u00F6nnen.\r\n\ \r\n\ Merke\:BestellnummerGenerator\ wird\ nach\ diesem\ Test\ auf\ 1\ zur\u00FCckgesetzt,\ damit\ die\ Bestellnummern\ in\ weiteren\ Unit-Tests\ erneut\ \r\n\ von\ Anfang\ an\ hochz\u00E4hlen\ k\u00F6nnen.\ \r\n
+comment6.params=
+comment6.target=void\ TestMehrereBestellungenAufgeben()
+comment6.text=\r\n\ Hier\ wird\ getestet,\ ob\ mehrere\ Bestellungen\ korrekt\ aufgegeben\ und\ ausgegeben\ werden\ k\u00F6nnen.\r\n\ Dazu\ wird\ die\ zweite\ Bestellung\ auf\ die\ Korrektheit\ ihrer\ Werte\ (St\u00FChle\ &\ Sofas)\ gepr\u00FCft.\r\n\ \r\n\ Merke\:BestellnummerGenerator\ wird\ nach\ diesem\ Test\ auf\ 1\ zur\u00FCckgesetzt,\ damit\ die\ Bestellnummern\ in\ weiteren\ Unit-Tests\ erneut\ \r\n\ von\ Anfang\ an\ hochz\u00E4hlen\ k\u00F6nnen.\ \r\n
+comment7.params=
+comment7.target=void\ TestBestellBest\u00E4tigung()
+comment7.text=\r\n\ Hier\ wird\ getestet,\ ob\ eine\ Bestellung\ nach\ der\ Aufgabe\ best\u00E4tigt\ wird\ (true).\r\n\ \r\n\ Merke\:BestellnummerGenerator\ wird\ nach\ diesem\ Test\ auf\ 1\ zur\u00FCckgesetzt,\ damit\ die\ Bestellnummern\ in\ weiteren\ Unit-Tests\ erneut\ \r\n\ von\ Anfang\ an\ hochz\u00E4hlen\ k\u00F6nnen.\ \r\n
+numComments=8

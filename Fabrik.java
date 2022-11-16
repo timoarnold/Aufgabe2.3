@@ -8,7 +8,7 @@ import java.io.*;
  * Sie nimmt Bestellungen entgegen und verwaltet diese.
  * 
  *
- * 
+ *
  */
 public class Fabrik {
     /** 
