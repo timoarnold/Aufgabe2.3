@@ -1,7 +1,7 @@
 
 /** 
  * @author Gruppe 29
- * @version 2.0 (13. November 2022)
+ * @version 2.3 (13. November 2022)
  * 
  * Die Klasse Produkt bildet die Superklasse der beiden Produkte Stuhl & Sofa.
  * Sie enthält globale Variabeln für diese beiden Produkte / Variabeln, welche bei Stuhl & Sofa identisch sind.

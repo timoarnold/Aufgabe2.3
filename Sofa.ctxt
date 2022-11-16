@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Sofa
-comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 2.0\ (13.\ November\ 2022)\r\n\ \r\n\ Die\ Klasse\ Sofa\ bildet\ eine\ Erweiterung\ /\ Subklasse\ der\ Klasse\ Produkt.\ \r\n\ Sie\ erbt\ somit\ die\ Funktionalit\u00E4ten\ sowie\ die\ globalen\ Variabeln\ der\ Klasse\ Produkt.\r\n\ Zudem\ enth\u00E4lt\ sie\ Variabeln,\ welche\ f\u00FCr\ den\ Produkttyp\ <Sofa>\ einzigartig\ sind.\r\n
+comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 2.3\ (13.\ November\ 2022)\r\n\ \r\n\ Die\ Klasse\ Sofa\ bildet\ eine\ Erweiterung\ /\ Subklasse\ der\ Klasse\ Produkt.\ \r\n\ Sie\ erbt\ somit\ die\ Funktionalit\u00E4ten\ sowie\ die\ globalen\ Variabeln\ der\ Klasse\ Produkt.\r\n\ Zudem\ enth\u00E4lt\ sie\ Variabeln,\ welche\ f\u00FCr\ den\ Produkttyp\ <Sofa>\ einzigartig\ sind.\r\n
 comment1.params=
 comment1.target=Sofa()
 comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Sofa.\r\n\ Mit\ super(1)\ wird\ "Zustand"\ aus\ der\ Superklasse\ Produkt\ initialisiert\r\n
