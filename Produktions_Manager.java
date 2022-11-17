@@ -19,4 +19,19 @@ public class Produktions_Manager {
     private Lager meinLager;
     private LinkedList <Bestellung> zuVerarbeitendeBestellungen;
     private LinkedList <Bestellung> bestellungenInProduktion;
+
+    /**
+     * Konstruktor
+     */
+    public Produktions_Manager(){
+
+    }
+
+    public void run(){
+
+    }
+
+    public void fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung){ //nicht sicher ob void stimmt
+
+    }
 }

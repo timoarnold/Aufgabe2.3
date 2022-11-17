@@ -175,5 +175,9 @@ public class Lager {
     public Lieferant gibLieferant() { 
         return lieferant;
     }
+
+    public void wareLiefern(){
+
+    }
       
 }

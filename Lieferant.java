@@ -23,4 +23,7 @@ public class Lieferant {
         return true;
     }
 
+    public void run(){
+
+    }
 }

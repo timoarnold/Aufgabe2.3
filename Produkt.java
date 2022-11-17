@@ -1,5 +1,6 @@
+import java.util.LinkedList;
 
-/** 
+/**
  * @author Gruppe 29
  * @version 2.3 (13. November 2022)
  * 
@@ -17,6 +18,8 @@ public class Produkt {
      */
     
     private int zustand;
+    private LinkedList<Roboter> produktionsAblauf;
+
 
     /**
      * Konstruktor für Objekte der Klasse Produkt: initialisiert alle Instanzvariabeln der Klasse Produkt.
@@ -47,5 +50,13 @@ public class Produkt {
     public int alktuellerZustand()
     {
         return zustand;
+    }
+
+    public void setzteProduktionsAblauf(){
+
+    }
+
+    public void naechsteProduktionsStation(){
+        
     }
 }

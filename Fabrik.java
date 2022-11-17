@@ -25,6 +25,7 @@ public class Fabrik {
     private ArrayList<Bestellung> bestellungen; 
     private int bestellungsNr;
     private Lager lager;
+    private Produktions_Manager produktionsManager;
 
     /**
      * Konstruktor für Objekte der Klasse Fabrik: Hier werden die Instanzvariabeln (siehe oben) initialisiert.

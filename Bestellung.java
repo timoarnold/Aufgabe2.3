@@ -29,6 +29,9 @@ public class Bestellung {
     private int bestellungsNr;
     private int anzahlStuehle;
     private int anzahlSofas;
+
+    private boolean alleProdukteProduziert;
+
     
     /**
      * Konstruktor der Klasse Bestellung: initialisiert alle Instanzvariabeln der Klasse Bestellung. 
@@ -161,5 +164,9 @@ public class Bestellung {
         int stunden = (int) (lieferZeit % 1 * 24);
         int minuten = Math.round((lieferZeit % 1 * 24) % 1 * 60);
         return tage + " Tag(e) " + stunden + " Stunde(n) " + minuten + " Minute(n)";
+    }
+
+    public void setzeAlleProdukteProduziert (){
+
     }
 }

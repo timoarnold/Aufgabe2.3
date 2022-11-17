@@ -1,2 +1,2 @@
-public class Montage_Roboter {
+public class Montage_Roboter extends Roboter{
 }

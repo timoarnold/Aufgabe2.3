@@ -1,2 +1,2 @@
-public class Holzbearbeitungs_Roboter {
+public class Holzbearbeitungs_Roboter extends Roboter {
 }

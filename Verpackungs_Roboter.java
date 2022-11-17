@@ -1,2 +1,2 @@
-public class Verpackungs_Roboter {
+public class Verpackungs_Roboter extends Roboter{
 }

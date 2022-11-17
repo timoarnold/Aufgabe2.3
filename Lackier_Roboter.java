@@ -1,2 +1,2 @@
-public class Lackier_Roboter {
+public class Lackier_Roboter extends Roboter{
 }
