@@ -22,4 +22,6 @@ comment6.text=\r\n\ Druckt\ den\ aktuellen\ Lagerbestand\ (vorhandene\ Materiali
 comment7.params=
 comment7.target=Lieferant\ gibLieferant()
 comment7.text=\r\n\ Getter-Methode,\ um\ den\ Lieferanten\ eines\ Lagers\ zu\ erhalten.\ \r\n\ @return\ den\ Lieferanten\ des\ Lagers.\r\n\ \r\n\ Anmerkung\:\ Diese\ Methode\ wird\ f\u00FCr\ die\ Testklasse\ "LagerTest"\ ben\u00F6tigt,um\ den\ Lieferanten\ anzusprechen\ und\ dessen\ Methodenergebnis\ zu\ testen.\r\n
-numComments=8
+comment8.params=
+comment8.target=void\ wareLiefern()
+numComments=9

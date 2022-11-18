@@ -1,3 +1,10 @@
 #BlueJ class context
 comment0.target=Produktions_Manager
-numComments=1
+comment1.params=
+comment1.target=Produktions_Manager()
+comment1.text=\r\n\ Konstruktor\r\n
+comment2.params=
+comment2.target=void\ run()
+comment3.params=bestellung
+comment3.target=void\ fuegeZuVerarbeitendeBestellungenHinzu(Bestellung)
+numComments=4
