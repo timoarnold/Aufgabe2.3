@@ -71,7 +71,8 @@ public class Lager {
         benoetigteKartoneinheiten = 0;
         benoetigteKissen = 0;
         
-        lieferant = new Lieferant();
+        // vorher lieferant = new Lieferant() nun lieferant = new Lieferant() --> gab es eine Fehlermeldung
+        lieferant = null;
     }
 
     /**
@@ -142,7 +143,8 @@ public class Lager {
         int zuBestellendeKartoneinheiten = maxKartoneinheiten - vorhandeneKartoneinheiten;
         int zuBestellendeKissen = maxKissen - vorhandeneKissen;
 
-        lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen);
+        // Cha: da im Lieferant weg, nun müssen wir den thread starten, um das Lager aufzufüllen.
+        // lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen);
 
         vorhandeneHolzeinheiten = maxHolzeinheiten;
         vorhandeneSchrauben = maxSchrauben;
@@ -150,7 +152,9 @@ public class Lager {
         vorhandeneKartoneinheiten = maxKartoneinheiten;
         vorhandeneKissen = maxKissen;
 
+        lieferant = new Lieferant(this);
         System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt. Akutell wird diese unverzüglich geliefert.");
+        lieferant.start();
     }
         
     /**
@@ -176,8 +180,19 @@ public class Lager {
         return lieferant;
     }
 
+    /**
+     * Die Methode wareLiefern ermöglicht es dem Lieferanten die Ware zu liefern.
+     * Dabei werden die vorhandenen Produkte wieder auf die maximale Anzahl Produkte gesetzt.
+     */
     public void wareLiefern(){
-
+        //Cha: neu gemäss Kastenvorlage
+        vorhandeneHolzeinheiten = maxHolzeinheiten;
+        vorhandeneSchrauben = maxSchrauben;
+        vorhandeneFarbeinheiten = maxFarbeinheiten;
+        vorhandeneKartoneinheiten = maxKartoneinheiten;
+        vorhandeneKissen = maxKissen;
+        System.out.println("Lager: Die Ware wurde geliefert. ");   
+        lagerBestandAusgeben();
     }
       
 }

@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class Produktions_Manager {
+public class Produktions_Manager extends Thread {
     /**Instanzvariablen
      * - holzRoboter
      * - montageRoboter

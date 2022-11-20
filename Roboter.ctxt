@@ -2,7 +2,7 @@
 comment0.target=Roboter
 comment1.params=
 comment1.target=Roboter()
-comment1.text=\r\n\ Konstruktor\r\n
+comment1.text=\n\ Konstruktor\n
 comment2.params=
 comment2.target=void\ run()
 comment3.params=produkt
