@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 /**
  * @author Gruppe 29
- * @version 2.3 (13. November 2022)
+ * @version 3.1 (4. Dezember 2022)
  * 
  * Die Klasse Produkt bildet die Superklasse der beiden Produkte Stuhl & Sofa.
  * Sie enthält globale Variabeln für diese beiden Produkte / Variabeln, welche bei Stuhl & Sofa identisch sind.

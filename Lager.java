@@ -1,6 +1,6 @@
 /**
  * @author Gruppe 29
- * @version 2.3 (13. November 2022)
+ * @version 3.1 (4. Dezember 2022)
  *
  * Die Klasse Lager beinhaltet die Informationen zu den maximal lagerbaren Materialeinheiten sowie den aktuellen
  * Beständen der Materialien.
@@ -70,9 +70,8 @@ public class Lager {
         benoetigteFarbeinheiten = 0;
         benoetigteKartoneinheiten = 0;
         benoetigteKissen = 0;
-        
-        // vorher lieferant = new Lieferant() nun lieferant = new Lieferant() --> gab es eine Fehlermeldung
-        lieferant = null;
+
+        lieferant = new Lieferant(this);
     }
 
     /**
@@ -121,7 +120,7 @@ public class Lager {
     }
     
     /**
-     * Zieht die benötigten Materialien für die Kundenbestellung von den vorhanden Materialiem im Lager ab.
+     * Zieht die benötigten Materialien für die Kundenbestellung von den vorhandenen Materialien im Lager ab.
      */
     public void zieheBenoetigteMaterialienVomLagerAb() {
         vorhandeneHolzeinheiten -= benoetigteHolzeinheiten;
@@ -152,7 +151,6 @@ public class Lager {
         vorhandeneKartoneinheiten = maxKartoneinheiten;
         vorhandeneKissen = maxKissen;
 
-        lieferant = new Lieferant(this);
         System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt. Akutell wird diese unverzüglich geliefert.");
         lieferant.start();
     }
@@ -181,11 +179,11 @@ public class Lager {
     }
 
     /**
-     * Die Methode wareLiefern ermöglicht es dem Lieferanten die Ware zu liefern.
+     * Ermöglicht es dem Lieferanten die Ware zu liefern.
      * Dabei werden die vorhandenen Produkte wieder auf die maximale Anzahl Produkte gesetzt.
      */
     public void wareLiefern(){
-        //Cha: neu gemäss Kastenvorlage
+        //Cha: neu gemäss Kastenvorlage. ANM Timo: müssen wir noch einmal überprüfen, da es logisch allenfalls weniger Sinn macht
         vorhandeneHolzeinheiten = maxHolzeinheiten;
         vorhandeneSchrauben = maxSchrauben;
         vorhandeneFarbeinheiten = maxFarbeinheiten;
