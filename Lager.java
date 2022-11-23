@@ -71,7 +71,7 @@ public class Lager {
         benoetigteKartoneinheiten = 0;
         benoetigteKissen = 0;
 
-        lieferant = new Lieferant(this);
+        lieferant = null;
     }
 
     /**
@@ -153,7 +153,7 @@ public class Lager {
 
 
         lieferant = new Lieferant(this);
-        System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt. ");
+        System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt.");
         lieferant.start();
     }
         
@@ -162,7 +162,6 @@ public class Lager {
      */
     public void lagerBestandAusgeben (){
         System.out.println("Folgende Materialien befinden sich aktuell im Lager:");
-        
         System.out.println("Holzeinheiten: " + vorhandeneHolzeinheiten);
         System.out.println("Schrauben: " + vorhandeneSchrauben);
         System.out.println("Farbeinheiten: " + vorhandeneFarbeinheiten);
@@ -192,7 +191,7 @@ public class Lager {
         vorhandeneFarbeinheiten = maxFarbeinheiten;
         vorhandeneKartoneinheiten = maxKartoneinheiten;
         vorhandeneKissen = maxKissen;
-        System.out.println("Lager: Die Ware wurde geliefert. ");   
+        System.out.println("Lager: Die Ware wurde geliefert.");
         lagerBestandAusgeben();
     }
       
