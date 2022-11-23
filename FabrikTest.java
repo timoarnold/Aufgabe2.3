@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 /**
  * @author Gruppe 29
- * @version 2.3 (13. November 2022)
+ * @version 3.1 (4. Dezember 2022)
  * 
- * Die Test-Klasse FabrikTest verwaltet alle Unit-Tests der Software. 
+ * Die Test-Klasse FabrikTest verwaltet alle Unit-Tests der Software.
  */
 public class FabrikTest
 {

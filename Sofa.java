@@ -1,7 +1,7 @@
 
 /**
  * @author Gruppe 29
- * @version 2.3 (13. November 2022)
+ * @version 3.1 (4. Dezember 2022)
  * 
  * Die Klasse Sofa bildet eine Erweiterung / Subklasse der Klasse Produkt. 
  * Sie erbt somit die Funktionalitäten sowie die globalen Variabeln der Klasse Produkt.

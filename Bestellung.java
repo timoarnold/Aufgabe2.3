@@ -3,6 +3,7 @@ import java.util.ArrayList;
  * @author Gruppe 29
  * @version 2.3 (13. November 2022)
  * 
+ * @version 3.1 (4. Dezember 2022)
  * Die Klasse Bestellung verwaltet die Array-Liste, in der alle über die Fabrik bestellten
  * Produkte gespeichert werden. Dies können Sofas oder Stühle sein.
  */
