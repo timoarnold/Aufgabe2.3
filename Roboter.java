@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * Sie wird als Thread implementiert.
  *
  */
-public class Roboter {
+public class Roboter extends Thread {
     /**
      * Instanzvariablen
      * - warteschlange
@@ -18,15 +18,22 @@ public class Roboter {
     private String name;
     private int produktionsZeit;
 
-    /**
-     * Konstruktor
-     */
-    public Roboter (){
+
+
+    public void run(){
 
     }
-   public void run(){
 
-   }
+    /**
+     * Die Methode starteProduktion löst die Produktion aus und teilt jedem Produkt der Bestelllung die Roboter in richtiger
+     * Reihenfolge zu.
+     * @param bestellung: Bestellungen, welche aufgegeben wurden
+     */
+    public void starteProduktion(Bestellung bestellung){
+        this.warteschlange = new LinkedList<>();
+
+    }
+
     public void fuegeProduktHinzu(Produkt produkt){
 
     }

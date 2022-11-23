@@ -44,15 +44,37 @@ public class Produktions_Manager extends Thread {
         this.meineFabrik = meineFabrik;
         this.meinLager = meinLager;
     
-        holzRoboter = new Holzbearbeitungs_Roboter("Holzroboter");
-        montageRoboter = new Montage_Roboter("Montageroboter");
-        lackierRoboter = new Lackier_Roboter("Lackierroboter");
-        verpackungsRoboter = new Verpackungs_Roboter("Verpackungsroboter");
+        holzRoboter = new Holzbearbeitungs_Roboter();
+        montageRoboter = new Montage_Roboter();
+        lackierRoboter = new Lackier_Roboter();
+        verpackungsRoboter = new Verpackungs_Roboter();
     
         holzRoboter.start();
         montageRoboter.start();
         lackierRoboter.start();
         verpackungsRoboter.start();
+    }
+
+    public static void sleep(int zeit) {
+        try {
+            Thread.sleep(zeit);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void syncedPrintln(String message) {
+        synchronized (System.out) {
+            System.out.println(message);
+        }
+    }
+
+    /**
+     * Hier werden Bestellungen der Liste zuVerarbeitendeBestellungen hinzugefügt
+     */
+    public void fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung){ //nicht sicher ob void stimmt
+        zuVerarbeitendeBestellungen.add(bestellung);
     }
 
     /**
@@ -86,16 +108,7 @@ public class Produktions_Manager extends Thread {
         }
     }
     }
-    
-    /**
-     * Hier werden Bestellungen der Liste zuVerarbeitendeBestellungen hinzugefügt 
-     */
-    public void fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung){ //nicht sicher ob void stimmt
-        zuVerarbeitendeBestellungen.add(bestellung);
-    }
-    
-    // müsste hier nicht auch noch die Liste bestellungenInProduktion angefügt werden? wie für die zuVerarbeitendeBestellungen? Um Bestellungen hinzuzufügen?
-    
+
     /**
      * In der Methode starteProduktion wird jedem Produkt der Bestellung
      * die entsprechenden Roboter zugewiesen und die Produktion dadurch gestartet.
