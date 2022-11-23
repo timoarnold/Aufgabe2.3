@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Produktions_Manager
+comment0.text=\n\ Beschrieb\ der\ Klasse\ noch\ final\ anschauen/hinzuf\u00FCgen\n\ In\ dieser\ Klasse\ ist\ der\ Produktionsmanager\ implementiert.\ \n\ Die\ Klasse\ ist\ als\ Thread\ implementiert,\ damit\ sie\ immer\ wieder\ neu\ eintreffende\ Bestellungen\ abarbeiten\ und\ den\ Robotern\ zum\ Produzieren\ geben\ kan.\n
 comment1.params=
 comment1.target=Produktions_Manager()
-comment1.text=\n\ Konstruktor\n
+comment1.text=\n\ Konstruktor\ f\u00FCr\ die\ Klasse\ Produktionsmanager\n\ Hier\ sind\ alle\ Roboter\ als\ Threads\ instanziert\ und\ werden\ gestartet.\n\ Zwei\ LinkedLists\ wurden\ implementiert,\ um\ die\ zu\ verarbeitende\ Bestellungen\ und\ die\ Bestellungen\ in\ Produkttion\ zu\ verwalten.\n
 comment2.params=
 comment2.target=void\ run()
 comment3.params=bestellung

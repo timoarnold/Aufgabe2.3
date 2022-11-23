@@ -1,5 +1,10 @@
 import java.util.LinkedList;
 
+/**
+ * Beschrieb der Klasse noch final anschauen/hinzufügen
+ * In dieser Klasse ist der Produktionsmanager implementiert. 
+ * Die Klasse ist als Thread implementiert, damit sie immer wieder neu eintreffende Bestellungen abarbeiten und den Robotern zum Produzieren geben kan.
+ */
 public class Produktions_Manager extends Thread {
     /**Instanzvariablen
      * - holzRoboter
@@ -21,7 +26,9 @@ public class Produktions_Manager extends Thread {
     private LinkedList <Bestellung> bestellungenInProduktion;
 
     /**
-     * Konstruktor
+     * Konstruktor für die Klasse Produktionsmanager
+     * Hier sind alle Roboter als Threads instanziert und werden gestartet.
+     * Zwei LinkedLists wurden implementiert, um die zu verarbeitende Bestellungen und die Bestellungen in Produkttion zu verwalten.
      */
     public Produktions_Manager(){
 

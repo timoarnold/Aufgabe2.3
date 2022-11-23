@@ -34,6 +34,7 @@ public class Lieferant extends Thread {
 
     public void run(){
         try{
+            // Methode oben beschreiben
             // Wartezeit = 2 Tage; Im Programm ist 1 Stunde = 1 Sekunde und somit 1 Tag = 24 sek
             // Somit muss der Lieferant (der Thread) 48 sek oder 48'000 msek warten (schlafen)
             Thread.sleep(48000);

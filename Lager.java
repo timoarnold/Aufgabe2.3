@@ -153,7 +153,7 @@ public class Lager {
         vorhandeneKissen = maxKissen;
 
         lieferant = new Lieferant(this);
-        System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt. Akutell wird diese unverzüglich geliefert.");
+        System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt. ");
         lieferant.start();
     }
         
@@ -185,7 +185,7 @@ public class Lager {
      * Dabei werden die vorhandenen Produkte wieder auf die maximale Anzahl Produkte gesetzt.
      */
     public void wareLiefern(){
-        //Cha: neu gemäss Kastenvorlage
+        //Cha: neu gemäss Diagramm
         vorhandeneHolzeinheiten = maxHolzeinheiten;
         vorhandeneSchrauben = maxSchrauben;
         vorhandeneFarbeinheiten = maxFarbeinheiten;
