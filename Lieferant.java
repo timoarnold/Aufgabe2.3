@@ -10,27 +10,14 @@
 public class Lieferant extends Thread {
     private Lager lager;
     
+    /**
+     * Konstruktor
+     */
     public Lieferant (Lager lager)
     {
         super();
         this.lager=lager;
     }
-
-    /**
-    * Diese Methode nimmt die zu bestellenden Einheiten entgegen.
-    * 
-    * @param holzEinheiten: Holzeinheiten, welche im Lager gehalten & zur Produktion benötigt werden
-    * @param schrauben: Schrauben, welche im Lager gehalten & zur Produktion benötigt werden
-    * @param farbEinheiten: Farbeinheiten, welche im Lager gehalten & zur Produktion benötigt werden
-    * @param kartonEinheiten: Kartoneinheiten, welche im Lager gehalten & zur Produktion benötigt werden
-    * @param kissen: Kissen, welche im Lager gehalten & zur Produktion benötigt werden
-    * @return: Setze auf true, falls eine Bestellung vom Lager eingegangen ist.
-    */  
-   
-   // neu Cha: gemäss Vorlage, kommt das weg  
-   //public boolean wareBestellen (int holzEinheiten, int schrauben, int farbEinheiten, int kartonEinheiten, int kissen) {
-        //return true;
-    //}
 
     public void run(){
         try{

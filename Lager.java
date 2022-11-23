@@ -151,12 +151,9 @@ public class Lager {
         vorhandeneKartoneinheiten = maxKartoneinheiten;
         vorhandeneKissen = maxKissen;
 
-<<<<<<< HEAD
+
         lieferant = new Lieferant(this);
         System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt. ");
-=======
-        System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt. Akutell wird diese unverzüglich geliefert.");
->>>>>>> 549a73e9b4b8e73222c8be7a6b63200712cda260
         lieferant.start();
     }
         
@@ -188,11 +185,8 @@ public class Lager {
      * Dabei werden die vorhandenen Produkte wieder auf die maximale Anzahl Produkte gesetzt.
      */
     public void wareLiefern(){
-<<<<<<< HEAD
         //Cha: neu gemäss Diagramm
-=======
         //Cha: neu gemäss Kastenvorlage. ANM Timo: müssen wir noch einmal überprüfen, da es logisch allenfalls weniger Sinn macht
->>>>>>> 549a73e9b4b8e73222c8be7a6b63200712cda260
         vorhandeneHolzeinheiten = maxHolzeinheiten;
         vorhandeneSchrauben = maxSchrauben;
         vorhandeneFarbeinheiten = maxFarbeinheiten;
