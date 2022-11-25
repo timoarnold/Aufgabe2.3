@@ -27,6 +27,11 @@ public class Sofa extends Produkt {
     private static int kartoneinheiten = 5;
     private static int produktionsZeit = 60;
 
+    public static final int HOLZARBEIT_ZEIT = 30;
+    public static final int LACKIER_ZEIT = 5;
+    public static final int MONTAGE_ZEIT = 15;
+    public static final int VERPACKUNG_ZEIT = 10;
+
     /**
      * Konstruktor für Objekte der Klasse Sofa.
      * Mit super(1) wird "Zustand" aus der Superklasse Produkt initialisiert

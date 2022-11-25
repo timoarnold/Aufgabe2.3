@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.io.*;
+import java.util.HashMap;
 /**
  * @author Gruppe 29
  * @version 3.1 (4. Dezember 2022)
@@ -19,6 +20,9 @@ public class Fabrik {
    
     private ArrayList<Bestellung> bestellungen; 
     private int bestellungsNr;
+
+    private HashMap <Integer , Produce> produces;
+    private static int produceId=0;
     private Lager lager;
     private Produktions_Manager produktionsManager;
 
@@ -29,6 +33,8 @@ public class Fabrik {
     public Fabrik() {
         bestellungen = new ArrayList<Bestellung>();
         lager = new Lager();
+        produktionsManager = new Produktions_Manager();
+        produktionsManager.start();
     }
 
     /**

@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
@@ -19,7 +20,7 @@ public class Produkt {
     
     private int zustand;
     private LinkedList<Roboter> produktionsAblauf;
-
+    private HashMap<Roboter, Integer> produktionsZeit;
 
     /**
      * Konstruktor für Objekte der Klasse Produkt: initialisiert alle Instanzvariabeln der Klasse Produkt.
@@ -37,6 +38,9 @@ public class Produkt {
      * Zustand 3 = versandbereit
      * Zustand 4 = versendet
      * @param neuerZustand: Definiert den neuen Zustand, in den ein Produkt eintritt.
+     *
+     * ANM Timo: Sind wir uns diesen Zuständen sicher? Denke man beginnt mit 0 zu zählen und sollten die Zuständen nicht den
+     * nicht die Produktionszustände? eg."Holzberarbeitet, aber noch nicht lakiert" wiedergeben?
      */
     public void zustandAendern(int neuerZustand)
     {
@@ -47,16 +51,22 @@ public class Produkt {
      * Gib den aktuellen Zustand eines Produkts wieder.
      * @return den aktuellen Produktzustand
      */
-    public int alktuellerZustand()
+    public int aktuellerZustand()
     {
         return zustand;
     }
 
-    public void setzteProduktionsAblauf(){
-
+    /**
+     * Setzt den Produktionsablauf des Produkts.
+     */
+    public void setzeProduktionsAblauf(LinkedList<Roboter> productionSequence){
+        this.produktionsAblauf = produktionsAblauf;
     }
 
+    public void setzeProduktionsZeit(HashMap<Roboter, Integer> produktionsZeit){
+        this.produktionsZeit = produktionsZeit;
+    }
     public void naechsteProduktionsStation(){
-        
+
     }
 }

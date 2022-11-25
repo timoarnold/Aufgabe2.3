@@ -24,6 +24,10 @@ public class Stuhl extends Produkt {
     private static int kartoneinheiten = 1;
     private static int produktionsZeit = 22;
 
+    public static final int HOLZARBEIT_ZEIT = 10;
+    public static final int MONTAGE_ZEIT = 5;
+    public static final int LACKIER_ZEIT = 2;
+    public static final int VERPACKUNG_ZEIT= 5;
     /**
      * Konstruktor für Objekte der Klasse Stuhl.
      * Mit super(1) wird "Zustand" aus der Superklasse Produkt initialisiert

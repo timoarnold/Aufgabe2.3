@@ -9,17 +9,13 @@
 
 public class Holzbearbeitungs_Roboter extends Roboter {
 
-
-    private Roboter roboter;
-
     /**
      * Holzbearbeitungs_Roboter erweitert die Klasse Roboter.
      */
 
-    public Holzbearbeitungs_Roboter (Roboter roboter)
+    public Holzbearbeitungs_Roboter ()
     {
         super();
-        this.roboter= roboter ;
     }
     public void run(){
         try{

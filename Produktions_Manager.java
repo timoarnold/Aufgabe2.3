@@ -1,3 +1,5 @@
+import java.awt.*;
+import java.util.HashMap;
 import java.util.LinkedList;
 /**
  * @author Gruppe 29
@@ -25,10 +27,14 @@ public class Produktions_Manager extends Thread {
     private Montage_Roboter montageRoboter;
     private Lackier_Roboter lackierRoboter;
     private Verpackungs_Roboter verpackungsRoboter;
-    
+
+    /**
+     * ANM Timo: Weshalb initialisieren wir hier eine Fabrik oder ein Lager?
+     * diese werden doch bereits in Klasse "Fabrick" initialisiert
     private Fabrik meineFabrik;
     private Lager meinLager;
-    
+    */
+
     private LinkedList <Bestellung> zuVerarbeitendeBestellungen;
     private LinkedList <Bestellung> bestellungenInProduktion;
 
@@ -37,13 +43,18 @@ public class Produktions_Manager extends Thread {
      * Hier sind alle Roboter als Threads instanziert und werden gestartet.
      * Zwei LinkedLists wurden implementiert, um die zu verarbeitende Bestellungen und die Bestellungen in Produktion zu verwalten.
      */
-    public Produktions_Manager(Fabrik meineFabrik, Lager meinLager){
+
+    /**
+     *Entsprechend würde ich dies aus dem Konstruktor entfernen:
+     *  public Produktions_Manager(Fabrik meineFabrik, Lager meinLager){
+     *       this.meineFabrik = meineFabrik;
+     *       this.meinLager = meinLager;
+     *       }
+     */
+    public Produktions_Manager(){
         zuVerarbeitendeBestellungen = new LinkedList<Bestellung>();
         bestellungenInProduktion = new LinkedList<Bestellung>();
-    
-        this.meineFabrik = meineFabrik;
-        this.meinLager = meinLager;
-    
+
         holzRoboter = new Holzbearbeitungs_Roboter();
         montageRoboter = new Montage_Roboter();
         lackierRoboter = new Lackier_Roboter();
@@ -73,13 +84,13 @@ public class Produktions_Manager extends Thread {
     /**
      * Hier werden Bestellungen der Liste zuVerarbeitendeBestellungen hinzugefügt
      */
-    public void fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung){ //nicht sicher ob void stimmt
-        zuVerarbeitendeBestellungen.add(bestellung);
+    public void fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung){
+        this.zuVerarbeitendeBestellungen.add(bestellung);
     }
 
     /**
      * Die run Methode des Threats prüft immer wieder, ob eine neue Bestellung eingetroffen ist.
-     * Bestellungen werden dann aus der Liste der zu verarbeitenden Bestellungen rausgenommen 
+     * Bestellungen werden dann aus der Liste der zu verarbeitenden Bestellungen herausgenommen
      * und in die Liste der zu produzierenden Bestellungen (bestellungenInProduktion) gespeichert.
      * Wenn im Lager genügend Material vorhanden ist, wird somit die Produktion gestartet.
      * 
@@ -88,9 +99,9 @@ public class Produktions_Manager extends Thread {
      * Gleichzeitig wird  in der Klasse Bestellung festgehalten, dass die Produkte produziert und bereit auszuliefern sind.
      * 
      * Schliesslich soll der Thread um die Zeit zeit schlafen
-     * @param zeit die der Thread schlafen soll
+     * @param zeit die der Thread schlafen soll.
      */
-    // Frage Cha: kann man das für die Zeit so integriert in der run Methode lassen? kann die Zeit schon definiert werden? zB 100?
+
     public void run(){
         while(true){
             // ist neue Bestellung eingetroffen, dann
@@ -98,24 +109,58 @@ public class Produktions_Manager extends Thread {
             // wenn alle Produkte produziert sind, dann
                 // if(alleProdukteProduziert){
                 // bestellungenInProduktion.remove(bestellung);
-                // bestellung.setzeAlleProdukteProuziert();
+                // bestellung.setzeAlleProdukteProduziert();
                 //}
             // dann lass den Thread eine kurze Weile schlafen
-        try{
-            Thread.sleep(zeit);
-        }catch (InterruptedException ie){
-            ie.printStackTrace();
-        }
+            // ANM Timo: Da wir die void sleep weiter oben mit catch definiert haben, kann diese hier direkt verwedet werden.
+            // ANM Timo: Die Frage stellt sich jedoch weshalb der Produktionsmanager sleepen soll...
+            Produktions_Manager.sleep(1000);
     }
     }
+
+    /**
+     * Die folgenden beiden Methoden schienen mir nicht korrekt bennant bzw. auch nicht in Miro vorhanden
+     * den Inhalt von "starte Produktion" habe ich von Übung 7 übernommen und übersetzt, denke aber, dieser sollte zu
+     * einer neuen Methode "setzeProduktionsAblauf" benannt werden.
+     */
 
     /**
      * In der Methode starteProduktion wird jedem Produkt der Bestellung
      * die entsprechenden Roboter zugewiesen und die Produktion dadurch gestartet.
      */
-   private void starteProduktion(Bestellung bestellung){
-        // Cha: hier muss jedem Produkt ein Roboter alloziert werden
-    }
+
+   private void starteProduktion(Bestellung bestellung) {
+       // Cha: hier muss jedem Produkt ein Roboter alloziert werden
+
+       LinkedList<Roboter> produktionsAblauf = new LinkedList<>();
+       HashMap<Roboter, Integer> produktionsZeit = new HashMap<>();
+
+       for (Produkt produkt: bestellung) {
+           if (produkt instanceof Stuhl) {
+               produktionsAblauf.add(holzRoboter);
+               produktionsZeit.put(holzRoboter, Stuhl.HOLZARBEIT_ZEIT);
+               produktionsAblauf.add(montageRoboter);
+               produktionsZeit.put(montageRoboter, Stuhl.MONTAGE_ZEIT);
+               produktionsAblauf.add(lackierRoboter);
+               produktionsZeit.put(lackierRoboter, Stuhl.LACKIER_ZEIT);
+               produktionsAblauf.add(verpackungsRoboter);
+               produktionsZeit.put(verpackungsRoboter, Stuhl.VERPACKUNG_ZEIT);
+           }
+           else if (produkt instanceof Sofa) {
+               produktionsAblauf.add(holzRoboter);
+               produktionsZeit.put(holzRoboter, Sofa.HOLZARBEIT_ZEIT);
+               produktionsAblauf.add(lackierRoboter);
+               produktionsZeit.put(lackierRoboter, Sofa.LACKIER_ZEIT);
+               produktionsAblauf.add(montageRoboter);
+               produktionsZeit.put(montageRoboter, Sofa.MONTAGE_ZEIT);
+               produktionsAblauf.add(verpackungsRoboter);
+               produktionsZeit.put(verpackungsRoboter, Sofa.VERPACKUNG_ZEIT);
+           }
+           produkt.setzeProduktionsAblauf(produktionsAblauf);
+           produkt.setzeProduktionsZeit(produktionsZeit);
+       }
+
+   }
     
     /**
      * In der Methode alloziereRoboter werden für jedes Produkt die entsprechenden Roboter in der richtigen Reihenfolge festgelegt.
