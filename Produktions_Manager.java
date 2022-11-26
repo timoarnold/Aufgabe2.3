@@ -35,7 +35,7 @@ public class Produktions_Manager extends Thread {
     private Lager meinLager;
     */
 
-    private LinkedList <Bestellung> zuVerarbeitendeBestellungen;
+    private LinkedList <Bestellung> zuVerarbeitendeBestellungen; //ANM Tim: stimmt hier "Bestellung" in der LinkedList? Ev. Produkt?
     private LinkedList <Bestellung> bestellungenInProduktion;
 
     /**

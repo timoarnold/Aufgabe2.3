@@ -1,17 +1,17 @@
 #BlueJ class context
 comment0.target=Roboter
-comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\n\ Die\ Klasse\ Produktions_Manager\ arbeitet\ neu\ eintreffende\ Bestellung\ ab\ und\ leitet\ diese\ den\ Robotern\ zur\ Produktion\ weiter.\n\ Sie\ wird\ als\ Thread\ implementiert.\n\n
+comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\r\n\r\n\ Die\ Klasse\ Produktions_Manager\ arbeitet\ neu\ eintreffende\ Bestellung\ ab\ und\ leitet\ diese\ den\ Robotern\ zur\ Produktion\ weiter.\r\n\ Sie\ wird\ als\ Thread\ implementiert.\r\n\r\n
 comment1.params=
 comment1.target=Roboter()
-comment1.text=\n\ Konstruktor\n
-comment2.params=
-comment2.target=void\ run()
-comment3.params=produkt
-comment3.target=void\ fuegeProduktHinzu(Produkt)
-comment4.params=zeit
-comment4.target=void\ setzteProduktionsZeit(int)
+comment2.params=zeit
+comment2.target=void\ sleep(int)
+comment3.params=
+comment3.target=void\ run()
+comment4.params=produkt
+comment4.target=void\ fuegeProduktHinzu(Produkt)
 comment5.params=
 comment5.target=java.lang.String\ gibNamen()
+comment5.text=\r\n\ setzteProduktionsZeit\ ist\ doppelt\ implementiert.\ Vgl.\ Kommentar\ in\ Produkt\r\n\ @return\r\n
 comment6.params=produkt
 comment6.target=void\ produziereProdukt(Produkt)
 numComments=7

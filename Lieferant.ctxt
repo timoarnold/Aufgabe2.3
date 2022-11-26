@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Lieferant
-comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\n\ Die\ Klasse\ Lieferant\ erm\u00F6glicht\ es\ Bestellungen\ an\ den\ Lieferanten\ aufzugeben.\n\ Bestellte\ Teile\ sollen\ erst\ in\ zwei\ Tagen\ an\ das\ Lager\ geliefert\ werden,\ wobei\ 1\ Stunde\ \=\ 1\ Sekunde\ ist.\n
+comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\r\n\r\n\ Die\ Klasse\ Lieferant\ erm\u00F6glicht\ es\ Bestellungen\ an\ den\ Lieferanten\ aufzugeben.\r\n\ Bestellte\ Teile\ sollen\ erst\ in\ zwei\ Tagen\ an\ das\ Lager\ geliefert\ werden,\ wobei\ 1\ Stunde\ \=\ 1\ Sekunde\ ist.\r\n
 comment1.params=lager
 comment1.target=Lieferant(Lager)
-comment1.text=\n\ Konstruktor\n
+comment1.text=\r\n\ Konstruktor\r\n
 comment2.params=
 comment2.target=void\ run()
 numComments=3
