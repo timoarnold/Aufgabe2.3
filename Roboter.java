@@ -18,36 +18,52 @@ public class Roboter extends Thread {
     private String name;
     private int produktionsZeit;
 
-
-
-    public void run(){
-
+    public Roboter(){
+        warteschlange = new LinkedList<>();
     }
 
-    /**
-     * Die Methode starteProduktion löst die Produktion aus und teilt jedem Produkt der Bestelllung die Roboter in richtiger
-     * Reihenfolge zu.
-     * @param bestellung: Bestellungen, welche aufgegeben wurden
-     */
-    public void starteProduktion(Bestellung bestellung){
-        this.warteschlange = new LinkedList<>();
+    public static void sleep(int zeit) {
+        try {
+            Thread.sleep(zeit);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @Override
+    public void run(){
+        while (true){
+            Produkt naechstesProdukt = warteschlange.poll();
+            if(naechstesProdukt != null){
+                produziereProdukt(naechstesProdukt);
+                naechstesProdukt.naechsteProduktionsStation();
+            }
+            Roboter.sleep(1000); //Wie lange soll er hier schlafen?
+        }
     }
 
     public void fuegeProduktHinzu(Produkt produkt){
-
+        this.warteschlange.add(produkt);
     }
 
-    public void setzteProduktionsZeit(int zeit){
+    /**
+     * setzteProduktionsZeit ist doppelt implementiert. Vgl. Kommentar in Produkt
+     * @return
+     */
+    //public void setzteProduktionsZeit(int zeit){
 
-    }
+    //}
 
     public String gibNamen(){
         return name;
     }
 
-    public void produziereProdukt (Produkt produkt){
-
+    private void produziereProdukt (Produkt produkt){
+        int ProduktionsZeit = produkt.holeProduktionsZeit(this);
+        System.out.println(this + "Produktion wird gestartet: " + produkt + "für" + produktionsZeit + "ms");
+        Roboter.sleep(produktionsZeit);
+        System.out.println(this + "Produktion abgeschlossen: " +produkt);
     }
 
 }

@@ -63,9 +63,18 @@ public class Produkt {
         this.produktionsAblauf = produktionsAblauf;
     }
 
+    /**
+     * ANM Tim: Gemäss Musterlösung sollte die Methode setze ProduktionsZeit in der Klasse Roboter sein. Andererseits wurde die Methode in der Übung wie hier im Produkt implementiert
+     * @param produktionsZeit
+     */
     public void setzeProduktionsZeit(HashMap<Roboter, Integer> produktionsZeit){
         this.produktionsZeit = produktionsZeit;
     }
+
+    public int holeProduktionsZeit(Roboter roboter) {
+        return produktionsZeit.get(roboter);
+    }
+
     public void naechsteProduktionsStation(){
 
     }
