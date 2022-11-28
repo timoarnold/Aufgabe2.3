@@ -1,5 +1,3 @@
-// test Cha November 28
-
 import java.awt.*;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -13,8 +11,8 @@ import java.util.LinkedList;
  */
 
 public class Produktions_Manager extends Thread {
-    /**Instanzvariablen:
-     *
+   /**
+     * Instanzvariablen:
      * - holzRoboter
      * - montageRoboter
      * - lackierRoboter
@@ -30,11 +28,15 @@ public class Produktions_Manager extends Thread {
     private Lackier_Roboter lackierRoboter;
     private Verpackungs_Roboter verpackungsRoboter;
 
+    private Fabrik meineFabrik;
+    private Lager meinLager;
+    
     /**
      * ANM Timo: Weshalb initialisieren wir hier eine Fabrik oder ein Lager?
      * diese werden doch bereits in Klasse "Fabrick" initialisiert
-    private Fabrik meineFabrik;
-    private Lager meinLager;
+     *
+     *ANM Cha: ist halt so vom Diagramm vorgegeben. 
+     * ich denke, das ist einfach eine Unbenennung, damit wir wissen, dass das die Fabrik und das Lager im Manager sind...
     */
 
     private LinkedList <Bestellung> zuVerarbeitendeBestellungen; //ANM Tim: stimmt hier "Bestellung" in der LinkedList? Ev. Produkt?
@@ -52,11 +54,16 @@ public class Produktions_Manager extends Thread {
      *       this.meineFabrik = meineFabrik;
      *       this.meinLager = meinLager;
      *       }
+     * ANM Cha: würde ich drinnlassen, weil es eben im Diagramm vorgegeben ist :)
+     * @Tim, was meinst du?
      */
     public Produktions_Manager(){
         zuVerarbeitendeBestellungen = new LinkedList<Bestellung>();
         bestellungenInProduktion = new LinkedList<Bestellung>();
-
+                
+        this.meineFabrik = meineFabrik;
+        this.meinLager = meinLager;
+        
         holzRoboter = new Holzbearbeitungs_Roboter();
         montageRoboter = new Montage_Roboter();
         lackierRoboter = new Lackier_Roboter();
@@ -67,7 +74,11 @@ public class Produktions_Manager extends Thread {
         lackierRoboter.start();
         verpackungsRoboter.start();
     }
-
+    
+    /**
+     * Die sleep Methode lässt den Thread um die Zeit zeit schlafen
+     * @param zeit, welche der Thread schlafen soll
+     */
     public static void sleep(int zeit) {
         try {
             Thread.sleep(zeit);
@@ -77,6 +88,10 @@ public class Produktions_Manager extends Thread {
         }
     }
 
+    /**
+     * Mit der Synchronisierungsmethode syncedPrintIn wir sichergestellt, 
+     * dass nur ein Thread zu einem bestimmten Zeitpunkt auf die Ressource zugreifen kann.
+     */
     public static void syncedPrintln(String message) {
         synchronized (System.out) {
             System.out.println(message);
@@ -105,18 +120,32 @@ public class Produktions_Manager extends Thread {
      */
 
     public void run(){
+        syncedPrintln("Produktionsmanager gestartet");
         while(true){
-            // ist neue Bestellung eingetroffen, dann
-            // hole die nächste Bestellung und starte die Produktion
-            // wenn alle Produkte produziert sind, dann
-                // if(alleProdukteProduziert){
-                // bestellungenInProduktion.remove(bestellung);
-                // bestellung.setzeAlleProdukteProduziert();
-                //}
-            // dann lass den Thread eine kurze Weile schlafen
-            // ANM Timo: Da wir die void sleep weiter oben mit catch definiert haben, kann diese hier direkt verwedet werden.
+            Bestellung naechsteBestellung = zuVerarbeitendeBestellungen.peek();
+            if(naechsteBestellung != null){
+                naechsteBestellung = zuVerarbeitendeBestellungen.poll();
+                bestellungenInProduktion.add(naechsteBestellung);
+                starteProduktion(naechsteBestellung);
+            }  
+            for (Bestellung bestellung : bestellungenInProduktion){
+                boolean alleProdukteProduziert = true;
+                for (Produkt produkt : bestellung.liefereBestellteProdukte()){
+                    if(produkt.aktuellerZustand()!=3){
+                        alleProdukteProduziert = false;
+                        break;
+                    }
+                }
+                if(alleProdukteProduziert){
+                    bestellungenInProduktion.remove(bestellung);
+                    bestellung.setzeAlleProdukteProduziert();
+                    syncedPrintln("Produktionsmanager beendet");
+                    }
+                }
+            }
             // ANM Timo: Die Frage stellt sich jedoch weshalb der Produktionsmanager sleepen soll...
-            Produktions_Manager.sleep(1000);
+            // ANM Cha: ist im Diagramm vorgegeben. Ich glaube sonst läuft der Thread non stop, was wir nicht wollen
+            sleep(1000);
     }
     }
 
@@ -124,6 +153,10 @@ public class Produktions_Manager extends Thread {
      * Die folgenden beiden Methoden schienen mir nicht korrekt bennant bzw. auch nicht in Miro vorhanden
      * den Inhalt von "starte Produktion" habe ich von Übung 7 übernommen und übersetzt, denke aber, dieser sollte zu
      * einer neuen Methode "setzeProduktionsAblauf" benannt werden.
+     * 
+     * ANM Cha: ich finde es gut, die zwei Methoden zu kombinieren - wir hatten ja gesagt, die Übung 7 dient als Beispiel, deshalb super :)
+     * in Miro steht im Text, dass es eine "starteProduktion" Methode braucht. Aber nicht explizit im Diagramm.
+     * Ich würde sie nicht setzteProduktionsAblauf bennen, weil wir ja in Produkt schon eine solch benannte Methode haben?
      */
 
     /**
@@ -132,7 +165,6 @@ public class Produktions_Manager extends Thread {
      */
 
    private void starteProduktion(Bestellung bestellung) {
-       // Cha: hier muss jedem Produkt ein Roboter alloziert werden
 
        LinkedList<Roboter> produktionsAblauf = new LinkedList<>();
        HashMap<Roboter, Integer> produktionsZeit = new HashMap<>();
