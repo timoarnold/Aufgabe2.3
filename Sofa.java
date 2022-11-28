@@ -19,10 +19,10 @@ public class Sofa extends Produkt {
      * - produktionsZeit: Produktionszeit in Minuten (int), die zur Produktion eines Sofas nötig ist.
      * - kissen: Anzahl Kissen, welche zur Herstellung eines Sofas benötigt werden (int).
      * 
-     * - HOLZARBEIT_ZEIT: Produktionszeit der Holzarbeit in Minuten (int), die zur Produktion eines Sofas nötig ist.
-     * - LACKIER_ZEIT: Produktionszeit für das Speziallackieren in Minuten (int), die zur Produktion eines Sofas nötig ist.
-     * - MONTAGE_ZEIT: Produktionszeit der Montage in Minuten (int), die zur Produktion eines Sofas nötig ist.
-     * - VERPACKUNG_ZEIT: Produktionszeit der Verpackung in Minuten (int), die zur Produktion eines Sofas nötig ist.
+     * - HOLZARBEIT_ZEIT: Zeit der Holzarbeit in Minuten (int), die zur Produktion eines Sofas nötig ist.
+     * - LACKIER_ZEIT: Zeit für das Speziallackieren in Minuten (int), die zur Produktion eines Sofas nötig ist.
+     * - MONTAGE_ZEIT: Zeit der Montage in Minuten (int), die zur Produktion eines Sofas nötig ist.
+     * - VERPACKUNG_ZEIT: Zeit der Verpackung in Minuten (int), die zur Produktion eines Sofas nötig ist.
      */ 
     
     private static int holzeinheiten = 4;

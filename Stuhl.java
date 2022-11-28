@@ -16,7 +16,12 @@ public class Stuhl extends Produkt {
      * - schrauben: Anzahl Schrauben, welche zur Herstellung eines Stuhls benötigt werden (int).
      * - farbeinheiten: Anzahl Farbeinheiten, welche zur Herstellung eines Stuhls benötigt werden (int).
      * - kartoneinheiten: Anzahl Kartoneinheiten, welche zur Herstellung eines Stuhls benötigt werden (int).
-     * - produktionsZeit: Produktionszeit in Stunden, die zur Produktion eines Stuhls nötig ist (int).
+     * - produktionsZeit: Produktionszeit in Minuten, die zur Produktion eines Stuhls nötig ist (int).
+     *
+     * - HOLZARBEIT_ZEIT: Zeit der Holzarbeit in Minuten (int), die zur Produktion eines Stuhls nötig ist.
+     * - MONTAGE_ZEIT: Zeit der Montage in Minuten (int), die zur Produktion eines Stuhls nötig ist.
+     * - LACKIER_ZEIT: Zeit für das Speziallackieren in Minuten (int), die zur Produktion eines Stuhls nötig ist.
+     * - VERPACKUNG_ZEIT: Zeit der Verpackung in Minuten (int), die zur Produktion eines Stuhls nötig ist.
      */ 
     private static int holzeinheiten = 2;
     private static int schrauben = 10;
