@@ -16,8 +16,13 @@ public class Sofa extends Produkt {
      * - schrauben: Anzahl Schrauben, welche zur Herstellung eines Sofas benötigt werden (int).
      * - farbeinheiten: Anzahl Farbeinheiten, welche zur Herstellung eines Sofas benötigt werden (int).
      * - kartoneinheiten: Anzahl Kartoneinheiten, welche zur Herstellung eines Sofas benötigt werden (int).
-     * - produktionsZeit: Produktionszeit in Stunden (int), die zur Produktion eines Sofas nötig ist.
+     * - produktionsZeit: Produktionszeit in Minuten (int), die zur Produktion eines Sofas nötig ist.
      * - kissen: Anzahl Kissen, welche zur Herstellung eines Sofas benötigt werden (int).
+     * 
+     * - HOLZARBEIT_ZEIT: Produktionszeit der Holzarbeit in Minuten (int), die zur Produktion eines Sofas nötig ist.
+     * - LACKIER_ZEIT: Produktionszeit für das Speziallackieren in Minuten (int), die zur Produktion eines Sofas nötig ist.
+     * - MONTAGE_ZEIT: Produktionszeit der Montage in Minuten (int), die zur Produktion eines Sofas nötig ist.
+     * - VERPACKUNG_ZEIT: Produktionszeit der Verpackung in Minuten (int), die zur Produktion eines Sofas nötig ist.
      */ 
     
     private static int holzeinheiten = 4;
