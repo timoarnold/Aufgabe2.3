@@ -1,4 +1,4 @@
 #BlueJ class context
 comment0.target=Montage_Roboter
-comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\r\n\r\n\ Die\ Klasse\ Montage_Roboter\ erweitert\ die\ Klasse\ Roboter\ und\ simuliert\ den\ Arbeitsschritt\ des\ Montierens.\r\n\r\n
+comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\n\ Die\ Klasse\ Montage_Roboter\ erweitert\ die\ Klasse\ Roboter\ und\ simuliert\ den\ Arbeitsschritt\ des\ Montierens.\n\n
 numComments=1

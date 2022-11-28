@@ -1,17 +1,21 @@
 #BlueJ class context
 comment0.target=Roboter
-comment0.text=\r\n\ @author\ Gruppe\ 29\r\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\r\n\r\n\ Die\ Klasse\ Produktions_Manager\ arbeitet\ neu\ eintreffende\ Bestellung\ ab\ und\ leitet\ diese\ den\ Robotern\ zur\ Produktion\ weiter.\r\n\ Sie\ wird\ als\ Thread\ implementiert.\r\n\r\n
+comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\n\ Die\ Klasse\ Produktions_Manager\ arbeitet\ neu\ eintreffende\ Bestellung\ ab\ und\ leitet\ diese\ den\ Robotern\ zur\ Produktion\ weiter.\n\ Sie\ wird\ als\ Thread\ implementiert.\n\n
 comment1.params=
 comment1.target=Roboter()
+comment1.text=\n\ Konstruktor\ der\ Klasse\ Roboter.\ Hier\ wird\ die\ LinkedList\ warteschlange\ instanziert.\n
 comment2.params=zeit
 comment2.target=void\ sleep(int)
 comment3.params=
 comment3.target=void\ run()
+comment3.text=\n\ Die\ run\ Methode\ wird\ als\ unendliche\ Schleife\ implementiert.\ Hier\ wird\ immerwieder\ \u00FCberpr\u00FCft,\ ob\ neue\ Produkte,\n\ welche\ produziert\ werden\ m\u00FCssen,\ eingetroffen\ sind.\ Sollte\ ein\ Produkt\ in\ der\ Warteschlange\ sein,\ so\ wird\ dieses\n\ im\ Roboter\ produziert.\n
 comment4.params=produkt
 comment4.target=void\ fuegeProduktHinzu(Produkt)
+comment4.text=\n\ In\ der\ Methode\ fuegeProduktHinzu\ wird\ ein\ zu\ produzierendes\ Produkt\ in\ die\ LinkedList\ Warteschlange\ hinzugef\u00FCgt.\n\ @param\ produkt\ Produkt,\ welches\ hinzugef\u00FCgt\ wird.\n
 comment5.params=
 comment5.target=java.lang.String\ gibNamen()
-comment5.text=\r\n\ setzteProduktionsZeit\ ist\ doppelt\ implementiert.\ Vgl.\ Kommentar\ in\ Produkt\r\n\ @return\r\n
+comment5.text=\n\ setzteProduktionsZeit\ ist\ doppelt\ implementiert.\ Vgl.\ Kommentar\ in\ Produkt\n\ @return\n
 comment6.params=produkt
 comment6.target=void\ produziereProdukt(Produkt)
+comment6.text=\n\ In\ der\ Methode\ produziereProdukt\ wird\ die\ Produktion\ simuliert.\ Nachdem\ die\ Produktion\ gestartet\ wurde,\ wird\n\ der\ Thread\ f\u00FCr\ eine\ Zeit\ (\=Produktionszeit)\ schlafen\ gelegt.\ Anschliessend\ kommt\ die\ Meldung,\ dass\ die\ Produktion\n\ abgeschlossen\ ist.\n\ @param\ produkt\ steht\ f\u00FCr\ das\ Produkt,\ welches\ produziert\ wird.\n
 numComments=7
