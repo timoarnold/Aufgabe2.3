@@ -184,8 +184,9 @@ public class Lager {
      * Dabei werden die vorhandenen Produkte wieder auf die maximale Anzahl Produkte gesetzt.
      */
     public void wareLiefern(){
-        //Cha: neu gemäss Diagramm
-        //Cha: neu gemäss Kastenvorlage. ANM Timo: müssen wir noch einmal überprüfen, da es logisch allenfalls weniger Sinn macht
+        //Cha: neu gemäss Kastenvorlage. 
+        // ANM Timo: müssen wir noch einmal überprüfen, da es logisch allenfalls weniger Sinn macht
+        // Warum Timo?? die Methode wird im Lieferanten aufgerufen und dann wird das Lager aufgefüllt
         vorhandeneHolzeinheiten = maxHolzeinheiten;
         vorhandeneSchrauben = maxSchrauben;
         vorhandeneFarbeinheiten = maxFarbeinheiten;
