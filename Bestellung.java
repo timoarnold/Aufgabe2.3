@@ -168,6 +168,6 @@ public class Bestellung {
     }
 
     public void setzeAlleProdukteProduziert (){
-
+        alleProdukteProduziert = true;
     }
 }

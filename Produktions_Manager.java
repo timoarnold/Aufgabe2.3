@@ -30,16 +30,8 @@ public class Produktions_Manager extends Thread {
 
     private Fabrik meineFabrik;
     private Lager meinLager;
-    
-    /**
-     * ANM Timo: Weshalb initialisieren wir hier eine Fabrik oder ein Lager?
-     * diese werden doch bereits in Klasse "Fabrick" initialisiert
-     *
-     *ANM Cha: ist halt so vom Diagramm vorgegeben. 
-     * ich denke, das ist einfach eine Unbenennung, damit wir wissen, dass das die Fabrik und das Lager im Manager sind...
-    */
 
-    private LinkedList <Bestellung> zuVerarbeitendeBestellungen; //ANM Tim: stimmt hier "Bestellung" in der LinkedList? Ev. Produkt?
+    private LinkedList <Bestellung> zuVerarbeitendeBestellungen;
     private LinkedList <Bestellung> bestellungenInProduktion;
 
     /**
@@ -47,16 +39,7 @@ public class Produktions_Manager extends Thread {
      * Hier sind alle Roboter als Threads instanziert und werden gestartet.
      * Zwei LinkedLists wurden implementiert, um die zu verarbeitende Bestellungen und die Bestellungen in Produktion zu verwalten.
      */
-
-    /**
-     *Entsprechend würde ich dies aus dem Konstruktor entfernen:
-     *  public Produktions_Manager(Fabrik meineFabrik, Lager meinLager){
-     *       this.meineFabrik = meineFabrik;
-     *       this.meinLager = meinLager;
-     *       }
-     * ANM Cha: würde ich drinnlassen, weil es eben im Diagramm vorgegeben ist :)
-     * @Tim, was meinst du?
-     */
+    
     public Produktions_Manager(){
         zuVerarbeitendeBestellungen = new LinkedList<Bestellung>();
         bestellungenInProduktion = new LinkedList<Bestellung>();
@@ -89,8 +72,8 @@ public class Produktions_Manager extends Thread {
     }
 
     /**
-     * ANM Cha: stimmt diese Erklärung überhaupt? (ist gemäss google haha)
-     * Mit der Synchronisierungsmethode syncedPrintIn wir sichergestellt, 
+     * ANM Cha: umschreiben
+     * Mit der Synchronisierungsmethode syncedPrintIn wird sichergestellt, 
      * dass nur ein Thread zu einem bestimmten Zeitpunkt auf die Ressource zugreifen kann.
      */
     public static void syncedPrintln(String message) {
