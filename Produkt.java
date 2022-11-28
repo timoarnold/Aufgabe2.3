@@ -21,8 +21,6 @@ public class Produkt {
     * Zustand 3 = versandbereit
     * Zustand 4 = ausgeliefert
     * 
-    * Notiz Cha: Würde die Zustände hier definieren und die untere Anmerkung noch löschen sobald gemacht (ist noch von aufgabe 2)
-    * Anmerkung: Bisher noch int-Wert, der manuell eingegeben werden kann für jeden Produkt-Zustand (bspw. "bestellt = 1")
     */
     
     private int zustand;
@@ -67,7 +65,7 @@ public class Produkt {
      * 
      * ANM Cha: wieso steht einmal productionSequence und einmal produktionsAblauf? Sollte es nicht immer "produktionsablauf" heissen, da es das gleiche sein sollte?
      */
-    public void setzeProduktionsAblauf(LinkedList<Roboter> productionSequence){
+    public void setzeProduktionsAblauf(LinkedList<Roboter> produktionsAblauf){
         this.produktionsAblauf = produktionsAblauf;
     }
 

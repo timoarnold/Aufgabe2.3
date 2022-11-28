@@ -147,6 +147,7 @@ public class Produktions_Manager extends Thread {
      * die entsprechenden Roboter zugewiesen und die Produktion dadurch gestartet.
      */
 
+
    private void starteProduktion(Bestellung bestellung) {
 
        LinkedList<Roboter> produktionsAblauf = new LinkedList<>();
