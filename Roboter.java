@@ -23,7 +23,7 @@ public class Roboter extends Thread {
      * 
      * ANM Cha: Müssen wir hier nicht den Roboter an sich isntanzieren?
      * Laut Definition soll ein neue Objekt dieser Klasse erstellt werden und das wäre der Roboter oder und nicht die Liste?
-     * @param name des Roboters ?
+     * @param name des Roboters ? Oder wo ist dieser nun (Instanzvariable von oben)
      * Und linked list produkt warteschlange als neue linkedlist oben instanzieren?
      * 
      */
@@ -61,11 +61,11 @@ public class Roboter extends Thread {
     @Override
     public void run(){
         while (true){
-            // ANM Cha: warum kommt dieser poll vor them if? wird nicht zuerst mit dem !_ null gecheggt, ob ein nächstes Produkt da ist 
+            // ANM Cha: warum kommt dieser poll vor them if? wird nicht zuerst mit dem !: null gecheggt, ob ein nächstes Produkt da ist 
             // und erst dann nimmt es das nächste raus mit der poll Funktion?
             Produkt naechstesProdukt = warteschlange.poll();
             if(naechstesProdukt != null){
-                // Vorschlag Cha fürs Terminal: synchronisiertesPrintln("Roboter " + this +": nimmt " + produkt + " aus der Warteschlange");
+                // Vorschlag Cha fürs Terminal: synchronisiertesPrintln("Roboter " + (hier muss Robotername rein = this?) +": nimmt " + produkt + " aus der Warteschlange");
                 produziereProdukt(naechstesProdukt);
                 naechstesProdukt.naechsteProduktionsStation();
             }
@@ -78,7 +78,7 @@ public class Roboter extends Thread {
      * @param produkt Produkt, welches hinzugefügt wird.
      */
     public void fuegeProduktHinzu(Produkt produkt){
-        // Vorschlag Cha fürs Terminal: synchronisiertesPrintln("Roboter " + this +": hat " + produkt + " zur Warteschlange hinzugefügt");
+        // Vorschlag Cha fürs Terminal: synchronisiertesPrintln("Roboter " + (hier muss Robotername rein = this?) +": hat " + produkt + " zur Warteschlange hinzugefügt");
         this.warteschlange.add(produkt);
     }
 
@@ -90,7 +90,14 @@ public class Roboter extends Thread {
 
     //}
 
- // Anm Tim: verstehe nicht genau, wofür die Methode gibNamen benötigt wird...
+    
+    
+     // Anm Tim: verstehe nicht genau, wofür die Methode gibNamen benötigt wird...
+     // ANM Cha: ich glaube hier soll der Name des Roboters zurückgegeben werden
+     /**
+      * Mit der Methode gibNamen wir der Name des Roboters zurückgegeben
+      * @return Namen des Roboters
+      */
     public String gibNamen(){
         return name;
     }
@@ -100,12 +107,14 @@ public class Roboter extends Thread {
      * der Thread für eine Zeit (=Produktionszeit) schlafen gelegt. Anschliessend kommt die Meldung, dass die Produktion
      * abgeschlossen ist.
      * @param produkt steht für das Produkt, welches produziert wird.
+     * 
+     * ANM Cha: finde die print Texte irgendwie nicht ganz so intuitiv...
      */
     private void produziereProdukt (Produkt produkt){
         int ProduktionsZeit = produkt.holeProduktionsZeit(this);
         System.out.println(this + "Produktion wird gestartet: " + produkt + "für" + produktionsZeit + "ms");
         Roboter.sleep(produktionsZeit);
-        System.out.println(this + "Produktion abgeschlossen: " +produkt);
+        System.out.println(this + "Produktion abgeschlossen: " + produkt);
     }
 
 }
