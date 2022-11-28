@@ -89,6 +89,7 @@ public class Produktions_Manager extends Thread {
     }
 
     /**
+     * ANM Cha: stimmt diese Erklärung überhaupt? (ist gemäss google haha)
      * Mit der Synchronisierungsmethode syncedPrintIn wir sichergestellt, 
      * dass nur ein Thread zu einem bestimmten Zeitpunkt auf die Ressource zugreifen kann.
      */

@@ -75,7 +75,7 @@ public class Produkt {
      * ANM Tim: Gemäss Musterlösung sollte die Methode setze ProduktionsZeit in der Klasse Roboter sein. Andererseits wurde die Methode in der Übung wie hier im Produkt implementiert
      * @param produktionsZeit
      * 
-     * ANM Cha: Agreed (dass nicht im Diagramm) und wir brauchen hier dann noch einen Beschrieb :)
+     * ANM Cha: Agreed (dass nicht im Diagramm vorhanden) und wir brauchen hier dann noch einen Beschrieb :)
      */
     public void setzeProduktionsZeit(HashMap<Roboter, Integer> produktionsZeit){
         this.produktionsZeit = produktionsZeit;
