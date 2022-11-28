@@ -123,9 +123,8 @@ public class Produktions_Manager extends Thread {
     public void run(){
         syncedPrintln("Produktionsmanager gestartet");
         while(true){
-            Bestellung naechsteBestellung = zuVerarbeitendeBestellungen.peek();
+            Bestellung naechsteBestellung = zuVerarbeitendeBestellungen.poll();
             if(naechsteBestellung != null){
-                naechsteBestellung = zuVerarbeitendeBestellungen.poll();
                 bestellungenInProduktion.add(naechsteBestellung);
                 starteProduktion(naechsteBestellung);
             }  

@@ -61,8 +61,6 @@ public class Roboter extends Thread {
     @Override
     public void run(){
         while (true){
-            // ANM Cha: warum kommt dieser poll vor them if? wird nicht zuerst mit dem !: null gecheggt, ob ein nächstes Produkt da ist 
-            // und erst dann nimmt es das nächste raus mit der poll Funktion?
             Produkt naechstesProdukt = warteschlange.poll();
             if(naechstesProdukt != null){
                 // Vorschlag Cha fürs Terminal: synchronisiertesPrintln("Roboter " + (hier muss Robotername rein = this?) +": nimmt " + produkt + " aus der Warteschlange");
@@ -83,17 +81,17 @@ public class Roboter extends Thread {
     }
 
     /**
-     * setzteProduktionsZeit ist doppelt implementiert. Vgl. Kommentar in Produkt
+     * setzeProduktionsZeit ist doppelt implementiert. Vgl. Kommentar in Produkt
      * @return
      */
-    //public void setzteProduktionsZeit(int zeit){
-
-    //}
+    // public void setzeProduktionsZeit(int zeit){
+    // produktionsZeit = zeit;
+    // }
 
     
     
      // Anm Tim: verstehe nicht genau, wofür die Methode gibNamen benötigt wird...
-     // ANM Cha: ich glaube hier soll der Name des Roboters zurückgegeben werden
+     // ANM Cha: ich glaube hier soll der Name des Roboters zurückgegeben werden können (also welcher gerade dran ist)
      /**
       * Mit der Methode gibNamen wir der Name des Roboters zurückgegeben
       * @return Namen des Roboters
@@ -108,8 +106,9 @@ public class Roboter extends Thread {
      * abgeschlossen ist.
      * @param produkt steht für das Produkt, welches produziert wird.
      * 
-     * ANM Cha: finde die print Texte irgendwie nicht ganz so intuitiv...
      */
+    // ANM Cha: finde die print Texte irgendwie nicht ganz so intuitiv...
+    // ausserdem, können wir irgendwo die Produktionszeit definieren? also einen default setzen?
     private void produziereProdukt (Produkt produkt){
         int ProduktionsZeit = produkt.holeProduktionsZeit(this);
         System.out.println(this + "Produktion wird gestartet: " + produkt + "für" + produktionsZeit + "ms");

@@ -20,5 +20,5 @@ comment6.target=java.lang.String\ gibNamen()
 comment6.text=\n\ Mit\ der\ Methode\ gibNamen\ wir\ der\ Name\ des\ Roboters\ zur\u00FCckgegeben\n\ @return\ Namen\ des\ Roboters\n
 comment7.params=produkt
 comment7.target=void\ produziereProdukt(Produkt)
-comment7.text=\n\ In\ der\ Methode\ produziereProdukt\ wird\ die\ Produktion\ simuliert.\ Nachdem\ die\ Produktion\ gestartet\ wurde,\ wird\n\ der\ Thread\ f\u00FCr\ eine\ Zeit\ (\=Produktionszeit)\ schlafen\ gelegt.\ Anschliessend\ kommt\ die\ Meldung,\ dass\ die\ Produktion\n\ abgeschlossen\ ist.\n\ @param\ produkt\ steht\ f\u00FCr\ das\ Produkt,\ welches\ produziert\ wird.\n\ \n\ ANM\ Cha\:\ finde\ die\ print\ Texte\ irgendwie\ nicht\ ganz\ so\ intuitiv...\n
+comment7.text=\n\ In\ der\ Methode\ produziereProdukt\ wird\ die\ Produktion\ simuliert.\ Nachdem\ die\ Produktion\ gestartet\ wurde,\ wird\n\ der\ Thread\ f\u00FCr\ eine\ Zeit\ (\=Produktionszeit)\ schlafen\ gelegt.\ Anschliessend\ kommt\ die\ Meldung,\ dass\ die\ Produktion\n\ abgeschlossen\ ist.\n\ @param\ produkt\ steht\ f\u00FCr\ das\ Produkt,\ welches\ produziert\ wird.\n\ \n
 numComments=8
