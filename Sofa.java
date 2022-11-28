@@ -34,10 +34,10 @@ public class Sofa extends Produkt {
 
     /**
      * Konstruktor für Objekte der Klasse Sofa.
-     * Mit super(1) wird "Zustand" aus der Superklasse Produkt initialisiert
+     * Mit super() wird "Zustand" aus der Superklasse Produkt initialisiert
      */
     public Sofa() {
-        super(1); 
+        super(); 
     }
 
     /**
