@@ -8,4 +8,11 @@
  */
 
 public class Montage_Roboter extends Roboter{
+     /**
+     * Konstruktor für die Objekte der Klasse Montage_Roboter
+     */
+    public Montage_Roboter()
+    {
+        super();
+    }
 }

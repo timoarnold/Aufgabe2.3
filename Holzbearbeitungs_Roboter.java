@@ -10,10 +10,10 @@
 public class Holzbearbeitungs_Roboter extends Roboter {
 
     /**
-     * Holzbearbeitungs_Roboter erweitert die Klasse Roboter.
+     * Konstruktor für die Objekte der Klasse Holzbearbeitungs_Roboter
      */
 
-    public Holzbearbeitungs_Roboter ()
+    public Holzbearbeitungs_Roboter()
     {
         super();
     }

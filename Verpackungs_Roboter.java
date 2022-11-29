@@ -8,4 +8,10 @@
  */
 
 public class Verpackungs_Roboter extends Roboter{
+    /**
+     * Konstruktor für die Objekte der Klasse Verpackungs_Roboter
+     */
+    public Verpackungs_Roboter(){
+        super();
+    }
 }

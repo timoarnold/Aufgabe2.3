@@ -8,4 +8,11 @@
  */
 
 public class Lackier_Roboter extends Roboter{
+    /**
+     * Konstruktor für die Objekte der Klasse Lackier_Roboter
+     */
+    public Lackier_Roboter()
+    {
+        super();
+    }
 }

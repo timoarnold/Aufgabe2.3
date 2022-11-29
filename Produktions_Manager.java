@@ -130,7 +130,7 @@ public class Produktions_Manager extends Thread {
             // ANM Cha: ist im Diagramm vorgegeben. Ich glaube sonst läuft der Thread non stop, was wir nicht wollen
             sleep(1000);
     }
-    }
+    
 
     /**
      * Die folgenden beiden Methoden schienen mir nicht korrekt bennant bzw. auch nicht in Miro vorhanden
@@ -146,14 +146,12 @@ public class Produktions_Manager extends Thread {
      * In der Methode starteProduktion wird jedem Produkt der Bestellung
      * die entsprechenden Roboter zugewiesen und die Produktion dadurch gestartet.
      */
-
-
    private void starteProduktion(Bestellung bestellung) {
 
        LinkedList<Roboter> produktionsAblauf = new LinkedList<>();
        HashMap<Roboter, Integer> produktionsZeit = new HashMap<>();
 
-       for (Produkt produkt: bestellung) {
+       for (Produkt produkt: warteschlange) {
            if (produkt instanceof Stuhl) {
                produktionsAblauf.add(holzRoboter);
                produktionsZeit.put(holzRoboter, Stuhl.HOLZARBEIT_ZEIT);
