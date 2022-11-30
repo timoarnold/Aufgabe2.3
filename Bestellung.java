@@ -59,6 +59,10 @@ public class Bestellung {
         this.anzahlSofas = anzahlSofas;
     }
 
+    public ArrayList<Produkt> getBestellteProdukte(){
+        return this.bestellteProdukte;
+    }
+
     /**
      * Bestätigt die Bestellung (true).
      * 

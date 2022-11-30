@@ -88,10 +88,10 @@ public class Produkt {
 
     public void naechsteProduktionsStation(){
         if(produktionsAblauf.peek() != null){
-            Roboter roboter = produktionsAblauf.poll();
-            System.out.println("Produkt: Nächste Produktionsstation " + roboter.gibNamen());
+            Roboter naechsterroboter = produktionsAblauf.poll();
+            System.out.println("Produkt: Nächste Produktionsstation " + naechsterroboter.gibNamen());
             zustandAendern(2);
-            roboter.fuegeProduktHinzu(this);
+            naechsterroboter.fuegeProduktHinzu(this);
         }
         else{
             System.out.println("Produkt: " + this +" bereit zur Auslieferung ");

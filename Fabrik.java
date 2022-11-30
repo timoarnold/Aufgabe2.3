@@ -21,8 +21,8 @@ public class Fabrik {
     private ArrayList<Bestellung> bestellungen; 
     private int bestellungsNr;
 
-    private HashMap <Integer , Produce> produces;
-    private static int produceId=0;
+   // private HashMap <Integer , Produce> produces;
+   // private static int produceId=0;
     private Lager lager;
     private Produktions_Manager produktionsManager;
 
@@ -134,6 +134,7 @@ public class Fabrik {
                
                bestellung.bestellungBestaetigen();
                bestellungen.add(bestellung);
+               produktionsManager.fuegeZuVerarbeitendeBestellungenHinzu(bestellung);
                
                System.out.println("Bestellung erfolgreich aufgegeben!");
            }

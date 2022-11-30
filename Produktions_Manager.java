@@ -40,7 +40,7 @@ public class Produktions_Manager extends Thread {
      * Zwei LinkedLists wurden implementiert, um die zu verarbeitende Bestellungen und die Bestellungen in Produktion zu verwalten.
      */
     
-    public Produktions_Manager(){
+    public Produktions_Manager(){ //mein --> param
         zuVerarbeitendeBestellungen = new LinkedList<Bestellung>();
         bestellungenInProduktion = new LinkedList<Bestellung>();
                 
@@ -105,32 +105,31 @@ public class Produktions_Manager extends Thread {
 
     public void run(){
         syncedPrintln("Produktionsmanager gestartet");
-        while(true){
+        while(true) {
             Bestellung naechsteBestellung = zuVerarbeitendeBestellungen.poll();
-            if(naechsteBestellung != null){
-                bestellungenInProduktion.add(naechsteBestellung);
+            if (naechsteBestellung != null) {
+                bestellungenInProduktion.add(naechsteBestellung); //zuVerarbeitendeBestellungen.remove()
                 starteProduktion(naechsteBestellung);
-            }  
-            for (Bestellung bestellung : bestellungenInProduktion){
+            }
+            for (Bestellung bestellung : bestellungenInProduktion) {
                 boolean alleProdukteProduziert = true;
-                for (Produkt produkt : bestellung.liefereBestellteProdukte()){
-                    if(produkt.aktuellerZustand()!=3){
+                for (Produkt produkt : bestellung.liefereBestellteProdukte()) {
+                    if (produkt.aktuellerZustand() != 3) {
                         alleProdukteProduziert = false;
                         break;
                     }
                 }
-                if(alleProdukteProduziert){
+                if (alleProdukteProduziert) {
                     bestellungenInProduktion.remove(bestellung);
                     bestellung.setzeAlleProdukteProduziert();
                     syncedPrintln("Produktionsmanager beendet");
-                    }
                 }
             }
+
             // ANM Timo: Die Frage stellt sich jedoch weshalb der Produktionsmanager sleepen soll...
             // ANM Cha: ist im Diagramm vorgegeben. Ich glaube sonst läuft der Thread non stop, was wir nicht wollen
             sleep(1000);
-    }
-    
+        }}
 
     /**
      * Die folgenden beiden Methoden schienen mir nicht korrekt bennant bzw. auch nicht in Miro vorhanden
@@ -148,10 +147,11 @@ public class Produktions_Manager extends Thread {
      */
    private void starteProduktion(Bestellung bestellung) {
 
-       LinkedList<Roboter> produktionsAblauf = new LinkedList<>();
-       HashMap<Roboter, Integer> produktionsZeit = new HashMap<>();
+       for (Produkt produkt: bestellung.getBestellteProdukte()) {
 
-       for (Produkt produkt: warteschlange) {
+           LinkedList<Roboter> produktionsAblauf = new LinkedList<>();
+           HashMap<Roboter, Integer> produktionsZeit = new HashMap<>();
+
            if (produkt instanceof Stuhl) {
                produktionsAblauf.add(holzRoboter);
                produktionsZeit.put(holzRoboter, Stuhl.HOLZARBEIT_ZEIT);
