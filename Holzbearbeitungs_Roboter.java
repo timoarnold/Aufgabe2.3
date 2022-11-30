@@ -16,6 +16,7 @@ public class Holzbearbeitungs_Roboter extends Roboter {
     public Holzbearbeitungs_Roboter()
     {
         super();
+        name = "Holzbearbeitungsroboter1";
     }
     public void run(){
         try{

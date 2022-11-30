@@ -15,7 +15,7 @@ public class Roboter extends Thread {
      * - produktionsZeit: Die Produktionszeit ist die Zeit, die der Roboter zum Produzieren braucht
      */
     private LinkedList <Produkt> warteschlange;
-    private String name;
+    public String name;
     private int produktionsZeit;
 
     /**
@@ -23,12 +23,12 @@ public class Roboter extends Thread {
      * 
      * ANM Cha: Müssen wir hier nicht den Roboter an sich isntanzieren?
      * Laut Definition soll ein neue Objekt dieser Klasse erstellt werden und das wäre der Roboter oder und nicht die Liste?
-     * @param name des Roboters ? Oder wo ist dieser nun (Instanzvariable von oben)
      * Und linked list produkt warteschlange als neue linkedlist oben instanzieren?
      * 
      */
     public Roboter(){
-        warteschlange = new LinkedList<Produkt>();
+        this.name = name;
+        this.warteschlange = new LinkedList<Produkt>();
     }
 
     // ANM Cha: habe hier nochmals synchronisiertesPrintln hinzugefügt, damit immer wieder der Status geprintet wird (wie im Produktionsmanager auch)

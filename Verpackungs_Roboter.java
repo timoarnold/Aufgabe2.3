@@ -13,5 +13,6 @@ public class Verpackungs_Roboter extends Roboter{
      */
     public Verpackungs_Roboter(){
         super();
+        name = "VerpackungsRoboter1";
     }
 }

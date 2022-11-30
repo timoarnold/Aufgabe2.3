@@ -14,5 +14,6 @@ public class Montage_Roboter extends Roboter{
     public Montage_Roboter()
     {
         super();
+        name = "MontageRoboter1";
     }
 }
