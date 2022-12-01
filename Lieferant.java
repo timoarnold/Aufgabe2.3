@@ -4,14 +4,16 @@
  * @version 3.1 (4. Dezember 2022)
  *
  * Die Klasse Lieferant ermöglicht es Bestellungen an den Lieferanten aufzugeben.
- * Bestellte Teile sollen erst in zwei Tagen an das Lager geliefert werden, wobei 1 Stunde = 1 Sekunde ist.
+ * Sie wird als Thread implementiert, damit bestellte Teile sollen nahc zwei Tagen an das Lager geliefert werden,
+ * wobei 1 Stunde = 1 Sekunde ist.
  */
 
 public class Lieferant extends Thread {
     private Lager lager;
     
     /**
-     * Konstruktor
+     * Konstruktor der Klasse Lieferant.
+     * Hier wird das Lager, woran der Lieferant liefert übergeben.
      */
     public Lieferant (Lager lager)
     {
@@ -19,6 +21,11 @@ public class Lieferant extends Thread {
         this.lager=lager;
     }
 
+    /**
+     * Die run Methode ist die Hauptmethode des Threads.
+     * Sie wird als unendliche Schleife implementiert. Hier wird immer wieder überprüft, ob neue Materialien vom Lager
+     * bestellt werden. Werden Produkte bestellt, beträgt die Lieferzeit 48 Sekunden (2 Tage im Programm).
+     */
     public void run(){
         try{
             // Methode oben beschreiben

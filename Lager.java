@@ -54,8 +54,8 @@ public class Lager {
     private Lieferant lieferant;
 
     /**
-     * Konstruktor der Klasse Lager: initialisiert alle Instanzvariabeln der Klasse Lager. 
-     * Bei Erzeugung eines Lagers wird auch ein zugehöriger Lieferant instanziert.
+     * Konstruktor der Klasse Lager: initialisiert alle Instanzvariablen der Klasse Lager.
+     * Bei Erzeugung eines Lagers wird auch ein zugehöriger Lieferant instanziiert.
      */
     public Lager()
     {   
@@ -76,7 +76,9 @@ public class Lager {
 
     /**
      * Berechnet, wieviele Materialen für die Kundenbestellung benötigt werden und gibt die Beschaffungszeit zurück je nach Bestand des Lagers.
-     * @param kundenBestellung: Die Inhalte einer aufgegebenen Kundenbestellung. 
+     *
+     * @param kundenBestellung: Die Inhalte einer aufgegebenen Kundenbestellung.
+     *
      * @return Beschaffungszeit, welche für die Kundenbestellung benötigt wird.
      */
     public int gibBeschaffungszeit (Bestellung kundenBestellung) {

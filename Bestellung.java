@@ -83,7 +83,7 @@ public class Bestellung {
     
     /**
      * Setze die jeweilige Beschaffungszeit in Abstimmung mit den Lieferanten.
-     * @param neueBeschaffungsZeit: Neu gesetzte Zahl für die Beschaffungszeit. 
+     * @param beschaffungsZeit: Neu gesetzte Zahl für die Beschaffungszeit.
      */
     public void setzBeschaffungsZeit(int beschaffungsZeit) {
         this.beschaffungsZeit = beschaffungsZeit; 
@@ -145,6 +145,8 @@ public class Bestellung {
     
     /**
      * Setze die aktuelle Lieferzeit einer Bestellung.
+     *
+     * @param lieferZeit: Neu gesetzte Zahl für die Lieferzeit.
      */
     public void setzLieferZeit(float lieferZeit) {
         this.lieferZeit = lieferZeit;
@@ -152,6 +154,7 @@ public class Bestellung {
     
     /**
      * Gib die Lieferzeit einer Bestellung.
+     *
      * @return Lieferzeit einer Bestellung
      */
     public float gibLieferZeit() {
@@ -160,6 +163,7 @@ public class Bestellung {
     
     /**
      * Berechnet die Lieferzeit einer Bestellung in Tagen, Stunden und Minuten.
+     *
      * @return die berechnete Lieferzeit einer Bestellung in Tagen, Stunden und Minuten
      * 
      * Anmerkung: Stunden werden jeweils aufgerundet, um dem Kunden keine zu kurze Lieferzeit zu versprechen.

@@ -7,12 +7,12 @@ import java.util.LinkedList;
  *
  * Die Klasse Produktions_Manager arbeitet neu eintreffende Bestellung ab und leitet diese den Robotern zur Produktion weiter.
  * Sie wird als Thread implementiert, damit sie immer wieder neu eintreffende Bestellungen abarbeiten und den Robotern zum Produzieren geben kann.
- *
  */
 
 public class Produktions_Manager extends Thread {
     /**
      * Instanzvariablen:
+     *
      * - holzRoboter
      * - montageRoboter
      * - lackierRoboter
@@ -35,9 +35,9 @@ public class Produktions_Manager extends Thread {
     private LinkedList<Bestellung> bestellungenInProduktion;
 
     /**
-     * Konstruktor für die Klasse Produktionsmanager
-     * Hier sind alle Roboter als Threads instanziert und werden gestartet.
-     * Zwei LinkedLists wurden implementiert, um die zu verarbeitende Bestellungen und die Bestellungen in Produktion zu verwalten.
+     * Konstruktor für die Klasse Produktionsmanager.
+     * Hier sind alle Roboter als Threads instanziiert und werden gestartet.
+     * Zwei LinkedLists werden instanziiert, um die zu verarbeitende Bestellungen und die Bestellungen in Produktion zu verwalten.
      */
 
     public Produktions_Manager() { //mein --> param
@@ -61,7 +61,7 @@ public class Produktions_Manager extends Thread {
     /**
      * Die sleep Methode lässt den Thread um die Zeit zeit schlafen
      *
-     * @param zeit, welche der Thread schlafen soll
+     * @param zeit: Anzahl Millisekunden, welche der Thread schläfen soll.
      */
     public static void sleep(int zeit) {
         try {
@@ -72,9 +72,10 @@ public class Produktions_Manager extends Thread {
     }
 
     /**
-     * ANM Cha: umschreiben
-     * Mit der Synchronisierungsmethode syncedPrintIn wird sichergestellt,
+     * Die Synchronisierungsmethode syncedPrintIn stellt sicher, dass nur ein Thread zeitgleich auf die Systemressource zugreift.
      * dass nur ein Thread zu einem bestimmten Zeitpunkt auf die Ressource zugreifen kann.
+     *
+     * @param message: String Nachricht, welche gedruckt werden soll.
      */
     public static void syncedPrintln(String message) {
         synchronized (System.out) {
@@ -83,7 +84,9 @@ public class Produktions_Manager extends Thread {
     }
 
     /**
-     * Hier werden Bestellungen der Liste zuVerarbeitendeBestellungen hinzugefügt
+     * Die fuegeZuVerarbeitendeBestellungenHinzu Methode fügt Bestellungen zu Liste zuVerarbeitendeBestellungen hinzu.
+     *
+     * @param bestellung: Bestellung, welche verarbeitet werden soll.
      */
     public void fuegeZuVerarbeitendeBestellungenHinzu(Bestellung bestellung) {
         this.zuVerarbeitendeBestellungen.add(bestellung);
@@ -100,8 +103,6 @@ public class Produktions_Manager extends Thread {
      * Gleichzeitig wird  in der Klasse Bestellung festgehalten, dass die Produkte produziert und bereit auszuliefern sind.
      * <p>
      * Schliesslich soll der Thread um die Zeit zeit schlafen
-     *
-     * @param zeit die der Thread schlafen soll.
      */
 
     public void run() {
@@ -146,6 +147,8 @@ public class Produktions_Manager extends Thread {
     /**
      * In der Methode starteProduktion wird jedem Produkt der Bestellung
      * die entsprechenden Roboter zugewiesen und die Produktion dadurch gestartet.
+     *
+     * @param bestellung: Bestellung, welche produziert wird.
      */
     private void starteProduktion(Bestellung bestellung) {
 

@@ -10,7 +10,8 @@
 public class Holzbearbeitungs_Roboter extends Roboter {
 
     /**
-     * Konstruktor für die Objekte der Klasse Holzbearbeitungs_Roboter
+     * Konstruktor für die Objekte der Klasse Holzbearbeitungs_Roboter.
+     * Hier definiert sich der Name des Roboters.
      */
 
     public Holzbearbeitungs_Roboter()

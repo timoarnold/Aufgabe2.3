@@ -28,11 +28,9 @@ public class Produkt {
     private HashMap<Roboter, Integer> produktionsZeit;
 
     /**
-     * Konstruktor für Objekte der Klasse Produkt: initialisiert alle Instanzvariabeln der Klasse Produkt.
-     * @param zustand: Aktueller Zustand eines Produkts = 1 = bestellt.
+     * Konstruktor für Objekte der Klasse Produkt: initialisiert alle Instanzvariablen der Klasse Produkt.
      */
-    public Produkt()
-    {
+    public Produkt(){
         zustand = 1;
         produktionsAblauf = new LinkedList<Roboter>();
     }
@@ -40,11 +38,6 @@ public class Produkt {
     /**
      * Produktzustand ändern
      * @param neuerZustand: Definiert den neuen Zustand, in den ein Produkt eintritt.
-     *
-     * ANM Timo: Sind wir uns diesen Zuständen sicher? Denke man beginnt mit 0 zu zählen und sollten die Zuständen nicht den
-     * nicht die Produktionszustände? eg."Holzberarbeitet, aber noch nicht lakiert" wiedergeben?
-     * 
-     * ANM Cha: Guter Punkt, ich denke schon (laut Jonathan) und auch weil wahrscheinlich 0 "nicht bestellt" wäre?
      */
     public void zustandAendern(int neuerZustand)
     {
@@ -62,8 +55,7 @@ public class Produkt {
 
     /**
      * Setzt den Produktionsablauf des Produkts.
-     * 
-     * ANM Cha: wieso steht einmal productionSequence und einmal produktionsAblauf? Sollte es nicht immer "produktionsablauf" heissen, da es das gleiche sein sollte?
+     *
      */
     public void setzeProduktionsAblauf(LinkedList<Roboter> produktionsAblauf){
         this.produktionsAblauf = produktionsAblauf;

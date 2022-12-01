@@ -5,11 +5,11 @@ import java.util.LinkedList;
  *
  * Die Klasse Produktions_Manager arbeitet neu eintreffende Bestellung ab und leitet diese den Robotern zur Produktion weiter.
  * Sie wird als Thread implementiert.
- *
  */
 public class Roboter extends Thread {
     /**
-     * Instanzvariablen
+     * Instanzvariablen:
+     *
      * - warteschlange: In der Warteschlange werden alle Produkte gespeichert, die produziert werden sollen
      * - name: Name des Roboters
      * - produktionsZeit: Die Produktionszeit ist die Zeit, die der Roboter zum Produzieren braucht
@@ -19,24 +19,24 @@ public class Roboter extends Thread {
     private int produktionsZeit;
 
     /**
-     * Konstruktor der Klasse Roboter. Hier wird die LinkedList warteschlange instanziert.
-     * 
-     * ANM Cha: Müssen wir hier nicht den Roboter an sich isntanzieren?
-     * Laut Definition soll ein neue Objekt dieser Klasse erstellt werden und das wäre der Roboter oder und nicht die Liste?
-     * Und linked list produkt warteschlange als neue linkedlist oben instanzieren?
-     * 
+     * Konstruktor der Klasse Roboter.
+     * Hier wird die LinkedList warteschlange instanziiert.
      */
     public Roboter(){
         this.name = name;
         this.warteschlange = new LinkedList<Produkt>();
     }
 
-    // ANM Cha: habe hier nochmals synchronisiertesPrintln hinzugefügt, damit immer wieder der Status geprintet wird (wie im Produktionsmanager auch)
-    // Beschrieb noch analog zu PM hinzufügen
-    private void synchronisiertesPrintln(String output){
-        synchronized (System.out){
-            System.out.println(output);
-        }        
+    /**
+     * Die Synchronisierungsmethode syncedPrintIn stellt sicher, dass nur ein Thread zeitgleich auf die Systemressource zugreift.
+     * dass nur ein Thread zu einem bestimmten Zeitpunkt auf die Ressource zugreifen kann.
+     *
+     * @param message: String Nachricht, welche gedruckt werden soll.
+     */
+    public static void syncedPrintln(String message) {
+        synchronized (System.out) {
+            System.out.println(message);
+        }
     }
  
     /**
@@ -73,6 +73,7 @@ public class Roboter extends Thread {
 
     /**
      * In der Methode fuegeProduktHinzu wird ein zu produzierendes Produkt in die LinkedList Warteschlange hinzugefügt.
+     *
      * @param produkt Produkt, welches hinzugefügt wird.
      */
     public void fuegeProduktHinzu(Produkt produkt){
@@ -81,7 +82,8 @@ public class Roboter extends Thread {
     }
 
     /**
-     * setzeProduktionsZeit ist doppelt implementiert. Vgl. Kommentar in Produkt
+     * setzeProduktionsZeit ist doppelt implementiert. Vgl. Kommentar in Produkt.
+     *
      * @return
      */
     // public void setzeProduktionsZeit(int zeit){
@@ -93,7 +95,8 @@ public class Roboter extends Thread {
      // Anm Tim: verstehe nicht genau, wofür die Methode gibNamen benötigt wird...
      // ANM Cha: ich glaube hier soll der Name des Roboters zurückgegeben werden können (also welcher gerade dran ist)
      /**
-      * Mit der Methode gibNamen wir der Name des Roboters zurückgegeben
+      * Mit der Methode gibNamen wir der Name des Roboters zurückgegeben.
+      *
       * @return Namen des Roboters
       */
     public String gibNamen(){
@@ -104,6 +107,7 @@ public class Roboter extends Thread {
      * In der Methode produziereProdukt wird die Produktion simuliert. Nachdem die Produktion gestartet wurde, wird
      * der Thread für eine Zeit (=Produktionszeit) schlafen gelegt. Anschliessend kommt die Meldung, dass die Produktion
      * abgeschlossen ist.
+     *
      * @param produkt steht für das Produkt, welches produziert wird.
      * 
      */

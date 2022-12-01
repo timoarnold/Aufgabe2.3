@@ -4,15 +4,15 @@
  * @version 3.1 (4. Dezember 2022)
  * 
  * Die Klasse Stuhl bildet eine Erweiterung / Subklasse der Klasse Produkt. 
- * Sie erbt somit die Funktionalitäten sowie die globalen Variabeln der Klasse Produkt.
- * Zudem enthält sie Variabeln, welche für den Produkttyp <Stuhl> einzigartig sind.
+ * Sie erbt somit die Funktionalitäten sowie die globalen Variablen der Klasse Produkt.
+ * Zudem enthält sie Variablen, welche für den Produkttyp <Stuhl> einzigartig sind.
  */
 
 public class Stuhl extends Produkt {
     /**
      * Instanzvariabeln: Materialien, die zur Herstellung eines Stuhl benötigt werden
      *
-     * - holzeinheiten: Anzahl Holzeiheiten, welche zur Herstellung eines Stuhls benötigt werden (int).
+     * - holzeinheiten: Anzahl Holzeinheiten, welche zur Herstellung eines Stuhls benötigt werden (int).
      * - schrauben: Anzahl Schrauben, welche zur Herstellung eines Stuhls benötigt werden (int).
      * - farbeinheiten: Anzahl Farbeinheiten, welche zur Herstellung eines Stuhls benötigt werden (int).
      * - kartoneinheiten: Anzahl Kartoneinheiten, welche zur Herstellung eines Stuhls benötigt werden (int).

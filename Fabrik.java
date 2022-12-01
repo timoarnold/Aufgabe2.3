@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class Fabrik {
     /** 
-     * Instanzvariabeln:
+     * Instanzvariablen:
      * 
      * - bestellungen: Array-Liste, in der alle eingegangenen Bestellungen als Typ <Bestellung> abgespeichert werden.
      * - bestellungsNr: Nummer, welche jeder Bestellung aufsteigend zugeordnet wird, beginnend bei 1 (int).
