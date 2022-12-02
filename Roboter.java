@@ -20,7 +20,7 @@ public class Roboter extends Thread {
 
     /**
      * Konstruktor der Klasse Roboter.
-     * Hier wird die LinkedList warteschlange instanziiert.
+     * Hier wird die LinkedList warteschlange sowie der Name der Roboter instanziiert.
      */
     public Roboter(){
         this.name = name;
@@ -29,8 +29,6 @@ public class Roboter extends Thread {
 
     /**
      * Die Synchronisierungsmethode syncedPrintIn stellt sicher, dass nur ein Thread zeitgleich auf die Systemressource zugreift.
-     * dass nur ein Thread zu einem bestimmten Zeitpunkt auf die Ressource zugreifen kann.
-     *
      * @param message: String Nachricht, welche gedruckt werden soll.
      */
     public static void syncedPrintln(String message) {
@@ -41,6 +39,7 @@ public class Roboter extends Thread {
  
     /**
      * Die sleep Methode lässt den Thread um die Zeit zeit schlafen
+     *
      * @param zeit, welche der Thread schlafen soll
      */
     public static void sleep(int zeit) {
@@ -63,11 +62,11 @@ public class Roboter extends Thread {
         while (true){
             Produkt naechstesProdukt = warteschlange.poll();
             if(naechstesProdukt != null){
-                // Vorschlag Cha fürs Terminal: synchronisiertesPrintln("Roboter " + (hier muss Robotername rein = this?) +": nimmt " + produkt + " aus der Warteschlange");
+                syncedPrintln(this.name +": nimmt " + naechstesProdukt + " aus der Warteschlange"); //Kommentar von Cha integriert - unsicher bei name
                 produziereProdukt(naechstesProdukt);
                 naechstesProdukt.naechsteProduktionsStation();
             }
-            Roboter.sleep(1000); //Wie lange soll er hier schlafen?
+            Roboter.sleep(1000);
         }
     }
 
@@ -81,19 +80,6 @@ public class Roboter extends Thread {
         this.warteschlange.add(produkt);
     }
 
-    /**
-     * setzeProduktionsZeit ist doppelt implementiert. Vgl. Kommentar in Produkt.
-     *
-     * @return
-     */
-    // public void setzeProduktionsZeit(int zeit){
-    // produktionsZeit = zeit;
-    // }
-
-    
-    
-     // Anm Tim: verstehe nicht genau, wofür die Methode gibNamen benötigt wird...
-     // ANM Cha: ich glaube hier soll der Name des Roboters zurückgegeben werden können (also welcher gerade dran ist)
      /**
       * Mit der Methode gibNamen wir der Name des Roboters zurückgegeben.
       *
@@ -104,7 +90,7 @@ public class Roboter extends Thread {
     }
 
     /**
-     * In der Methode produziereProdukt wird die Produktion simuliert. Nachdem die Produktion gestartet wurde, wird
+     * In der Methode produziereProdukt wird die Produktion eines Produktes simuliert. Nachdem die Produktion gestartet wurde, wird
      * der Thread für eine Zeit (=Produktionszeit) schlafen gelegt. Anschliessend kommt die Meldung, dass die Produktion
      * abgeschlossen ist.
      *
@@ -115,7 +101,7 @@ public class Roboter extends Thread {
     // ausserdem, können wir irgendwo die Produktionszeit definieren? also einen default setzen?
     private void produziereProdukt (Produkt produkt){
         int ProduktionsZeit = produkt.holeProduktionsZeit(this);
-        System.out.println(this + "Produktion wird gestartet: " + produkt + "für" + produktionsZeit + "ms");
+        System.out.println(this + "Produktion wird gestartet: " + produkt + "dauert" + produktionsZeit + "ms");
         Roboter.sleep(produktionsZeit);
         System.out.println(this + "Produktion abgeschlossen: " + produkt);
     }
