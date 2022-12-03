@@ -138,12 +138,6 @@ public class Lager {
      * Anmerkung: mit dieser Methode werden die Werte vorhandener Materialien in der Software wieder auf das Max. gesetzt.
      */
     public void lagerAuffuellen () {
-        int zuBestellendeHolzeinheiten = maxHolzeinheiten - vorhandeneHolzeinheiten;
-        int zuBestellendeSchrauben = maxSchrauben - vorhandeneSchrauben;
-        int zuBestellendeFarbeinheiten = maxFarbeinheiten - vorhandeneFarbeinheiten;
-        int zuBestellendeKartoneinheiten = maxKartoneinheiten - vorhandeneKartoneinheiten;
-        int zuBestellendeKissen = maxKissen - vorhandeneKissen;
-
         // Cha: da im Lieferant weg, nun müssen wir den thread starten, um das Lager aufzufüllen.
         // lieferant.wareBestellen(zuBestellendeHolzeinheiten, zuBestellendeSchrauben, zuBestellendeFarbeinheiten, zuBestellendeKartoneinheiten, zuBestellendeKissen);
 
@@ -154,9 +148,8 @@ public class Lager {
         vorhandeneKissen = maxKissen;
 
 
-        lieferant = new Lieferant(this);
-        System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt.");
-        lieferant.start();
+
+
     }
         
     /**
@@ -186,13 +179,8 @@ public class Lager {
      * Dabei werden die vorhandenen Produkte wieder auf die maximale Anzahl Produkte gesetzt.
      */
     public void wareLiefern(){
-        vorhandeneHolzeinheiten = maxHolzeinheiten;
-        vorhandeneSchrauben = maxSchrauben;
-        vorhandeneFarbeinheiten = maxFarbeinheiten;
-        vorhandeneKartoneinheiten = maxKartoneinheiten;
-        vorhandeneKissen = maxKissen;
-        System.out.println("Lager: Die Ware wurde geliefert.");
-        lagerBestandAusgeben();
+        System.out.println("Die Materialbestellung wurde dem Lieferanten zugestellt.");
+        lieferant.start();
     }
       
 }

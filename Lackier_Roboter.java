@@ -13,7 +13,6 @@ public class Lackier_Roboter extends Roboter{
      */
     public Lackier_Roboter()
     {
-        super();
-        name = "LackierRoboter1";
+        super("Lackierroboter");
     }
 }

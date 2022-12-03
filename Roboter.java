@@ -15,40 +15,15 @@ public class Roboter extends Thread {
      * - produktionsZeit: Die Produktionszeit ist die Zeit, die der Roboter zum Produzieren braucht
      */
     private LinkedList <Produkt> warteschlange;
-    public String name;
-    private int produktionsZeit;
+    private String name;
 
     /**
      * Konstruktor der Klasse Roboter.
      * Hier wird die LinkedList warteschlange sowie der Name der Roboter instanziiert.
      */
-    public Roboter(){
+    public Roboter(String name){
         this.name = name;
-        this.warteschlange = new LinkedList<Produkt>();
-    }
-
-    /**
-     * Die Synchronisierungsmethode syncedPrintIn stellt sicher, dass nur ein Thread zeitgleich auf die Systemressource zugreift.
-     * @param message: String Nachricht, welche gedruckt werden soll.
-     */
-    public static void syncedPrintln(String message) {
-        synchronized (System.out) {
-            System.out.println(message);
-        }
-    }
- 
-    /**
-     * Die sleep Methode lässt den Thread um die Zeit zeit schlafen
-     *
-     * @param zeit, welche der Thread schlafen soll
-     */
-    public static void sleep(int zeit) {
-        try {
-            Thread.sleep(zeit);
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        warteschlange = new LinkedList<>();
     }
 
     /**
@@ -62,11 +37,11 @@ public class Roboter extends Thread {
         while (true){
             Produkt naechstesProdukt = warteschlange.poll();
             if(naechstesProdukt != null){
-                syncedPrintln(this.name +": nimmt " + naechstesProdukt + " aus der Warteschlange"); //Kommentar von Cha integriert - unsicher bei name
+                ThreadUtil.syncedPrintln(this.name +": nimmt " + naechstesProdukt + " aus der Warteschlange"); //Kommentar von Cha integriert - unsicher bei name
                 produziereProdukt(naechstesProdukt);
-                naechstesProdukt.naechsteProduktionsStation();
+                naechstesProdukt.starteNaechsteProduktionsStation();
             }
-            Roboter.sleep(1000);
+            ThreadUtil.sleep(1000);
         }
     }
 
@@ -100,10 +75,10 @@ public class Roboter extends Thread {
     // ANM Cha: finde die print Texte irgendwie nicht ganz so intuitiv...
     // ausserdem, können wir irgendwo die Produktionszeit definieren? also einen default setzen?
     private void produziereProdukt (Produkt produkt){
-        int ProduktionsZeit = produkt.holeProduktionsZeit(this);
-        System.out.println(this + "Produktion wird gestartet: " + produkt + "dauert" + produktionsZeit + "ms");
-        Roboter.sleep(produktionsZeit);
-        System.out.println(this + "Produktion abgeschlossen: " + produkt);
+        int produktionsZeit = produkt.holeProduktionsZeit(this);
+        ThreadUtil.syncedPrintln(this + "Produktion wird gestartet: " + produkt + "dauert" + produktionsZeit + "ms");
+        ThreadUtil.sleep(produktionsZeit);
+        ThreadUtil.syncedPrintln(this + "Produktion abgeschlossen: " + produkt);
     }
 
 }

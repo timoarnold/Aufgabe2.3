@@ -31,7 +31,7 @@ public class Fabrik {
      */
     
     public Fabrik() {
-        bestellungen = new ArrayList<Bestellung>();
+        bestellungen = new ArrayList<>();
         lager = new Lager();
         produktionsManager = new Produktions_Manager();
         produktionsManager.start();
@@ -120,7 +120,8 @@ public class Fabrik {
                bestellung.setzBeschaffungsZeit(beschaffungsZeit);
                
                if(beschaffungsZeit==2) {
-                   lager.lagerAuffuellen();
+                   lager.wareLiefern();
+                   lagerAuffuellen();
                }   
                lager.zieheBenoetigteMaterialienVomLagerAb();
                
@@ -178,22 +179,6 @@ public class Fabrik {
         
         for(Bestellung eineBestellung : bestellungen) {
             System.out.println(eineBestellung);
-        }
-    }
-    
-    /**
-     * Gib die Informationen einer spezifischen Bestellung wieder.
-     * @param spannendeBestellungNr: Nummer einer einzelnen, ausgegebenen Bestellung.
-     *   
-     * Anmerkung: Dazu muss diese Methode mit der gewünschten Bestellungsnummer aufgerufen werden.
-     */
-    public void bestellungAusgeben(int spannendeBestellungNr) {
-        System.out.println("Details der Bestellung mit der Nummer:" + spannendeBestellungNr);
-        
-        for(Bestellung eineBestellung : bestellungen) {     
-            if(spannendeBestellungNr == eineBestellung.gibBestellNummer()) {
-                System.out.println(eineBestellung);
-            }
         }
     }
 }

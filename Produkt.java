@@ -27,12 +27,14 @@ public class Produkt {
     private LinkedList<Roboter> produktionsAblauf;
     private HashMap<Roboter, Integer> produktionsZeit;
 
+
     /**
      * Konstruktor für Objekte der Klasse Produkt: initialisiert alle Instanzvariablen der Klasse Produkt.
      */
     public Produkt(){
         zustand = 1;
-        produktionsAblauf = new LinkedList<Roboter>();
+        produktionsAblauf = new LinkedList<>();
+        produktionsZeit = new HashMap<>();
     }
 
     /**
@@ -78,16 +80,19 @@ public class Produkt {
         return produktionsZeit.get(roboter);
     }
 
-    public void naechsteProduktionsStation(){
-        if(produktionsAblauf.peek() != null){
-            Roboter naechsterroboter = produktionsAblauf.poll();
-            System.out.println("Produkt: Nächste Produktionsstation " + naechsterroboter.gibNamen());
+    public void starteNaechsteProduktionsStation(){
+        if(!produktionsAblauf.isEmpty()){
+            Roboter naechsterRoboter = produktionsAblauf.poll();
+            System.out.println("[Produkt] Nächste Produktionsstation " + naechsterRoboter.gibNamen());
             zustandAendern(2);
-            naechsterroboter.fuegeProduktHinzu(this);
+            naechsterRoboter.fuegeProduktHinzu(this);
         }
         else{
-            System.out.println("Produkt: " + this +" bereit zur Auslieferung ");
+            System.out.println("[Produkt] " + this + " bereit zur Auslieferung ");
             zustandAendern(3);
         }
+    }
+    public boolean istProduziert(){
+        return zustand == 3;
     }
 }

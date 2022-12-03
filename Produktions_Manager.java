@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.HashMap;
 import java.util.LinkedList;
 /**
@@ -27,7 +26,7 @@ public class Produktions_Manager extends Thread {
     private Montage_Roboter montageRoboter;
     private Lackier_Roboter lackierRoboter;
     private Verpackungs_Roboter verpackungsRoboter;
-
+//TODO: remove this later
     private Fabrik meineFabrik;
     private Lager meinLager;
 
@@ -43,7 +42,7 @@ public class Produktions_Manager extends Thread {
     public Produktions_Manager() { //mein --> param
         zuVerarbeitendeBestellungen = new LinkedList<Bestellung>();
         bestellungenInProduktion = new LinkedList<Bestellung>();
-
+//TODO: remove this later
         this.meineFabrik = meineFabrik;
         this.meinLager = meinLager;
 
@@ -56,31 +55,6 @@ public class Produktions_Manager extends Thread {
         montageRoboter.start();
         lackierRoboter.start();
         verpackungsRoboter.start();
-    }
-
-    /**
-     * Die sleep Methode lässt den Thread um die Zeit zeit schlafen
-     *
-     * @param zeit: Anzahl Millisekunden, welche der Thread schläfen soll.
-     */
-    public static void sleep(int zeit) {
-        try {
-            Thread.sleep(zeit);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Die Synchronisierungsmethode syncedPrintIn stellt sicher, dass nur ein Thread zeitgleich auf die Systemressource zugreift.
-     * dass nur ein Thread zu einem bestimmten Zeitpunkt auf die Ressource zugreifen kann.
-     *
-     * @param message: String Nachricht, welche gedruckt werden soll.
-     */
-    public static void syncedPrintln(String message) {
-        synchronized (System.out) {
-            System.out.println(message);
-        }
     }
 
     /**
@@ -106,31 +80,30 @@ public class Produktions_Manager extends Thread {
      */
 
     public void run() {
-        syncedPrintln("Produktionsmanager gestartet");
+
         while (true) {
             Bestellung naechsteBestellung = zuVerarbeitendeBestellungen.poll();
             if (naechsteBestellung != null) {
-                bestellungenInProduktion.add(naechsteBestellung); //zuVerarbeitendeBestellungen.remove()
+                ThreadUtil.syncedPrintln("[Produktionsmanager] Beginne zu produzieren " + naechsteBestellung);
+                bestellungenInProduktion.add(naechsteBestellung);
                 starteProduktion(naechsteBestellung);
-            }
-            for (Bestellung bestellung : bestellungenInProduktion) {
-                boolean alleProdukteProduziert = true;
-                for (Produkt produkt : bestellung.liefereBestellteProdukte()) {
-                    if (produkt.aktuellerZustand() != 3) {
-                        alleProdukteProduziert = false;
-                        break;
-                    }
-                }
-                if (alleProdukteProduziert) {
-                    bestellungenInProduktion.remove(bestellung);
-                    bestellung.setzeAlleProdukteProduziert();
-                    syncedPrintln("Produktionsmanager beendet");
+                for (Produkt produkt : naechsteBestellung.getBestellteProdukte()){
+                    produkt.starteNaechsteProduktionsStation();
                 }
             }
 
-            // ANM Timo: Die Frage stellt sich jedoch weshalb der Produktionsmanager sleepen soll...
-            // ANM Cha: ist im Diagramm vorgegeben. Ich glaube sonst läuft der Thread non stop, was wir nicht wollen
-            sleep(1000);
+            for (Bestellung bestellung : bestellungenInProduktion) {
+                boolean sindAlleProdukteProduziert = true;
+                for (Produkt produkt : bestellung.liefereBestellteProdukte()) {
+                    sindAlleProdukteProduziert = sindAlleProdukteProduziert && produkt.istProduziert();
+                }
+                if (sindAlleProdukteProduziert) {
+                    bestellungenInProduktion.remove(bestellung);
+                    bestellung.setzeAlleProdukteProduziert();
+                    ThreadUtil.syncedPrintln("[Produktionsmanager] Fertig produziert " + bestellung);
+                }
+            }
+            ThreadUtil.sleep(1000);
         }
     }
 

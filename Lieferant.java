@@ -9,21 +9,8 @@
  */
 
 public class Lieferant extends Thread {
-    private Lager lager;
-
-
     //ANM Timo: für Testing, damit geprüft werden kann, ob Ware geliefert werden kann.
     private boolean wareGeliefert;
-    
-    /**
-     * Konstruktor der Klasse Lieferant.
-     * Hier wird das Lager, woran der Lieferant liefert übergeben.
-     */
-    public Lieferant (Lager lager)
-    {
-        super();
-        this.lager=lager;
-    }
 
     /**
      * Die run Methode ist die Hauptmethode des Threads.
@@ -31,20 +18,12 @@ public class Lieferant extends Thread {
      * bestellt werden. Werden Produkte bestellt, beträgt die Lieferzeit 48 Sekunden (2 Tage im Programm).
      */
     public void run(){
-        try{
             // Methode oben beschreiben
             // Wartezeit = 2 Tage; Im Programm ist 1 Stunde = 1 Sekunde und somit 1 Tag = 24 sek
             // Somit muss der Lieferant (der Thread) 48 sek oder 48'000 msek warten (schlafen)
-            Thread.sleep(2*24*1000);
+            ThreadUtil.sleep(2*24*1000);
             System.out.println("Lieferant: Die Ware wurde an das Lager versandt.");
             wareGeliefert = true;
-            lager.wareLiefern();
-        }
-        catch(InterruptedException ie){
-            System.out.println("Lieferant: Thread Exception!");
-            ie.printStackTrace();
-        }
-
     }
     public boolean gibWareGeliefert (){
         return wareGeliefert;
