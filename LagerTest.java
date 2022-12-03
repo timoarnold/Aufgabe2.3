@@ -14,7 +14,7 @@ public class LagerTest
     private Lager testLager;
         
     /**
-     * Konstruktor fuer die Test-Klasse LagerTest
+     * Konstruktor für die Test-Klasse LagerTest
      */
     public LagerTest()
     {
@@ -39,13 +39,13 @@ public class LagerTest
     }
     
     /**
-     * Testet, ob das Lager eine Bestellung an den Lieferanten aufgeben kann.
+     * Testet, ob der Lieferant die Materialbestellungen an das Lager liefert.
      */
     @Test
-    public void TestBestellungAnLieferant(){
+    public void TestLieferungVonMaterial(){
         //Arrange: Siehe BeforeEach
         
-        //Act: Testbestellung wird aufgegeben & Check, ob die Bestellung beim Lieferanten eintrifft (true).
-        assertTrue(testLager.gibLieferant().wareBestellen(1,1,1,1,1));
+        //Act: Prüft, ob Materialbestellung geliefert wird.
+        assertTrue(testLager.gibLieferant().gibWareGeliefert());
     }
 }

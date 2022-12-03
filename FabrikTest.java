@@ -147,6 +147,20 @@ public class FabrikTest
         for (Bestellung bestellung : fabrik.gibBestellungen()) {
             assertEquals(true, bestellung.gibBestellBestaetigung());
         }    
-    }   
+    }
+
+    /**
+     * Testet, ob Bestellungen korrekt geliefert werden können.
+     * Dazu wird gewartet, ob die erste Bestellung (4 Stühle, 7 Sofa) produziert und dann geliefert wird.
+     */
+    @Test
+    public void TestBestellLieferung(){
+        //Arrange: Siehe BeforeEach
+
+        //Act: TestBestellungAufgeben
+        for (Bestellung bestellung : fabrik.gibBestellungen()) {
+            assertEquals(true, ... ());
+        }
+    }
 }
 

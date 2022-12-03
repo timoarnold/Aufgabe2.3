@@ -10,6 +10,10 @@
 
 public class Lieferant extends Thread {
     private Lager lager;
+
+
+    //ANM Timo: für Testing, damit geprüft werden kann, ob Ware geliefert werden kann.
+    private boolean wareGeliefert;
     
     /**
      * Konstruktor der Klasse Lieferant.
@@ -33,6 +37,7 @@ public class Lieferant extends Thread {
             // Somit muss der Lieferant (der Thread) 48 sek oder 48'000 msek warten (schlafen)
             Thread.sleep(2*24*1000);
             System.out.println("Lieferant: Die Ware wurde an das Lager versandt.");
+            wareGeliefert = true;
             lager.wareLiefern();
         }
         catch(InterruptedException ie){
@@ -40,5 +45,8 @@ public class Lieferant extends Thread {
             ie.printStackTrace();
         }
 
+    }
+    public boolean gibWareGeliefert (){
+        return wareGeliefert;
     }
 }

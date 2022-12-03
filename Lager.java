@@ -134,7 +134,7 @@ public class Lager {
 
     /**
      * Füllt die im Lager vorhandenen Materialien auf ihre Maximalwerte aus, sobald die Lieferung des Lieferanten eingetroffen ist.
-     * 
+     *
      * Anmerkung: mit dieser Methode werden die Werte vorhandener Materialien in der Software wieder auf das Max. gesetzt.
      */
     public void lagerAuffuellen () {
@@ -186,9 +186,6 @@ public class Lager {
      * Dabei werden die vorhandenen Produkte wieder auf die maximale Anzahl Produkte gesetzt.
      */
     public void wareLiefern(){
-        //Cha: neu gemäss Kastenvorlage. 
-        // ANM Timo: müssen wir noch einmal überprüfen, da es logisch allenfalls weniger Sinn macht
-        // Warum Timo?? die Methode wird im Lieferanten aufgerufen und dann wird das Lager aufgefüllt
         vorhandeneHolzeinheiten = maxHolzeinheiten;
         vorhandeneSchrauben = maxSchrauben;
         vorhandeneFarbeinheiten = maxFarbeinheiten;
