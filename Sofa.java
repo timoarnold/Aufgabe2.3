@@ -41,8 +41,8 @@ public class Sofa extends Produkt {
      * Konstruktor für Objekte der Klasse Sofa.
      * Mit super() wird "Zustand" aus der Superklasse Produkt initialisiert
      */
-    public Sofa() {
-        super(); 
+    public Sofa(int bestellNummer) {
+        super(bestellNummer);
     }
 
     /**
@@ -91,5 +91,10 @@ public class Sofa extends Produkt {
      */
     public static int getProduktionsZeit() {
         return produktionsZeit;
+    }
+
+    @Override
+    public String toString() {
+        return "Sofa";
     }
 }

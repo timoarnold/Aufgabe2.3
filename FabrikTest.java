@@ -148,19 +148,14 @@ public class FabrikTest
             assertEquals(true, bestellung.gibBestellBestaetigung());
         }    
     }
-
-    /**
-     * Testet, ob Bestellungen korrekt geliefert werden können.
-     * Dazu wird gewartet, ob die erste Bestellung (4 Stühle, 7 Sofa) produziert und dann geliefert wird.
-     */
     @Test
-    public void TestBestellLieferung(){
+    public void TestLieferungVonMaterial(){
         //Arrange: Siehe BeforeEach
-
-        //Act: TestBestellungAufgeben
-        for (Bestellung bestellung : fabrik.gibBestellungen()) {
-            assertEquals(true, ... ());
-        }
+        fabrik.getLager().wareLiefern();
+        //Act: Prüft, ob Materialbestellung geliefert wird.
+        assertFalse(fabrik.getLager().gibLieferant().istWareGeliefert());
+        ThreadUtil.sleep(2*25*1000);
+        assertTrue(fabrik.getLager().gibLieferant().istWareGeliefert());
     }
 }
 

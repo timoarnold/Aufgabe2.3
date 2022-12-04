@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Roboter
+comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\n\ Die\ Klasse\ Produktions_Manager\ arbeitet\ neu\ eintreffende\ Bestellung\ ab\ und\ leitet\ diese\ den\ Robotern\ zur\ Produktion\ weiter.\n\ Sie\ wird\ als\ Thread\ implementiert.\n\n
+comment1.params=
+comment1.target=Roboter()
+comment1.text=\n\ Konstruktor\ der\ Klasse\ Roboter.\ Hier\ wird\ die\ LinkedList\ warteschlange\ instanziert.\n\ \n\ ANM\ Cha\:\ M\u00FCssen\ wir\ hier\ nicht\ den\ Roboter\ an\ sich\ isntanzieren?\n\ Laut\ Definition\ soll\ ein\ neue\ Objekt\ dieser\ Klasse\ erstellt\ werden\ und\ das\ w\u00E4re\ der\ Roboter\ oder\ und\ nicht\ die\ Liste?\n\ @param\ name\ des\ Roboters\ ?\ Oder\ wo\ ist\ dieser\ nun\ (Instanzvariable\ von\ oben)\n\ Und\ linked\ list\ produkt\ warteschlange\ als\ neue\ linkedlist\ oben\ instanzieren?\n\ \n
+comment2.params=output
+comment2.target=void\ synchronisiertesPrintln(java.lang.String)
+comment3.params=zeit
+comment3.target=void\ sleep(int)
+comment3.text=\n\ Die\ sleep\ Methode\ l\u00E4sst\ den\ Thread\ um\ die\ Zeit\ zeit\ schlafen\n\ @param\ zeit,\ welche\ der\ Thread\ schlafen\ soll\n
+comment4.params=
+comment4.target=void\ run()
+comment4.text=\n\ Die\ run\ Methode\ ist\ die\ Hauptmethode\ des\ Threads.\ \n\ Sie\ wird\ als\ unendliche\ Schleife\ implementiert.\ Hier\ wird\ immer\ wieder\ \u00FCberpr\u00FCft,\ ob\ neue\ Produkte,\n\ welche\ produziert\ werden\ m\u00FCssen,\ eingetroffen\ sind.\ Sollte\ ein\ Produkt\ in\ der\ Warteschlange\ sein,\ so\ wird\ dieses\n\ im\ Roboter\ produziert.\n
+comment5.params=produkt
+comment5.target=void\ fuegeProduktHinzu(Produkt)
+comment5.text=\n\ In\ der\ Methode\ fuegeProduktHinzu\ wird\ ein\ zu\ produzierendes\ Produkt\ in\ die\ LinkedList\ Warteschlange\ hinzugef\u00FCgt.\n\ @param\ produkt\ Produkt,\ welches\ hinzugef\u00FCgt\ wird.\n
+comment6.params=
+comment6.target=java.lang.String\ gibNamen()
+comment6.text=\n\ Mit\ der\ Methode\ gibNamen\ wir\ der\ Name\ des\ Roboters\ zur\u00FCckgegeben\n\ @return\ Namen\ des\ Roboters\n
+comment7.params=produkt
+comment7.target=void\ produziereProdukt(Produkt)
+comment7.text=\n\ In\ der\ Methode\ produziereProdukt\ wird\ die\ Produktion\ simuliert.\ Nachdem\ die\ Produktion\ gestartet\ wurde,\ wird\n\ der\ Thread\ f\u00FCr\ eine\ Zeit\ (\=Produktionszeit)\ schlafen\ gelegt.\ Anschliessend\ kommt\ die\ Meldung,\ dass\ die\ Produktion\n\ abgeschlossen\ ist.\n\ @param\ produkt\ steht\ f\u00FCr\ das\ Produkt,\ welches\ produziert\ wird.\n\ \n
+numComments=8

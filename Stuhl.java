@@ -37,8 +37,8 @@ public class Stuhl extends Produkt {
      * Konstruktor für Objekte der Klasse Stuhl.
      * Mit super() wird "Zustand" aus der Superklasse Produkt initialisiert
      */
-    public Stuhl() {
-        super ();
+    public Stuhl(int bestellNummer) {
+        super (bestellNummer);
     }
     
     /**
@@ -79,5 +79,10 @@ public class Stuhl extends Produkt {
      */
     public static int getProduktionsZeit() {
         return produktionsZeit;
+    }
+
+    @Override
+    public String toString() {
+        return "Stuhl";
     }
 }

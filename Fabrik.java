@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.io.*;
-import java.util.HashMap;
+
 /**
  * @author Gruppe 29
  * @version 3.1 (4. Dezember 2022)
@@ -20,9 +20,6 @@ public class Fabrik {
    
     private ArrayList<Bestellung> bestellungen; 
     private int bestellungsNr;
-
-   // private HashMap <Integer , Produce> produces;
-   // private static int produceId=0;
     private Lager lager;
     private Produktions_Manager produktionsManager;
 
@@ -92,6 +89,7 @@ public class Fabrik {
                 System.out.println("Invalider Input. Bitte geben Sie eine Zahl ein.");
             }
         }
+        fabrik.bestellungenVerarbeiten();
         fabrik.bestellungenAusgeben();
     }
         
@@ -135,12 +133,16 @@ public class Fabrik {
                
                bestellung.bestellungBestaetigen();
                bestellungen.add(bestellung);
-               produktionsManager.fuegeZuVerarbeitendeBestellungenHinzu(bestellung);
-               
+
                System.out.println("Bestellung erfolgreich aufgegeben!");
            }
     }
-    
+
+    public void bestellungenVerarbeiten(){
+        for (Bestellung bestellung : bestellungen){
+            produktionsManager.fuegeZuVerarbeitendeBestellungenHinzu(bestellung);
+        }
+    }
     /**
      * Mit dieser Methode wird das Lager angeordnet Material nachzubestellen
      */
@@ -175,10 +177,14 @@ public class Fabrik {
      * für alle aufgegebenen Bestellungen wieder.
     */
     public void bestellungenAusgeben() {
-        System.out.println("Total Bestellungen bisher:"+bestellungsNr);
+        System.out.println("\nTotal Bestellungen bisher: " + bestellungsNr);
         
-        for(Bestellung eineBestellung : bestellungen) {
-            System.out.println(eineBestellung);
+        for(Bestellung bestellung : bestellungen) {
+            System.out.println("\n" + bestellung + "\n");
         }
+    }
+
+    public Lager getLager() {
+        return lager;
     }
 }

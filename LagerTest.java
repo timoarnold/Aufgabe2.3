@@ -11,14 +11,7 @@ import org.junit.jupiter.api.Test;
  */
 public class LagerTest
 {   
-    private Lager testLager;
-        
-    /**
-     * Konstruktor für die Test-Klasse LagerTest
-     */
-    public LagerTest()
-    {
-    }
+    private Lager lager;
 
     /**
      * Vor jedem Unit-Test der Klasse Lager und deren Inhalten, wird eine neue Lagerinstanz erstellt.
@@ -26,7 +19,7 @@ public class LagerTest
     @BeforeEach
     public void setUp()
     {
-        testLager = new Lager();
+        lager = new Lager();
     }
 
     /**
@@ -44,8 +37,10 @@ public class LagerTest
     @Test
     public void TestLieferungVonMaterial(){
         //Arrange: Siehe BeforeEach
-        
+        lager.wareLiefern();
         //Act: Prüft, ob Materialbestellung geliefert wird.
-        assertTrue(testLager.gibLieferant().gibWareGeliefert());
+        assertFalse(lager.gibLieferant().istWareGeliefert());
+        ThreadUtil.sleep(2*25*1000);
+        assertTrue(lager.gibLieferant().istWareGeliefert());
     }
 }

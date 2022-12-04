@@ -42,14 +42,14 @@ public class Bestellung {
      */
     
     public Bestellung(int bestellungsNr, int anzahlSofas, int anzahlStuehle) {
-        bestellteProdukte = new ArrayList<Produkt>();
+        bestellteProdukte = new ArrayList<>();
         
         for (int i = 0; i < anzahlStuehle; i++){
-            bestellteProdukte.add(new Stuhl());
+            bestellteProdukte.add(new Stuhl(bestellungsNr));
         }
         
         for (int i = 0; i < anzahlSofas; i++){
-            bestellteProdukte.add(new Sofa());
+            bestellteProdukte.add(new Sofa(bestellungsNr));
         }
         
         bestellBestaetigung = false;

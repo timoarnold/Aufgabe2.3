@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Verpackungs_Roboter
+comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\n\ Die\ Klasse\ Verpackungs_Roboter\ erweitert\ die\ Klasse\ Roboter\ und\ simuliert\ den\ Arbeitsschritt\ des\ Verpackens.\n\n
+comment1.params=
+comment1.target=Verpackungs_Roboter()
+comment1.text=\n\ Konstruktor\ f\u00FCr\ die\ Objekte\ der\ Klasse\ Verpackungs_Roboter\n
+numComments=2

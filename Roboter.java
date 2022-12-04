@@ -37,7 +37,6 @@ public class Roboter extends Thread {
         while (true){
             Produkt naechstesProdukt = warteschlange.poll();
             if(naechstesProdukt != null){
-                ThreadUtil.syncedPrintln(this.name +": nimmt " + naechstesProdukt + " aus der Warteschlange"); //Kommentar von Cha integriert - unsicher bei name
                 produziereProdukt(naechstesProdukt);
                 naechstesProdukt.starteNaechsteProduktionsStation();
             }
@@ -60,7 +59,7 @@ public class Roboter extends Thread {
       *
       * @return Namen des Roboters
       */
-    public String gibNamen(){
+    public String gibName(){
         return name;
     }
 
@@ -76,10 +75,12 @@ public class Roboter extends Thread {
     // ausserdem, können wir irgendwo die Produktionszeit definieren? also einen default setzen?
     private void produziereProdukt (Produkt produkt){
         int produktionsZeit = produkt.holeProduktionsZeit(this);
-        ThreadUtil.syncedPrintln(this + "Produktion wird gestartet: " + produkt + "dauert" + produktionsZeit + "ms");
-        ThreadUtil.sleep(produktionsZeit);
-        ThreadUtil.syncedPrintln(this + "Produktion abgeschlossen: " + produkt);
+        ThreadUtil.syncedPrintln("[" + this.gibName() + "]" + " Produktion wird gestartet: " + produkt + " mit Bestellnummer " + produkt.getBestellNummer() + " dauert " + produktionsZeit + " min");
+        ThreadUtil.sleep((int)rechneProduktionsZeitInMillisekundenUm(produktionsZeit));
+        ThreadUtil.syncedPrintln("[" + this.gibName() + "]" + " Produktion abgeschlossen: " + produkt + " mit Bestellnummer " + produkt.getBestellNummer());
     }
-
+    private float rechneProduktionsZeitInMillisekundenUm (int produktionsZeit) {
+        return (float)produktionsZeit/60*1000;
+    }
 }
 

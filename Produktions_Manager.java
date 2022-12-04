@@ -1,5 +1,8 @@
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author Gruppe 29
  * @version 3.1 (4. Dezember 2022)
@@ -26,10 +29,6 @@ public class Produktions_Manager extends Thread {
     private Montage_Roboter montageRoboter;
     private Lackier_Roboter lackierRoboter;
     private Verpackungs_Roboter verpackungsRoboter;
-//TODO: remove this later
-    private Fabrik meineFabrik;
-    private Lager meinLager;
-
     private LinkedList<Bestellung> zuVerarbeitendeBestellungen;
     private LinkedList<Bestellung> bestellungenInProduktion;
 
@@ -42,9 +41,6 @@ public class Produktions_Manager extends Thread {
     public Produktions_Manager() { //mein --> param
         zuVerarbeitendeBestellungen = new LinkedList<Bestellung>();
         bestellungenInProduktion = new LinkedList<Bestellung>();
-//TODO: remove this later
-        this.meineFabrik = meineFabrik;
-        this.meinLager = meinLager;
 
         holzRoboter = new Holzbearbeitungs_Roboter();
         montageRoboter = new Montage_Roboter();
@@ -80,13 +76,15 @@ public class Produktions_Manager extends Thread {
      */
 
     public void run() {
-
         while (true) {
             Bestellung naechsteBestellung = zuVerarbeitendeBestellungen.poll();
             if (naechsteBestellung != null) {
-                ThreadUtil.syncedPrintln("[Produktionsmanager] Beginne zu produzieren " + naechsteBestellung);
+                ThreadUtil.syncedPrintln("[Produktionsmanager] Beginne zu produzieren: Bestellungsnummer " + naechsteBestellung.gibBestellNummer());
                 bestellungenInProduktion.add(naechsteBestellung);
                 starteProduktion(naechsteBestellung);
+                naechsteBestellung.getBestellteProdukte().sort((o1, o2)
+                        -> o1.toString().compareTo(
+                        o2.toString()));
                 for (Produkt produkt : naechsteBestellung.getBestellteProdukte()){
                     produkt.starteNaechsteProduktionsStation();
                 }
@@ -100,7 +98,7 @@ public class Produktions_Manager extends Thread {
                 if (sindAlleProdukteProduziert) {
                     bestellungenInProduktion.remove(bestellung);
                     bestellung.setzeAlleProdukteProduziert();
-                    ThreadUtil.syncedPrintln("[Produktionsmanager] Fertig produziert " + bestellung);
+                    ThreadUtil.syncedPrintln("[Produktionsmanager] Fertig produziert: Bestellungsnummer " + bestellung.gibBestellNummer());
                 }
             }
             ThreadUtil.sleep(1000);

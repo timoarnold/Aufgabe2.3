@@ -10,7 +10,7 @@
 
 public class Lieferant extends Thread {
     //ANM Timo: für Testing, damit geprüft werden kann, ob Ware geliefert werden kann.
-    private boolean wareGeliefert;
+    private boolean istWareGeliefert;
 
     /**
      * Die run Methode ist die Hauptmethode des Threads.
@@ -23,9 +23,9 @@ public class Lieferant extends Thread {
             // Somit muss der Lieferant (der Thread) 48 sek oder 48'000 msek warten (schlafen)
             ThreadUtil.sleep(2*24*1000);
             System.out.println("Lieferant: Die Ware wurde an das Lager versandt.");
-            wareGeliefert = true;
+            istWareGeliefert = true;
     }
-    public boolean gibWareGeliefert (){
-        return wareGeliefert;
+    public boolean istWareGeliefert () {
+        return istWareGeliefert;
     }
 }

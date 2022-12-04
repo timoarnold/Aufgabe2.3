@@ -71,7 +71,7 @@ public class Lager {
         benoetigteKartoneinheiten = 0;
         benoetigteKissen = 0;
 
-        lieferant = null;
+        lieferant = new Lieferant();
     }
 
     /**
