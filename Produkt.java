@@ -107,7 +107,7 @@ public class Produkt {
 
     /**
      * Methode, welche die Bestellnummer der zugehörigen Bestellung des Produkts zurückgibt.
-     * @return
+     * @return Bestellnummer
      */
     public int getBestellNummer() {
         return bestellNummer;

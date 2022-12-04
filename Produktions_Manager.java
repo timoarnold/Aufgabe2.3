@@ -82,10 +82,10 @@ public class Produktions_Manager extends Thread {
                 ThreadUtil.syncedPrintln("[Produktionsmanager] Beginne zu produzieren: Bestellungsnummer " + naechsteBestellung.gibBestellNummer());
                 bestellungenInProduktion.add(naechsteBestellung);
                 starteProduktion(naechsteBestellung);
-                naechsteBestellung.getBestellteProdukte().sort((o1, o2)
+                naechsteBestellung.liefereBestellteProdukte().sort((o1, o2)
                         -> o1.toString().compareTo(
                         o2.toString()));
-                for (Produkt produkt : naechsteBestellung.getBestellteProdukte()) {
+                for (Produkt produkt : naechsteBestellung.liefereBestellteProdukte()) {
                     produkt.starteNaechsteProduktionsStation();
                 }
             }
@@ -113,7 +113,7 @@ public class Produktions_Manager extends Thread {
      */
     private void starteProduktion(Bestellung bestellung) {
 
-        for (Produkt produkt : bestellung.getBestellteProdukte()) {
+        for (Produkt produkt : bestellung.liefereBestellteProdukte()) {
 
             LinkedList<Roboter> produktionsAblauf = new LinkedList<>();
             HashMap<Roboter, Integer> produktionsZeit = new HashMap<>();

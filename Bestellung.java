@@ -35,7 +35,7 @@ public class Bestellung {
      * Konstruktor der Klasse Bestellung: initialisiert alle Instanzvariabeln der Klasse Bestellung.
      * Bei der Initalisierung der Klasse Bestellung wird auch gleichzeitig die ArrayList "bestellteProdukte" mit der Anzahl an bestellten Stühlen und Sofas aufgefüllt.
      *
-     * @param anzahlSofas:   Anzahl bestellter Sofas einer Bestellung.
+     * @param anzahlSofas: Anzahl bestellter Sofas einer Bestellung.
      * @param anzahlStuehle: Anzahl bestellter Stühle einer Bestellung.
      */
 
@@ -55,10 +55,6 @@ public class Bestellung {
         this.bestellungsNr = bestellungsNr;
         this.anzahlStuehle = anzahlStuehle;
         this.anzahlSofas = anzahlSofas;
-    }
-
-    public ArrayList<Produkt> getBestellteProdukte() {
-        return this.bestellteProdukte;
     }
 
     /**
