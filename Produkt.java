@@ -13,22 +13,23 @@ public class Produkt {
     /**
     * Instanzvariabeln: 
     * 
-    * - zustand: Aktueller Zustand eines Produkts (int). 
+    * - zustand: aktueller Zustand eines Produkts (int).
     * 
     * Dabei gibt es 4 mögliche Zustände: 
     * Zustand 1 = bestellt 
     * Zustand 2 = in Produktion
     * Zustand 3 = versandbereit
     * Zustand 4 = ausgeliefert
-    * 
+     *
+    * - produktionsAblauf:
+     * - produktionsZeit:
+     * - bestellNummer:
     */
     
     private int zustand;
     private LinkedList<Roboter> produktionsAblauf;
     private HashMap<Roboter, Integer> produktionsZeit;
     private int bestellNummer;
-
-
 
     /**
      * Konstruktor für Objekte der Klasse Produkt: initialisiert alle Instanzvariablen der Klasse Produkt.
@@ -67,22 +68,23 @@ public class Produkt {
     }
 
     /**
-     * ANM Tim: Gemäss Musterlösung sollte die Methode setze ProduktionsZeit in der Klasse Roboter sein. Andererseits wurde die Methode in der Übung wie hier im Produkt implementiert
+     * Setze die Produktionszeit für den jeweiligen Roboter.
      * @param produktionsZeit
-     * 
-     * ANM Cha: Agreed (dass nicht im Diagramm vorhanden) und wir brauchen hier dann noch einen Beschrieb :)
      */
     public void setzeProduktionsZeit(HashMap<Roboter, Integer> produktionsZeit){
         this.produktionsZeit = produktionsZeit;
     }
 
     /**
-     * ANM Cha: Was ist das noch für eine Methode? Beschrieb fehlt, falls wir die brauchen...
+     * Hole die ProduktionsZeit der jeweiligen Roboter
      */
     public int holeProduktionsZeit(Roboter roboter) {
         return produktionsZeit.get(roboter);
     }
 
+    /**
+     * Setzt die Roboter gemäss dem Produktionsablauf für die Produktion des Produktes ein. Falls das Produkt alle Roboter durchgelaufen ist, ändert der Zustand auf 3 (Versandbereit).
+     */
     public void starteNaechsteProduktionsStation(){
         if(!produktionsAblauf.isEmpty()){
             Roboter naechsterRoboter = produktionsAblauf.poll();
@@ -94,10 +96,19 @@ public class Produkt {
             zustandAendern(3);
         }
     }
+
+    /**
+     * Methode, welche den Produktionsstatus "Versandbereit" zurückgibt
+     * @return zustand
+     */
     public boolean istProduziert(){
         return zustand == 3;
     }
 
+    /**
+     * Methode, welche die Bestellnummer der zugehörigen Bestellung des Produkts zurückgibt.
+     * @return
+     */
     public int getBestellNummer() {
         return bestellNummer;
     }

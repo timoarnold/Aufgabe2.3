@@ -12,7 +12,6 @@ public class Roboter extends Thread {
      *
      * - warteschlange: In der Warteschlange werden alle Produkte gespeichert, die produziert werden sollen
      * - name: Name des Roboters
-     * - produktionsZeit: Die Produktionszeit ist die Zeit, die der Roboter zum Produzieren braucht
      */
     private LinkedList <Produkt> warteschlange;
     private String name;
@@ -50,7 +49,6 @@ public class Roboter extends Thread {
      * @param produkt Produkt, welches hinzugefügt wird.
      */
     public void fuegeProduktHinzu(Produkt produkt){
-        // Vorschlag Cha fürs Terminal: synchronisiertesPrintln("Roboter " + (hier muss Robotername rein = this?) +": hat " + produkt + " zur Warteschlange hinzugefügt");
         this.warteschlange.add(produkt);
     }
 
@@ -71,14 +69,18 @@ public class Roboter extends Thread {
      * @param produkt steht für das Produkt, welches produziert wird.
      * 
      */
-    // ANM Cha: finde die print Texte irgendwie nicht ganz so intuitiv...
-    // ausserdem, können wir irgendwo die Produktionszeit definieren? also einen default setzen?
     private void produziereProdukt (Produkt produkt){
         int produktionsZeit = produkt.holeProduktionsZeit(this);
         ThreadUtil.syncedPrintln("[" + this.gibName() + "]" + " Produktion wird gestartet: " + produkt + " mit Bestellnummer " + produkt.getBestellNummer() + " dauert " + produktionsZeit + " min");
         ThreadUtil.sleep((int)rechneProduktionsZeitInMillisekundenUm(produktionsZeit));
         ThreadUtil.syncedPrintln("[" + this.gibName() + "]" + " Produktion abgeschlossen: " + produkt + " mit Bestellnummer " + produkt.getBestellNummer());
     }
+
+    /**
+     * In dieser methode wird die Produktionszeit der Roboter (in Minuten) in Millisekunden umgerechnet nach dem Schema: 1 Stunde = 1 Sekunde.
+     * @param produktionsZeit
+     * @return umgerechnete Produktionszeit
+     */
     private float rechneProduktionsZeitInMillisekundenUm (int produktionsZeit) {
         return (float)produktionsZeit/60*1000;
     }

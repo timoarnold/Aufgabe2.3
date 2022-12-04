@@ -1,17 +1,16 @@
 import java.util.ArrayList;
+
 /**
  * @author Gruppe 29
- * @version 2.3 (13. November 2022)
- * 
  * @version 3.1 (4. Dezember 2022)
  * Die Klasse Bestellung verwaltet die Array-Liste, in der alle über die Fabrik bestellten
  * Produkte gespeichert werden. Dies können Sofas oder Stühle sein.
  */
 
 public class Bestellung {
-    /** 
+    /**
      * InstanzVariabeln:
-     * 
+     * <p>
      * - Liste bestellteProdukte: Liste aller Produkte, die bestellt wurden.
      * - bestellBestaetigung: Indikator, ob eine Bestellung erfolgreich bestätigt wurde oder nicht (boolean).
      * - beschaffungsZeit: Beschaffungszeit (in Tagen) für die Produkte (int).
@@ -19,39 +18,38 @@ public class Bestellung {
      * - bestellNummer: Nummer einer Bestellung bei Empfang (int).
      * - anzahlStuehle: Anzahl Stühle, die in einer Bestellung nachgefragt wurden (int).
      * - anzahlSofas: Anzahl Sofas, die in einer Bestellung nachgefragt wurden (int).
-     * 
+     * - alleProdukteProduziert: Indikator, ob alle Produktei einer Bestellung produziert worden sind (boolean).
      */
-    
+
     //Intanzvariablen:
     private ArrayList<Produkt> bestellteProdukte;
     private boolean bestellBestaetigung;
     private int beschaffungsZeit;
-    private float lieferZeit; 
+    private float lieferZeit;
     private int bestellungsNr;
     private int anzahlStuehle;
     private int anzahlSofas;
-
     private boolean alleProdukteProduziert;
 
-    
     /**
-     * Konstruktor der Klasse Bestellung: initialisiert alle Instanzvariabeln der Klasse Bestellung. 
+     * Konstruktor der Klasse Bestellung: initialisiert alle Instanzvariabeln der Klasse Bestellung.
      * Bei der Initalisierung der Klasse Bestellung wird auch gleichzeitig die ArrayList "bestellteProdukte" mit der Anzahl an bestellten Stühlen und Sofas aufgefüllt.
-     * @param anzahlSofas: Anzahl bestellter Sofas einer Bestellung.
+     *
+     * @param anzahlSofas:   Anzahl bestellter Sofas einer Bestellung.
      * @param anzahlStuehle: Anzahl bestellter Stühle einer Bestellung.
      */
-    
+
     public Bestellung(int bestellungsNr, int anzahlSofas, int anzahlStuehle) {
         bestellteProdukte = new ArrayList<>();
-        
-        for (int i = 0; i < anzahlStuehle; i++){
+
+        for (int i = 0; i < anzahlStuehle; i++) {
             bestellteProdukte.add(new Stuhl(bestellungsNr));
         }
-        
-        for (int i = 0; i < anzahlSofas; i++){
+
+        for (int i = 0; i < anzahlSofas; i++) {
             bestellteProdukte.add(new Sofa(bestellungsNr));
         }
-        
+
         bestellBestaetigung = false;
         beschaffungsZeit = 0;
         this.bestellungsNr = bestellungsNr;
@@ -59,90 +57,98 @@ public class Bestellung {
         this.anzahlSofas = anzahlSofas;
     }
 
-    public ArrayList<Produkt> getBestellteProdukte(){
+    public ArrayList<Produkt> getBestellteProdukte() {
         return this.bestellteProdukte;
     }
 
     /**
      * Bestätigt die Bestellung (true).
-     * 
+     * <p>
      * Anmerkung: Falls noch nicht bestätigt, bleibt diese Variabel 'false'.
      */
-    
+
     public void bestellungBestaetigen() {
         bestellBestaetigung = true;
     }
-    
+
     /**
-     * Gib die bestellBestaetigung wieder. 
+     * Gib die bestellBestaetigung wieder.
+     *
      * @return Bestellbestätigung
      */
     public boolean gibBestellBestaetigung() {
         return bestellBestaetigung;
     }
-    
+
     /**
      * Setze die jeweilige Beschaffungszeit in Abstimmung mit den Lieferanten.
+     *
      * @param beschaffungsZeit: Neu gesetzte Zahl für die Beschaffungszeit.
      */
     public void setzBeschaffungsZeit(int beschaffungsZeit) {
-        this.beschaffungsZeit = beschaffungsZeit; 
+        this.beschaffungsZeit = beschaffungsZeit;
     }
-    
+
     /**
      * Gib die Beschaffungszeit wieder.
+     *
      * @return die aktuell gesetzte Beschaffungszeit
      */
     public int gibBeschaffungszeit() {
         return beschaffungsZeit;
     }
-   
+
     /**
      * Gib die Bestellnummer wieder.
+     *
      * @return Nummer einer Bestellung
      */
     public int gibBestellNummer() {
         return bestellungsNr;
     }
-    
+
     /**
      * Gib die Liste der bestellten Produkte wieder.
+     *
      * @return Liste der Produkte in der Bestellung
      */
     public ArrayList<Produkt> liefereBestellteProdukte() {
         return bestellteProdukte;
     }
-    
+
     /**
      * Gib die Anzahl Stuehle wieder.
+     *
      * @return die Anzahl Stühle in einer Bestellung
      */
     public int gibAnzahlStuehle() {
         return anzahlStuehle;
     }
-    
+
     /**
      * Gib die Anzahl Sofas wieder.
+     *
      * @return die Anzahl Sofas in einer Bestellung
      */
     public int gibAnzahlSofas() {
         return anzahlSofas;
     }
-    
+
     /**
      * Wandelt unterschiedliche Typen in den Typ String um.
+     *
      * @return die Bestellnummer, die Anzahl Stühle, die Anzahl Sofas sowie die zugehörige Lieferzeit in der Form des nachfolgend definierten Strings
-     * 
-     * Anmerkung: Wandelt die Konsolenausgabe der Methode bestellungenAusgeben in die Form String um, 
+     * <p>
+     * Anmerkung: Wandelt die Konsolenausgabe der Methode bestellungenAusgeben in die Form String um,
      * damit diese im Unit-Test auf Übereinstimmung getestet werden kann.
      */
     public String toString() {
         return "Bestellnummer: " + bestellungsNr
-        + "\nSofas bestellt: " + anzahlSofas
-        + "\nStühle bestellt: " + anzahlStuehle
-        + "\nIhre Lieferzeit beträgt: " + gibFormatierteLieferzeit();
+                + "\nSofas bestellt: " + anzahlSofas
+                + "\nStühle bestellt: " + anzahlStuehle
+                + "\nIhre Lieferzeit beträgt: " + gibFormatierteLieferzeit();
     }
-    
+
     /**
      * Setze die aktuelle Lieferzeit einer Bestellung.
      *
@@ -151,7 +157,7 @@ public class Bestellung {
     public void setzLieferZeit(float lieferZeit) {
         this.lieferZeit = lieferZeit;
     }
-    
+
     /**
      * Gib die Lieferzeit einer Bestellung.
      *
@@ -160,12 +166,12 @@ public class Bestellung {
     public float gibLieferZeit() {
         return lieferZeit;
     }
-    
+
     /**
      * Berechnet die Lieferzeit einer Bestellung in Tagen, Stunden und Minuten.
      *
      * @return die berechnete Lieferzeit einer Bestellung in Tagen, Stunden und Minuten
-     * 
+     * <p>
      * Anmerkung: Stunden werden jeweils aufgerundet, um dem Kunden keine zu kurze Lieferzeit zu versprechen.
      */
     public String gibFormatierteLieferzeit() {
@@ -175,7 +181,10 @@ public class Bestellung {
         return tage + " Tag(e) " + stunden + " Stunde(n) " + minuten + " Minute(n)";
     }
 
-    public void setzeAlleProdukteProduziert (){
+    /**
+     * Methode, um zu bestätigen, dass alle Produkte einer Bestellung produziert worden sidn
+     */
+    public void setzeAlleProdukteProduziert() {
         alleProdukteProduziert = true;
     }
 }

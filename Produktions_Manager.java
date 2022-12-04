@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @author Gruppe 29
  * @version 3.1 (4. Dezember 2022)
- *
+ * <p>
  * Die Klasse Produktions_Manager arbeitet neu eintreffende Bestellung ab und leitet diese den Robotern zur Produktion weiter.
  * Sie wird als Thread implementiert, damit sie immer wieder neu eintreffende Bestellungen abarbeiten und den Robotern zum Produzieren geben kann.
  */
@@ -14,15 +14,13 @@ import java.util.Map;
 public class Produktions_Manager extends Thread {
     /**
      * Instanzvariablen:
-     *
-     * - holzRoboter
-     * - montageRoboter
-     * - lackierRoboter
-     * - verpackungsRoboter
-     * - meineFabrik
-     * - meinLager
-     * - zuVerarbeitendeBestellungen
-     * - bestellungenInProduktion
+     * <p>
+     * - holzRoboter:
+     * - montageRoboter:
+     * - lackierRoboter:
+     * - verpackungsRoboter:
+     * - zuVerarbeitendeBestellungen:
+     * - bestellungenInProduktion:
      */
 
     private Holzbearbeitungs_Roboter holzRoboter;
@@ -38,9 +36,9 @@ public class Produktions_Manager extends Thread {
      * Zwei LinkedLists werden instanziiert, um die zu verarbeitende Bestellungen und die Bestellungen in Produktion zu verwalten.
      */
 
-    public Produktions_Manager() { //mein --> param
-        zuVerarbeitendeBestellungen = new LinkedList<Bestellung>();
-        bestellungenInProduktion = new LinkedList<Bestellung>();
+    public Produktions_Manager() {
+        zuVerarbeitendeBestellungen = new LinkedList<>();
+        bestellungenInProduktion = new LinkedList<>();
 
         holzRoboter = new Holzbearbeitungs_Roboter();
         montageRoboter = new Montage_Roboter();
@@ -66,13 +64,15 @@ public class Produktions_Manager extends Thread {
      * Die run Methode des Threats prüft immer wieder, ob eine neue Bestellung eingetroffen ist.
      * Bestellungen werden dann aus der Liste der zu verarbeitenden Bestellungen herausgenommen
      * und in die Liste der zu produzierenden Bestellungen (bestellungenInProduktion) gespeichert.
+     * Die Liste der bestellten Produkte (naechsteBestellung.getBestellteProdukte()) werden nach Produkttyp (Stuhl, Sofa) sortiert,
+     * sodass bei der Produktion einer Bestellung die Roboter nicht so oft umkonfiguriert werden müssen.
      * Wenn im Lager genügend Material vorhanden ist, wird somit die Produktion gestartet.
      * <p>
      * Zudem wird bei der Produktion geprüft, ob eine Bestellung abgeschlossen ist.
      * Wenn ja, wird die Bestellung von der zu produzierenden Bestellungen gelöscht.
-     * Gleichzeitig wird  in der Klasse Bestellung festgehalten, dass die Produkte produziert und bereit auszuliefern sind.
+     * Gleichzeitig wird in der Klasse Bestellung festgehalten, dass die Produkte produziert und bereit auszuliefern sind.
      * <p>
-     * Schliesslich soll der Thread um die Zeit zeit schlafen
+     * Schliesslich soll der Thread für eine bestimmte Zeit schlafen
      */
 
     public void run() {
@@ -85,7 +85,7 @@ public class Produktions_Manager extends Thread {
                 naechsteBestellung.getBestellteProdukte().sort((o1, o2)
                         -> o1.toString().compareTo(
                         o2.toString()));
-                for (Produkt produkt : naechsteBestellung.getBestellteProdukte()){
+                for (Produkt produkt : naechsteBestellung.getBestellteProdukte()) {
                     produkt.starteNaechsteProduktionsStation();
                 }
             }
@@ -104,16 +104,6 @@ public class Produktions_Manager extends Thread {
             ThreadUtil.sleep(1000);
         }
     }
-
-    /**
-     * Die folgenden beiden Methoden schienen mir nicht korrekt bennant bzw. auch nicht in Miro vorhanden
-     * den Inhalt von "starte Produktion" habe ich von Übung 7 übernommen und übersetzt, denke aber, dieser sollte zu
-     * einer neuen Methode "setzeProduktionsAblauf" benannt werden.
-     *
-     * ANM Cha: ich finde es gut, die zwei Methoden zu kombinieren - wir hatten ja gesagt, die Übung 7 dient als Beispiel, deshalb super :)
-     * in Miro steht im Text, dass es eine "starteProduktion" Methode braucht. Aber nicht explizit im Diagramm.
-     * Ich würde sie nicht setzteProduktionsAblauf bennen, weil wir ja in Produkt schon eine solch benannte Methode haben?
-     */
 
     /**
      * In der Methode starteProduktion wird jedem Produkt der Bestellung

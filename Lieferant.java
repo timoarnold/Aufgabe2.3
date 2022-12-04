@@ -9,7 +9,10 @@
  */
 
 public class Lieferant extends Thread {
-    //ANM Timo: für Testing, damit geprüft werden kann, ob Ware geliefert werden kann.
+    /**
+     * Instanzvariablen:
+     * istWareGeliefert: Boolean um zu sehen, ob die Ware geliefert worden ist
+     */
     private boolean istWareGeliefert;
 
     /**
@@ -18,13 +21,15 @@ public class Lieferant extends Thread {
      * bestellt werden. Werden Produkte bestellt, beträgt die Lieferzeit 48 Sekunden (2 Tage im Programm).
      */
     public void run(){
-            // Methode oben beschreiben
-            // Wartezeit = 2 Tage; Im Programm ist 1 Stunde = 1 Sekunde und somit 1 Tag = 24 sek
-            // Somit muss der Lieferant (der Thread) 48 sek oder 48'000 msek warten (schlafen)
             ThreadUtil.sleep(2*24*1000);
             System.out.println("Lieferant: Die Ware wurde an das Lager versandt.");
             istWareGeliefert = true;
     }
+
+    /**
+     * Mit dieser Methode wird der Boolean zurückgegeben, um zu sehen, ob die Ware geliefert worden ist. Wird für die Testklasse benötigt.
+     * @return Boolean, ob ware geliefert worden ist.
+     */
     public boolean istWareGeliefert () {
         return istWareGeliefert;
     }

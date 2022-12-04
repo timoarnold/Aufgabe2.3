@@ -3,7 +3,7 @@ public class ThreadUtil {
     /**
      * Die sleep Methode lässt den Thread um die Zeit zeit schlafen
      *
-     * @param zeit: Anzahl Millisekunden, welche der Thread schläfen soll.
+     * @param zeit: Anzahl Millisekunden, welche der Thread schlafen soll.
      */
     public static void sleep(int zeit) {
         try {
