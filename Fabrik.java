@@ -45,8 +45,13 @@ public class Fabrik {
      * (Durchführung der Methode bestellungAufgeben).
      * Der User kann nach einer Bestellung entscheiden, ob er weiter bestellen möchte.
      * Sobald sich der User entscheidet, nicht mehr weiterzubestellen, wird eine Zusammenfassung der Bestellungen ausgegeben
+<<<<<<< Updated upstream
      * (Durchführung der Methode bestellungsAusgeben).
      * Auch werden die Bestellungen vom Produktionsmanager verarbeitet, sodass sie von den Robotern produziert werden.
+=======
+     * (Durchführung der Methode bestellungAusgeben).
+     * Auch werden die Bestellungen vom Produktionsmanager verarbeitet, sodass sie von den Robotern produziert wird.
+>>>>>>> Stashed changes
      * (Durchführung der Methode bestellungenVerarbeiten).
      * Ausserdem werden die Inputs des Users überprüft, sodass die geforderten Informationen angegeben werden.
      */
