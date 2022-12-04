@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * @author Gruppe 29
  * @version 3.1 (4. Dezember 2022)
- * <p>
+ *
  * Die Test-Klasse FabrikTest verwaltet alle Unit-Tests der Software.
  */
 public class FabrikTest {
@@ -73,8 +73,8 @@ public class FabrikTest {
     }
 
     /**
-     * Hier wird getestet, ob die erste (Index 0) und die zweite (Index 1) Bestellung der ArrayList bestellungen den Erwartungen entspricht.
-     * <p>
+     * Testet, ob die erste (Index 0) und die zweite (Index 1) Bestellung der ArrayList bestellungen den Erwartungen entspricht.
+     *
      * Anmerkung: Testfabrik.gibBestellungen().get(0).toString() entspricht System.out.println(eineBestellung) aus Fabrik.bestellungAusgeben
      */
 

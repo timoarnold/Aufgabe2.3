@@ -41,17 +41,14 @@ public class Fabrik {
      * - validerInput: Gibt an, ob die Bestelleingabe valide ist oder nicht.
      *
      * Anmerkung:
-     * Durch die Main-Methode wird ein Dioalogsystem aufgerufen, in welcher der User Bestellungen für Sofas und Stühle aufgeben kann
+     * Durch die Main-Methode wird ein Dialogsystem aufgerufen, in welcher der User Bestellungen für Sofas und Stühle aufgeben kann
      * (Durchführung der Methode bestellungAufgeben).
      * Der User kann nach einer Bestellung entscheiden, ob er weiter bestellen möchte.
      * Sobald sich der User entscheidet, nicht mehr weiterzubestellen, wird eine Zusammenfassung der Bestellungen ausgegeben
-<<<<<<< Updated upstream
-     * (Durchführung der Methode bestellungsAusgeben).
+     * (Durchführung der Methode bestellungAusgeben).
      * Auch werden die Bestellungen vom Produktionsmanager verarbeitet, sodass sie von den Robotern produziert werden.
-=======
      * (Durchführung der Methode bestellungAusgeben).
      * Auch werden die Bestellungen vom Produktionsmanager verarbeitet, sodass sie von den Robotern produziert wird.
->>>>>>> Stashed changes
      * (Durchführung der Methode bestellungenVerarbeiten).
      * Ausserdem werden die Inputs des Users überprüft, sodass die geforderten Informationen angegeben werden.
      */
@@ -104,7 +101,7 @@ public class Fabrik {
      *
      * @param sofa: Anzahl Sofas, die in einer Bestellung bestellt wurden.
      * @param stuhl: Anzahl Stühle, die in einer Bestellung bestellt wurden.
-     * <p>
+     *
      * Anmerkung: Durch bestellungAufgeben wird eine neue Instanz der Klasse Bestellung erstellt, die Bestellung bestätigt und in der Array "bestellungen" gespeichert.
      * Zu jeder aufgegebenen Bestellung wird hier die jeweilige Lieferzeit ausgerechnet und gesetzt und die Bestellbestätigung auf true gesetzt.
      * Falls ein niedriger Lagerbestand erreicht wurde, wird beim Lieferanten nachbestellt, um das Lager komplett aufzufüllen.

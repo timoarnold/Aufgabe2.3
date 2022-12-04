@@ -35,7 +35,7 @@ public class Stuhl extends Produkt {
     public static final int VERPACKUNG_ZEIT= 5;
     /**
      * Konstruktor für Objekte der Klasse Stuhl.
-     * Mit super() wird "Zustand" aus der Superklasse Produkt initialisiert
+     * Mit super() wird "Zustand" aus der Superklasse Produkt initialisiert.
      */
     public Stuhl(int bestellNummer) {
         super (bestellNummer);

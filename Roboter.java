@@ -10,8 +10,8 @@ public class Roboter extends Thread {
     /**
      * Instanzvariablen:
      *
-     * - warteschlange: In der Warteschlange werden alle Produkte gespeichert, die produziert werden sollen
-     * - name: Name des Roboters
+     * - warteschlange: In der Warteschlange werden alle Produkte gespeichert, die produziert werden sollen.
+     * - name: Name des Roboters.
      */
     private LinkedList <Produkt> warteschlange;
     private String name;
@@ -79,7 +79,7 @@ public class Roboter extends Thread {
     /**
      * In dieser methode wird die Produktionszeit der Roboter (in Minuten) in Millisekunden umgerechnet nach dem Schema: 1 Stunde = 1 Sekunde.
      * @param produktionsZeit
-     * @return umgerechnete Produktionszeit
+     * @return umgerechnete Produktionszeit.
      */
     private float rechneProduktionsZeitInMillisekundenUm (int produktionsZeit) {
         return (float)produktionsZeit/60*1000;

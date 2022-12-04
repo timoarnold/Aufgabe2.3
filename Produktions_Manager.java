@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @author Gruppe 29
  * @version 3.1 (4. Dezember 2022)
- * <p>
+ *
  * Die Klasse Produktions_Manager arbeitet neu eintreffende Bestellung ab und leitet diese den Robotern zur Produktion weiter.
  * Sie wird als Thread implementiert, damit sie immer wieder neu eintreffende Bestellungen abarbeiten und den Robotern zum Produzieren geben kann.
  */
@@ -14,13 +14,13 @@ import java.util.Map;
 public class Produktions_Manager extends Thread {
     /**
      * Instanzvariablen:
-     * //TODO: Fields beschreiben
-     * - holzRoboter:
-     * - montageRoboter:
-     * - lackierRoboter:
-     * - verpackungsRoboter:
-     * - zuVerarbeitendeBestellungen:
-     * - bestellungenInProduktion:
+     *
+     * - holzRoboter: Roboter, welcher für die Holzbearbeitung zuständig ist.
+     * - montageRoboter: Roboter, welcher für die Holzbearbeitung zuständig ist.
+     * - lackierRoboter: Roboter, welcher für die Holzbearbeitung zuständig ist.
+     * - verpackungsRoboter: Roboter, welcher für die Holzbearbeitung zuständig ist.
+     * - zuVerarbeitendeBestellungen: Liste, in welcher jene Bestellungen gespeichert werden, welche noch verarbeitet werden müssen.
+     * - bestellungenInProduktion: Liste, in welcher alle Bestellungen gespeichert werden, welche gerade produziert werden.
      */
 
     private Holzbearbeitungs_Roboter holzRoboter;

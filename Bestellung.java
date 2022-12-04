@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class Bestellung {
     /**
-     * InstanzVariabeln:
-     * <p>
+     * Instanzvariablen:
+     *
      * - Liste bestellteProdukte: Liste aller Produkte, die bestellt wurden.
      * - bestellBestaetigung: Indikator, ob eine Bestellung erfolgreich bestätigt wurde oder nicht (boolean).
      * - beschaffungsZeit: Beschaffungszeit (in Tagen) für die Produkte (int).
@@ -33,7 +33,7 @@ public class Bestellung {
 
     /**
      * Konstruktor der Klasse Bestellung: initialisiert alle Instanzvariabeln der Klasse Bestellung.
-     * Bei der Initalisierung der Klasse Bestellung wird auch gleichzeitig die ArrayList "bestellteProdukte" mit der Anzahl an bestellten Stühlen und Sofas aufgefüllt.
+     * Bei der Initialisierung der Klasse Bestellung wird auch gleichzeitig die ArrayList "bestellteProdukte" mit der Anzahl an bestellten Stühlen und Sofas aufgefüllt.
      *
      * @param anzahlSofas: Anzahl bestellter Sofas einer Bestellung.
      * @param anzahlStuehle: Anzahl bestellter Stühle einer Bestellung.
@@ -134,7 +134,7 @@ public class Bestellung {
      * Wandelt unterschiedliche Typen in den Typ String um.
      *
      * @return die Bestellnummer, die Anzahl Stühle, die Anzahl Sofas sowie die zugehörige Lieferzeit in der Form des nachfolgend definierten Strings
-     * <p>
+     *
      * Anmerkung: Wandelt die Konsolenausgabe der Methode bestellungenAusgeben in die Form String um,
      * damit diese im Unit-Test auf Übereinstimmung getestet werden kann.
      */
@@ -167,7 +167,7 @@ public class Bestellung {
      * Berechnet die Lieferzeit einer Bestellung in Tagen, Stunden und Minuten.
      *
      * @return die berechnete Lieferzeit einer Bestellung in Tagen, Stunden und Minuten
-     * <p>
+     *
      * Anmerkung: Stunden werden jeweils aufgerundet, um dem Kunden keine zu kurze Lieferzeit zu versprechen.
      */
     public String gibFormatierteLieferzeit() {

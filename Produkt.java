@@ -11,20 +11,19 @@ import java.util.LinkedList;
 
 public class Produkt {
     /**
-    * Instanzvariabeln: 
+    * Instanzvariablen:
     * 
     * - zustand: aktueller Zustand eines Produkts (int).
     * 
-    * Dabei gibt es 4 mögliche Zustände: 
-    * Zustand 1 = bestellt 
-    * Zustand 2 = in Produktion
-    * Zustand 3 = versandbereit
-    * Zustand 4 = ausgeliefert
-     *
-     * /TODO: Fields beschreiebn
-    * - produktionsAblauf:
-     * - produktionsZeit:
-     * - bestellNummer:
+    *   Dabei gibt es 4 mögliche Zustände:
+    *   Zustand 1 = bestellt
+    *   Zustand 2 = in Produktion
+    *   Zustand 3 = versandbereit
+    *   Zustand 4 = ausgeliefert
+    *
+    * - produktionsAblauf: Liste, in welcher die Abfolge der Produktionsroboter abgespeichert wird.
+    * - produktionsZeit: Hashmap, zur Abspeicherung der Produktionszeiten.
+    * - bestellNummer: Zahl, zur Identifikation der Bestellungen.
     */
     
     private int zustand;
@@ -99,7 +98,7 @@ public class Produkt {
     }
 
     /**
-     * Methode, welche den Produktionsstatus "Versandbereit" zurückgibt
+     * Methode, welche den Produktionsstatus "Versandbereit" zurückgibt.
      * @return zustand
      */
     public boolean istProduziert(){

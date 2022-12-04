@@ -8,26 +8,26 @@
 
 public class Lager {
     /**
-     * KlassenVariabeln:
+     * KlassenVariablen:
      * - maxHolzeinheiten: Anzahl maximal lagerbarer Einheiten des Rohstoffs Holz (int).
      * - maxSchrauben: Anzahl maximal lagerbarer Einheiten Schrauben (int).
      * - maxFarbeinheiten: Anzahl maximal lagerbarer Einheiten Farbe (int).
      * - maxKartoneinheiten: Anzahl maximal lagerbarer Einheiten des Rohstoffs Karton (int).
      * - maxKissen: Anzahl maximal lagerbarer Einheiten Kissen (int).
-     * <p>
-     * InstanzVariabeln:
+     *
+     * InstanzVariablen:
      * - vorhandeneHolzeinheiten: Anzahl aktuell gelagerter Einheiten des Rohstoffs Holz (int).
      * - vorhandeneSchrauben: Anzahl aktuell gelagerter Einheiten Schrauben (int).
      * - vorhandeneFarbeinheiten: Anzahl aktuell gelagerter Einheiten Farben (int).
      * - vorhandeneKartoneinheiten: Anzahl aktuell gelagerter Einheiten des Rohstoffs Karton (int).
      * - vorhandeneKissen: Anzahl aktuell gelagerter Einheiten Kissen (int).
-     * <p>
+     *
      * - benoetigteHolzeinheiten; Anzahl Einheiten des Rohstoffs Holz (int), welche für die Produktion der Bestellung benötigt werden.
      * - benoetigteSchrauben; Anzahl Einheiten Schrauben (int), welche für die Produktion der Bestellung benötigt werden.
      * - benoetigteFarbeinheiten; Anzahl Einheiten Farben (int), welche für die Produktion der Bestellung benötigt werden.
      * - benoetigteKartoneinheiten; Anzahl Einheiten Karton (int), welche für die Produktion der Bestellung benötigt werden.
      * - benoetigteKissen; Anzahl Einheiten Kissen (int), welche für die Produktion der Bestellung benötigt werden.
-     * <p>
+     *
      * - lieferant: Beschreibt den Lieferanten, bei welchem die Fabrik Materialien bestellt (Lieferant).
      */
 
@@ -132,7 +132,7 @@ public class Lager {
 
     /**
      * Füllt die im Lager vorhandenen Materialien auf ihre Maximalwerte aus, sobald die Lieferung des Lieferanten eingetroffen ist.
-     * <p>
+     *
      * Anmerkung: mit dieser Methode werden die Werte vorhandener Materialien in der Software wieder auf das Max. gesetzt.
      */
     public void lagerAuffuellen() {
@@ -159,7 +159,7 @@ public class Lager {
      * Getter-Methode, um den Lieferanten eines Lagers zu erhalten.
      *
      * @return den Lieferanten des Lagers.
-     * <p>
+     *
      * Anmerkung: Diese Methode wird für die Testklasse "FabrikTest" benötigt, um den Lieferanten anzusprechen und dessen Methodenergebnis zu testen.
      */
     public Lieferant gibLieferant() {
