@@ -4,7 +4,7 @@ import java.io.*;
 /**
  * @author Gruppe 29
  * @version 3.1 (4. Dezember 2022)
- * <p>
+ *
  * Die Klasse Fabrik bildet die Schnittstelle zwischen Kund:innen und der Produktion.
  * Sie nimmt Bestellungen entgegen und verwaltet diese.
  */
@@ -12,7 +12,7 @@ import java.io.*;
 public class Fabrik {
     /**
      * Instanzvariablen:
-     * <p>
+     *
      * - bestellungen: Array-Liste, in der alle eingegangenen Bestellungen als Typ <Bestellung> abgespeichert werden.
      * - bestellungsNr: Nummer, welche jeder Bestellung aufsteigend zugeordnet wird, beginnend bei 1 (int).
      * - lager: Das zur Fabrik gehörende Lager (jeweils eines).
@@ -39,14 +39,14 @@ public class Fabrik {
      * Ermöglicht den Einstieg ins Programm
      * - weiterBestellen: Gibt an, ob weiterbestellt wird oder nicht.
      * - validerInput: Gibt an, ob die Bestelleingabe valide ist oder nicht.
-     * <p>
+     *
      * Anmerkung:
      * Durch die Main-Methode wird ein Dioalogsystem aufgerufen, in welcher der User Bestellungen für Sofas und Stühle aufgeben kann
      * (Durchführung der Methode bestellungAufgeben).
      * Der User kann nach einer Bestellung entscheiden, ob er weiter bestellen möchte.
      * Sobald sich der User entscheidet, nicht mehr weiterzubestellen, wird eine Zusammenfassung der Bestellungen ausgegeben
      * (Durchführung der Methode bestellungsAusgeben).
-     * Auch werden die Bestellungen vom Produktionsmanager verarbeitet, sodass sie von den Robotern produziert wird.
+     * Auch werden die Bestellungen vom Produktionsmanager verarbeitet, sodass sie von den Robotern produziert werden.
      * (Durchführung der Methode bestellungenVerarbeiten).
      * Ausserdem werden die Inputs des Users überprüft, sodass die geforderten Informationen angegeben werden.
      */
@@ -167,7 +167,7 @@ public class Fabrik {
      * Mit dieser Methode werden die Bestellungen wiedergegeben.
      *
      * @return ArrayListe bestellungen
-     * <p>
+     *
      * Anmerkung: Diese Methode dient den Unit-Tests im Rahmen der Testklasse FabrikTest.
      * Sie gibt die Bestellungsinformationen für den Unit-Test zur Methode Bestellung auf- und ausgeben wieder.
      */
@@ -177,7 +177,7 @@ public class Fabrik {
 
     /**
      * Mit dieser Methode werden die detaillierten Informationen zu allen Bestellungen ausgegeben.
-     * <p>
+     *
      * Anmerkung: Für jede Bestellung aus der Liste bestellungen, gibt die Konsole die unten programmierte Print-Meldung aus.
      * Diese Methode gibt somit alle Informationen (Anzahl Stühle / Anzahl Sofas / Bestellungen Total / Bestellungsnummer)
      * für alle aufgegebenen Bestellungen wieder.
@@ -194,7 +194,7 @@ public class Fabrik {
      * Mit dieser Methode wird das Lager wiedergegeben.
      *
      * @return Lager
-     * <p>
+     *
      * Anmerkung: Diese Methode dient den Unit-Tests im Rahmen der Testklasse FabrikTest.
      * Sie gibt die Möglichkeit, Methoden der Klasse Lager aufzurufen
      */

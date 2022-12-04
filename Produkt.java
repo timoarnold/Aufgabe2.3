@@ -21,6 +21,7 @@ public class Produkt {
     * Zustand 3 = versandbereit
     * Zustand 4 = ausgeliefert
      *
+     * /TODO: Fields beschreiebn
     * - produktionsAblauf:
      * - produktionsZeit:
      * - bestellNummer:
@@ -92,7 +93,7 @@ public class Produkt {
             naechsterRoboter.fuegeProduktHinzu(this);
         }
         else{
-            System.out.println("[Produkt] " + this + " bereit zur Auslieferung ");
+            System.out.println("[Produkt] " + this + " fertig produziert und bereit zur Auslieferung ");
             zustandAendern(3);
         }
     }

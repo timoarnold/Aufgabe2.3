@@ -59,7 +59,7 @@ public class Bestellung {
 
     /**
      * Bestätigt die Bestellung (true).
-     * <p>
+     *
      * Anmerkung: Falls noch nicht bestätigt, bleibt diese Variabel 'false'.
      */
 
@@ -178,7 +178,7 @@ public class Bestellung {
     }
 
     /**
-     * Methode, um zu bestätigen, dass alle Produkte einer Bestellung produziert worden sidn
+     * Methode, um zu bestätigen, dass alle Produkte einer Bestellung produziert worden sind
      */
     public void setzeAlleProdukteProduziert() {
         alleProdukteProduziert = true;

@@ -14,7 +14,7 @@ import java.util.Map;
 public class Produktions_Manager extends Thread {
     /**
      * Instanzvariablen:
-     * <p>
+     * //TODO: Fields beschreiben
      * - holzRoboter:
      * - montageRoboter:
      * - lackierRoboter:
@@ -79,7 +79,7 @@ public class Produktions_Manager extends Thread {
         while (true) {
             Bestellung naechsteBestellung = zuVerarbeitendeBestellungen.poll();
             if (naechsteBestellung != null) {
-                ThreadUtil.syncedPrintln("[Produktionsmanager] Beginne zu produzieren: Bestellungsnummer " + naechsteBestellung.gibBestellNummer());
+                ThreadUtil.syncedPrintln("[Produktionsmanager] Beginne die folgende Bestellung zu produzieren: Bestellungsnummer " + naechsteBestellung.gibBestellNummer());
                 bestellungenInProduktion.add(naechsteBestellung);
                 starteProduktion(naechsteBestellung);
                 naechsteBestellung.liefereBestellteProdukte().sort((o1, o2)
@@ -98,7 +98,7 @@ public class Produktions_Manager extends Thread {
                 if (sindAlleProdukteProduziert) {
                     bestellungenInProduktion.remove(bestellung);
                     bestellung.setzeAlleProdukteProduziert();
-                    ThreadUtil.syncedPrintln("[Produktionsmanager] Fertig produziert: Bestellungsnummer " + bestellung.gibBestellNummer());
+                    ThreadUtil.syncedPrintln("[Produktionsmanager] Die Bestellung ist fertig produziert: Bestellungsnummer " + bestellung.gibBestellNummer());
                 }
             }
             ThreadUtil.sleep(1000);
