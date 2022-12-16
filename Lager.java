@@ -1,7 +1,11 @@
 /**
  * @author Gruppe 29
  * @version 3.1 (4. Dezember 2022)
+<<<<<<< Updated upstream
  * 
+=======
+ *
+>>>>>>> Stashed changes
  * Die Klasse Lager beinhaltet die Informationen zu den maximal lagerbaren Materialeinheiten sowie den aktuellen
  * Beständen der Materialien.
  */
