@@ -1,7 +1,7 @@
 
 /**
  * @author Gruppe 29
- * @version 3.1 (4. Dezember 2022)
+ * @version 4.1 (31. Dezember 2022)
  *
  * Die Klasse Lieferant ermöglicht es Bestellungen an den Lieferanten aufzugeben.
  * Sie wird als Thread implementiert, damit bestellte Teile sollen nach zwei Tagen an das Lager geliefert werden,

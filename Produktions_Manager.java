@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * @author Gruppe 29
- * @version 3.1 (4. Dezember 2022)
+ * @version 4.1 (31. Dezember 2022)
  *
  * Die Klasse Produktions_Manager arbeitet neu eintreffende Bestellung ab und leitet diese den Robotern zur Produktion weiter.
  * Sie wird als Thread implementiert, damit sie immer wieder neu eintreffende Bestellungen abarbeiten und den Robotern zum Produzieren geben kann.

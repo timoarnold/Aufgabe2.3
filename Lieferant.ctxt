@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Lieferant
-comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\n\ Die\ Klasse\ Lieferant\ erm\u00F6glicht\ es\ Bestellungen\ an\ den\ Lieferanten\ aufzugeben.\n\ Sie\ wird\ als\ Thread\ implementiert,\ damit\ bestellte\ Teile\ sollen\ nach\ zwei\ Tagen\ an\ das\ Lager\ geliefert\ werden,\n\ wobei\ 1\ Stunde\ \=\ 1\ Sekunde\ ist.\n
+comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 4.1\ (31.\ Dezember\ 2022)\n\n\ Die\ Klasse\ Lieferant\ erm\u00F6glicht\ es\ Bestellungen\ an\ den\ Lieferanten\ aufzugeben.\n\ Sie\ wird\ als\ Thread\ implementiert,\ damit\ bestellte\ Teile\ sollen\ nach\ zwei\ Tagen\ an\ das\ Lager\ geliefert\ werden,\n\ wobei\ 1\ Stunde\ \=\ 1\ Sekunde\ ist.\n
 comment1.params=
 comment1.target=void\ run()
 comment1.text=\n\ Die\ run\ Methode\ ist\ die\ Hauptmethode\ des\ Threads.\n\ Sie\ wird\ als\ unendliche\ Schleife\ implementiert.\ Hier\ wird\ immer\ wieder\ \u00FCberpr\u00FCft,\ ob\ neue\ Materialien\ vom\ Lager\n\ bestellt\ werden.\ Werden\ Produkte\ bestellt,\ betr\u00E4gt\ die\ Lieferzeit\ 48\ Sekunden\ (2\ Tage\ im\ Programm).\n

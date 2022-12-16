@@ -14,13 +14,13 @@ public class GUIController
     }
     
     // da ist was falsch... zudem weiss ich gerade nicht wo wir eine ähnliche Methode zur getBestellBestätigung haben
-    public String onOrder(int produkt, String kundenName){
-        Bestellung bestellung = fabrik.bestellungAufgeben(produkt, kundenName);
-        return bestellung.getBestellBestätigung();
+    public String onOrder(int stuhl, int sofa){
+        Bestellung bestellung = fabrik.bestellungAufgeben(stuhl, sofa);
+        return bestellung.getBestellungAusgeben();
     }
     
     // da auch wo faben wir so eine getter Methode?
     public String onStatus(){
-        return fabrik.getStatusl();
+        return fabrik.getStatus();
     }
 }
