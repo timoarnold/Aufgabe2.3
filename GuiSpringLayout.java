@@ -1,11 +1,18 @@
 import java.awt.*;
-
+import java.awt.event.*;
 import javax.swing.*;
+
+/**
+ * Beschrieb noch einfügen
+ */
 
 public class GuiSpringLayout {
 
     private final GUIController controller;
-
+    
+    /**
+     * Konstruktor für die Klasse GuiSpringLayout.
+     */
     public GuiSpringLayout(GUIController controller) {
         this.controller = controller;
         createWindow();
@@ -15,8 +22,12 @@ public class GuiSpringLayout {
     //to do
     }
 
+    /**
+     * Die Methode createWindow kümmert sich um den Aufbau der grafischen Oberfläche.
+     * Die Klasse hat eine Instanzvariable vom Typ JFrame, die eine Referenz auf das Fenster hält, das auf dem Bildschirm angezeigt werden möchten.
+     */
     private void createWindow() {
-        JFrame frame = new JFrame("Fabrik with SpringLayout");
+        JFrame frame = new JFrame("Fabrik mit SpringLayout");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         createUI(frame);
         frame.setSize(560, 200);
