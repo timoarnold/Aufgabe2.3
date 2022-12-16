@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ThreadUtil
+comment1.params=zeit
+comment1.target=void\ sleep(int)
+comment1.text=\n\ Die\ sleep\ Methode\ l\u00E4sst\ den\ Thread\ um\ die\ Zeit\ zeit\ schlafen\n\n\ @param\ zeit\:\ Anzahl\ Millisekunden,\ welche\ der\ Thread\ schlafen\ soll.\n
+comment2.params=message
+comment2.target=void\ syncedPrintln(java.lang.String)
+comment2.text=\n\ Die\ Synchronisierungsmethode\ syncedPrintIn\ stellt\ sicher,\ dass\ nur\ ein\ Thread\ zeitgleich\ auf\ die\ Systemressource\ zugreift.\n\ dass\ nur\ ein\ Thread\ zu\ einem\ bestimmten\ Zeitpunkt\ auf\ die\ Ressource\ zugreifen\ kann.\n\n\ @param\ message\:\ String\ Nachricht,\ welche\ gedruckt\ werden\ soll.\n
+numComments=3

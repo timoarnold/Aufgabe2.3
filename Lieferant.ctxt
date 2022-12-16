@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=Lieferant
-comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\n\ Die\ Klasse\ Lieferant\ erm\u00F6glicht\ es\ Bestellungen\ an\ den\ Lieferanten\ aufzugeben.\n\ Bestellte\ Teile\ sollen\ erst\ in\ zwei\ Tagen\ an\ das\ Lager\ geliefert\ werden,\ wobei\ 1\ Stunde\ \=\ 1\ Sekunde\ ist.\n
-comment1.params=lager
-comment1.target=Lieferant(Lager)
-comment1.text=\n\ Konstruktor\n
+comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\n\ Die\ Klasse\ Lieferant\ erm\u00F6glicht\ es\ Bestellungen\ an\ den\ Lieferanten\ aufzugeben.\n\ Sie\ wird\ als\ Thread\ implementiert,\ damit\ bestellte\ Teile\ sollen\ nach\ zwei\ Tagen\ an\ das\ Lager\ geliefert\ werden,\n\ wobei\ 1\ Stunde\ \=\ 1\ Sekunde\ ist.\n
+comment1.params=
+comment1.target=void\ run()
+comment1.text=\n\ Die\ run\ Methode\ ist\ die\ Hauptmethode\ des\ Threads.\n\ Sie\ wird\ als\ unendliche\ Schleife\ implementiert.\ Hier\ wird\ immer\ wieder\ \u00FCberpr\u00FCft,\ ob\ neue\ Materialien\ vom\ Lager\n\ bestellt\ werden.\ Werden\ Produkte\ bestellt,\ betr\u00E4gt\ die\ Lieferzeit\ 48\ Sekunden\ (2\ Tage\ im\ Programm).\n
 comment2.params=
-comment2.target=void\ run()
+comment2.target=boolean\ istWareGeliefert()
+comment2.text=\n\ Mit\ dieser\ Methode\ wird\ der\ Boolean\ zur\u00FCckgegeben,\ um\ zu\ sehen,\ ob\ die\ Ware\ geliefert\ worden\ ist.\ Wird\ f\u00FCr\ die\ Testklasse\ ben\u00F6tigt.\n\ @return\ Boolean,\ ob\ ware\ geliefert\ worden\ ist.\n
 numComments=3
