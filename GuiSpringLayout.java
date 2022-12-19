@@ -3,7 +3,13 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * Beschrieb noch einfügen
+ * GuiSpringLayout ist die Hauptklasse der GuiSpringLayout-Anwendung.
+ * Sie erstellt die UI der Anwendung, zeigt sie an und initialisiert alle anderen Komponenten.
+ * 
+ * Ein Exemplar dieser Klasse muss erzeigt werden, um die Anwendung zu starten.
+ * 
+ * @author Gruppe 29
+ * @version 4.1 (31. Dezember 2022)
  */
 
 public class GuiSpringLayout {
@@ -24,7 +30,7 @@ public class GuiSpringLayout {
 
     /**
      * Die Methode createWindow kümmert sich um den Aufbau der grafischen Oberfläche.
-     * Die Klasse hat eine Instanzvariable vom Typ JFrame, die eine Referenz auf das Fenster hält, das auf dem Bildschirm angezeigt werden möchten.
+     * Die Klasse hat eine Instanzvariable vom Typ JFrame, die eine Referenz auf das Fenster hält, das auf dem Bildschirm angezeigt werden möchte.
      */
     private void createWindow() {
         JFrame frame = new JFrame("Fabrik mit SpringLayout");

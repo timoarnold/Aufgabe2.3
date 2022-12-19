@@ -32,10 +32,10 @@ public class GUI extends JFrame
         JLabel label_status = new JLabel("Status:");
 
         JTextField textfield_stuehle = new JTextField();
-        JTextField textfield_sofas  = new JTextField();
+        JTextField textfield_sofas = new JTextField();
 
-        JButton senden_knopf        = new JButton("Bestellen");
-        JButton button_refreshstatus    = new JButton("Zeige Status");
+        JButton senden_knopf = new JButton("Bestellen");
+        JButton button_refreshstatus = new JButton("Zeige Status");
         
         senden_knopf.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) { //addActionListener --> was passiert wenn der Button gedrückt wird
