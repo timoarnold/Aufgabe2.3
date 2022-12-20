@@ -8,7 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
- * Write a description of class GUI here.
+ * Das GUI steht für Graphical User Interface und ist der Visual Experience Builder für alle Anwendungen
+ * Das GUI umfasst grafische Einheiten wie Buttons, Beschriftungen, Fenster usw., über welche die Benutzer mit einer Anwendung
+ * in Verbindung treten können.
  *
  * @author Gruppe 29
  * @version 4.1 (31. Dezember 2022)

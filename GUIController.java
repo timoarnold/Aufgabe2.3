@@ -1,6 +1,8 @@
-
+// stimmt dieser GUIController- Beschrieb? :D
 /**
- * Beschrieb noch einfügen.
+ * Der GUIController macht die andere Hälfte der Komponentenschnittstelle aus und
+ * ist hauptsächlich die Interaktionshälfte.
+ * Er kümmert sich um Maus- und Tastaturereignisse
  *
  * @author Gruppe 29
  * @version 4.1 (31. Dezember 2022)
