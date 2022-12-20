@@ -25,7 +25,7 @@ public class GUI extends JFrame
     }
 
     protected void initWindow() {
-        
+        menu();
         //setContentPane(new BackGroundPane("hier Dateipfad für Bild einfügen"));
         JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
         
@@ -86,7 +86,37 @@ public class GUI extends JFrame
         this.setSize(500,500);
         this.setVisible(true);
     }
-    
+
+    public void menu(){
+        JMenuBar menueBar = new JMenuBar();
+        JMenu kundeMenue = new JMenu("Kunden");
+        menueBar.add(kundeMenue);
+        JMenuItem bestellen = new JMenuItem("Neue Bestellung");
+        kundeMenue.add(bestellen);
+        JMenuItem auftragStatusEintrag = new JMenuItem("Auftragsstatus prüfen");
+        kundeMenue.add(auftragStatusEintrag);
+        JMenu produkteMenue = new JMenu("Produkte");
+        menueBar.add(produkteMenue);
+        JMenuItem stuhlEintrag = new JMenuItem("Stuhl");
+        produkteMenue.add(stuhlEintrag);
+        JMenuItem sofaEintrag = new JMenuItem("Sofa");
+        produkteMenue.add(sofaEintrag);
+        JMenu unsMenue = new JMenu("Über uns");
+        menueBar.add(unsMenue);
+        JMenuItem teamEintrag = new JMenuItem("Team");
+        unsMenue.add(teamEintrag);
+        JMenu managerMenue = new JMenu("Produktionsmanager");
+        menueBar.add(managerMenue);
+        JMenuItem lagerEintrag = new JMenuItem("Lager");
+        managerMenue.add(lagerEintrag);
+        JMenuItem produktionEintrag = new JMenuItem("Produktion");
+        managerMenue.add(produktionEintrag);
+        this.setJMenuBar(menueBar);
+        // this.setLayout((LayoutManager)null);
+        //this.setDefaultCloseOperation(3);
+        this.setVisible(true);
+    }
+
     /**
      * Die folgende Klasse wird gebraucht, um ein Bild einzufügen.
      */

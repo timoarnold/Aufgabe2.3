@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=GUIController
+comment0.text=\n\ Der\ GUIController\ macht\ die\ andere\ H\u00E4lfte\ der\ Komponentenschnittstelle\ aus\ und\n\ ist\ haupts\u00E4chlich\ die\ Interaktionsh\u00E4lfte.\n\ Er\ k\u00FCmmert\ sich\ um\ Maus-\ und\ Tastaturereignisse.\n\n\ @author\ Gruppe\ 29\n\ @version\ 4.1\ (31.\ Dezember\ 2022)\n
+comment1.params=fabrik1
+comment1.target=GUIController(Fabrik)
+numComments=2
