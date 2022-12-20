@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=GUI
-comment0.text=\n\ Write\ a\ description\ of\ class\ GUI\ here.\n\n\ @author\ Gruppe\ 29\n\ @version\ 4.1\ (31.\ Dezember\ 2022)\n
+comment0.text=\n\ Das\ GUI\ steht\ f\u00FCr\ Graphical\ User\ Interface\ und\ ist\ der\ Visual\ Experience\ Builder\ f\u00FCr\ alle\ Anwendungen\n\ Das\ GUI\ umfasst\ grafische\ Einheiten\ wie\ Buttons,\ Beschriftungen,\ Fenster\ usw.,\ \u00FCber\ welche\ die\ Benutzer\ mit\ einer\ Anwendung\n\ in\ Verbindung\ treten\ k\u00F6nnen.\n\n\ @author\ Gruppe\ 29\n\ @version\ 4.1\ (31.\ Dezember\ 2022)\n
 comment1.params=controller
 comment1.target=GUI(GUIController)
 comment2.params=

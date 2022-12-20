@@ -57,6 +57,9 @@ public class Fabrik {
         System.out.println("Ausgabe aus der main()-Methode:");
         Fabrik fabrik = new Fabrik();
 
+        GUIController controller = new GUIController(fabrik);
+        GUI gui = new GUI(controller);
+        
         boolean weiterBestellen = true;
         boolean validerInput = true;
 

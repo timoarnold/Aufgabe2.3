@@ -25,6 +25,7 @@ public class GUI extends JFrame
     }
 
     protected void initWindow() {
+        
         //setContentPane(new BackGroundPane("hier Dateipfad für Bild einfügen"));
         JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
         
@@ -45,15 +46,15 @@ public class GUI extends JFrame
             public void actionPerformed(ActionEvent arg0) {
                 int stuehle = Integer.parseInt(textfield_stuehle.getText());
                 int sofas = Integer.parseInt(textfield_sofas.getText());
-                String status = controller.onOrder(stuehle, sofas);
-                label_bestellBestaetigung.setText(status);
+                //String status = controller.onOrder(stuehle, sofas);
+                //label_bestellBestaetigung.setText(status);
             }
         });
         
         // Action listener mit Lambda Funktion () -> {}
         button_refreshstatus.addActionListener (arg0 -> {
-            String status = controller.gibtZustand();
-            label_status.setText(status);
+            //String status = controller.gibtZustand();
+            //label_status.setText(status);
         });
 
         // Positionieren

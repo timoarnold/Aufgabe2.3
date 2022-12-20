@@ -43,13 +43,13 @@ public class GuiSpringLayout {
     /**
      * Beschrieb einfügen
      */
-    public static void main(String[] args) {
-        Produktions_Manager produktionsManager = new Produktions_Manager();
-        Fabrik fabrik = new Fabrik(produktionsManager);
+    //public static void main(String[] args) {
+        //Produktions_Manager produktionsManager = new Produktions_Manager();
+        //Fabrik fabrik = new Fabrik(produktionsManager);
         
-        GUIController controller = new GUIController(fabrik);
-        GuiSpringLayout gui = new GuiSpringLayout(controller);
-    }
+        //GUIController controller = new GUIController(fabrik);
+        //GuiSpringLayout gui = new GuiSpringLayout(controller);
+    //}
     
     /**
      * Die Methode createWindow kümmert sich um den Aufbau der grafischen Oberfläche.
@@ -230,8 +230,8 @@ public class GuiSpringLayout {
         buttonSendenKnopf.addActionListener(arg0 -> {
             int stuhl = Integer.parseInt(textfieldStuhl.getText());
             int sofa = Integer.parseInt(textfieldSofa.getText());
-            String status = controller.onOrder(sofa, stuhl);
-            System.out.println(status);
+            //String status = controller.onOrder(sofa, stuhl);
+            //System.out.println(status);
         });
 
 
