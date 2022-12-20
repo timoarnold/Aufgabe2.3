@@ -23,7 +23,6 @@ public class GUI extends JFrame
     }
 
     protected void initWindow() {
-        menu();
         //setContentPane(new BackGroundPane("hier Dateipfad für Bild einfügen"));
         JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
         JLabel label_stuehle = new JLabel("Anzahl Stühle");
@@ -84,27 +83,27 @@ public class GUI extends JFrame
     /**
      * Die folgende Klasse wird gebraucht, um ein Bild einzufügen.
      */
-    class BackGroundPane extends JPanel {
-        Image img = null;
+    // class BackGroundPane extends JPanel {
+    //    Image img = null;
 
-        BackGroundPane(String imagefile)
-        {
-            if (imagefile != null) {
-                MediaTracker mt = new MediaTracker(this);
-                img = Toolkit.getDefaultToolkit().getImage(imagefile);
-                mt.addImage(img, 0);
-                try {
-                    mt.waitForAll();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+    //    BackGroundPane(String imagefile)
+    //    {
+    //        if (imagefile != null) {
+    //            MediaTracker mt = new MediaTracker(this);
+    //            img = Toolkit.getDefaultToolkit().getImage(imagefile);
+    //            mt.addImage(img, 0);
+    //            try {
+    //                mt.waitForAll();
+    //            } catch (InterruptedException e) {
+    //                e.printStackTrace();
+               }
+    //       }
+     //   }
 
-        protected void paintComponent(Graphics g)
-        {
-            super.paintComponent(g);
-            g.drawImage(img,0,0,this.getWidth(),this.getHeight(),this);
-        }
-    }
-}
+    //    protected void paintComponent(Graphics g)
+    //    {
+     //       super.paintComponent(g);
+     //       g.drawImage(img,0,0,this.getWidth(),this.getHeight(),this);
+     //   }
+   // }
+//}

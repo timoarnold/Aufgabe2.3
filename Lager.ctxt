@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Lager
-comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\ \n\ Die\ Klasse\ Lager\ beinhaltet\ die\ Informationen\ zu\ den\ maximal\ lagerbaren\ Materialeinheiten\ sowie\ den\ aktuellen\n\ Best\u00E4nden\ der\ Materialien.\n
+comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n<<<<<<<\ Updated\ upstream\n\ \n\=\=\=\=\=\=\=\n\n>>>>>>>\ Stashed\ changes\n\ Die\ Klasse\ Lager\ beinhaltet\ die\ Informationen\ zu\ den\ maximal\ lagerbaren\ Materialeinheiten\ sowie\ den\ aktuellen\n\ Best\u00E4nden\ der\ Materialien.\n
 comment1.params=
 comment1.target=Lager()
 comment1.text=\n\ Konstruktor\ der\ Klasse\ Lager\:\ initialisiert\ alle\ Instanzvariablen\ der\ Klasse\ Lager.\n\ Bei\ Erzeugung\ eines\ Lagers\ wird\ auch\ ein\ zugeh\u00F6riger\ Lieferant\ instanziiert.\n
