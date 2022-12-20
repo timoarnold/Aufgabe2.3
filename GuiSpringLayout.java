@@ -25,13 +25,13 @@ public class GuiSpringLayout {
         createWindow();
     }
     
-    //public static void main(String[] args) {
-    //    Produktions_Manager produktionsManager = new Produktions_Manager();
-    //    Fabrik fabrik1 = new Fabrik(produktionsManager);
+    public static void main(String[] args) {
+        Produktions_Manager produktionsManager = new Produktions_Manager();
+        Fabrik fabrik = new Fabrik(produktionsManager);
         
-    //    GUIController controller = new GUIController(fabrik1);
-    //    GuiSpringLayout gui = new GuiSpringLayout(controller);
-    //}
+        GUIController controller = new GUIController(fabrik);
+        GuiSpringLayout gui = new GuiSpringLayout(controller);
+    }
     
     /**
      * Die Methode createWindow kümmert sich um den Aufbau der grafischen Oberfläche.
@@ -141,46 +141,43 @@ public class GuiSpringLayout {
 
         panel.setLayout(layout);
 
-        // Product label and textfield
-        JLabel labelProdukt = new JLabel("Number of breads");
-        JTextField textfieldProdukt = new JTextField();
-        panel.add(labelProdukt);
-        panel.add(textfieldProdukt);
+        // Stühle und Textfeld
+        JLabel labelStuhl = new JLabel("Anzahl Stühle");
+        JTextField textfieldStuhl = new JTextField();
+        panel.add(labelStuhl);
+        panel.add(textfieldStuhl);
 
-        // Customer name
-        JLabel labelCustomerName = new JLabel("Customer Name");
-        JTextField textfieldCustomerName = new JTextField();
-        panel.add(labelCustomerName);
-        panel.add(textfieldCustomerName);
+        // Sofas und Textfeld
+        JLabel labelSofa = new JLabel("Anzahl Sofas");
+        JTextField textfieldSofa = new JTextField();
+        panel.add(labelSofa);
+        panel.add(textfieldSofa);
+        
+        // Knopf SendenKnopf
+        JButton buttonSendenKnopf = new JButton("Sende Bestellung");
+        panel.add(buttonSendenKnopf);
 
-        // button to send order
-        JButton buttonSendOrder = new JButton("Send Order");
-        panel.add(buttonSendOrder);
-
-        buttonSendOrder.addActionListener(arg0 -> {
-            int produkt = Integer.parseInt(textfieldProdukt.getText());
-            String name = textfieldCustomerName.getText();
-            // String status = controller.onOrder(produkt, name);
-        //    System.out.println(status);
+        buttonSendenKnopf.addActionListener(arg0 -> {
+            int stuhl = Integer.parseInt(textfieldStuhl.getText());
+            int sofa = Integer.parseInt(textfieldSofa.getText());
+            String status = controller.onOrder(sofa, stuhl);
+            System.out.println(status);
         });
 
 
-        layout.putConstraint(SpringLayout.WEST, labelProdukt, 10, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, labelProdukt, 25, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.NORTH, textfieldProdukt, 25, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, textfieldProdukt, 20, SpringLayout.EAST, labelProdukt);
-        layout.putConstraint(SpringLayout.EAST, panel, 20, SpringLayout.EAST, textfieldProdukt);
+        layout.putConstraint(SpringLayout.WEST, labelStuhl, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, labelStuhl, 25, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, textfieldStuhl, 25, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, textfieldStuhl, 20, SpringLayout.EAST, labelStuhl);
+        layout.putConstraint(SpringLayout.EAST, panel, 20, SpringLayout.EAST, textfieldStuhl);
 
+        layout.putConstraint(SpringLayout.WEST, labelSofa, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, labelSofa, 25, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, textfieldSofa, 25, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, textfieldSofa, 20, SpringLayout.EAST, labelSofa);
+        layout.putConstraint(SpringLayout.EAST, panel, 20, SpringLayout.EAST, textfieldSofa);
 
-        layout.putConstraint(SpringLayout.WEST, labelCustomerName, 10, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, labelCustomerName, 25, SpringLayout.NORTH, labelProdukt);
-        layout.putConstraint(SpringLayout.EAST, labelCustomerName, 0, SpringLayout.EAST, labelProdukt);
-        layout.putConstraint(SpringLayout.NORTH, textfieldCustomerName, 25, SpringLayout.NORTH, textfieldProdukt);
-        layout.putConstraint(SpringLayout.WEST, textfieldCustomerName, 20, SpringLayout.EAST, labelCustomerName);
-        layout.putConstraint(SpringLayout.EAST, textfieldProdukt, 0, SpringLayout.EAST, textfieldCustomerName);
-
-        layout.putConstraint(SpringLayout.WEST, buttonSendOrder, 10, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, buttonSendOrder, 25, SpringLayout.NORTH, labelCustomerName);
+        layout.putConstraint(SpringLayout.WEST, buttonSendenKnopf, 10, SpringLayout.WEST, panel);
 
 
         frame.getContentPane().add(panel, BorderLayout.CENTER);

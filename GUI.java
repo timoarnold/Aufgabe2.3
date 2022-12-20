@@ -25,6 +25,7 @@ public class GUI extends JFrame
     protected void initWindow() {
         //setContentPane(new BackGroundPane("hier Dateipfad für Bild einfügen"));
         JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
+        
         JLabel label_stuehle = new JLabel("Anzahl Stühle");
         JLabel label_sofas = new JLabel("Anzahl Sofas");
         JLabel label_bestellBestaetigung = new JLabel("Bestellbestätigung:");
@@ -36,19 +37,22 @@ public class GUI extends JFrame
         JButton senden_knopf = new JButton("Bestellen");
         JButton button_refreshstatus = new JButton("Zeige Status");
         
+        // Action listener zu button hinzufügen, der dann auf Kopfdruck durch contentPanecontroller.onOrder eine Bestellung erstellt
+        // Zudem wird die bestellBestaetigung upgedated
         senden_knopf.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) { //addActionListener --> was passiert wenn der Button gedrückt wird
-                int stuehle = Integer.parseInt(textfield_stuehle.getText()); //Textfelder werden ausgelesen (ist eine Anzahl --> Integer)
-                int sofas = Integer.parseInt(textfield_sofas.getText()); //Text der vom Kunden eingefügt wurde, kann geholt werden
-               // String status = controller.onOrder(breads, name); //methode wird aufgerufen, Bestellung wird über den Controller bestellt
-               // label_bestellBestaetigung.setText(status); //neuer text definieren
+            public void actionPerformed(ActionEvent arg0) {
+                int stuehle = Integer.parseInt(textfield_stuehle.getText());
+                int sofas = Integer.parseInt(textfield_sofas.getText());
+                String status = controller.onOrder(stuehle, sofas);
+                label_bestellBestaetigung.setText(status);
             }
         });
         
-        // button_refreshstatus.addActionListener (arg0 -> { //addActionListener --> was passiert wenn der Button gedrückt wird
-        // String status = controller.onStatus();
-        // label_bakerystatus.setText(status);
-        //});
+        // Action listener mit Lambda Funktion () -> {}
+        button_refreshstatus.addActionListener (arg0 -> {
+            String status = controller.gibtZustand();
+            label_status.setText(status);
+        });
 
         // Positionieren
         label_stuehle.setBounds(10, 50, 1000, 25);
@@ -57,7 +61,7 @@ public class GUI extends JFrame
         textfield_sofas.setBounds(180,80,100,25);
         welcomeLabel.setBounds(10, 10, 1000, 25);
         label_bestellBestaetigung.setBounds(10,110, 1000, 25);
-        //label_bakerystatus.setBounds(10,140, 400, 25);
+        label_status.setBounds(10,140, 400, 25);
         senden_knopf.setBounds(10,170,150,30);
         button_refreshstatus.setBounds(190,170,150,30);
 
@@ -66,7 +70,7 @@ public class GUI extends JFrame
         this.add(label_stuehle);
         this.add(label_sofas);
         this.add(label_bestellBestaetigung);
-        //this.add(label_bakerystatus);
+        this.add(label_status);
         this.add(textfield_stuehle);
         this.add(textfield_sofas);
         this.add(senden_knopf);

@@ -6,18 +6,20 @@
  * @version 4.1 (31. Dezember 2022)
  */
 public class GUIController {
-    private Fabrik fabrik1;
+    private Fabrik fabrik;
     
-    public GUIController(Fabrik fabrik1){
-        this.fabrik1 = fabrik1;
+    public GUIController(Fabrik fabrik){
+        this.fabrik = fabrik;
     }
     
-    //public String onOrder(int stuhl, int sofa){
-    //    Bestellung bestellung = fabrik.bestellungAufgeben(stuhl, sofa);
-    //    return fabrik.getBestellungAusgeben();
-    //}
-//
-   // public String gibtZustand(){
-   //     return fabrik1.getStatus();
-   // }
+    public String onOrder(int sofa, int stuhl){
+        Bestellung bestellung = fabrik.bestellungAufgeben(sofa, stuhl);
+        // Übung: return order.getOrderStatus();
+        return fabrik.bestellungenAusgeben();
+    }
+
+    public String gibtZustand(){
+        // Übung: return bakery.getStatus()
+        return fabrik.gibBestellungen();
+    }
 }
