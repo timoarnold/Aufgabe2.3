@@ -56,7 +56,7 @@ public class GuiSpringLayout {
      */
     private void bestellungAufgeben()
     {
-        // Testausgabe, bis wir das richtig implementiert haben
+        // hier müssen wir den Link zum GUI erstellen, damit wir dann Produkte bestellen können (durch die Menüleiste)
         System.out.println("Bestellung aufgeben");
     }
         
@@ -73,8 +73,8 @@ public class GuiSpringLayout {
      */
     private void dasteam()
     {
-        // Testausgabe, bis wir das richtig implementiert haben
-        System.out.println("Erfahre mehr über das Team");
+        // Hier Text von Timo einfügen
+        System.out.println("Das Team in der Übersicht");
     }
     
     /**
@@ -82,8 +82,8 @@ public class GuiSpringLayout {
      */
     private void geschichte()
     {
-        // Testausgabe, bis wir das richtig implementiert haben
-        System.out.println("Erfahre mehr über die Geschichte von AEKI");
+        // Hier Text von Timo Einfügen
+        System.out.println("Die Geschichte von AEKI");
     }
     
     /**

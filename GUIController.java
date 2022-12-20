@@ -2,7 +2,7 @@
 /**
  * Der GUIController macht die andere Hälfte der Komponentenschnittstelle aus und
  * ist hauptsächlich die Interaktionshälfte.
- * Er kümmert sich um Maus- und Tastaturereignisse
+ * Er kümmert sich um Maus- und Tastaturereignisse.
  *
  * @author Gruppe 29
  * @version 4.1 (31. Dezember 2022)
@@ -17,7 +17,7 @@ public class GUIController {
     public String onOrder(int sofa, int stuhl){
         Bestellung bestellung = fabrik.bestellungAufgeben(sofa, stuhl);
         // Übung: return order.getOrderStatus();
-        return fabrik.bestellungenAusgeben();
+        return bestellung.bestellungenAusgeben();
     }
 
     public String gibtZustand(){
