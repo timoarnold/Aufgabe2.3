@@ -1,6 +1,14 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.*;
 import javax.swing.*;
+import javax.swing.border.*;
+
+import java.io.File;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * GuiSpringLayout ist die Hauptklasse der GuiSpringLayout-Anwendung.
@@ -13,9 +21,9 @@ import javax.swing.*;
  */
 
 public class GuiSpringLayout {
-
     private final GUIController controller;
     private JFrame window;
+    private static JFileChooser dateiauswahldialog = new JFileChooser(System.getProperty("user.dir"));
     
     /**
      * Konstruktor für die Klasse GuiSpringLayout.
@@ -25,6 +33,9 @@ public class GuiSpringLayout {
         createWindow();
     }
     
+    /**
+     * Beschrieb einfügen
+     */
     public static void main(String[] args) {
         Produktions_Manager produktionsManager = new Produktions_Manager();
         Fabrik fabrik = new Fabrik(produktionsManager);
@@ -78,7 +89,47 @@ public class GuiSpringLayout {
     }
     
     /**
-     * 'Geschichte Team'-Funktion: Zeigt einen Überblick über die Geschichte von AEKI
+     * 'Eindruecke'-Funktion: Öffnet einen Dateiauswahldialog zur 
+     * Auswahl einer Bilddatei und zeigt das selektierte Bild an.
+     */
+    private void ueberunsOeffnen()
+    {
+        int ergebnis = dateiauswahldialog.showOpenDialog(fenster);
+
+        if(ergebnis != JFileChooser.APPROVE_OPTION) { 
+            return;      // abgebrochen
+        }
+        File selektierteDatei = dateiauswahldialog.getSelectedFile();
+        aktuellesBild = BilddateiManager.ladeBild(selektierteDatei);
+        
+        if(aktuellesBild == null) {   // Bilddatei nicht im gültigen Format
+            JOptionPane.showMessageDialog(window,
+                    "Die Datei hat keines der unterstützten Formate.",
+                    "Fehler beim Bildladen",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        bildflaeche.setzeBild(aktuellesBild);
+        setzeKnoepfeAktiviert(true);
+        dateinameAnzeigen(selektierteDatei.getPath());
+        statusAnzeigen("Datei geladen.");
+        window.pack();
+    }
+    
+    /**
+     * 'Schliessen'-Funktion: Schliesst das aktuelle Bild.
+     */
+    private void schliessen()
+    {
+        aktuellesBild = null;
+        bildflaeche.loeschen();
+        dateinameAnzeigen(null);
+        setzeKnoepfeAktiviert(false);
+    }
+    
+    /**
+     * 'Geschichte'-Funktion: Zeigt einen Überblick über die Geschichte von AEKI
      */
     private void geschichte()
     {
@@ -122,6 +173,15 @@ public class GuiSpringLayout {
         dasteamEintrag.addActionListener(e -> dasteam());
         ueberunsMenue.add(dasteamEintrag);
 
+        JMenuItem eindrueckeEintrag = new JMenuItem("Eindrücke");
+        eindrueckeEintrag.addActionListener(e -> eindruecke());
+        ueberunsMenue.add(eindrueckeEintrag);
+        
+        JMenuItem schliessenEintrag = new JMenuItem("Schliessen");
+        schliessenEintrag.addActionListener(e -> schliessen());
+        ueberunsMenue.add(schliessenEintrag);
+        ueberunsMenue.addSeparator();
+        
         JMenuItem geschichteEintrag = new JMenuItem("Geschichte");
         geschichteEintrag.addActionListener(e -> geschichte());
         ueberunsMenue.add(geschichteEintrag);
@@ -135,6 +195,9 @@ public class GuiSpringLayout {
         hilfeMenue.add(infoEintrag);
     }
     
+    /**
+     * Erzeuge das User Interface samt Inhalt.
+     */
     private void createUI(final JFrame frame){
         JPanel panel = new JPanel();
         SpringLayout layout = new SpringLayout();
