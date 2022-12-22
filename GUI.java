@@ -4,6 +4,8 @@ import java.awt.event.ActionListener;
 import java.awt.MediaTracker;
 import java.awt.Image;
 import java.io.File;
+import javax.swing.event.MenuListener;
+import javax.swing.event.MenuEvent;
 
 import javax.swing.JFrame;  
 import javax.swing.JLabel;  
@@ -112,6 +114,25 @@ public class GUI extends JFrame
     public void menu() {
         JMenuBar menueBar = new JMenuBar();
         
+        // JMenu "Startseite"
+        JMenu startseiteMenue = new JMenu("Startseite");
+        //startseiteMenue.addActionListener(e -> startseiteAnzeigen());
+        startseiteMenue.addMenuListener(new MenuListener () {
+            @Override
+            public void menuSelected(MenuEvent e) {
+                startseiteAnzeigen();
+        }
+        @Override
+            public void menuCanceled(MenuEvent e) {
+                System.out.println("Cancelled");
+        }
+        @Override
+            public void menuDeselected(MenuEvent e) {
+                System.out.println("Deselected");
+        }
+        } );
+        menueBar.add(startseiteMenue);
+        
         // JMenu "Bestellung" mit JMenuItems "Neue Bestellung" und "Beenden" erzeugen
         JMenu bestellungMenue = new JMenu("Neue Bestellung");
         menueBar.add(bestellungMenue);
@@ -165,15 +186,78 @@ public class GUI extends JFrame
     
     /**
      * Implementierung der Menü-Funktionen
+     * Durch 'removeAll' und 'repaint' werden die Interfaces jeweils erneuert 
      * 
      * 'Bestellung aufgeben'-Funktion: Öffnet einen Auswahldialog zum Bestellen
      */
-    private void bestellungAufgeben()
-    {
-        // hier müssen wir den Link zum GUI erstellen, damit wir dann Produkte bestellen können (durch die Menüleiste)
-        System.out.println("Bestellung aufgeben");
-    }
+    
+    private void bestellungAufgeben() {
+        this.getContentPane().removeAll();
+        this.repaint();
+        JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
         
+        JLabel label_stuehle = new JLabel("Anzahl Stühle");
+        JLabel label_sofas = new JLabel("Anzahl Sofas");
+        JLabel label_bestellBestaetigung = new JLabel("Bestellbestätigung:");
+        JLabel label_status = new JLabel("Status:");
+
+        JTextField textfield_stuehle = new JTextField();
+        JTextField textfield_sofas = new JTextField();
+
+        JButton senden_knopf = new JButton("Bestellen");
+        JButton button_refreshstatus = new JButton("Zeige Status");
+        
+        // Positionieren
+        label_stuehle.setBounds(200, 50, 1000, 25);
+        textfield_stuehle.setBounds(180, 50, 100, 25);
+        label_sofas.setBounds(10,80, 100, 25);
+        textfield_sofas.setBounds(180,80,100,25);
+        welcomeLabel.setBounds(100, 10, 1000, 25);
+        label_bestellBestaetigung.setBounds(10,110, 1000, 25);
+        label_status.setBounds(10,140, 400, 25);
+        senden_knopf.setBounds(70,170,150,30);
+        button_refreshstatus.setBounds(190,170,150,30);
+
+        // Alle Elemente zum panel hinzufügen
+        this.add(welcomeLabel);
+        this.add(label_stuehle);
+        this.add(label_sofas);
+        this.add(label_bestellBestaetigung);
+        this.add(label_status);
+        this.add(textfield_stuehle);
+        this.add(textfield_sofas);
+        this.add(senden_knopf);
+        this.add(button_refreshstatus);
+        
+        this.setVisible(true);
+    }
+     
+    /**
+     * 'Startseite'-Funktion: Zeigt die Startseite an
+     */
+    private void startseiteAnzeigen() {
+        this.getContentPane().removeAll();
+        this.repaint();
+        
+        System.out.println("Called startseiteAnueigen");
+        Image startseiteBild = null;
+            try {
+                startseiteBild = ImageIO.read(new File("startseite.png"));
+            }
+            catch (Exception f)
+            {
+                f.printStackTrace();
+                System.exit(1);
+            }
+            ImageIcon bild_startseite = new ImageIcon(startseiteBild);
+            JLabel label_bild_startseite = new JLabel(bild_startseite);
+        
+        label_bild_startseite.setBounds(15, 200, 1000, 100);
+        
+        this.add(label_bild_startseite);
+        this.setVisible(true);
+    }
+    
     /**
      * 'Beenden'-Funktion: Beendet die Anwendung.
      */
@@ -248,3 +332,4 @@ public class GUI extends JFrame
     {
         System.out.println("Bitte wenden Sie sich an unseren IT-Kontakt, Jonathan, unter der folgenden Nummer: 0824 67 76");
     }
+}
