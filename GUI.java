@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.MediaTracker;
+import java.awt.Image;
 
 import javax.swing.JFrame;  
 import javax.swing.JLabel;  
@@ -89,32 +90,151 @@ public class GUI extends JFrame
 
     public void menu(){
         JMenuBar menueBar = new JMenuBar();
-        JMenu kundeMenue = new JMenu("Kunden");
-        menueBar.add(kundeMenue);
-        JMenuItem bestellen = new JMenuItem("Neue Bestellung");
-        kundeMenue.add(bestellen);
-        JMenuItem auftragStatusEintrag = new JMenuItem("Auftragsstatus prüfen");
-        kundeMenue.add(auftragStatusEintrag);
-        JMenu produkteMenue = new JMenu("Produkte");
-        menueBar.add(produkteMenue);
-        JMenuItem stuhlEintrag = new JMenuItem("Stuhl");
-        produkteMenue.add(stuhlEintrag);
-        JMenuItem sofaEintrag = new JMenuItem("Sofa");
-        produkteMenue.add(sofaEintrag);
-        JMenu unsMenue = new JMenu("Über uns");
-        menueBar.add(unsMenue);
-        JMenuItem teamEintrag = new JMenuItem("Team");
-        unsMenue.add(teamEintrag);
-        JMenu managerMenue = new JMenu("Produktionsmanager");
-        menueBar.add(managerMenue);
-        JMenuItem lagerEintrag = new JMenuItem("Lager");
-        managerMenue.add(lagerEintrag);
-        JMenuItem produktionEintrag = new JMenuItem("Produktion");
-        managerMenue.add(produktionEintrag);
+        
+        // JMenu "Startseite" mit Startbild
+        JMenu startseiteMenue = new JMenu("Startseite");
+        menueBar.add(startseiteMenue);
+        ImageIcon imageIcon1 = new ImageIcon("sofa.png"); 
+                Image image1 = imageIcon1.getImage(); 
+                Image newimg1 = image1.getScaledInstance(200, 200, 
+        java.awt.Image.SCALE_SMOOTH);         
+                JLabel bild1 = new JLabel (new ImageIcon(newimg1));
+        //        layoutZentrum.add(bild1); (double check für was das ist?)
+        
+        // JMenu "Bestellung" mit JMenuItems "Neue Bestellung" und "Beenden" erzeugen
+        JMenu bestellungMenue = new JMenu("Neue Bestellung");
+        menueBar.add(bestellungMenue);
+        
+        JMenuItem aufgebenEintrag = new JMenuItem("Aufgeben");
+        aufgebenEintrag.addActionListener(e -> bestellungAufgeben());
+        bestellungMenue.add(aufgebenEintrag);
+        
+        //noch einfügen: Auftragsstatus prüfen, Produktübersicht (Stuhl, Sofa), spezielle Ansicht mit Produktionsmanager. Lager
+        
+        JMenuItem beendenEintrag = new JMenuItem("Beenden");
+        beendenEintrag.addActionListener(e -> beenden());
+        bestellungMenue.add(beendenEintrag);
+        
+        // JMenu "Über uns" mit JMenuItems "das Team" und "Geschichte" erzeugen
+        JMenu ueberunsMenue = new JMenu("Über uns");
+        menueBar.add(ueberunsMenue);
+        
+        JMenuItem dasteamEintrag = new JMenuItem("das Team");
+        dasteamEintrag.addActionListener(e -> dasteam());
+        ueberunsMenue.add(dasteamEintrag);
+
+        // JMenuItem eindrueckeEintrag = new JMenuItem("Eindrücke");
+        // eindrueckeEintrag.addActionListener(e -> eindruecke());
+        // ueberunsMenue.add(eindrueckeEintrag);
+        
+        // JMenuItem schliessenEintrag = new JMenuItem("Schliessen");
+        // schliessenEintrag.addActionListener(e -> schliessen());
+        // ueberunsMenue.add(schliessenEintrag);
+        // ueberunsMenue.addSeparator();
+        
+        JMenuItem geschichteEintrag = new JMenuItem("Geschichte");
+        geschichteEintrag.addActionListener(e -> geschichte());
+        ueberunsMenue.add(geschichteEintrag);
+        
+        //JMenu "Hilfe" mit JMenuItem "Info..." erzeugen
+        JMenu hilfeMenue = new JMenu("Hilfe");
+        menueBar.add(hilfeMenue);
+        
+        JMenuItem infoEintrag = new JMenuItem("Info...");
+        infoEintrag.addActionListener(e -> zeigeInfo());
+        hilfeMenue.add(infoEintrag);
+        
         this.setJMenuBar(menueBar);
-        // this.setLayout((LayoutManager)null);
+        //this.setLayout((LayoutManager)null);
         //this.setDefaultCloseOperation(3);
         this.setVisible(true);
+        
+        
+    }
+    
+    /**
+     * Implementierung der Menü-Funktionen
+     * 
+     * 'Bestellung aufgeben'-Funktion: Öffnet einen Auswahldialog zum Bestellen
+     */
+    private void bestellungAufgeben()
+    {
+        // hier müssen wir den Link zum GUI erstellen, damit wir dann Produkte bestellen können (durch die Menüleiste)
+        System.out.println("Bestellung aufgeben");
+    }
+        
+    /**
+     * 'Beenden'-Funktion: Beendet die Anwendung.
+     */
+    private void beenden()
+    {
+        System.exit(0);
+    }
+    
+    /**
+     * 'Das Team'-Funktion: Zeigt einen Überblick über das Team
+     */
+    private void dasteam()
+    {
+        // Hier Text von Timo einfügen
+        System.out.println("Das Team in der Übersicht");
+    }
+    
+    /**
+     * 'Eindruecke'-Funktion: Öffnet einen Dateiauswahldialog zur 
+     * Auswahl einer Bilddatei und zeigt das selektierte Bild an.
+     */
+    // private void ueberunsOeffnen()
+    // {
+    //    int ergebnis = dateiauswahldialog.showOpenDialog(window);
+
+        //if(ergebnis != JFileChooser.APPROVE_OPTION) { 
+        //    return;      // abgebrochen
+        // }
+        // File selektierteDatei = dateiauswahldialog.getSelectedFile();
+        // aktuellesBild = BilddateiManager.ladeBild(selektierteDatei);
+        
+        // if(aktuellesBild == null) {   // Bilddatei nicht im gültigen Format
+        //    JOptionPane.showMessageDialog(window,
+        //            "Die Datei hat keines der unterstützten Formate.",
+        //            "Fehler beim Bildladen",
+        //            JOptionPane.ERROR_MESSAGE);
+        //    return;
+        // }
+
+        // bildflaeche.setzeBild(aktuellesBild);
+        //setzeKnoepfeAktiviert(true);
+        //dateinameAnzeigen(selektierteDatei.getPath());
+        //statusAnzeigen("Datei geladen.");
+        //window.pack();
+    // }
+    
+    /**
+     * 'Schliessen'-Funktion: Schliesst das aktuelle Bild.
+     */
+    //private void schliessen()
+    // {
+    //    aktuellesBild = null;
+    //    bildflaeche.loeschen();
+    //    dateinameAnzeigen(null);
+    //    setzeKnoepfeAktiviert(false);
+    // }
+    
+    /**
+     * 'Geschichte'-Funktion: Zeigt einen Überblick über die Geschichte von AEKI
+     */
+    private void geschichte()
+    {
+        // Hier Text von Timo Einfügen
+        System.out.println("Die Geschichte von AEKI");
+    }
+    
+    /**
+     * 'Info'-Funktion: Zeige Informationen zur Anwendung
+     */
+    private void zeigeInfo()
+    {
+        System.out.println("Bitte wenden Sie sich an unseren IT-Kontakt, Jonathan unter der folgenden Nummer: 0824 67 76");
     }
 
     /**

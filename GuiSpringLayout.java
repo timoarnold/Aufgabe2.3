@@ -51,155 +51,18 @@ public class GuiSpringLayout {
         //GuiSpringLayout gui = new GuiSpringLayout(controller);
     //}
     
+    // Cha double check
     /**
      * Die Methode createWindow kümmert sich um den Aufbau der grafischen Oberfläche.
      * Die Klasse hat eine Instanzvariable vom Typ JFrame, die eine Referenz auf das Fenster hält, das auf dem Bildschirm angezeigt werden möchte.
      */
     private void createWindow() {
-        window = new JFrame("Fabrik mit Springlayout");
-        menuezeileErzeugen(window);
-        
         JFrame frame = new JFrame("Fabrik mit SpringLayout");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         createUI(frame);
         frame.setSize(560, 200);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-    }
-    
-    /**
-     * Implementierung der Menü-Funktionen
-     * 
-     * 'Bestellung aufgeben'-Funktion: Öffnet einen Auswahldialog zum Bestellen
-     */
-    private void bestellungAufgeben()
-    {
-        // hier müssen wir den Link zum GUI erstellen, damit wir dann Produkte bestellen können (durch die Menüleiste)
-        System.out.println("Bestellung aufgeben");
-    }
-        
-    /**
-     * 'Beenden'-Funktion: Beendet die Anwendung.
-     */
-    private void beenden()
-    {
-        System.exit(0);
-    }
-    
-    /**
-     * 'Das Team'-Funktion: Zeigt einen Überblick über das Team
-     */
-    private void dasteam()
-    {
-        // Hier Text von Timo einfügen
-        System.out.println("Das Team in der Übersicht");
-    }
-    
-    /**
-     * 'Eindruecke'-Funktion: Öffnet einen Dateiauswahldialog zur 
-     * Auswahl einer Bilddatei und zeigt das selektierte Bild an.
-     */
-    // private void ueberunsOeffnen()
-    // {
-    //    int ergebnis = dateiauswahldialog.showOpenDialog(window);
-
-        //if(ergebnis != JFileChooser.APPROVE_OPTION) { 
-        //    return;      // abgebrochen
-        // }
-        // File selektierteDatei = dateiauswahldialog.getSelectedFile();
-        // aktuellesBild = BilddateiManager.ladeBild(selektierteDatei);
-        
-        // if(aktuellesBild == null) {   // Bilddatei nicht im gültigen Format
-        //    JOptionPane.showMessageDialog(window,
-        //            "Die Datei hat keines der unterstützten Formate.",
-        //            "Fehler beim Bildladen",
-        //            JOptionPane.ERROR_MESSAGE);
-        //    return;
-        // }
-
-        // bildflaeche.setzeBild(aktuellesBild);
-        //setzeKnoepfeAktiviert(true);
-        //dateinameAnzeigen(selektierteDatei.getPath());
-        //statusAnzeigen("Datei geladen.");
-        //window.pack();
-    // }
-    
-    /**
-     * 'Schliessen'-Funktion: Schliesst das aktuelle Bild.
-     */
-    //private void schliessen()
-    // {
-    //    aktuellesBild = null;
-    //    bildflaeche.loeschen();
-    //    dateinameAnzeigen(null);
-    //    setzeKnoepfeAktiviert(false);
-    // }
-    
-    /**
-     * 'Geschichte'-Funktion: Zeigt einen Überblick über die Geschichte von AEKI
-     */
-    private void geschichte()
-    {
-        // Hier Text von Timo Einfügen
-        System.out.println("Die Geschichte von AEKI");
-    }
-    
-    /**
-     * 'Info'-Funktion: Zeige Informationen zur Anwendung
-     */
-    private void zeigeInfo()
-    {
-        System.out.println("Bitte wenden Sie sich an unseren IT-Kontakt, Jonathan unter der folgenden Nummer: 0824 67 76");
-    }
-    
-    /**
-     * Die Menüzeile des Hauptfensters erzeugen.
-     * @param fenster  das Fenster, in das die Menüzeile eingefügt werden soll
-     */
-    private void menuezeileErzeugen (JFrame window) {
-        JMenuBar menuezeile = new JMenuBar();
-        window.setJMenuBar(menuezeile);
-                
-        // JMenu "Bestellung" mit JMenuItems "Neue Bestellung" und "Beenden" erzeugen
-        JMenu bestellungMenue = new JMenu("Neue Bestellung");
-        menuezeile.add(bestellungMenue);
-        
-        JMenuItem aufgebenEintrag = new JMenuItem("Aufgeben");
-        aufgebenEintrag.addActionListener(e -> bestellungAufgeben());
-        bestellungMenue.add(aufgebenEintrag);
-
-        JMenuItem beendenEintrag = new JMenuItem("Beenden");
-        beendenEintrag.addActionListener(e -> beenden());
-        bestellungMenue.add(beendenEintrag);
-        
-        // JMenu "Über uns" mit JMenuItems "das Team" und "Geschichte" erzeugen
-        JMenu ueberunsMenue = new JMenu("Über uns");
-        menuezeile.add(ueberunsMenue);
-        
-        JMenuItem dasteamEintrag = new JMenuItem("das Team");
-        dasteamEintrag.addActionListener(e -> dasteam());
-        ueberunsMenue.add(dasteamEintrag);
-
-        // JMenuItem eindrueckeEintrag = new JMenuItem("Eindrücke");
-        // eindrueckeEintrag.addActionListener(e -> eindruecke());
-        // ueberunsMenue.add(eindrueckeEintrag);
-        
-        // JMenuItem schliessenEintrag = new JMenuItem("Schliessen");
-        // schliessenEintrag.addActionListener(e -> schliessen());
-        // ueberunsMenue.add(schliessenEintrag);
-        // ueberunsMenue.addSeparator();
-        
-        JMenuItem geschichteEintrag = new JMenuItem("Geschichte");
-        geschichteEintrag.addActionListener(e -> geschichte());
-        ueberunsMenue.add(geschichteEintrag);
-        
-        //JMenu "Hilfe" mit JMenuItem "Info..." erzeugen
-        JMenu hilfeMenue = new JMenu("Hilfe");
-        menuezeile.add(hilfeMenue);
-        
-        JMenuItem infoEintrag = new JMenuItem("Info...");
-        infoEintrag.addActionListener(e -> zeigeInfo());
-        hilfeMenue.add(infoEintrag);
     }
     
     /**
