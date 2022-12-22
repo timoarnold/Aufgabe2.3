@@ -3,10 +3,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.MediaTracker;
 import java.awt.Image;
+import java.io.File;
 
 import javax.swing.JFrame;  
 import javax.swing.JLabel;  
 import javax.swing.JTextField;
+
+import java.io.*;
+import javax.imageio.*;
 
 /**
  * Das GUI steht für Graphical User Interface und ist der Visual Experience Builder für alle Anwendungen
@@ -40,6 +44,23 @@ public class GUI extends JFrame
 
         JButton senden_knopf = new JButton("Bestellen");
         JButton button_refreshstatus = new JButton("Zeige Status");
+        
+        //Bild anzeigen
+        Image startseiteBild = null;
+            try {
+                startseiteBild = ImageIO.read(new File("startseite.png"));
+            }
+            catch (Exception f)
+            {
+                f.printStackTrace();
+                System.exit(1);
+            }
+            ImageIcon bild_startseite = new ImageIcon(startseiteBild);
+            JLabel label_bild_startseite = new JLabel(bild_startseite);
+        
+        label_bild_startseite.setBounds(15, 200, 1000, 100);
+        
+        this.add(label_bild_startseite);
         
         // Action listener zu button hinzufügen, der dann auf Kopfdruck durch contentPanecontroller.onOrder eine Bestellung erstellt
         // Zudem wird die bestellBestaetigung upgedated
@@ -88,18 +109,8 @@ public class GUI extends JFrame
         this.setVisible(true);
     }
 
-    public void menu(){
+    public void menu() {
         JMenuBar menueBar = new JMenuBar();
-        
-        // JMenu "Startseite" mit Startbild (bild erscheint aber noch nichgt?)
-        JMenu startseiteMenue = new JMenu("Startseite");
-        menueBar.add(startseiteMenue);
-        ImageIcon imageIcon1 = new ImageIcon("sofa.png"); 
-                Image image1 = imageIcon1.getImage(); 
-                Image newimg1 = image1.getScaledInstance(200, 200, 
-        java.awt.Image.SCALE_SMOOTH);         
-                JLabel bild1 = new JLabel (new ImageIcon(newimg1));
-        //        layoutZentrum.add(bild1); (double check für was das ist?)
         
         // JMenu "Bestellung" mit JMenuItems "Neue Bestellung" und "Beenden" erzeugen
         JMenu bestellungMenue = new JMenu("Neue Bestellung");
@@ -123,14 +134,14 @@ public class GUI extends JFrame
         dasteamEintrag.addActionListener(e -> dasteam());
         ueberunsMenue.add(dasteamEintrag);
 
-        // JMenuItem eindrueckeEintrag = new JMenuItem("Eindrücke");
-        // eindrueckeEintrag.addActionListener(e -> eindruecke());
-        // ueberunsMenue.add(eindrueckeEintrag);
+        JMenuItem eindrueckeEintrag = new JMenuItem("Eindrücke");
+        eindrueckeEintrag.addActionListener(e -> eindruecke());
+        ueberunsMenue.add(eindrueckeEintrag);
         
-        // JMenuItem schliessenEintrag = new JMenuItem("Schliessen");
-        // schliessenEintrag.addActionListener(e -> schliessen());
-        // ueberunsMenue.add(schliessenEintrag);
-        // ueberunsMenue.addSeparator();
+        /*JMenuItem schliessenEintrag = new JMenuItem("Schliessen");
+        schliessenEintrag.addActionListener(e -> schliessen());
+        ueberunsMenue.add(schliessenEintrag);
+        ueberunsMenue.addSeparator();*/
         
         JMenuItem geschichteEintrag = new JMenuItem("Geschichte");
         geschichteEintrag.addActionListener(e -> geschichte());
@@ -184,41 +195,42 @@ public class GUI extends JFrame
      * 'Eindruecke'-Funktion: Öffnet einen Dateiauswahldialog zur 
      * Auswahl einer Bilddatei und zeigt das selektierte Bild an.
      */
-    // private void ueberunsOeffnen()
-    // {
-    //    int ergebnis = dateiauswahldialog.showOpenDialog(window);
-
-        //if(ergebnis != JFileChooser.APPROVE_OPTION) { 
-        //    return;      // abgebrochen
-        // }
-        // File selektierteDatei = dateiauswahldialog.getSelectedFile();
-        // aktuellesBild = BilddateiManager.ladeBild(selektierteDatei);
+    private void eindruecke()
+    {
+        Image startseiteBild = null;
+            try {
+                startseiteBild = ImageIO.read(new File("startseite.png"));
+            }
+            catch (Exception f)
+            {
+                f.printStackTrace();
+                System.exit(1);
+            }
+            ImageIcon bild_startseite = new ImageIcon(startseiteBild);
+            JLabel label_bild_startseite = new JLabel(bild_startseite);
         
-        // if(aktuellesBild == null) {   // Bilddatei nicht im gültigen Format
-        //    JOptionPane.showMessageDialog(window,
-        //            "Die Datei hat keines der unterstützten Formate.",
-        //            "Fehler beim Bildladen",
-        //            JOptionPane.ERROR_MESSAGE);
-        //    return;
-        // }
+        label_bild_startseite.setBounds(15, 200, 1000, 100);
+        
+        this.add(label_bild_startseite);
 
         // bildflaeche.setzeBild(aktuellesBild);
         //setzeKnoepfeAktiviert(true);
         //dateinameAnzeigen(selektierteDatei.getPath());
         //statusAnzeigen("Datei geladen.");
         //window.pack();
-    // }
+    }
+    
     
     /**
      * 'Schliessen'-Funktion: Schliesst das aktuelle Bild.
      */
-    //private void schliessen()
-    // {
-    //    aktuellesBild = null;
-    //    bildflaeche.loeschen();
-    //    dateinameAnzeigen(null);
-    //    setzeKnoepfeAktiviert(false);
-    // }
+    /*private void schliessen()
+     {
+         aktuellesBild = null;
+         bildflaeche.loeschen();
+        dateinameAnzeigen(null);
+        setzeKnoepfeAktiviert(false);
+    }*/
     
     /**
      * 'Geschichte'-Funktion: Zeigt einen Überblick über die Geschichte von AEKI
@@ -236,31 +248,3 @@ public class GUI extends JFrame
     {
         System.out.println("Bitte wenden Sie sich an unseren IT-Kontakt, Jonathan, unter der folgenden Nummer: 0824 67 76");
     }
-
-    /**
-     * Die folgende Klasse wird gebraucht, um ein Bild einzufügen.
-     */
-    // class BackGroundPane extends JPanel {
-    //    Image img = null;
-
-    //    BackGroundPane(String imagefile)
-    //    {
-    //        if (imagefile != null) {
-    //            MediaTracker mt = new MediaTracker(this);
-    //            img = Toolkit.getDefaultToolkit().getImage(imagefile);
-    //            mt.addImage(img, 0);
-    //            try {
-    //                mt.waitForAll();
-    //            } catch (InterruptedException e) {
-    //                e.printStackTrace();
-               }
-    //       }
-     //   }
-
-    //    protected void paintComponent(Graphics g)
-    //    {
-     //       super.paintComponent(g);
-     //       g.drawImage(img,0,0,this.getWidth(),this.getHeight(),this);
-     //   }
-   // }
-//}
