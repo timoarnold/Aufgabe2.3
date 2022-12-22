@@ -33,24 +33,13 @@ public class GUI extends JFrame
 
     protected void initWindow() {
         menu();
-        //setContentPane(new BackGroundPane("hier Dateipfad für Bild einfügen"));
         JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
-        
-        JLabel label_stuehle = new JLabel("Anzahl Stühle");
-        JLabel label_sofas = new JLabel("Anzahl Sofas");
-        JLabel label_bestellBestaetigung = new JLabel("Bestellbestätigung:");
-        JLabel label_status = new JLabel("Status:");
-
-        JTextField textfield_stuehle = new JTextField();
-        JTextField textfield_sofas = new JTextField();
-
-        JButton senden_knopf = new JButton("Bestellen");
-        JButton button_refreshstatus = new JButton("Zeige Status");
+        this.setVisible(true);
         
         //Bild anzeigen
         Image startseiteBild = null;
             try {
-                startseiteBild = ImageIO.read(new File("startseite.png"));
+                startseiteBild = ImageIO.read(new File("start.png"));
             }
             catch (Exception f)
             {
@@ -63,45 +52,7 @@ public class GUI extends JFrame
         label_bild_startseite.setBounds(15, 200, 1000, 100);
         
         this.add(label_bild_startseite);
-        
-        // Action listener zu button hinzufügen, der dann auf Kopfdruck durch contentPanecontroller.onOrder eine Bestellung erstellt
-        // Zudem wird die bestellBestaetigung upgedated
-        senden_knopf.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                int stuehle = Integer.parseInt(textfield_stuehle.getText());
-                int sofas = Integer.parseInt(textfield_sofas.getText());
-                controller.onOrder(stuehle, sofas);
-                //label_bestellBestaetigung.setText(status);
-            }
-        });
-        
-        // Action listener mit Lambda Funktion () -> {}
-        button_refreshstatus.addActionListener (arg0 -> {
-            //String status = controller.gibtZustand();
-            //label_status.setText(status);
-        });
 
-        // Positionieren
-        label_stuehle.setBounds(10, 50, 1000, 25);
-        textfield_stuehle.setBounds(180, 50, 100, 25);
-        label_sofas.setBounds(10,80, 100, 25);
-        textfield_sofas.setBounds(180,80,100,25);
-        welcomeLabel.setBounds(10, 10, 1000, 25);
-        label_bestellBestaetigung.setBounds(10,110, 1000, 25);
-        label_status.setBounds(10,140, 400, 25);
-        senden_knopf.setBounds(10,170,150,30);
-        button_refreshstatus.setBounds(190,170,150,30);
-
-        // Alle Elemente zum panel hinzufügen --> wird zur Superklasse hinzugefügt
-        this.add(welcomeLabel);
-        this.add(label_stuehle);
-        this.add(label_sofas);
-        this.add(label_bestellBestaetigung);
-        this.add(label_status);
-        this.add(textfield_stuehle);
-        this.add(textfield_sofas);
-        this.add(senden_knopf);
-        this.add(button_refreshstatus);
         
         // GUI öffnen
         // Sobald  das Fenster vollständig konstruiert ist, kann es mit setVisible im kompletten Zustand angezeigt werden.
@@ -207,18 +158,34 @@ public class GUI extends JFrame
         JButton senden_knopf = new JButton("Bestellen");
         JButton button_refreshstatus = new JButton("Zeige Status");
         
+        // Action listener zu button hinzufügen, der dann auf Kopfdruck durch contentPanecontroller.onOrder eine Bestellung erstellt
+        // Zudem wird die bestellBestaetigung upgedated
+        senden_knopf.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                int stuehle = Integer.parseInt(textfield_stuehle.getText());
+                int sofas = Integer.parseInt(textfield_sofas.getText());
+                controller.onOrder(stuehle, sofas);
+                //label_bestellBestaetigung.setText(status);
+            }
+        });
+        // Action listener mit Lambda Funktion () -> {}
+        button_refreshstatus.addActionListener (arg0 -> {
+            //String status = controller.gibtZustand();
+            //label_status.setText(status);
+        });
+
         // Positionieren
-        label_stuehle.setBounds(200, 50, 1000, 25);
+        label_stuehle.setBounds(10, 50, 1000, 25);
         textfield_stuehle.setBounds(180, 50, 100, 25);
         label_sofas.setBounds(10,80, 100, 25);
         textfield_sofas.setBounds(180,80,100,25);
-        welcomeLabel.setBounds(100, 10, 1000, 25);
+        welcomeLabel.setBounds(10, 10, 1000, 25);
         label_bestellBestaetigung.setBounds(10,110, 1000, 25);
         label_status.setBounds(10,140, 400, 25);
-        senden_knopf.setBounds(70,170,150,30);
+        senden_knopf.setBounds(10,170,150,30);
         button_refreshstatus.setBounds(190,170,150,30);
 
-        // Alle Elemente zum panel hinzufügen
+        // Alle Elemente zum panel hinzufügen --> wird zur Superklasse hinzugefügt
         this.add(welcomeLabel);
         this.add(label_stuehle);
         this.add(label_sofas);
@@ -239,10 +206,9 @@ public class GUI extends JFrame
         this.getContentPane().removeAll();
         this.repaint();
         
-        System.out.println("Called startseiteAnueigen");
         Image startseiteBild = null;
             try {
-                startseiteBild = ImageIO.read(new File("startseite.png"));
+                startseiteBild = ImageIO.read(new File("start.png"));
             }
             catch (Exception f)
             {
@@ -273,6 +239,26 @@ public class GUI extends JFrame
     {
         // Hier Text von Timo einfügen
         System.out.println("Das Team in der Übersicht");
+        
+        this.getContentPane().removeAll();
+        this.repaint();
+        
+        Image timoBild = null;
+            try {
+                timoBild = ImageIO.read(new File("timo.png"));
+            }
+            catch (Exception f)
+            {
+                f.printStackTrace();
+                System.exit(1);
+            }
+            ImageIcon bild_timo = new ImageIcon(timoBild);
+            JLabel label_bild_timo = new JLabel(bild_timo);
+        
+        label_bild_timo.setBounds(5, 200, 1000, 100);
+        
+        this.add(label_bild_timo);
+        this.setVisible(true);
     }
     
     /**
@@ -283,7 +269,7 @@ public class GUI extends JFrame
     {
         Image startseiteBild = null;
             try {
-                startseiteBild = ImageIO.read(new File("startseite.png"));
+                startseiteBild = ImageIO.read(new File("start.png"));
             }
             catch (Exception f)
             {
