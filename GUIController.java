@@ -17,6 +17,8 @@ public class GUIController {
     public void onOrder(int sofa, int stuhl){
         // Bestellung bestellung = fabrik1.bestellungAufgeben(sofa, stuhl);
         fabrik1.bestellungAufgeben(sofa, stuhl);
+        fabrik1.bestellungenVerarbeiten();
+        fabrik1.bestellungenAusgeben();
         // Übung: return order.getOrderStatus();
         // return fabrik1.bestellungenAusgeben();
     }
