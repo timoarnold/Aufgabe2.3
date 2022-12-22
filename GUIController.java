@@ -14,14 +14,15 @@ public class GUIController {
         this.fabrik1 = fabrik1;
     }
     
-    //public String onOrder(int sofa, int stuhl){
-        //Bestellung bestellung = fabrik1.bestellungAufgeben(sofa, stuhl);
+    public void onOrder(int sofa, int stuhl){
+        // Bestellung bestellung = fabrik1.bestellungAufgeben(sofa, stuhl);
+        fabrik1.bestellungAufgeben(sofa, stuhl);
         // Übung: return order.getOrderStatus();
-        //return bestellung.bestellungenAusgeben();
-    //}
+        // return fabrik1.bestellungenAusgeben();
+    }
 
-    //public String gibtZustand(){
+    public void gibtZustand(){
         //Übung: return bakery.getStatus()
-        // fabrik1.bestellungenAusgeben();
-    //}
+        fabrik1.bestellungenAusgeben();
+    }
 }

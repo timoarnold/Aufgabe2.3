@@ -21,16 +21,8 @@ import java.util.Iterator;
  */
 
 public class GuiSpringLayout {
-    // statische Datenfelder
     private final GUIController controller;
-    // (für Bild) private static JFileChooser dateiauswahldialog = new JFileChooser(System.getProperty("user.dir"));
-    
-    // Datenfelder
     private JFrame window;
-    //private JLabel dateinameLabel;
-    //private JLabel statusLabel;
-    //private JButton kleinerKnopf;
-    //private JButton groesserKnopf;;
     
     /**
      * Konstruktor für die Klasse GuiSpringLayout.
@@ -40,18 +32,6 @@ public class GuiSpringLayout {
         createWindow();
     }
     
-    /**
-     * Beschrieb einfügen
-     */
-    //public static void main(String[] args) {
-        //Produktions_Manager produktionsManager = new Produktions_Manager();
-        //Fabrik fabrik = new Fabrik(produktionsManager);
-        
-        //GUIController controller = new GUIController(fabrik);
-        //GuiSpringLayout gui = new GuiSpringLayout(controller);
-    //}
-    
-    // Cha double check
     /**
      * Die Methode createWindow kümmert sich um den Aufbau der grafischen Oberfläche.
      * Die Klasse hat eine Instanzvariable vom Typ JFrame, die eine Referenz auf das Fenster hält, das auf dem Bildschirm angezeigt werden möchte.

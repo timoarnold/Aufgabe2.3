@@ -47,7 +47,7 @@ public class GUI extends JFrame
             public void actionPerformed(ActionEvent arg0) {
                 int stuehle = Integer.parseInt(textfield_stuehle.getText());
                 int sofas = Integer.parseInt(textfield_sofas.getText());
-                //String status = controller.onOrder(stuehle, sofas);
+                controller.onOrder(stuehle, sofas);
                 //label_bestellBestaetigung.setText(status);
             }
         });
@@ -91,7 +91,7 @@ public class GUI extends JFrame
     public void menu(){
         JMenuBar menueBar = new JMenuBar();
         
-        // JMenu "Startseite" mit Startbild
+        // JMenu "Startseite" mit Startbild (bild erscheint aber noch nichgt?)
         JMenu startseiteMenue = new JMenu("Startseite");
         menueBar.add(startseiteMenue);
         ImageIcon imageIcon1 = new ImageIcon("sofa.png"); 
@@ -234,7 +234,7 @@ public class GUI extends JFrame
      */
     private void zeigeInfo()
     {
-        System.out.println("Bitte wenden Sie sich an unseren IT-Kontakt, Jonathan unter der folgenden Nummer: 0824 67 76");
+        System.out.println("Bitte wenden Sie sich an unseren IT-Kontakt, Jonathan, unter der folgenden Nummer: 0824 67 76");
     }
 
     /**

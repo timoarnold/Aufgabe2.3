@@ -140,6 +140,7 @@ public class Fabrik {
             bestellungen.add(bestellung);
 
             System.out.println("Bestellung erfolgreich aufgegeben!");
+            // return einfügen damit Bestellung zurückgegeben wird
         }
     }
 
@@ -195,6 +196,8 @@ public class Fabrik {
         }
     }
 
+    //neue Methode
+    
     /**
      * Mit dieser Methode wird das Lager wiedergegeben.
      *
