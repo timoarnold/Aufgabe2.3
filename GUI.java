@@ -49,7 +49,7 @@ public class GUI extends JFrame
             ImageIcon bild_startseite = new ImageIcon(startseiteBild);
             JLabel label_bild_startseite = new JLabel(bild_startseite);
         
-        label_bild_startseite.setBounds(15, 200, 1000, 100);
+        label_bild_startseite.setBounds(15, 2000, 1000, 100);
         
         this.add(label_bild_startseite);
 
@@ -58,7 +58,7 @@ public class GUI extends JFrame
         // Sobald  das Fenster vollständig konstruiert ist, kann es mit setVisible im kompletten Zustand angezeigt werden.
         setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(500,500);
+        this.setSize(2500,2500);
         this.setVisible(true);
     }
 
@@ -67,7 +67,6 @@ public class GUI extends JFrame
         
         // JMenu "Startseite"
         JMenu startseiteMenue = new JMenu("Startseite");
-        //startseiteMenue.addActionListener(e -> startseiteAnzeigen());
         startseiteMenue.addMenuListener(new MenuListener () {
             @Override
             public void menuSelected(MenuEvent e) {
@@ -92,7 +91,9 @@ public class GUI extends JFrame
         aufgebenEintrag.addActionListener(e -> bestellungAufgeben());
         bestellungMenue.add(aufgebenEintrag);
         
-        //noch einfügen: Auftragsstatus prüfen, Produktübersicht (Stuhl, Sofa), spezielle Ansicht mit Produktionsmanager. Lager
+        JMenuItem übersichtEintrag = new JMenuItem("Bestellübersicht");
+        übersichtEintrag.addActionListener(e -> bestellungÜbersicht());
+        bestellungMenue.add(übersichtEintrag);
         
         JMenuItem beendenEintrag = new JMenuItem("Beenden");
         beendenEintrag.addActionListener(e -> beenden());
@@ -105,7 +106,11 @@ public class GUI extends JFrame
         JMenuItem dasteamEintrag = new JMenuItem("das Team");
         dasteamEintrag.addActionListener(e -> dasteam());
         ueberunsMenue.add(dasteamEintrag);
-
+        
+        JMenuItem geschichteEintrag = new JMenuItem("Geschichte");
+        geschichteEintrag.addActionListener(e -> geschichte());
+        ueberunsMenue.add(geschichteEintrag);
+        
         JMenuItem eindrueckeEintrag = new JMenuItem("Eindrücke");
         eindrueckeEintrag.addActionListener(e -> eindruecke());
         ueberunsMenue.add(eindrueckeEintrag);
@@ -115,10 +120,6 @@ public class GUI extends JFrame
         ueberunsMenue.add(schliessenEintrag);
         ueberunsMenue.addSeparator();*/
         
-        JMenuItem geschichteEintrag = new JMenuItem("Geschichte");
-        geschichteEintrag.addActionListener(e -> geschichte());
-        ueberunsMenue.add(geschichteEintrag);
-        
         //JMenu "Hilfe" mit JMenuItem "Info..." erzeugen
         JMenu hilfeMenue = new JMenu("Hilfe");
         menueBar.add(hilfeMenue);
@@ -127,12 +128,28 @@ public class GUI extends JFrame
         infoEintrag.addActionListener(e -> zeigeInfo());
         hilfeMenue.add(infoEintrag);
         
+        // JMenu "Exit"
+        JMenu exitMenue = new JMenu("Exit");
+        exitMenue.addMenuListener(new MenuListener () {
+            @Override
+            public void menuSelected(MenuEvent e) {
+                exitAnzeigen();
+        }
+        @Override
+            public void menuCanceled(MenuEvent e) {
+                System.out.println("Cancelled");
+        }
+        @Override
+            public void menuDeselected(MenuEvent e) {
+                System.out.println("Deselected");
+        }
+        } );
+        menueBar.add(exitMenue);
+        
         this.setJMenuBar(menueBar);
         //this.setLayout((LayoutManager)null);
         //this.setDefaultCloseOperation(3);
         this.setVisible(true);
-        
-        
     }
     
     /**
@@ -174,6 +191,8 @@ public class GUI extends JFrame
             //label_status.setText(status);
         });
 
+        JButton button_bestellübersicht = new JButton("Bestellübersicht anzeigen");
+        
         // Positionieren
         label_stuehle.setBounds(10, 50, 1000, 25);
         textfield_stuehle.setBounds(180, 50, 100, 25);
@@ -184,6 +203,7 @@ public class GUI extends JFrame
         label_status.setBounds(10,140, 400, 25);
         senden_knopf.setBounds(10,170,150,30);
         button_refreshstatus.setBounds(190,170,150,30);
+        button_bestellübersicht.setBounds(10, 170, 150, 30);
 
         // Alle Elemente zum panel hinzufügen --> wird zur Superklasse hinzugefügt
         this.add(welcomeLabel);
@@ -195,10 +215,31 @@ public class GUI extends JFrame
         this.add(textfield_sofas);
         this.add(senden_knopf);
         this.add(button_refreshstatus);
+        this.add(button_bestellübersicht);
         
         this.setVisible(true);
     }
-     
+    
+    private void bestellungÜbersicht() {
+        this.getContentPane().removeAll();
+        this.repaint();
+        JLabel welcomeLabel = new JLabel("Vielen Dank für Ihre Bestellung und willkommen zurück!");
+        JButton button_bestellübersicht = new JButton("Bestellübersicht anzeigen");
+        
+        // Positionieren
+        button_bestellübersicht.setBounds(10, 170, 150, 30);
+
+        // Elemente zum Panel hinzufügen
+        this.add(button_bestellübersicht);
+        
+    // To Do: Action listener mit Lambda Funktion () -> {}
+        button_bestellübersicht.addActionListener (arg0 -> {
+            //String status = controller.gibtZustand();
+            //label_status.setText(status);
+        });
+        this.setVisible(true);
+    }
+        
     /**
      * 'Startseite'-Funktion: Zeigt die Startseite an
      */
@@ -225,18 +266,20 @@ public class GUI extends JFrame
     }
     
     /**
-     * 'Beenden'-Funktion: Beendet die Anwendung.
+     * 'Beenden' und 'Exit'-Funktionen: Beenden die Anwendung.
      */
-    private void beenden()
-    {
+    private void beenden() {
         System.exit(0);
+    }
+    
+    private void exitAnzeigen() {
+         System.exit(0);
     }
     
     /**
      * 'Das Team'-Funktion: Zeigt einen Überblick über das Team
      */
-    private void dasteam()
-    {
+    private void dasteam() {
         // Hier Text von Timo einfügen
         System.out.println("Das Team in der Übersicht");
         
@@ -318,4 +361,4 @@ public class GUI extends JFrame
     {
         System.out.println("Bitte wenden Sie sich an unseren IT-Kontakt, Jonathan, unter der folgenden Nummer: 0824 67 76");
     }
-}
+    }
