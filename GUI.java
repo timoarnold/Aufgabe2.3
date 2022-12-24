@@ -22,8 +22,7 @@ import javax.imageio.*;
  * @author Gruppe 29
  * @version 4.1 (31. Dezember 2022)
  */
-public class GUI extends JFrame
-{ 
+public class GUI extends JFrame { 
     private final GUIController controller;
 
     public GUI(GUIController controller){
@@ -32,6 +31,9 @@ public class GUI extends JFrame
     }
 
     protected void initWindow() {
+        this.getContentPane().removeAll();
+        this.repaint();
+        
         menu();
         JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
         this.setVisible(true);
@@ -115,11 +117,6 @@ public class GUI extends JFrame
         eindrueckeEintrag.addActionListener(e -> eindruecke());
         ueberunsMenue.add(eindrueckeEintrag);
         
-        /*JMenuItem schliessenEintrag = new JMenuItem("Schliessen");
-        schliessenEintrag.addActionListener(e -> schliessen());
-        ueberunsMenue.add(schliessenEintrag);
-        ueberunsMenue.addSeparator();*/
-        
         //JMenu "Hilfe" mit JMenuItem "Info..." erzeugen
         JMenu hilfeMenue = new JMenu("Hilfe");
         menueBar.add(hilfeMenue);
@@ -155,10 +152,9 @@ public class GUI extends JFrame
     /**
      * Implementierung der Menü-Funktionen
      * Durch 'removeAll' und 'repaint' werden die Interfaces jeweils erneuert 
-     * 
-     * 'Bestellung aufgeben'-Funktion: Öffnet einen Auswahldialog zum Bestellen
      */
     
+    // 'Bestellung aufgeben'-Funktion: Öffnet einen Auswahldialog zum Bestellen
     private void bestellungAufgeben() {
         this.getContentPane().removeAll();
         this.repaint();
@@ -190,8 +186,6 @@ public class GUI extends JFrame
             //String status = controller.gibtZustand();
             //label_status.setText(status);
         });
-
-        JButton button_bestellübersicht = new JButton("Bestellübersicht anzeigen");
         
         // Positionieren
         label_stuehle.setBounds(10, 50, 1000, 25);
@@ -203,7 +197,6 @@ public class GUI extends JFrame
         label_status.setBounds(10,140, 400, 25);
         senden_knopf.setBounds(10,170,150,30);
         button_refreshstatus.setBounds(190,170,150,30);
-        button_bestellübersicht.setBounds(10, 170, 150, 30);
 
         // Alle Elemente zum panel hinzufügen --> wird zur Superklasse hinzugefügt
         this.add(welcomeLabel);
@@ -215,7 +208,6 @@ public class GUI extends JFrame
         this.add(textfield_sofas);
         this.add(senden_knopf);
         this.add(button_refreshstatus);
-        this.add(button_bestellübersicht);
         
         this.setVisible(true);
     }
@@ -227,12 +219,12 @@ public class GUI extends JFrame
         JButton button_bestellübersicht = new JButton("Bestellübersicht anzeigen");
         
         // Positionieren
-        button_bestellübersicht.setBounds(10, 170, 150, 30);
+        button_bestellübersicht.setBounds(10, 170, 300, 60);
 
         // Elemente zum Panel hinzufügen
         this.add(button_bestellübersicht);
         
-    // To Do: Action listener mit Lambda Funktion () -> {}
+        // To Do: Action listener mit Lambda Funktion () -> {}
         button_bestellübersicht.addActionListener (arg0 -> {
             //String status = controller.gibtZustand();
             //label_status.setText(status);
@@ -259,14 +251,14 @@ public class GUI extends JFrame
             ImageIcon bild_startseite = new ImageIcon(startseiteBild);
             JLabel label_bild_startseite = new JLabel(bild_startseite);
         
-        label_bild_startseite.setBounds(15, 200, 1000, 100);
+        label_bild_startseite.setBounds(15, 200, 2000, 200);
         
         this.add(label_bild_startseite);
         this.setVisible(true);
     }
     
     /**
-     * 'Beenden' und 'Exit'-Funktionen: Beenden die Anwendung.
+     * 'Beenden' und 'Exit'-Funktionen: Durch diese wird die Anwendung jeweils beendet.
      */
     private void beenden() {
         System.exit(0);
@@ -279,13 +271,11 @@ public class GUI extends JFrame
     /**
      * 'Das Team'-Funktion: Zeigt einen Überblick über das Team
      */
-    private void dasteam() {
-        // Hier Text von Timo einfügen
-        System.out.println("Das Team in der Übersicht");
-        
+    private void dasteam() {        
         this.getContentPane().removeAll();
         this.repaint();
         
+        // Bild von Timo einfügen
         Image timoBild = null;
             try {
                 timoBild = ImageIO.read(new File("timo.png"));
@@ -297,10 +287,69 @@ public class GUI extends JFrame
             }
             ImageIcon bild_timo = new ImageIcon(timoBild);
             JLabel label_bild_timo = new JLabel(bild_timo);
+        label_bild_timo.setBounds(1, 200, 750, 350);
         
-        label_bild_timo.setBounds(5, 200, 1000, 100);
+        // Bild von Florianne einfügen
+        Image florianneBild = null;
+            try {
+                florianneBild = ImageIO.read(new File("florianne.png"));
+            }
+            catch (Exception f)
+            {
+                f.printStackTrace();
+                System.exit(1);
+            }
+            ImageIcon bild_florianne = new ImageIcon(florianneBild);
+            JLabel label_bild_florianne = new JLabel(bild_florianne);
+        label_bild_florianne.setBounds(500, 200, 750, 350);
+        
+        // Bild von Tim einfügen
+        Image timBild = null;
+            try {
+                timBild = ImageIO.read(new File("tim.png"));
+            }
+            catch (Exception f)
+            {
+                f.printStackTrace();
+                System.exit(1);
+            }
+            ImageIcon bild_tim = new ImageIcon(timBild);
+            JLabel label_bild_tim = new JLabel(bild_tim);
+        label_bild_tim.setBounds(1000, 200, 700, 350);
+        
+        // Bild von Jeff einfügen
+        Image jeffBild = null;
+            try {
+                jeffBild = ImageIO.read(new File("jeff.png"));
+            }
+            catch (Exception f)
+            {
+                f.printStackTrace();
+                System.exit(1);
+            }
+            ImageIcon bild_jeff = new ImageIcon(jeffBild);
+            JLabel label_bild_jeff = new JLabel(bild_jeff);
+        label_bild_jeff.setBounds(250, 600, 700, 350);
+        
+        // Bild von Charlotte einfügen
+        Image charlotteBild = null;
+            try {
+                charlotteBild = ImageIO.read(new File("charlotte.png"));
+            }
+            catch (Exception f)
+            {
+                f.printStackTrace();
+                System.exit(1);
+            }
+            ImageIcon bild_charlotte = new ImageIcon(charlotteBild);
+            JLabel label_bild_charlotte = new JLabel(bild_charlotte);
+        label_bild_charlotte.setBounds(750, 600, 700, 350);
         
         this.add(label_bild_timo);
+        this.add(label_bild_florianne);
+        this.add(label_bild_tim);
+        this.add(label_bild_jeff);
+        this.add(label_bild_charlotte);
         this.setVisible(true);
     }
     
