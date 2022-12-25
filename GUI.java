@@ -6,6 +6,9 @@ import java.awt.Image;
 import java.io.File;
 import javax.swing.event.MenuListener;
 import javax.swing.event.MenuEvent;
+import java.awt.Font;
+import java.awt.Color;
+import javafx.scene.layout.Border;
 
 import javax.swing.JFrame;  
 import javax.swing.JLabel;  
@@ -36,9 +39,7 @@ public class GUI extends JFrame {
         
         menu();
         JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
-        this.setVisible(true);
-        
-        //Bild anzeigen
+
         Image startseiteBild = null;
             try {
                 startseiteBild = ImageIO.read(new File("start.png"));
@@ -49,18 +50,21 @@ public class GUI extends JFrame {
                 System.exit(1);
             }
             ImageIcon bild_startseite = new ImageIcon(startseiteBild);
-            JLabel label_bild_startseite = new JLabel(bild_startseite);
+            JLabel label_bild_startseite = new JLabel(bild_startseite); 
         
-        label_bild_startseite.setBounds(15, 2000, 1000, 100);
-        
+        welcomeLabel.setBounds(10, 50, 1000, 25);
+        welcomeLabel.setFont(new Font("Serif", Font.PLAIN, 24));
+        welcomeLabel.setForeground(new Color(120, 90, 40));
+        label_bild_startseite.setBounds(10, 10, 1000, 750);
+         
+        this.add(welcomeLabel);
         this.add(label_bild_startseite);
 
-        
         // GUI öffnen
         // Sobald  das Fenster vollständig konstruiert ist, kann es mit setVisible im kompletten Zustand angezeigt werden.
         setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(2500,2500);
+        this.setSize(2000,2000);
         this.setVisible(true);
     }
 
@@ -113,10 +117,6 @@ public class GUI extends JFrame {
         geschichteEintrag.addActionListener(e -> geschichte());
         ueberunsMenue.add(geschichteEintrag);
         
-        JMenuItem eindrueckeEintrag = new JMenuItem("Eindrücke");
-        eindrueckeEintrag.addActionListener(e -> eindruecke());
-        ueberunsMenue.add(eindrueckeEintrag);
-        
         //JMenu "Hilfe" mit JMenuItem "Info..." erzeugen
         JMenu hilfeMenue = new JMenu("Hilfe");
         menueBar.add(hilfeMenue);
@@ -153,7 +153,6 @@ public class GUI extends JFrame {
      * Implementierung der Menü-Funktionen
      * Durch 'removeAll' und 'repaint' werden die Interfaces jeweils erneuert 
      */
-    
     // 'Bestellung aufgeben'-Funktion: Öffnet einen Auswahldialog zum Bestellen
     private void bestellungAufgeben() {
         this.getContentPane().removeAll();
@@ -218,17 +217,18 @@ public class GUI extends JFrame {
         JLabel welcomeLabel = new JLabel("Vielen Dank für Ihre Bestellung und willkommen zurück!");
         JButton button_bestellübersicht = new JButton("Bestellübersicht anzeigen");
         
-        // Positionieren
-        button_bestellübersicht.setBounds(10, 170, 300, 60);
-
-        // Elemente zum Panel hinzufügen
-        this.add(button_bestellübersicht);
-        
         // To Do: Action listener mit Lambda Funktion () -> {}
         button_bestellübersicht.addActionListener (arg0 -> {
             //String status = controller.gibtZustand();
             //label_status.setText(status);
         });
+        
+        welcomeLabel.setBounds(10, 10, 1000, 25);
+        button_bestellübersicht.setBounds(10, 50, 200, 30);
+        
+        this.add(welcomeLabel);
+        this.add(button_bestellübersicht);
+        
         this.setVisible(true);
     }
         
@@ -238,6 +238,8 @@ public class GUI extends JFrame {
     private void startseiteAnzeigen() {
         this.getContentPane().removeAll();
         this.repaint();
+        
+        JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
         
         Image startseiteBild = null;
             try {
@@ -251,8 +253,12 @@ public class GUI extends JFrame {
             ImageIcon bild_startseite = new ImageIcon(startseiteBild);
             JLabel label_bild_startseite = new JLabel(bild_startseite);
         
-        label_bild_startseite.setBounds(15, 200, 2000, 200);
+        welcomeLabel.setBounds(10, 50, 1000, 25);
+        welcomeLabel.setFont(new Font("Serif", Font.PLAIN, 24));
+        welcomeLabel.setForeground(new Color(120, 90, 40));
+        label_bild_startseite.setBounds(10, 10, 1000, 750);
         
+        this.add(welcomeLabel);
         this.add(label_bild_startseite);
         this.setVisible(true);
     }
@@ -275,6 +281,13 @@ public class GUI extends JFrame {
         this.getContentPane().removeAll();
         this.repaint();
         
+        JLabel teamLabel = new JLabel("Das AEKI-Team ist 365 Tage im Jahr für Sie da.");
+        JLabel timoLabel = new JLabel("Timo Arnold - Produktion");
+        JLabel florianneLabel = new JLabel("Florianne Walliser - Sales");
+        JLabel timLabel = new JLabel("Tim Ilgenstein - IT");
+        JLabel jeffLabel = new JLabel("Jeff Mulavarikkal - Lager");
+        JLabel charlotteLabel = new JLabel("Charlotte Müller - Marketing");
+        
         // Bild von Timo einfügen
         Image timoBild = null;
             try {
@@ -287,7 +300,6 @@ public class GUI extends JFrame {
             }
             ImageIcon bild_timo = new ImageIcon(timoBild);
             JLabel label_bild_timo = new JLabel(bild_timo);
-        label_bild_timo.setBounds(1, 200, 750, 350);
         
         // Bild von Florianne einfügen
         Image florianneBild = null;
@@ -301,7 +313,6 @@ public class GUI extends JFrame {
             }
             ImageIcon bild_florianne = new ImageIcon(florianneBild);
             JLabel label_bild_florianne = new JLabel(bild_florianne);
-        label_bild_florianne.setBounds(500, 200, 750, 350);
         
         // Bild von Tim einfügen
         Image timBild = null;
@@ -315,7 +326,6 @@ public class GUI extends JFrame {
             }
             ImageIcon bild_tim = new ImageIcon(timBild);
             JLabel label_bild_tim = new JLabel(bild_tim);
-        label_bild_tim.setBounds(1000, 200, 700, 350);
         
         // Bild von Jeff einfügen
         Image jeffBild = null;
@@ -329,7 +339,6 @@ public class GUI extends JFrame {
             }
             ImageIcon bild_jeff = new ImageIcon(jeffBild);
             JLabel label_bild_jeff = new JLabel(bild_jeff);
-        label_bild_jeff.setBounds(250, 600, 700, 350);
         
         // Bild von Charlotte einfügen
         Image charlotteBild = null;
@@ -343,8 +352,32 @@ public class GUI extends JFrame {
             }
             ImageIcon bild_charlotte = new ImageIcon(charlotteBild);
             JLabel label_bild_charlotte = new JLabel(bild_charlotte);
-        label_bild_charlotte.setBounds(750, 600, 700, 350);
         
+        teamLabel.setBounds(50, 50, 1000, 25);
+        timoLabel.setBounds(150, 475, 1000, 100);
+        florianneLabel.setBounds(650, 475, 1000, 100);
+        timLabel.setBounds(1150, 475, 1000, 100);
+        jeffLabel.setBounds(405, 825, 1000, 100);
+        charlotteLabel.setBounds(905, 825, 1000, 100);
+        teamLabel.setFont(new Font("Serif", Font.PLAIN, 24));
+        timoLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        florianneLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        timLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        jeffLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        charlotteLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        
+        label_bild_timo.setBounds(1, 200, 700, 300);
+        label_bild_florianne.setBounds(500, 200, 700, 300);   
+        label_bild_tim.setBounds(1000, 200, 700, 300);
+        label_bild_jeff.setBounds(250, 550, 700, 300);
+        label_bild_charlotte.setBounds(750, 550, 700, 300);
+        
+        this.add(teamLabel);
+        this.add(timoLabel);
+        this.add(florianneLabel);
+        this.add(timLabel);
+        this.add(jeffLabel);
+        this.add(charlotteLabel);
         this.add(label_bild_timo);
         this.add(label_bild_florianne);
         this.add(label_bild_tim);
@@ -354,60 +387,53 @@ public class GUI extends JFrame {
     }
     
     /**
-     * 'Eindruecke'-Funktion: Öffnet einen Dateiauswahldialog zur 
-     * Auswahl einer Bilddatei und zeigt das selektierte Bild an.
-     */
-    private void eindruecke()
-    {
-        Image startseiteBild = null;
-            try {
-                startseiteBild = ImageIO.read(new File("start.png"));
-            }
-            catch (Exception f)
-            {
-                f.printStackTrace();
-                System.exit(1);
-            }
-            ImageIcon bild_startseite = new ImageIcon(startseiteBild);
-            JLabel label_bild_startseite = new JLabel(bild_startseite);
-        
-        label_bild_startseite.setBounds(15, 200, 1000, 100);
-        
-        this.add(label_bild_startseite);
-
-        // bildflaeche.setzeBild(aktuellesBild);
-        //setzeKnoepfeAktiviert(true);
-        //dateinameAnzeigen(selektierteDatei.getPath());
-        //statusAnzeigen("Datei geladen.");
-        //window.pack();
-    }
-    
-    
-    /**
-     * 'Schliessen'-Funktion: Schliesst das aktuelle Bild.
-     */
-    /*private void schliessen()
-     {
-         aktuellesBild = null;
-         bildflaeche.loeschen();
-        dateinameAnzeigen(null);
-        setzeKnoepfeAktiviert(false);
-    }*/
-    
-    /**
      * 'Geschichte'-Funktion: Zeigt einen Überblick über die Geschichte von AEKI
      */
-    private void geschichte()
-    {
-        // Hier Text von Timo Einfügen
-        System.out.println("Die Geschichte von AEKI");
+    private void geschichte() {
+        this.getContentPane().removeAll();
+        this.repaint();
+        
+        JFrame frame = new JFrame("Geschichte");
+        JLabel titelgeschichteLabel = new JLabel("Hej Jonathan välkommen till aeki.");
+        JLabel geschichte1Label = new JLabel("<html>Wir sind schon weit gekommen, seitdem Jonathan Gruss 1943 gegründet hat. Vom kleinen schwedischen Unternehmen, das seine Waren über einen Versandkatalog verkauft hat, ist AEKI zu einem der bekanntesten Einrichtungsmarken der Welt geworden. Heute gibt es hunderte AEKI Einrichtungshäuser rund um den Erdball und es werden noch mehr. Hier finden Sie mehr über unsere faszinierende Geschichte – von den Anfängen bis hin zu unseren heutigen Tätigkeiten.</html>");
+        JLabel untertitelgeschichteLabel = new JLabel("Wohnst du noch oder lebst du schon?");
+        JLabel geschichte2Label = new JLabel("<html> Unsere Faszination vom Leben zu Hause zeichnet AEKI aus. Jedes Jahr bitten wir Tausende Menschen, uns ihre Gedanken und Emotionen über den Ort mitzuteilen, an dem sie leben. Wir möchten erfahren, was ihr Leben zu Hause besser macht, damit wir Sie dabei unterstützen können. Es ist ein andauerndes Forschungsprojekt, das wichtiger denn je ist </html>");
+        
+        titelgeschichteLabel.setBounds(50, 25, 1000, 25);
+        geschichte1Label.setBounds(50, 50, 1000, 100);
+        untertitelgeschichteLabel.setBounds(50, 150, 1000, 100);
+        geschichte2Label.setBounds(50, 200, 1000, 100);
+        titelgeschichteLabel.setFont(new Font("Serif", Font.PLAIN, 24));
+        geschichte1Label.setFont(new Font("Serif", Font.PLAIN, 18));
+        untertitelgeschichteLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        geschichte2Label.setFont(new Font("Serif", Font.PLAIN, 18));
+        titelgeschichteLabel.setForeground(new Color(120, 90, 40));
+        titelgeschichteLabel.setBackground(new Color(100, 20, 70));
+        untertitelgeschichteLabel.setForeground(new Color(120, 90, 40));
+        untertitelgeschichteLabel.setBackground(new Color(100, 20, 70));
+        
+        frame.add(geschichte1Label);
+        frame.setSize(600,300);
+        this.add(titelgeschichteLabel);
+        this.add(geschichte1Label);
+        this.add(untertitelgeschichteLabel);
+        this.add(geschichte2Label);
+        
+        this.setVisible(true);
     }
     
     /**
      * 'Info'-Funktion: Zeige Informationen zur Anwendung
      */
-    private void zeigeInfo()
-    {
-        System.out.println("Bitte wenden Sie sich an unseren IT-Kontakt, Jonathan, unter der folgenden Nummer: 0824 67 76");
+    private void zeigeInfo() {
+        this.getContentPane().removeAll();
+        this.repaint();
+        
+        JLabel infoLabel = new JLabel("<html>Bitte wenden Sie sich bei Fragen an unseren IT-Kontakt Jeff, der unter der folgenden Nummer täglich von 8:00 - 16:00 Uhr erreichbar ist: 0824 67 76</html>");
+        infoLabel.setBounds(10, 50, 800, 50);
+        infoLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        this.add(infoLabel);
+        
+        this.setVisible(true);
     }
     }
