@@ -218,7 +218,7 @@ public class GUI extends JFrame {
     private void bestellungÜbersicht() {
         this.getContentPane().removeAll();
         this.repaint();
-        JLabel welcomeLabel = new JLabel("Vielen Dank für Ihre Bestellung und willkommen zurück!");
+        JLabel welcomeLabel = new JLabel("<html>Vielen Dank für Ihre Bestellung und willkommen zurück! Hier können Sie Ihre aktuelle Bestellung und deren Produktionsstatus einsehen.</html>");
         JButton button_bestellübersicht = new JButton("Bestellübersicht anzeigen");
         
         // To Do: Action listener mit Lambda Funktion () -> {}
