@@ -9,6 +9,8 @@ import javax.swing.event.MenuEvent;
 import java.awt.Font;
 import java.awt.Color;
 import javafx.scene.layout.Border;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import javax.swing.JFrame;  
 import javax.swing.JLabel;  
@@ -64,10 +66,10 @@ public class GUI extends JFrame {
         // Sobald  das Fenster vollständig konstruiert ist, kann es mit setVisible im kompletten Zustand angezeigt werden.
         setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(2000,2000);
+        this.setSize(1600,1600);
         this.setVisible(true);
     }
-
+    
     public void menu() {
         JMenuBar menueBar = new JMenuBar();
         
@@ -151,9 +153,13 @@ public class GUI extends JFrame {
     
     /**
      * Implementierung der Menü-Funktionen
-     * Durch 'removeAll' und 'repaint' werden die Interfaces jeweils erneuert 
+     * Durch 'removeAll' und 'repaint' werden die Interfaces jeweils erneuert.
+     * Durch 'setvisible' werden die Interfaces jeweils sichtbar gezeigt/ angezeigt.
+     * 
+     * 'Bestellung aufgeben'-Funktion: Öffnet einen Auswahldialog zum Bestellen.
+     * Der Action Listener wird jeweils den Buttons hinzugefügt und erstellt dann auf Knopfdruch durch 'contentPanecontroller.onOrder' eine Bestellung.
+     * Zudem wird die bestellBestaetigung upgedated.
      */
-    // 'Bestellung aufgeben'-Funktion: Öffnet einen Auswahldialog zum Bestellen
     private void bestellungAufgeben() {
         this.getContentPane().removeAll();
         this.repaint();
@@ -170,8 +176,6 @@ public class GUI extends JFrame {
         JButton senden_knopf = new JButton("Bestellen");
         JButton button_refreshstatus = new JButton("Zeige Status");
         
-        // Action listener zu button hinzufügen, der dann auf Kopfdruck durch contentPanecontroller.onOrder eine Bestellung erstellt
-        // Zudem wird die bestellBestaetigung upgedated
         senden_knopf.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 int stuehle = Integer.parseInt(textfield_stuehle.getText());
@@ -197,7 +201,7 @@ public class GUI extends JFrame {
         senden_knopf.setBounds(10,170,150,30);
         button_refreshstatus.setBounds(190,170,150,30);
 
-        // Alle Elemente zum panel hinzufügen --> wird zur Superklasse hinzugefügt
+        // Alle Elemente werden durch 'this.add zum Panel hinzugefügen
         this.add(welcomeLabel);
         this.add(label_stuehle);
         this.add(label_sofas);
@@ -264,12 +268,15 @@ public class GUI extends JFrame {
     }
     
     /**
-     * 'Beenden' und 'Exit'-Funktionen: Durch diese wird die Anwendung jeweils beendet.
+     * 'Beenden'-Funktion: Durch diese wird die Anwendung jeweils beendet
      */
     private void beenden() {
         System.exit(0);
     }
     
+    /**
+     * 'Exit'-Funktion: Durch diese wird die Anwendung jeweils beendet
+     */
     private void exitAnzeigen() {
          System.exit(0);
     }
@@ -288,7 +295,7 @@ public class GUI extends JFrame {
         JLabel jeffLabel = new JLabel("Jeff Mulavarikkal - Lager");
         JLabel charlotteLabel = new JLabel("Charlotte Müller - Marketing");
         
-        // Bild von Timo einfügen
+        // Fügt ein Bild von Timo ein
         Image timoBild = null;
             try {
                 timoBild = ImageIO.read(new File("timo.png"));
@@ -301,7 +308,7 @@ public class GUI extends JFrame {
             ImageIcon bild_timo = new ImageIcon(timoBild);
             JLabel label_bild_timo = new JLabel(bild_timo);
         
-        // Bild von Florianne einfügen
+        // Fügt ein Bild von Florianne ein
         Image florianneBild = null;
             try {
                 florianneBild = ImageIO.read(new File("florianne.png"));
@@ -314,7 +321,7 @@ public class GUI extends JFrame {
             ImageIcon bild_florianne = new ImageIcon(florianneBild);
             JLabel label_bild_florianne = new JLabel(bild_florianne);
         
-        // Bild von Tim einfügen
+        // Fügt ein Bild von Tim ein
         Image timBild = null;
             try {
                 timBild = ImageIO.read(new File("tim.png"));
@@ -327,7 +334,7 @@ public class GUI extends JFrame {
             ImageIcon bild_tim = new ImageIcon(timBild);
             JLabel label_bild_tim = new JLabel(bild_tim);
         
-        // Bild von Jeff einfügen
+        // Fügt ein Bild von Jeff ein
         Image jeffBild = null;
             try {
                 jeffBild = ImageIO.read(new File("jeff.png"));
@@ -340,7 +347,7 @@ public class GUI extends JFrame {
             ImageIcon bild_jeff = new ImageIcon(jeffBild);
             JLabel label_bild_jeff = new JLabel(bild_jeff);
         
-        // Bild von Charlotte einfügen
+        // Fügt ein Bild von Charlotte ein
         Image charlotteBild = null;
             try {
                 charlotteBild = ImageIO.read(new File("charlotte.png"));
@@ -423,16 +430,34 @@ public class GUI extends JFrame {
     }
     
     /**
-     * 'Info'-Funktion: Zeige Informationen zur Anwendung
+     * 'Info'-Funktion: Zeigt Informationen zur Anwendung
      */
     private void zeigeInfo() {
         this.getContentPane().removeAll();
         this.repaint();
         
-        JLabel infoLabel = new JLabel("<html>Bitte wenden Sie sich bei Fragen an unseren IT-Kontakt Jeff, der unter der folgenden Nummer täglich von 8:00 - 16:00 Uhr erreichbar ist: 0824 67 76</html>");
-        infoLabel.setBounds(10, 50, 800, 50);
+        JLabel infoLabel = new JLabel("<html>Bitte wenden Sie sich bei Fragen an unseren IT-Kontakt Tim, der unter der folgenden Nummer täglich von 8:00 - 16:00 Uhr erreichbar ist: 0824 67 76</html>");
+        
+        //hier noch GIF einfügen.
+        // Jeff: Kannst du hier evtl helfen? Wenn nicht, machen wir einfach ein Bild draus. :)
+        /*URL urlsd;
+        try {
+            URL urlsd = new URL("https://i.gifer.com/PJxF.gif");
+            ImageIcon gif_help = new ImageIcon(urlsd);
+            JLabel label_gif_help = new JLabel(gif_help);
+        } 
+        catch (MalformedURLException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+        ImageIcon gif_help = new ImageIcon(urlsd);
+        JLabel label_gif_help = new JLabel(gif_help);*/
+        
+        infoLabel.setBounds(50, 25, 800, 50);
+        //label_gif_help.setBounds(5, 20, 66, 66);
         infoLabel.setFont(new Font("Serif", Font.PLAIN, 18));
         this.add(infoLabel);
+        //this.add(label_gif_help);
         
         this.setVisible(true);
     }
