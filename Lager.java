@@ -140,11 +140,15 @@ public class Lager {
      * Anmerkung: mit dieser Methode werden die Werte vorhandener Materialien in der Software wieder auf das Max. gesetzt.
      */
     public void lagerAuffuellen() {
+        System.out.println("Jeff max: " + maxKissen);
+        System.out.println("Jeff vorhanden: " + vorhandeneKissen);
         vorhandeneHolzeinheiten = maxHolzeinheiten;
         vorhandeneSchrauben = maxSchrauben;
         vorhandeneFarbeinheiten = maxFarbeinheiten;
         vorhandeneKartoneinheiten = maxKartoneinheiten;
         vorhandeneKissen = maxKissen;
+        System.out.println("Manu max: " + maxKissen);
+        System.out.println("Manu vorhanden: " + vorhandeneKissen);
     }
 
     /**
@@ -178,4 +182,14 @@ public class Lager {
         lieferant.start();
     }
 
+    @Override
+    public String toString() {
+        return "Lager{" +
+                "vorhandeneHolzeinheiten=" + vorhandeneHolzeinheiten +
+                ", vorhandeneSchrauben=" + vorhandeneSchrauben +
+                ", vorhandeneFarbeinheiten=" + vorhandeneFarbeinheiten +
+                ", vorhandeneKartoneinheiten=" + vorhandeneKartoneinheiten +
+                ", vorhandeneKissen=" + vorhandeneKissen +
+                '}';
+    }
 }

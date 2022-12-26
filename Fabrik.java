@@ -1,10 +1,9 @@
 import java.util.ArrayList;
-import java.io.*;
 
 /**
  * @author Gruppe 29
  * @version 3.1 (4. Dezember 2022)
- *
+ * <p>
  * Die Klasse Fabrik bildet die Schnittstelle zwischen Kund:innen und der Produktion.
  * Sie nimmt Bestellungen entgegen und verwaltet diese.
  */
@@ -12,7 +11,7 @@ import java.io.*;
 public class Fabrik {
     /**
      * Instanzvariablen:
-     *
+     * <p>
      * - bestellungen: Array-Liste, in der alle eingegangenen Bestellungen als Typ <Bestellung> abgespeichert werden.
      * - bestellungsNr: Nummer, welche jeder Bestellung aufsteigend zugeordnet wird, beginnend bei 1 (int).
      * - lager: Das zur Fabrik gehörende Lager (jeweils eines).
@@ -39,7 +38,7 @@ public class Fabrik {
      * Ermöglicht den Einstieg ins Programm
      * - weiterBestellen: Gibt an, ob weiterbestellt wird oder nicht.
      * - validerInput: Gibt an, ob die Bestelleingabe valide ist oder nicht.
-     *
+     * <p>
      * Anmerkung:
      * Durch die Main-Methode wird ein Dialogsystem aufgerufen, in welcher der User Bestellungen für Sofas und Stühle aufgeben kann
      * (Durchführung der Methode bestellungAufgeben).
@@ -60,7 +59,7 @@ public class Fabrik {
         GUIController controller = new GUIController(fabrik);
         GUI gui = new GUI(controller);
         
-        boolean weiterBestellen = true;
+/*        boolean weiterBestellen = true;
         boolean validerInput = true;
 
         BufferedReader infile = new BufferedReader(new InputStreamReader(System.in));
@@ -95,36 +94,37 @@ public class Fabrik {
             }
         }
         fabrik.bestellungenVerarbeiten();
-        fabrik.bestellungenAusgeben();
+        fabrik.bestellungenAusgeben();*/
     }
 
 
     /**
      * Bestellung aufgeben.
      *
-     * @param sofa: Anzahl Sofas, die in einer Bestellung bestellt wurden.
+     * @param sofa:  Anzahl Sofas, die in einer Bestellung bestellt wurden.
      * @param stuhl: Anzahl Stühle, die in einer Bestellung bestellt wurden.
-     *
-     * Anmerkung: Durch bestellungAufgeben wird eine neue Instanz der Klasse Bestellung erstellt, die Bestellung bestätigt und in der Array "bestellungen" gespeichert.
-     * Zu jeder aufgegebenen Bestellung wird hier die jeweilige Lieferzeit ausgerechnet und gesetzt und die Bestellbestätigung auf true gesetzt.
-     * Falls ein niedriger Lagerbestand erreicht wurde, wird beim Lieferanten nachbestellt, um das Lager komplett aufzufüllen.
-     * Bei erfolgreicher Bestellabgabe wird auf der Konsole anschliessend eine Nachricht ausgespielt.
-     * In der folgenden Methode wird zudem festgelegt, dass die Bestellung nur positive Werte enthalten darf (Keine Minusbestellungen, ansonsten Fehlermeldung).
+     *               <p>
+     *               Anmerkung: Durch bestellungAufgeben wird eine neue Instanz der Klasse Bestellung erstellt, die Bestellung bestätigt und in der Array "bestellungen" gespeichert.
+     *               Zu jeder aufgegebenen Bestellung wird hier die jeweilige Lieferzeit ausgerechnet und gesetzt und die Bestellbestätigung auf true gesetzt.
+     *               Falls ein niedriger Lagerbestand erreicht wurde, wird beim Lieferanten nachbestellt, um das Lager komplett aufzufüllen.
+     *               Bei erfolgreicher Bestellabgabe wird auf der Konsole anschliessend eine Nachricht ausgespielt.
+     *               In der folgenden Methode wird zudem festgelegt, dass die Bestellung nur positive Werte enthalten darf (Keine Minusbestellungen, ansonsten Fehlermeldung).
      */
-    public void bestellungAufgeben(int sofa, int stuhl) {
+    public Bestellung bestellungAufgeben(int sofa, int stuhl) {
+        Bestellung bestellung = null;
         if (sofa < 0 || stuhl < 0 || sofa + stuhl == 0) {
             System.out.println("Bitte geben Sie einen positiven Bestellbetrag ein.");
         } else {
             bestellungsNr++;
 
-            Bestellung bestellung = new Bestellung(bestellungsNr, sofa, stuhl);
+            bestellung = new Bestellung(bestellungsNr, sofa, stuhl);
 
             int beschaffungsZeit = lager.gibBeschaffungszeit(bestellung);
             bestellung.setzBeschaffungsZeit(beschaffungsZeit);
 
             if (beschaffungsZeit == 2) {
                 lager.wareLiefern();
-                lagerAuffuellen();
+                lager.lagerAuffuellen();
             }
             lager.zieheBenoetigteMaterialienVomLagerAb();
 
@@ -138,26 +138,15 @@ public class Fabrik {
 
             bestellung.bestellungBestaetigen();
             bestellungen.add(bestellung);
-
-            System.out.println("Bestellung erfolgreich aufgegeben!");
-            // return einfügen damit Bestellung zurückgegeben wird
         }
+        return bestellung;
     }
 
     /**
      * Mit dieser Methode werden die Bestellungen der Liste hinzugefügt, welche verarbeitet werden müssen.
      */
-    public void bestellungenVerarbeiten() {
-        for (Bestellung bestellung : bestellungen) {
-            produktionsManager.fuegeZuVerarbeitendeBestellungenHinzu(bestellung);
-        }
-    }
-
-    /**
-     * Mit dieser Methode wird das Lager angeordnet Material nachzubestellen
-     */
-    public void lagerAuffuellen() {
-        lager.lagerAuffuellen();
+    public void bestellungVerarbeiten(Bestellung zuVerarbeitendeBestellung) {
+        produktionsManager.fuegeZuVerarbeitendeBestellungenHinzu(zuVerarbeitendeBestellung);
     }
 
     /**
@@ -173,7 +162,7 @@ public class Fabrik {
      * Mit dieser Methode werden die Bestellungen wiedergegeben.
      *
      * @return ArrayListe bestellungen
-     *
+     * <p>
      * Anmerkung: Diese Methode dient den Unit-Tests im Rahmen der Testklasse FabrikTest.
      * Sie gibt die Bestellungsinformationen für den Unit-Test zur Methode Bestellung auf- und ausgeben wieder.
      */
@@ -183,7 +172,7 @@ public class Fabrik {
 
     /**
      * Mit dieser Methode werden die detaillierten Informationen zu allen Bestellungen ausgegeben.
-     *
+     * <p>
      * Anmerkung: Für jede Bestellung aus der Liste bestellungen, gibt die Konsole die unten programmierte Print-Meldung aus.
      * Diese Methode gibt somit alle Informationen (Anzahl Stühle / Anzahl Sofas / Bestellungen Total / Bestellungsnummer)
      * für alle aufgegebenen Bestellungen wieder.
@@ -197,12 +186,12 @@ public class Fabrik {
     }
 
     //neue Methode
-    
+
     /**
      * Mit dieser Methode wird das Lager wiedergegeben.
      *
      * @return Lager
-     *
+     * <p>
      * Anmerkung: Diese Methode dient den Unit-Tests im Rahmen der Testklasse FabrikTest.
      * Sie gibt die Möglichkeit, Methoden der Klasse Lager aufzurufen
      */
