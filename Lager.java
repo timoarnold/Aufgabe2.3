@@ -85,6 +85,11 @@ public class Lager {
      */
     public int gibBeschaffungszeit(Bestellung kundenBestellung) {
         int beschaffungszeit = 0;
+        benoetigteHolzeinheiten = 0;
+        benoetigteSchrauben = 0;
+        benoetigteFarbeinheiten = 0;
+        benoetigteKartoneinheiten = 0;
+        benoetigteKissen = 0;
 
         for (Produkt product : kundenBestellung.liefereBestellteProdukte()) {
             if (product instanceof Stuhl) {
