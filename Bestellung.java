@@ -38,7 +38,6 @@ public class Bestellung {
      * @param anzahlSofas: Anzahl bestellter Sofas einer Bestellung.
      * @param anzahlStuehle: Anzahl bestellter Stühle einer Bestellung.
      */
-
     public Bestellung(int bestellungsNr, int anzahlSofas, int anzahlStuehle) {
         bestellteProdukte = new ArrayList<>();
 
@@ -62,7 +61,6 @@ public class Bestellung {
      *
      * Anmerkung: Falls noch nicht bestätigt, bleibt diese Variabel 'false'.
      */
-
     public void bestellungBestaetigen() {
         bestellBestaetigung = true;
     }

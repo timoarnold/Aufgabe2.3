@@ -74,7 +74,6 @@ public class Produktions_Manager extends Thread {
      * <p>
      * Schliesslich soll der Thread für eine bestimmte Zeit schlafen
      */
-
     public void run() {
         while (true) {
             Bestellung naechsteBestellung = zuVerarbeitendeBestellungen.poll();
