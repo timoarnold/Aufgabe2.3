@@ -7,7 +7,6 @@ import javax.swing.event.MenuListener;
 import javax.swing.event.MenuEvent;
 import java.awt.Font;
 import java.awt.Color;
-//import javafx.scene.layout.Border;
 
 import javax.swing.JFrame;  
 import javax.swing.JLabel;  
@@ -165,24 +164,27 @@ public class GUI extends JFrame {
         JLabel label_sofas = new JLabel("Anzahl Sofas");
         JLabel label_bestellBestaetigung = new JLabel("Bestellbestätigung:");
         JLabel label_status = new JLabel("Anzahl Bestellungen:");
+        JLabel label_bestellUebersicht = new JLabel("");
 
         JTextField textfield_stuehle = new JTextField();
         JTextField textfield_sofas = new JTextField();
 
         JButton senden_knopf = new JButton("Bestellen");
-        JButton button_refreshstatus = new JButton("Zeige Status");
+        JButton button_refreshstatus = new JButton("Bestellinformationen");
         
         senden_knopf.addActionListener((arg) -> {
-                int stuehle = Integer.parseInt(textfield_stuehle.getText());
-                int sofas = Integer.parseInt(textfield_sofas.getText());
-                controller.onOrder(sofas, stuehle);
-                String bestellBestaetigung = controller.gibBestellBestaetigung();
-                label_bestellBestaetigung.setText("Bestellbestätigung: " + bestellBestaetigung);
-        });
-        // Action listener mit Lambda Funktion () -> {}
-        button_refreshstatus.addActionListener ((arg) -> {
+            int stuehle = Integer.parseInt(textfield_stuehle.getText());
+            int sofas = Integer.parseInt(textfield_sofas.getText());
+            controller.onOrder(sofas, stuehle);
+            String bestellBestaetigung = controller.gibBestellBestaetigung();
+            label_bestellBestaetigung.setText("Bestellbestätigung: " + bestellBestaetigung);
             String bestellNummer = controller.gibAnzahlBestellungen();
             label_status.setText("Anzahl Bestellungen: " + bestellNummer);
+        });
+
+        button_refreshstatus.addActionListener ((arg) -> {
+            String bestellUebersicht = controller.gibBestellInformationen();
+            label_bestellUebersicht.setText("<html><br/>" + bestellUebersicht + "</html>");
         });
         
         // Positionieren
@@ -195,6 +197,7 @@ public class GUI extends JFrame {
         label_status.setBounds(10,140, 400, 25);
         senden_knopf.setBounds(10,170,150,30);
         button_refreshstatus.setBounds(190,170,150,30);
+        label_bestellUebersicht.setBounds(10, 210, 1000, 700);
 
         // Alle Elemente werden durch 'this.add zum Panel hinzugefügen
         this.add(welcomeLabel);
@@ -206,6 +209,7 @@ public class GUI extends JFrame {
         this.add(textfield_sofas);
         this.add(senden_knopf);
         this.add(button_refreshstatus);
+        this.add(label_bestellUebersicht);
         
         this.setVisible(true);
     }
@@ -231,9 +235,9 @@ public class GUI extends JFrame {
         
         welcomeLabel.setBounds(10, 10, 1000, 25);
         button_bestelluebersicht.setBounds(10, 50, 200, 30);
-        label_bestellUebersicht.setBounds(10, 60, 1000, 300);
+        label_bestellUebersicht.setBounds(10, 80, 1000, 800);
         button_lageruebersicht.setBounds(250, 50, 200, 30);
-        label_lagerUebersicht.setBounds(10, 200, 1000, 300);
+        label_lagerUebersicht.setBounds(400, 80, 1000, 800);
         
         this.add(welcomeLabel);
         this.add(button_bestelluebersicht);
@@ -469,4 +473,4 @@ public class GUI extends JFrame {
         
         this.setVisible(true);
     }
-    }
+}

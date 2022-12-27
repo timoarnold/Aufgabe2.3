@@ -34,6 +34,7 @@ public class Fabrik {
         produktionsManager.start();
     }
 
+    //TODO: JavaDoc updaten
     /**
      * Ermöglicht den Einstieg ins Programm
      * - weiterBestellen: Gibt an, ob weiterbestellt wird oder nicht.
@@ -58,45 +59,7 @@ public class Fabrik {
 
         GUIController controller = new GUIController(fabrik);
         GUI gui = new GUI(controller);
-        
-/*        boolean weiterBestellen = true;
-        boolean validerInput = true;
-
-        BufferedReader infile = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Willkommen bei AEKI");
-
-        while (weiterBestellen) {
-            int anzahlSofas;
-            int anzahlStühle;
-            String weiterBestellenString;
-
-            try {
-                if (validerInput) {
-                    System.out.println("Geben Sie die Anzahl Sofas an, welche Sie bestellen möchten: ");
-                    anzahlSofas = Integer.parseInt(infile.readLine().trim());
-                    System.out.println("Geben Sie die Anzahl Stühle an, welche Sie bestellen möchten: ");
-                    anzahlStühle = Integer.parseInt(infile.readLine().trim());
-                    fabrik.bestellungAufgeben(anzahlSofas, anzahlStühle);
-                }
-                System.out.print("Möchten Sie weiter bestellen? (ja/nein)");
-                weiterBestellenString = infile.readLine();
-                if (weiterBestellenString.equals("ja")) {
-                    validerInput = true;
-                } else if (weiterBestellenString.equals("nein")) {
-                    weiterBestellen = false;
-                    validerInput = true;
-                } else {
-                    System.out.println("Invalider Input. Bitte geben Sie ja oder nein ein.");
-                    validerInput = false;
-                }
-            } catch (Exception E) {
-                System.out.println("Invalider Input. Bitte geben Sie eine Zahl ein.");
-            }
-        }
-        fabrik.bestellungenVerarbeiten();
-        fabrik.bestellungenAusgeben();*/
     }
-
 
     /**
      * Bestellung aufgeben.
@@ -184,8 +147,6 @@ public class Fabrik {
             System.out.println("\n" + bestellung + "\n");
         }
     }
-
-    //neue Methode
 
     /**
      * Mit dieser Methode wird das Lager wiedergegeben.

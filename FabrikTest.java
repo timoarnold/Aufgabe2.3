@@ -73,26 +73,6 @@ public class FabrikTest {
     }
 
     /**
-     * Testet, ob die erste (Index 0) und die zweite (Index 1) Bestellung der ArrayList bestellungen den Erwartungen entspricht.
-     *
-     * Anmerkung: Testfabrik.gibBestellungen().get(0).toString() entspricht System.out.println(eineBestellung) aus Fabrik.bestellungAusgeben
-     */
-
-    @Test
-    public void TestBestellungAusgeben() {
-        //Arrange: Siehe BeforeEach
-        Fabrik fabrik = new Fabrik();
-
-        //Act: Zwei Testbestellungen werden aufgegeben
-        fabrik.bestellungAufgeben(2, 3);
-        fabrik.bestellungAufgeben(6, 6);
-
-        //Assert: Check, ob Ausgabe der Bestellung == erwartete / korrekte Ausgabe
-        assertEquals("Bestellnummer: " + 1 + "\nSofas bestellt: " + 2 + "\nStühle bestellt: " + 3 + "\nIhre Lieferzeit beträgt: 1 Tag(e) 3 Stunde(n) 6 Minute(n)", fabrik.gibBestellungen().get(0).toString());
-        assertEquals("Bestellnummer: " + 2 + "\nSofas bestellt: " + 6 + "\nStühle bestellt: " + 6 + "\nIhre Lieferzeit beträgt: 1 Tag(e) 8 Stunde(n) 12 Minute(n)", fabrik.gibBestellungen().get(1).toString());
-    }
-
-    /**
      * Testet, ob Bestellungen korrekt aufgegeben werden können.
      */
     @Test
