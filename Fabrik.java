@@ -17,7 +17,6 @@ public class Fabrik {
      * - lager: Das zur Fabrik gehörende Lager (jeweils eines).
      * - produktionsManager: Der Manager, welcher neu eintreffende Bestellungen verarbeitet und den jeweiligen Robotern zuweist.
      */
-
     private ArrayList<Bestellung> bestellungen;
     private int bestellungsNr;
     private Lager lager;
@@ -26,7 +25,6 @@ public class Fabrik {
     /**
      * Konstruktor für Objekte der Klasse Fabrik: Hier werden die Instanzvariabeln (siehe oben) initialisiert.
      */
-
     public Fabrik() {
         bestellungen = new ArrayList<>();
         lager = new Lager();
@@ -51,7 +49,6 @@ public class Fabrik {
      * (Durchführung der Methode bestellungenVerarbeiten).
      * Ausserdem werden die Inputs des Users überprüft, sodass die geforderten Informationen angegeben werden.
      */
-
     public static void main(String[] args) {
         System.out.println("Ausgabe aus der main()-Methode:");
         Fabrik fabrik = new Fabrik();

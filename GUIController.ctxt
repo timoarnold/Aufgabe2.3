@@ -1,10 +1,16 @@
 #BlueJ class context
 comment0.target=GUIController
 comment0.text=\n\ Der\ GUIController\ macht\ die\ andere\ H\u00E4lfte\ der\ Komponentenschnittstelle\ aus\ und\n\ ist\ haupts\u00E4chlich\ die\ Interaktionsh\u00E4lfte.\n\ Er\ k\u00FCmmert\ sich\ um\ Maus-\ und\ Tastaturereignisse.\n\n\ @author\ Gruppe\ 29\n\ @version\ 4.1\ (31.\ Dezember\ 2022)\n
-comment1.params=fabrik1
+comment1.params=fabrik
 comment1.target=GUIController(Fabrik)
 comment2.params=sofa\ stuhl
 comment2.target=void\ onOrder(int,\ int)
 comment3.params=
-comment3.target=void\ gibtZustand()
-numComments=4
+comment3.target=java.lang.String\ gibBestellBestaetigung()
+comment4.params=
+comment4.target=java.lang.String\ gibAnzahlBestellungen()
+comment5.params=
+comment5.target=java.lang.String\ gibBestellInformationen()
+comment6.params=
+comment6.target=java.lang.String\ gibLagerInformationen()
+numComments=7

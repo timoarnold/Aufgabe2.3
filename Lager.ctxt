@@ -25,4 +25,6 @@ comment7.text=\n\ Getter-Methode,\ um\ den\ Lieferanten\ eines\ Lagers\ zu\ erha
 comment8.params=
 comment8.target=void\ wareLiefern()
 comment8.text=\n\ Bestellt\ die\ ben\u00F6tigten\ Ressourcen\ beim\ Lieferanten\n
-numComments=9
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=10

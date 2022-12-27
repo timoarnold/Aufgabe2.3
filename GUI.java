@@ -16,21 +16,32 @@ import javax.swing.JTextField;
 import javax.imageio.*;
 
 /**
- * Das GUI steht für Graphical User Interface und ist der Visual Experience Builder für alle Anwendungen
- * Das GUI umfasst grafische Einheiten wie Buttons, Beschriftungen, Fenster usw., über welche die Benutzer mit einer Anwendung
+ * Das GUI steht für Graphical User Interface und ist der Visual Experience Builder für alle Anwendungen.
+ * Es umfasst grafische Einheiten wie Buttons, Beschriftungen, Fenster usw., über welche die Benutzer mit einer Anwendung
  * in Verbindung treten können.
  *
  * @author Gruppe 29
  * @version 4.1 (31. Dezember 2022)
  */
 public class GUI extends JFrame { 
+    /**
+     * Instanzvariabel:
+     * controller: Der zum GUI gehörende Controller
+     */
     private final GUIController controller;
-
-    public GUI(GUIController controller){
+    
+    /**
+     * Konstruktor für Objekte der Klasse Fabrik: Hier wird die Instanzvariabel controller initialisiert.
+     */
+    public GUI(GUIController controller) {
         this.controller = controller;
         initWindow();
     }
-
+    
+    /**
+     * Sobald das GUI Fenster vollständig konstruiert ist,
+     * kann es mit setVisible im kompletten Zustand angezeigt werden.
+     */
     protected void initWindow() {
         this.getContentPane().removeAll();
         this.repaint();
@@ -58,14 +69,18 @@ public class GUI extends JFrame {
         this.add(welcomeLabel);
         this.add(label_bild_startseite);
 
-        // GUI öffnen
-        // Sobald  das Fenster vollständig konstruiert ist, kann es mit setVisible im kompletten Zustand angezeigt werden.
         setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1600,1600);
         this.setVisible(true);
     }
     
+    /**
+     * Hier wird die Menuleiste erstellt.
+     * Die Menuleiste besteht aus folgenden Elementen: 'Startseite', 'Neue Bestellung', 'Über uns', 'Hilfe' und 'Exit'.
+     * 
+     * Durch sowohl den MenuListener als auch den ActionListener wird jeweils auf die Menufunktionen verwiesen.
+     */
     public void menu() {
         JMenuBar menueBar = new JMenuBar();
         
@@ -142,17 +157,15 @@ public class GUI extends JFrame {
         menueBar.add(exitMenue);
         
         this.setJMenuBar(menueBar);
-        //this.setLayout((LayoutManager)null);
-        //this.setDefaultCloseOperation(3);
         this.setVisible(true);
     }
     
     /**
      * Implementierung der Menü-Funktionen
      * Durch 'removeAll' und 'repaint' werden die Interfaces jeweils erneuert.
-     * Durch 'setvisible' werden die Interfaces jeweils sichtbar gezeigt/ angezeigt.
+     * Durch 'setvisible' werden die Interfaces jeweils sichtbar gemacht.
      * 
-     * 'Bestellung aufgeben'-Funktion: Öffnet einen Auswahldialog zum Bestellen.
+     * 'bestellungAufgeben'-Funktion: Öffnet einen Auswahldialog zum Bestellen.
      * Der Action Listener wird jeweils den Buttons hinzugefügt und erstellt dann auf Knopfdruch durch 'contentPanecontroller.onOrder' eine Bestellung.
      * Zudem wird die bestellBestaetigung upgedated.
      */
@@ -179,6 +192,7 @@ public class GUI extends JFrame {
                 String bestellBestaetigung = controller.gibBestellBestaetigung();
                 label_bestellBestaetigung.setText("Bestellbestätigung: " + bestellBestaetigung);
         });
+        
         // Action listener mit Lambda Funktion () -> {}
         button_refreshstatus.addActionListener ((arg) -> {
             String bestellNummer = controller.gibAnzahlBestellungen();
@@ -196,7 +210,7 @@ public class GUI extends JFrame {
         senden_knopf.setBounds(10,170,150,30);
         button_refreshstatus.setBounds(190,170,150,30);
 
-        // Alle Elemente werden durch 'this.add zum Panel hinzugefügen
+        // Zum Panel hinzufügen
         this.add(welcomeLabel);
         this.add(label_stuehle);
         this.add(label_sofas);
@@ -207,9 +221,13 @@ public class GUI extends JFrame {
         this.add(senden_knopf);
         this.add(button_refreshstatus);
         
+        // Sichtbar machen
         this.setVisible(true);
     }
     
+    /**
+     * 'bestellungUebersicht'-Funktion: Zeigt die Bestell- und Lagerübersicht an
+     */
     private void bestellungUebersicht() {
         this.getContentPane().removeAll();
         this.repaint();
@@ -229,23 +247,26 @@ public class GUI extends JFrame {
             label_lagerUebersicht.setText("<html><br/>" + lagerUebersicht + "</html>");
         });
         
+        // Positionieren
         welcomeLabel.setBounds(10, 10, 1000, 25);
         button_bestelluebersicht.setBounds(10, 50, 200, 30);
         label_bestellUebersicht.setBounds(10, 60, 1000, 300);
         button_lageruebersicht.setBounds(250, 50, 200, 30);
         label_lagerUebersicht.setBounds(10, 200, 1000, 300);
         
+        // Zum Panel hinzufügen
         this.add(welcomeLabel);
         this.add(button_bestelluebersicht);
         this.add(label_bestellUebersicht);
         this.add(button_lageruebersicht);
         this.add(label_lagerUebersicht);
         
+        // Sichtbar machen
         this.setVisible(true);
     }
         
     /**
-     * 'Startseite'-Funktion: Zeigt die Startseite an
+     * 'startseiteAnzeigen'-Funktion: Zeigt die Startseite an
      */
     private void startseiteAnzeigen() {
         this.getContentPane().removeAll();
@@ -265,13 +286,17 @@ public class GUI extends JFrame {
             ImageIcon bild_startseite = new ImageIcon(startseiteBild);
             JLabel label_bild_startseite = new JLabel(bild_startseite);
         
+        // Positionieren
         welcomeLabel.setBounds(10, 50, 1000, 25);
         welcomeLabel.setFont(new Font("Serif", Font.PLAIN, 24));
         welcomeLabel.setForeground(new Color(120, 90, 40));
         label_bild_startseite.setBounds(10, 10, 1000, 750);
         
+        // Zum Panel hinzufügen
         this.add(welcomeLabel);
         this.add(label_bild_startseite);
+        
+        // Sichtbar machen
         this.setVisible(true);
     }
     
@@ -368,18 +393,13 @@ public class GUI extends JFrame {
             ImageIcon bild_charlotte = new ImageIcon(charlotteBild);
             JLabel label_bild_charlotte = new JLabel(bild_charlotte);
         
+        // Positionieren
         teamLabel.setBounds(50, 50, 1000, 25);
         timoLabel.setBounds(150, 475, 1000, 100);
         florianneLabel.setBounds(650, 475, 1000, 100);
         timLabel.setBounds(1150, 475, 1000, 100);
         jeffLabel.setBounds(405, 825, 1000, 100);
         charlotteLabel.setBounds(905, 825, 1000, 100);
-        teamLabel.setFont(new Font("Serif", Font.PLAIN, 24));
-        timoLabel.setFont(new Font("Serif", Font.PLAIN, 18));
-        florianneLabel.setFont(new Font("Serif", Font.PLAIN, 18));
-        timLabel.setFont(new Font("Serif", Font.PLAIN, 18));
-        jeffLabel.setFont(new Font("Serif", Font.PLAIN, 18));
-        charlotteLabel.setFont(new Font("Serif", Font.PLAIN, 18));
         
         label_bild_timo.setBounds(1, 200, 700, 300);
         label_bild_florianne.setBounds(500, 200, 700, 300);   
@@ -387,6 +407,14 @@ public class GUI extends JFrame {
         label_bild_jeff.setBounds(250, 550, 700, 300);
         label_bild_charlotte.setBounds(750, 550, 700, 300);
         
+        teamLabel.setFont(new Font("Serif", Font.PLAIN, 24));
+        timoLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        florianneLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        timLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        jeffLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        charlotteLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        
+        // Zum Panel hinzufügen
         this.add(teamLabel);
         this.add(timoLabel);
         this.add(florianneLabel);
@@ -398,6 +426,8 @@ public class GUI extends JFrame {
         this.add(label_bild_tim);
         this.add(label_bild_jeff);
         this.add(label_bild_charlotte);
+        
+        // Sichtbar machen
         this.setVisible(true);
     }
     
@@ -414,26 +444,31 @@ public class GUI extends JFrame {
         JLabel untertitelgeschichteLabel = new JLabel("Wohnst du noch oder lebst du schon?");
         JLabel geschichte2Label = new JLabel("<html> Unsere Faszination vom Leben zu Hause zeichnet AEKI aus. Jedes Jahr bitten wir Tausende Menschen, uns ihre Gedanken und Emotionen über den Ort mitzuteilen, an dem sie leben. Wir möchten erfahren, was ihr Leben zu Hause besser macht, damit wir Sie dabei unterstützen können. Es ist ein andauerndes Forschungsprojekt, das wichtiger denn je ist </html>");
         
+        // Positionieren
         titelgeschichteLabel.setBounds(50, 25, 1000, 25);
         geschichte1Label.setBounds(50, 50, 1000, 100);
         untertitelgeschichteLabel.setBounds(50, 150, 1000, 100);
         geschichte2Label.setBounds(50, 200, 1000, 100);
+        
         titelgeschichteLabel.setFont(new Font("Serif", Font.PLAIN, 24));
         geschichte1Label.setFont(new Font("Serif", Font.PLAIN, 18));
         untertitelgeschichteLabel.setFont(new Font("Serif", Font.PLAIN, 18));
         geschichte2Label.setFont(new Font("Serif", Font.PLAIN, 18));
+        
         titelgeschichteLabel.setForeground(new Color(120, 90, 40));
         titelgeschichteLabel.setBackground(new Color(100, 20, 70));
         untertitelgeschichteLabel.setForeground(new Color(120, 90, 40));
         untertitelgeschichteLabel.setBackground(new Color(100, 20, 70));
-        
-        frame.add(geschichte1Label);
         frame.setSize(600,300);
+        
+        // Zum Panel hinzufügen
+        frame.add(geschichte1Label);
         this.add(titelgeschichteLabel);
         this.add(geschichte1Label);
         this.add(untertitelgeschichteLabel);
         this.add(geschichte2Label);
         
+        // Sichtbar machen
         this.setVisible(true);
     }
     
@@ -461,12 +496,16 @@ public class GUI extends JFrame {
         ImageIcon gif_help = new ImageIcon(urlsd);
         JLabel label_gif_help = new JLabel(gif_help);*/
         
+        // Positionieren
         infoLabel.setBounds(50, 25, 800, 50);
         //label_gif_help.setBounds(5, 20, 66, 66);
         infoLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        
+        // Zum Panel hinzufügen
         this.add(infoLabel);
         //this.add(label_gif_help);
         
+        // Sichtbar machen
         this.setVisible(true);
     }
     }
