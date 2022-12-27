@@ -47,7 +47,7 @@ public class GUI extends JFrame {
         this.repaint();
         
         menu();
-        JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
+        JLabel welcomeLabel = new JLabel("Hej Jonathan välkommen till AEKI!");
 
         Image startseiteBild = null;
             try {
@@ -114,10 +114,6 @@ public class GUI extends JFrame {
         übersichtEintrag.addActionListener(e -> bestellungUebersicht());
         bestellungMenue.add(übersichtEintrag);
         
-        JMenuItem beendenEintrag = new JMenuItem("Beenden");
-        beendenEintrag.addActionListener(e -> beenden());
-        bestellungMenue.add(beendenEintrag);
-        
         // JMenu "Über uns" mit JMenuItems "das Team" und "Geschichte" erzeugen
         JMenu ueberunsMenue = new JMenu("Über uns");
         menueBar.add(ueberunsMenue);
@@ -138,6 +134,15 @@ public class GUI extends JFrame {
         infoEintrag.addActionListener(e -> zeigeInfo());
         hilfeMenue.add(infoEintrag);
         
+        //JMenu "Exit" mit JMenuItem "Anwendung beenden..." erzeugen
+        JMenu exitMenue = new JMenu("Exit");
+        menueBar.add(exitMenue);
+        
+        JMenuItem beendenEintrag = new JMenuItem("Anwendung beenden");
+        beendenEintrag.addActionListener(e -> anwendungBeenden());
+        exitMenue.add(beendenEintrag);
+        
+        /*
         // JMenu "Exit"
         JMenu exitMenue = new JMenu("Exit");
         exitMenue.addMenuListener(new MenuListener () {
@@ -154,7 +159,7 @@ public class GUI extends JFrame {
                 System.out.println("Deselected");
         }
         } );
-        menueBar.add(exitMenue);
+        menueBar.add(exitMenue);*/
         
         this.setJMenuBar(menueBar);
         this.setVisible(true);
@@ -172,7 +177,7 @@ public class GUI extends JFrame {
     private void bestellungAufgeben() {
         this.getContentPane().removeAll();
         this.repaint();
-        JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
+        JLabel welcomeLabel = new JLabel("Hej Jonathan välkommen till AEKI!");
         
         JLabel label_stuehle = new JLabel("Anzahl Stühle");
         JLabel label_sofas = new JLabel("Anzahl Sofas");
@@ -231,7 +236,7 @@ public class GUI extends JFrame {
     private void bestellungUebersicht() {
         this.getContentPane().removeAll();
         this.repaint();
-        JLabel welcomeLabel = new JLabel("<html>Vielen Dank für Ihre Bestellung und willkommen zurück! Hier können Sie Ihre aktuelle Bestellung und deren Produktionsstatus einsehen.</html>");
+        JLabel welcomeLabel = new JLabel("<html>Hier wird dem Produktionsmanager die Bestell- und Lagerübersicht angezeigt.</html>");
         JLabel label_bestellUebersicht = new JLabel("");
         JButton button_bestelluebersicht = new JButton("Bestellübersicht anzeigen");
         JButton button_lageruebersicht = new JButton("Lagerübersicht anzeigen");
@@ -300,19 +305,14 @@ public class GUI extends JFrame {
         this.setVisible(true);
     }
     
-    /**
-     * 'Beenden'-Funktion: Durch diese wird die Anwendung jeweils beendet
-     */
-    private void beenden() {
-        System.exit(0);
-    }
     
     /**
      * 'Exit'-Funktion: Durch diese wird die Anwendung jeweils beendet
      */
+    /*
     private void exitAnzeigen() {
          System.exit(0);
-    }
+    }*/
     
     /**
      * 'Das Team'-Funktion: Zeigt einen Überblick über das Team
@@ -439,7 +439,7 @@ public class GUI extends JFrame {
         this.repaint();
         
         JFrame frame = new JFrame("Geschichte");
-        JLabel titelgeschichteLabel = new JLabel("Hej Jonathan välkommen till aeki.");
+        JLabel titelgeschichteLabel = new JLabel("Die Geschichte von AEKI.");
         JLabel geschichte1Label = new JLabel("<html>Wir sind schon weit gekommen, seitdem Jonathan Gruss 1943 gegründet hat. Vom kleinen schwedischen Unternehmen, das seine Waren über einen Versandkatalog verkauft hat, ist AEKI zu einem der bekanntesten Einrichtungsmarken der Welt geworden. Heute gibt es hunderte AEKI Einrichtungshäuser rund um den Erdball und es werden noch mehr. Hier finden Sie mehr über unsere faszinierende Geschichte – von den Anfängen bis hin zu unseren heutigen Tätigkeiten.</html>");
         JLabel untertitelgeschichteLabel = new JLabel("Wohnst du noch oder lebst du schon?");
         JLabel geschichte2Label = new JLabel("<html> Unsere Faszination vom Leben zu Hause zeichnet AEKI aus. Jedes Jahr bitten wir Tausende Menschen, uns ihre Gedanken und Emotionen über den Ort mitzuteilen, an dem sie leben. Wir möchten erfahren, was ihr Leben zu Hause besser macht, damit wir Sie dabei unterstützen können. Es ist ein andauerndes Forschungsprojekt, das wichtiger denn je ist </html>");
@@ -508,4 +508,12 @@ public class GUI extends JFrame {
         // Sichtbar machen
         this.setVisible(true);
     }
+    
+    /**
+     * 'anwendungBeenden'-Funktion: Durch diese wird die Anwendung jeweils beendet
+     */
+    private void anwendungBeenden() {
+        System.exit(0);
+    }
+    
     }
