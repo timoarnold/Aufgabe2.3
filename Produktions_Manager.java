@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * @author Gruppe 29
@@ -27,8 +28,8 @@ public class Produktions_Manager extends Thread {
     private Montage_Roboter montageRoboter;
     private Lackier_Roboter lackierRoboter;
     private Verpackungs_Roboter verpackungsRoboter;
-    private LinkedList<Bestellung> zuVerarbeitendeBestellungen;
-    private LinkedList<Bestellung> bestellungenInProduktion;
+    private ConcurrentLinkedQueue<Bestellung> zuVerarbeitendeBestellungen;
+    private ConcurrentLinkedQueue<Bestellung> bestellungenInProduktion;
 
     /**
      * Konstruktor für die Klasse Produktionsmanager.
@@ -37,8 +38,8 @@ public class Produktions_Manager extends Thread {
      */
 
     public Produktions_Manager() {
-        zuVerarbeitendeBestellungen = new LinkedList<>();
-        bestellungenInProduktion = new LinkedList<>();
+        zuVerarbeitendeBestellungen = new ConcurrentLinkedQueue<>();
+        bestellungenInProduktion = new ConcurrentLinkedQueue<>();
 
         holzRoboter = new Holzbearbeitungs_Roboter();
         montageRoboter = new Montage_Roboter();
