@@ -34,24 +34,12 @@ public class Fabrik {
 
     //TODO: JavaDoc updaten
     /**
-     * Ermöglicht den Einstieg ins Programm
-     * - weiterBestellen: Gibt an, ob weiterbestellt wird oder nicht.
-     * - validerInput: Gibt an, ob die Bestelleingabe valide ist oder nicht.
-     * <p>
-     * Anmerkung:
-     * Durch die Main-Methode wird ein Dialogsystem aufgerufen, in welcher der User Bestellungen für Sofas und Stühle aufgeben kann
-     * (Durchführung der Methode bestellungAufgeben).
-     * Der User kann nach einer Bestellung entscheiden, ob er weiter bestellen möchte.
-     * Sobald sich der User entscheidet, nicht mehr weiterzubestellen, wird eine Zusammenfassung der Bestellungen ausgegeben
-     * (Durchführung der Methode bestellungAusgeben).
-     * Auch werden die Bestellungen vom Produktionsmanager verarbeitet, sodass sie von den Robotern produziert werden.
-     * (Durchführung der Methode bestellungAusgeben).
-     * Auch werden die Bestellungen vom Produktionsmanager verarbeitet, sodass sie von den Robotern produziert wird.
-     * (Durchführung der Methode bestellungenVerarbeiten).
-     * Ausserdem werden die Inputs des Users überprüft, sodass die geforderten Informationen angegeben werden.
+     * Die Main-Methode ermöglicht den Einstieg in das Programm. Dabei werden eine Fabrik, ein GUIController
+     * und ein GUI instanziert. Dadurch öffnet sich das Userinterface, auf welchem mit dem Programm interagiert werden
+     * kann.
      */
     public static void main(String[] args) {
-        System.out.println("Ausgabe aus der main()-Methode:");
+        System.out.println("Ausgabe aus der main()-Methode:"); //TIM: kann gelöscht werden oder?
         Fabrik fabrik = new Fabrik();
 
         GUIController controller = new GUIController(fabrik);
