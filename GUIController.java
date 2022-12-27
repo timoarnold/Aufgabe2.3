@@ -18,12 +18,9 @@ public class GUIController {
     }
     
     public void onOrder(int sofa, int stuhl){
-        // Bestellung bestellung = fabrik1.bestellungAufgeben(sofa, stuhl);
         bestellung = fabrik.bestellungAufgeben(sofa, stuhl);
         fabrik.bestellungVerarbeiten(bestellung);
         fabrik.bestellungenAusgeben();
-        // Übung: return order.getOrderStatus();
-        // return fabrik1.bestellungenAusgeben();
     }
 
     public String gibBestellBestaetigung(){
@@ -41,30 +38,25 @@ public class GUIController {
 
     public String gibAnzahlBestellungen(){
         String anzahlBestellungen = "";
-
         if ((bestellung != null) && (bestellung.gibBestellBestaetigung())){
             return String.valueOf(bestellung.gibBestellNummer());
         }
-
         return anzahlBestellungen;
     }
 
     public String gibBestellInformationen(){
         String bestellInformationen = "";
-
         if ((bestellung != null) && (bestellung.gibBestellBestaetigung())){
             bestellInformationen = "<br/>Total Bestellungen bisher: " + bestellung.gibBestellNummer();
             for (Bestellung bestellung : fabrik.gibBestellungen()) {
                 bestellInformationen += "<br/>" + bestellung;
             }
         }
-
         return bestellInformationen;
     }
 
     public String gibLagerInformationen(){
         return lager.toString();
-
     }
 }
 
