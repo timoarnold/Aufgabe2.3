@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Stuhl
-comment0.text=\n\ @author\ Gruppe\ 29\ \n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\ \n\ Die\ Klasse\ Stuhl\ bildet\ eine\ Erweiterung\ /\ Subklasse\ der\ Klasse\ Produkt.\ \n\ Sie\ erbt\ somit\ die\ Funktionalit\u00E4ten\ sowie\ die\ globalen\ Variabeln\ der\ Klasse\ Produkt.\n\ Zudem\ enth\u00E4lt\ sie\ Variabeln,\ welche\ f\u00FCr\ den\ Produkttyp\ <Stuhl>\ einzigartig\ sind.\n
-comment1.params=
-comment1.target=Stuhl()
-comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Stuhl.\n\ Mit\ super()\ wird\ "Zustand"\ aus\ der\ Superklasse\ Produkt\ initialisiert\n
+comment0.text=\n\ @author\ Gruppe\ 29\ \n\ @version\ 3.1\ (4.\ Dezember\ 2022)\n\ \n\ Die\ Klasse\ Stuhl\ bildet\ eine\ Erweiterung\ /\ Subklasse\ der\ Klasse\ Produkt.\ \n\ Sie\ erbt\ somit\ die\ Funktionalit\u00E4ten\ sowie\ die\ globalen\ Variablen\ der\ Klasse\ Produkt.\n\ Zudem\ enth\u00E4lt\ sie\ Variablen,\ welche\ f\u00FCr\ den\ Produkttyp\ <Stuhl>\ einzigartig\ sind.\n
+comment1.params=bestellNummer
+comment1.target=Stuhl(int)
+comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Stuhl.\n\ Mit\ super()\ wird\ "Zustand"\ aus\ der\ Superklasse\ Produkt\ initialisiert.\n
 comment2.params=
 comment2.target=int\ getHolzeinheiten()
 comment2.text=\n\ Gib\ die\ Anzahl\ Holzeinheiten\ wieder.\n\ @return\ die\ Anzahl\ ben\u00F6tigter\ Holzeinheiten\ f\u00FCr\ die\ Produktion\ eines\ Stuhls\n
@@ -19,4 +19,6 @@ comment5.text=\n\ Gib\ die\ Anzahl\ Kartoneinheiten\ wieder.\n\ @return\ die\ An
 comment6.params=
 comment6.target=int\ getProduktionsZeit()
 comment6.text=\n\ Gib\ die\ Produktionszeit\ wieder.\n\ @return\ die\ Produktionszeit\ f\u00FCr\ einen\ Stuhl\n
-numComments=7
+comment7.params=
+comment7.target=java.lang.String\ toString()
+numComments=8

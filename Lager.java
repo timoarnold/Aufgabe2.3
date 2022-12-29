@@ -185,11 +185,12 @@ public class Lager {
 
     @Override
     public String toString() {
-        return "Vorhandene Ressourcen im Lager: " +
-                "vorhandene Holzeinheiten = " + vorhandeneHolzeinheiten +
-                ", vorhandene Schrauben = " + vorhandeneSchrauben +
-                ", vorhandene Farbeinheiten = " + vorhandeneFarbeinheiten +
-                ", vorhandene Kartoneinheiten = " + vorhandeneKartoneinheiten +
-                ", vorhandene Kissen = " + vorhandeneKissen;
+        return  "<html><br>Vorhandene Ressourcen im Lager: <html>" +
+                "<html><br><html>" +
+                "<html><br>vorhandene Holzeinheiten = <html>" + vorhandeneHolzeinheiten +
+                "<html><br>vorhandene Schrauben = <html>" + vorhandeneSchrauben +
+                "<html><br> vorhandene Farbeinheiten = <html>" + vorhandeneFarbeinheiten +
+                "<html><br> vorhandene Kartoneinheiten = <html>" + vorhandeneKartoneinheiten +
+                "<html><br> vorhandene Kissen = <html>" + vorhandeneKissen;
     }
 }

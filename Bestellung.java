@@ -137,10 +137,10 @@ public class Bestellung {
      * damit diese im Unit-Test auf Übereinstimmung getestet werden kann.
      */
     public String toString() {
-        return "Bestellnummer: " + bestellungsNr
-                + "\nSofas bestellt: " + anzahlSofas
-                + "\nStühle bestellt: " + anzahlStuehle
-                + "\nIhre Lieferzeit beträgt: " + gibFormatierteLieferzeit();
+        return "<html><br>Bestellnummer: <html>" + bestellungsNr +
+                "<html><br>Sofas bestellt: <html>" + anzahlSofas +
+                "<html><br>Stühle bestellt: <html>" + anzahlStuehle +
+                "<html><br>Die Lieferzeit beträgt: <html>" + gibFormatierteLieferzeit();
     }
 
     /**

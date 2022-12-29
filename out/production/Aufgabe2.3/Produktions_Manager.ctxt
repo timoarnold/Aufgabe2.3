@@ -1,11 +1,16 @@
 #BlueJ class context
 comment0.target=Produktions_Manager
-comment0.text=\n\ Beschrieb\ der\ Klasse\ noch\ final\ anschauen/hinzuf\u00FCgen\n\ In\ dieser\ Klasse\ ist\ der\ Produktionsmanager\ implementiert.\ \n\ Die\ Klasse\ ist\ als\ Thread\ implementiert,\ damit\ sie\ immer\ wieder\ neu\ eintreffende\ Bestellungen\ abarbeiten\ und\ den\ Robotern\ zum\ Produzieren\ geben\ kan.\n
+comment0.text=\n\ @author\ Gruppe\ 29\n\ @version\ 4.1\ (31.\ Dezember\ 2022)\n\n\ Die\ Klasse\ Produktions_Manager\ arbeitet\ neu\ eintreffende\ Bestellung\ ab\ und\ leitet\ diese\ den\ Robotern\ zur\ Produktion\ weiter.\n\ Sie\ wird\ als\ Thread\ implementiert,\ damit\ sie\ immer\ wieder\ neu\ eintreffende\ Bestellungen\ abarbeiten\ und\ den\ Robotern\ zum\ Produzieren\ geben\ kann.\n
 comment1.params=
 comment1.target=Produktions_Manager()
-comment1.text=\n\ Konstruktor\ f\u00FCr\ die\ Klasse\ Produktionsmanager\n\ Hier\ sind\ alle\ Roboter\ als\ Threads\ instanziert\ und\ werden\ gestartet.\n\ Zwei\ LinkedLists\ wurden\ implementiert,\ um\ die\ zu\ verarbeitende\ Bestellungen\ und\ die\ Bestellungen\ in\ Produkttion\ zu\ verwalten.\n
-comment2.params=
-comment2.target=void\ run()
-comment3.params=bestellung
-comment3.target=void\ fuegeZuVerarbeitendeBestellungenHinzu(Bestellung)
-numComments=4
+comment1.text=\n\ Konstruktor\ f\u00FCr\ die\ Klasse\ Produktionsmanager.\n\ Hier\ sind\ alle\ Roboter\ als\ Threads\ instanziiert\ und\ werden\ gestartet.\n\ Zwei\ LinkedLists\ werden\ instanziiert,\ um\ die\ zu\ verarbeitende\ Bestellungen\ und\ die\ Bestellungen\ in\ Produktion\ zu\ verwalten.\n
+comment2.params=bestellung
+comment2.target=void\ fuegeZuVerarbeitendeBestellungenHinzu(Bestellung)
+comment2.text=\n\ Die\ fuegeZuVerarbeitendeBestellungenHinzu\ Methode\ f\u00FCgt\ Bestellungen\ zu\ Liste\ zuVerarbeitendeBestellungen\ hinzu.\n\n\ @param\ bestellung\:\ Bestellung,\ welche\ verarbeitet\ werden\ soll.\n
+comment3.params=
+comment3.target=void\ run()
+comment3.text=\n\ Die\ run\ Methode\ des\ Threats\ pr\u00FCft\ immer\ wieder,\ ob\ eine\ neue\ Bestellung\ eingetroffen\ ist.\n\ Bestellungen\ werden\ dann\ aus\ der\ Liste\ der\ zu\ verarbeitenden\ Bestellungen\ herausgenommen\n\ und\ in\ die\ Liste\ der\ zu\ produzierenden\ Bestellungen\ (bestellungenInProduktion)\ gespeichert.\n\ Die\ Liste\ der\ bestellten\ Produkte\ (naechsteBestellung.getBestellteProdukte())\ werden\ nach\ Produkttyp\ (Stuhl,\ Sofa)\ sortiert,\n\ sodass\ bei\ der\ Produktion\ einer\ Bestellung\ die\ Roboter\ nicht\ so\ oft\ umkonfiguriert\ werden\ m\u00FCssen.\n\ Wenn\ im\ Lager\ gen\u00FCgend\ Material\ vorhanden\ ist,\ wird\ somit\ die\ Produktion\ gestartet.\n\ <p>\n\ Zudem\ wird\ bei\ der\ Produktion\ gepr\u00FCft,\ ob\ eine\ Bestellung\ abgeschlossen\ ist.\n\ Wenn\ ja,\ wird\ die\ Bestellung\ von\ der\ zu\ produzierenden\ Bestellungen\ gel\u00F6scht.\n\ Gleichzeitig\ wird\ in\ der\ Klasse\ Bestellung\ festgehalten,\ dass\ die\ Produkte\ produziert\ und\ bereit\ auszuliefern\ sind.\n\ <p>\n\ Schliesslich\ soll\ der\ Thread\ f\u00FCr\ eine\ bestimmte\ Zeit\ schlafen\n
+comment4.params=bestellung
+comment4.target=void\ starteProduktion(Bestellung)
+comment4.text=\n\ In\ der\ Methode\ starteProduktion\ wird\ jedem\ Produkt\ der\ Bestellung\n\ die\ entsprechenden\ Roboter\ zugewiesen\ und\ die\ Produktion\ dadurch\ gestartet.\n\n\ @param\ bestellung\:\ Bestellung,\ welche\ produziert\ wird.\n
+numComments=5
