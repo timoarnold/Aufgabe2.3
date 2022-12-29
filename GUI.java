@@ -110,9 +110,17 @@ public class GUI extends JFrame {
         aufgebenEintrag.addActionListener(e -> bestellungAufgeben());
         bestellungMenue.add(aufgebenEintrag);
         
-        JMenuItem übersichtEintrag = new JMenuItem("Bestellübersicht");
+        JMenuItem produkteEintrag = new JMenuItem("Produktübersicht");
+        produkteEintrag.addActionListener(e -> produkteFotos());
+        bestellungMenue.add(produkteEintrag);
+        
+        // JMenu "Produktmanager" mit JMenuItem "Übersicht"
+        JMenu produktmanagerMenue = new JMenu("Produktmanager");
+        menueBar.add(produktmanagerMenue);
+        
+        JMenuItem übersichtEintrag = new JMenuItem("Übersicht");
         übersichtEintrag.addActionListener(e -> bestellungUebersicht());
-        bestellungMenue.add(übersichtEintrag);
+        produktmanagerMenue.add(übersichtEintrag);
         
         // JMenu "Über uns" mit JMenuItems "das Team" und "Geschichte" erzeugen
         JMenu ueberunsMenue = new JMenu("Über uns");
@@ -141,26 +149,7 @@ public class GUI extends JFrame {
         JMenuItem beendenEintrag = new JMenuItem("Anwendung beenden");
         beendenEintrag.addActionListener(e -> anwendungBeenden());
         exitMenue.add(beendenEintrag);
-        
-        /*
-        // JMenu "Exit"
-        JMenu exitMenue = new JMenu("Exit");
-        exitMenue.addMenuListener(new MenuListener () {
-            @Override
-            public void menuSelected(MenuEvent e) {
-                exitAnzeigen();
-        }
-        @Override
-            public void menuCanceled(MenuEvent e) {
-                System.out.println("Cancelled");
-        }
-        @Override
-            public void menuDeselected(MenuEvent e) {
-                System.out.println("Deselected");
-        }
-        } );
-        menueBar.add(exitMenue);*/
-        
+
         this.setJMenuBar(menueBar);
         this.setVisible(true);
     }
@@ -169,8 +158,46 @@ public class GUI extends JFrame {
      * Implementierung der Menü-Funktionen
      * Durch 'removeAll' und 'repaint' werden die Interfaces jeweils erneuert.
      * Durch 'setvisible' werden die Interfaces jeweils sichtbar gemacht.
-     * 
+     */
+    
+    /**
+     * 'startseiteAnzeigen'-Funktion: Zeigt die Startseite an
+     */
+    private void startseiteAnzeigen() {
+        this.getContentPane().removeAll();
+        this.repaint();
+        
+        JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
+        
+        Image startseiteBild = null;
+            try {
+                startseiteBild = ImageIO.read(new File("start.png"));
+            }
+            catch (Exception f)
+            {
+                f.printStackTrace();
+                System.exit(1);
+            }
+            ImageIcon bild_startseite = new ImageIcon(startseiteBild);
+            JLabel label_bild_startseite = new JLabel(bild_startseite);
+        
+        // Positionieren
+        welcomeLabel.setBounds(10, 50, 1000, 25);
+        welcomeLabel.setFont(new Font("Serif", Font.PLAIN, 24));
+        welcomeLabel.setForeground(new Color(120, 90, 40));
+        label_bild_startseite.setBounds(10, 10, 1000, 750);
+        
+        // Zum Panel hinzufügen
+        this.add(welcomeLabel);
+        this.add(label_bild_startseite);
+        
+        // Sichtbar machen
+        this.setVisible(true);
+    }
+    
+    /**
      * 'bestellungAufgeben'-Funktion: Öffnet einen Auswahldialog zum Bestellen.
+     * 
      * Der Action Listener wird jeweils den Buttons hinzugefügt und erstellt dann auf Knopfdruch durch 'contentPanecontroller.onOrder' eine Bestellung.
      * Zudem wird die bestellBestaetigung upgedated.
      */
@@ -231,11 +258,68 @@ public class GUI extends JFrame {
     }
     
     /**
-     * 'bestellungUebersicht'-Funktion: Zeigt die Bestell- und Lagerübersicht an
+     * 'produkteFotos'-Funktion: Zeigt Bild-Impressionen und Preise der vorhandenen Produkte (Stühle und Sofas) an
+     */
+    private void produkteFotos() {        
+        this.getContentPane().removeAll();
+        this.repaint();
+
+        // Fügt ein Bild der im Verkauf vorhandenen Stühle ein
+        Image stuhlBild = null;
+            try {
+                stuhlBild = ImageIO.read(new File("stuhl.png"));
+            }
+            catch (Exception f)
+            {
+                f.printStackTrace();
+                System.exit(1);
+            }
+            ImageIcon bild_stuhl = new ImageIcon(stuhlBild);
+            JLabel label_bild_stuhl = new JLabel(bild_stuhl);
+        
+        // Fügt ein Bild der im Verkauf vorhandenen Sofas ein
+        Image sofaBild = null;
+            try {
+                sofaBild = ImageIO.read(new File("sofa.png"));
+            }
+            catch (Exception f)
+            {
+                f.printStackTrace();
+                System.exit(1);
+            }
+            ImageIcon bild_sofa = new ImageIcon(sofaBild);
+            JLabel label_bild_sofa = new JLabel(bild_sofa);
+             
+        JLabel stuhlLabel = new JLabel("Stuhl - 29.90 CHF pro Stück");
+        JLabel sofaLabel = new JLabel("Sofa - 99.90 CHF pro Stück");
+        
+        // Positionieren
+        stuhlLabel.setBounds(150, 475, 1000, 100);
+        sofaLabel.setBounds(650, 475, 1000, 100);
+        
+        label_bild_stuhl.setBounds(1, 200, 700, 300);
+        label_bild_sofa.setBounds(500, 200, 700, 300);   
+        
+        stuhlLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        sofaLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+        
+        // Zum Panel hinzufügen
+        this.add(stuhlLabel);
+        this.add(sofaLabel);
+        this.add(label_bild_stuhl);
+        this.add(label_bild_sofa);
+        
+        // Sichtbar machen
+        this.setVisible(true);
+    }
+                
+    /**
+     * 'bestellungUebersicht'-Funktion: Zeigt die Bestell- und Lagerübersicht aus der Sicht des Produktionsmanagers an
      */
     private void bestellungUebersicht() {
         this.getContentPane().removeAll();
         this.repaint();
+        
         JLabel welcomeLabel = new JLabel("<html>Hier wird dem Produktionsmanager die Bestell- und Lagerübersicht angezeigt.</html>");
         JLabel label_bestellUebersicht = new JLabel("");
         JButton button_bestelluebersicht = new JButton("Bestellübersicht anzeigen");
@@ -269,50 +353,6 @@ public class GUI extends JFrame {
         // Sichtbar machen
         this.setVisible(true);
     }
-        
-    /**
-     * 'startseiteAnzeigen'-Funktion: Zeigt die Startseite an
-     */
-    private void startseiteAnzeigen() {
-        this.getContentPane().removeAll();
-        this.repaint();
-        
-        JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
-        
-        Image startseiteBild = null;
-            try {
-                startseiteBild = ImageIO.read(new File("start.png"));
-            }
-            catch (Exception f)
-            {
-                f.printStackTrace();
-                System.exit(1);
-            }
-            ImageIcon bild_startseite = new ImageIcon(startseiteBild);
-            JLabel label_bild_startseite = new JLabel(bild_startseite);
-        
-        // Positionieren
-        welcomeLabel.setBounds(10, 50, 1000, 25);
-        welcomeLabel.setFont(new Font("Serif", Font.PLAIN, 24));
-        welcomeLabel.setForeground(new Color(120, 90, 40));
-        label_bild_startseite.setBounds(10, 10, 1000, 750);
-        
-        // Zum Panel hinzufügen
-        this.add(welcomeLabel);
-        this.add(label_bild_startseite);
-        
-        // Sichtbar machen
-        this.setVisible(true);
-    }
-    
-    
-    /**
-     * 'Exit'-Funktion: Durch diese wird die Anwendung jeweils beendet
-     */
-    /*
-    private void exitAnzeigen() {
-         System.exit(0);
-    }*/
     
     /**
      * 'Das Team'-Funktion: Zeigt einen Überblick über das Team
