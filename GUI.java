@@ -71,7 +71,7 @@ public class GUI extends JFrame {
 
         setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1600,1600);
+        this.setSize(1650,1650);
         this.setVisible(true);
     }
     
@@ -114,13 +114,13 @@ public class GUI extends JFrame {
         produkteEintrag.addActionListener(e -> produkteFotos());
         bestellungMenue.add(produkteEintrag);
         
-        // JMenu "Produktmanager" mit JMenuItem "Übersicht"
-        JMenu produktmanagerMenue = new JMenu("Produktmanager");
-        menueBar.add(produktmanagerMenue);
+        // JMenu "Produktionsmanager" mit JMenuItem "Übersicht"
+        JMenu produktionsmanagerMenue = new JMenu("Produktionsmanager");
+        menueBar.add(produktionsmanagerMenue);
         
         JMenuItem übersichtEintrag = new JMenuItem("Übersicht");
         übersichtEintrag.addActionListener(e -> bestellungUebersicht());
-        produktmanagerMenue.add(übersichtEintrag);
+        produktionsmanagerMenue.add(übersichtEintrag);
         
         // JMenu "Über uns" mit JMenuItems "das Team" und "Geschichte" erzeugen
         JMenu ueberunsMenue = new JMenu("Über uns");
@@ -167,7 +167,7 @@ public class GUI extends JFrame {
         this.getContentPane().removeAll();
         this.repaint();
         
-        JLabel welcomeLabel = new JLabel("Willkommen bei AEKI!");
+        JLabel welcomeLabel = new JLabel("Hej Jonathan välkommen till AEKI!");
         
         Image startseiteBild = null;
             try {
@@ -204,7 +204,7 @@ public class GUI extends JFrame {
     private void bestellungAufgeben() {
         this.getContentPane().removeAll();
         this.repaint();
-        JLabel welcomeLabel = new JLabel("Hej Jonathan välkommen till AEKI!");
+        JLabel welcomeLabel = new JLabel("<html>Hej Jonathan välkommen till AEKI! <br/>Untenstehend kannst Du gerne Deine Bestellung aufgeben. Viel Spass!</html>");
         
         JLabel label_stuehle = new JLabel("Anzahl Stühle");
         JLabel label_sofas = new JLabel("Anzahl Sofas");
@@ -232,15 +232,15 @@ public class GUI extends JFrame {
         });
         
         // Positionieren
-        label_stuehle.setBounds(10, 50, 1000, 25);
-        textfield_stuehle.setBounds(180, 50, 100, 25);
-        label_sofas.setBounds(10,80, 100, 25);
-        textfield_sofas.setBounds(180,80,100,25);
-        welcomeLabel.setBounds(10, 10, 1000, 25);
-        label_bestellBestaetigung.setBounds(10,110, 1000, 25);
-        label_status.setBounds(10,140, 400, 25);
-        senden_knopf.setBounds(10,170,150,30);
-        button_refreshstatus.setBounds(190,170,150,30);
+        welcomeLabel.setBounds(10, 10, 1000, 35);
+        label_stuehle.setBounds(10, 60, 1000, 25);
+        textfield_stuehle.setBounds(180, 60, 100, 25);
+        label_sofas.setBounds(10,90, 100, 25);
+        textfield_sofas.setBounds(180,90,100, 25);
+        label_bestellBestaetigung.setBounds(10,120, 1000, 25);
+        label_status.setBounds(10,150, 400, 25);
+        senden_knopf.setBounds(10,180,150,30);
+        button_refreshstatus.setBounds(190,180,150,30);
 
         // Zum Panel hinzufügen
         this.add(welcomeLabel);
@@ -264,41 +264,27 @@ public class GUI extends JFrame {
         this.getContentPane().removeAll();
         this.repaint();
 
-        // Fügt ein Bild der im Verkauf vorhandenen Stühle ein
-        Image stuhlBild = null;
+        // Fügt ein Bild der im Verkauf vorhandenen Produkte ein
+        Image produkteBild = null;
             try {
-                stuhlBild = ImageIO.read(new File("stuhl.png"));
+                produkteBild = ImageIO.read(new File("produkte.png"));
             }
             catch (Exception f)
             {
                 f.printStackTrace();
                 System.exit(1);
             }
-            ImageIcon bild_stuhl = new ImageIcon(stuhlBild);
-            JLabel label_bild_stuhl = new JLabel(bild_stuhl);
-        
-        // Fügt ein Bild der im Verkauf vorhandenen Sofas ein
-        Image sofaBild = null;
-            try {
-                sofaBild = ImageIO.read(new File("sofa.png"));
-            }
-            catch (Exception f)
-            {
-                f.printStackTrace();
-                System.exit(1);
-            }
-            ImageIcon bild_sofa = new ImageIcon(sofaBild);
-            JLabel label_bild_sofa = new JLabel(bild_sofa);
+            ImageIcon bild_produkte = new ImageIcon(produkteBild);
+            JLabel label_bild_produkte = new JLabel(bild_produkte);
              
         JLabel stuhlLabel = new JLabel("Stuhl - 29.90 CHF pro Stück");
         JLabel sofaLabel = new JLabel("Sofa - 99.90 CHF pro Stück");
         
         // Positionieren
-        stuhlLabel.setBounds(150, 475, 1000, 100);
-        sofaLabel.setBounds(650, 475, 1000, 100);
+        stuhlLabel.setBounds(50, 475, 1000, 100);
+        sofaLabel.setBounds(800, 475, 1000, 100);
         
-        label_bild_stuhl.setBounds(1, 200, 700, 300);
-        label_bild_sofa.setBounds(500, 200, 700, 300);   
+        label_bild_produkte.setBounds(1, 40, 1650, 450);
         
         stuhlLabel.setFont(new Font("Serif", Font.PLAIN, 18));
         sofaLabel.setFont(new Font("Serif", Font.PLAIN, 18));
@@ -306,8 +292,7 @@ public class GUI extends JFrame {
         // Zum Panel hinzufügen
         this.add(stuhlLabel);
         this.add(sofaLabel);
-        this.add(label_bild_stuhl);
-        this.add(label_bild_sofa);
+        this.add(label_bild_produkte);
         
         // Sichtbar machen
         this.setVisible(true);
@@ -339,9 +324,9 @@ public class GUI extends JFrame {
         // Positionieren
         welcomeLabel.setBounds(10, 10, 1000, 25);
         button_bestelluebersicht.setBounds(10, 50, 200, 30);
-        label_bestellUebersicht.setBounds(10, 60, 1000, 300);
-        button_lageruebersicht.setBounds(250, 50, 200, 30);
-        label_lagerUebersicht.setBounds(10, 200, 1000, 300);
+        label_bestellUebersicht.setBounds(20, 60, 1000, 200);
+        button_lageruebersicht.setBounds(450, 50, 200, 30);
+        label_lagerUebersicht.setBounds(460, 65, 1000, 200);
         
         // Zum Panel hinzufügen
         this.add(welcomeLabel);
