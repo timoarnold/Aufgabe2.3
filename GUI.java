@@ -210,12 +210,13 @@ public class GUI extends JFrame {
         JLabel label_sofas = new JLabel("Anzahl Sofas");
         JLabel label_bestellBestaetigung = new JLabel("Bestellbestätigung:");
         JLabel label_status = new JLabel("Anzahl Bestellungen:");
+        JLabel label_bestellUebersicht = new JLabel("");
 
         JTextField textfield_stuehle = new JTextField();
         JTextField textfield_sofas = new JTextField();
 
         JButton senden_knopf = new JButton("Bestellen");
-        JButton button_refreshstatus = new JButton("Zeige Status");
+        JButton button_refreshstatus = new JButton("Bestellinformationen");
         
         senden_knopf.addActionListener((arg) -> {
                 int stuehle = Integer.parseInt(textfield_stuehle.getText());
@@ -223,12 +224,14 @@ public class GUI extends JFrame {
                 controller.onOrder(sofas, stuehle);
                 String bestellBestaetigung = controller.gibBestellBestaetigung();
                 label_bestellBestaetigung.setText("Bestellbestätigung: " + bestellBestaetigung);
+                String bestellNummer = controller.gibAnzahlBestellungen();
+                label_status.setText("Anzahl Bestellungen: " + bestellNummer);
         });
         
         // Action listener mit Lambda Funktion () -> {}
         button_refreshstatus.addActionListener ((arg) -> {
-            String bestellNummer = controller.gibAnzahlBestellungen();
-            label_status.setText("Anzahl Bestellungen: " + bestellNummer);
+            String bestellUebersicht = controller.gibBestellInformationen();
+            label_bestellUebersicht.setText("<html><br/>" + bestellUebersicht + "</html>");
         });
         
         // Positionieren
@@ -241,6 +244,7 @@ public class GUI extends JFrame {
         label_status.setBounds(10,150, 400, 25);
         senden_knopf.setBounds(10,180,150,30);
         button_refreshstatus.setBounds(190,180,150,30);
+        label_bestellUebersicht.setBounds(10, 220, 500, 100);
 
         // Zum Panel hinzufügen
         this.add(welcomeLabel);
@@ -252,6 +256,7 @@ public class GUI extends JFrame {
         this.add(textfield_sofas);
         this.add(senden_knopf);
         this.add(button_refreshstatus);
+        this.add(label_bestellUebersicht);
         
         // Sichtbar machen
         this.setVisible(true);
@@ -324,7 +329,7 @@ public class GUI extends JFrame {
         // Positionieren
         welcomeLabel.setBounds(10, 10, 1000, 25);
         button_bestelluebersicht.setBounds(10, 50, 200, 30);
-        label_bestellUebersicht.setBounds(20, 60, 1000, 200);
+        label_bestellUebersicht.setBounds(20, 60, 1000, 600);
         button_lageruebersicht.setBounds(450, 50, 200, 30);
         label_lagerUebersicht.setBounds(460, 65, 1000, 200);
         
