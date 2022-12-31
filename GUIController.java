@@ -23,11 +23,11 @@ public class GUIController {
     private Lager lager;
     private Bestellung bestellung;
     private Produktions_Manager produktionsManager;
-    
+
     /**
-     * Konstruktor der Klasse GUIController
+     * GUIController für die Fabrik wird instanziert
      * 
-     * @param fabrik: Sie nimmt Bestellungen entgegen und verwaltet diese.
+     * @param Fabrik: die Fabrik wird initialisiert
      */
     public GUIController(Fabrik fabrik){
         this.fabrik = fabrik;
@@ -49,9 +49,10 @@ public class GUIController {
     }
 
     /**
-     * Diese Methode gibt eine Bestellbestätigung in Form einer kurzen Nachricht zurück, falls die Bestellung erfolgreich war.
+     * In der Methode gibBestellBestaetigung wird geprüft, ob die Eingabe valide ist. Falls ja, wird eine Bestellbestätigung
+     * wiedergegeben.
      * 
-     * @return die Bestellbestätigung in Form einer kurzen Nachricht.
+     * @return gibt ene Bestätigung der Bestellung
      */
     public String gibBestellBestaetigung(){
         String bestellBestaetigung = "";
@@ -69,7 +70,7 @@ public class GUIController {
     /**
      * Diese Methode gibt die Anzahl Bestellungen zurück, die im GUI dargestellt werden soll.
      * 
-     * @return Anzahl Bestellungen
+     * @return gibt die Anzahl Bestellungen
      */
     public String gibAnzahlBestellungen(){
         String anzahlBestellungen = "";
@@ -99,7 +100,7 @@ public class GUIController {
     /**
      * Diese Methode gibt die Informationen zum Lagerbestand zurück, die im GUI angezeigt werden soll.
      * 
-     * @return Informationen zum Lagerbestand
+     * @return Informationen zum Lagerbestand als String
      */
     public String gibLagerInformationen(){
         return lager.toString();
@@ -109,7 +110,7 @@ public class GUIController {
      * Mit dieser Methode werden die Produktionsstatus-Informationen der einzelnen Roboter züruckgegeben,
      * die im GUI angezeigt werden soll. 
      * 
-     * @return Produktionsstatus-Informationen der einzelnen Roboter.
+     * @return gibt die Produktionsstatus der einzelnen Roboter.
      */
     public String gibProduktionsStatus() {
       Roboter holzRoboter = produktionsManager.getHolzRoboter();

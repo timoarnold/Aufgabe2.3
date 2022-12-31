@@ -38,7 +38,7 @@ public class Fabrik {
      * kann.
      */
     public static void main(String[] args) {
-        System.out.println("Ausgabe aus der main()-Methode:"); //TIM: kann gelöscht werden oder?
+        System.out.println("Ausgabe aus der main()-Methode:");
         Fabrik fabrik = new Fabrik();
 
         GUIController controller = new GUIController(fabrik);

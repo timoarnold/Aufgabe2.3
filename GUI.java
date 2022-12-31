@@ -373,7 +373,7 @@ public class GUI extends JFrame {
         // Positionieren
         welcomeLabel.setBounds(10, 10, 1000, 25);
         button_bestelluebersicht.setBounds(10, 50, 220, 30);
-        scrollPane_bestellUebersicht.setBounds(10, 100, 400, 800);
+        scrollPane_bestellUebersicht.setBounds(10, 80, 400, 200);
         button_lageruebersicht.setBounds(450, 50, 200, 30);
         label_lagerUebersicht.setBounds(460, 50, 1000, 200);
         button_produktionsstatus.setBounds(890, 50, 200, 30);
@@ -404,25 +404,10 @@ public class GUI extends JFrame {
         JLabel teamLabel = new JLabel("Das AEKI-Team ist 365 Tage im Jahr für Sie da.");
         teamLabel.setForeground(new Color(120, 90, 40));
         JLabel timoLabel = new JLabel("Timo Arnold - Produktion");
-        timoLabel.setForeground(new Color(247, 213, 21));
-        timoLabel.setOpaque(true);
-        timoLabel.setBackground(new Color(3, 81, 186));
         JLabel florianneLabel = new JLabel("Florianne Walliser - Sales");
-        florianneLabel.setForeground(new Color(247, 213, 21));
-        florianneLabel.setOpaque(true);
-        florianneLabel.setBackground(new Color(3, 81, 186));
         JLabel timLabel = new JLabel("Tim Ilgenstein - IT");
-        timLabel.setForeground(new Color(247, 213, 21));
-        timLabel.setOpaque(true);
-        timLabel.setBackground(new Color(3, 81, 186));
         JLabel jeffLabel = new JLabel("Jeff Mulavarikkal - Lager");
-        jeffLabel.setForeground(new Color(247, 213, 21));
-        jeffLabel.setOpaque(true);
-        jeffLabel.setBackground(new Color(3, 81, 186));
         JLabel charlotteLabel = new JLabel("Charlotte Müller - Marketing");
-        charlotteLabel.setForeground(new Color(247, 213, 21));
-        charlotteLabel.setOpaque(true);
-        charlotteLabel.setBackground(new Color(3, 81, 186));
         
         // Fügt ein Bild von Timo ein
         Image timoBild = null;
@@ -494,8 +479,8 @@ public class GUI extends JFrame {
         timoLabel.setBounds(150, 500, 400, 30);
         florianneLabel.setBounds(650, 500, 400, 30);
         timLabel.setBounds(1150, 500, 400, 30);
-        jeffLabel.setBounds(405, 825, 400, 30);
-        charlotteLabel.setBounds(905, 825, 400, 30);
+        jeffLabel.setBounds(405, 855, 400, 30);
+        charlotteLabel.setBounds(905, 855, 400, 30);
         
         label_bild_timo.setBounds(1, 200, 700, 300);
         label_bild_florianne.setBounds(500, 200, 700, 300);   
@@ -578,22 +563,7 @@ public class GUI extends JFrame {
         this.repaint();
         
         JLabel infoLabel = new JLabel("<html>Bitte wenden Sie sich bei Fragen an unseren IT-Kontakt Tim, der unter der folgenden Nummer täglich von 8:00 - 16:00 Uhr erreichbar ist: 0824 67 76</html>");
-        
-        //hier noch GIF einfügen.
-        // Jeff: Kannst du hier evtl helfen? Wenn nicht, machen wir einfach ein Bild draus. :)
-        /*URL urlsd;
-        try {
-            URL urlsd = new URL("https://i.gifer.com/PJxF.gif");
-            ImageIcon gif_help = new ImageIcon(urlsd);
-            JLabel label_gif_help = new JLabel(gif_help);
-        } 
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-        ImageIcon gif_help = new ImageIcon(urlsd);
-        JLabel label_gif_help = new JLabel(gif_help);*/
-        
+
         // Positionieren
         infoLabel.setBounds(50, 25, 800, 50);
         //label_gif_help.setBounds(5, 20, 66, 66);
