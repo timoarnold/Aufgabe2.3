@@ -60,6 +60,19 @@ public class Roboter extends Thread {
     public String gibName(){
         return name;
     }
+    
+    public String gibStatus() {
+      if(warteschlange.isEmpty()) {
+        return "Nicht in Produktion";
+      }
+      
+      return "In Produktion";
+    }
+    
+
+    public LinkedList<Produkt> gibWarteschlange() {
+      return warteschlange;
+    }
 
     /**
      * In der Methode produziereProdukt wird die Produktion eines Produktes simuliert. Nachdem die Produktion gestartet wurde, wird

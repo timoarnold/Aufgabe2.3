@@ -144,4 +144,8 @@ public class Fabrik {
     public Lager getLager() {
         return lager;
     }
+    
+    public Produktions_Manager gibProduktionsManager() {
+      return produktionsManager;
+    }
 }

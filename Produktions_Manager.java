@@ -142,4 +142,20 @@ public class Produktions_Manager extends Thread {
         }
 
     }
+
+    public Holzbearbeitungs_Roboter getHolzRoboter() {
+      return holzRoboter;
+    }
+
+    public Montage_Roboter getMontageRoboter() {
+      return montageRoboter;
+    }
+
+    public Verpackungs_Roboter getVerpackungsRoboter() {
+      return verpackungsRoboter;
+    }
+
+    public Lackier_Roboter getLackierRoboter() {
+      return lackierRoboter;
+    }
 }

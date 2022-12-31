@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 // stimmt dieser GUIController- Beschrieb? :D
 /**
  * Der GUIController macht die andere Hälfte der Komponentenschnittstelle aus und
@@ -11,10 +14,12 @@ public class GUIController {
     private Fabrik fabrik;
     private Lager lager;
     private Bestellung bestellung;
+    private Produktions_Manager produktionsManager;
     
     public GUIController(Fabrik fabrik){
         this.fabrik = fabrik;
         lager = fabrik.getLager();
+        produktionsManager = fabrik.gibProduktionsManager();
     }
     
     public void onOrder(int sofa, int stuhl){
@@ -57,6 +62,31 @@ public class GUIController {
 
     public String gibLagerInformationen(){
         return lager.toString();
+    }
+    
+    public String gibProduktionsStatus() {
+      Roboter holzRoboter = produktionsManager.getHolzRoboter();
+      Roboter montageRoboter = produktionsManager.getMontageRoboter();
+      Roboter verpackungsRoboter = produktionsManager.getVerpackungsRoboter();
+      Roboter lackierRoboter = produktionsManager.getLackierRoboter();
+      
+      List<Roboter> roboters = new ArrayList<>();
+      roboters.add(holzRoboter);
+      roboters.add(montageRoboter);
+      roboters.add(verpackungsRoboter);
+      roboters.add(lackierRoboter);
+      
+      String produktionsStatus = "";
+      
+      for (Roboter roboter : roboters) {
+        produktionsStatus += roboter.gibName() + "<br/>";
+        produktionsStatus += "Drücken Sie auf den Button um den aktuellsten Produktionsstatus einzusehen <br/>";
+        produktionsStatus += "Status: " + roboter.gibStatus() + "<br/>";
+        produktionsStatus += "Anzahl Produkte in der Warteschlange: " + roboter.gibWarteschlange().size() + "<br/>";
+        produktionsStatus += "<br/>" + "<br/>";
+      }
+      
+      return produktionsStatus;
     }
 }
 

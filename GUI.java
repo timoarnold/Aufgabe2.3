@@ -235,7 +235,7 @@ public class GUI extends JFrame {
               controller.onOrder(sofas, stuehle);
               String bestellBestaetigung = controller.gibBestellBestaetigung();
               label_bestellBestaetigung.setText("Bestellbestätigung: " + bestellBestaetigung);
-              label_bestellBestaetigung.setForeground(Color.GREEN);
+              label_bestellBestaetigung.setForeground(Color.BLACK);
               String bestellNummer = controller.gibAnzahlBestellungen();
               label_status.setText("Anzahl Bestellungen: " + bestellNummer);
             } catch(NumberFormatException e) {
@@ -332,6 +332,11 @@ public class GUI extends JFrame {
         JButton button_bestelluebersicht = new JButton("Bestellübersicht anzeigen");
         JButton button_lageruebersicht = new JButton("Lagerübersicht anzeigen");
         JLabel label_lagerUebersicht = new JLabel("");
+        
+        JButton button_produktionsstatus = new JButton("Produktionsstatus");
+        JLabel title_produktionsStatus = new JLabel("Produktionsstatus der Roboter");
+        JLabel label_produktionsStatus = new JLabel("");
+
 
         JScrollPane scrollPane_bestellUebersicht = new JScrollPane(label_bestellUebersicht);
 
@@ -359,12 +364,20 @@ public class GUI extends JFrame {
             }
         });
         
+        button_produktionsstatus.addActionListener((arg) ->  {
+          String produktionsStatus = controller.gibProduktionsStatus();
+          label_produktionsStatus.setText("<html>" + produktionsStatus + "</html>");
+        });
+        
         // Positionieren
         welcomeLabel.setBounds(10, 10, 1000, 25);
         button_bestelluebersicht.setBounds(10, 50, 220, 30);
         scrollPane_bestellUebersicht.setBounds(10, 100, 400, 800);
         button_lageruebersicht.setBounds(450, 50, 200, 30);
         label_lagerUebersicht.setBounds(460, 50, 1000, 200);
+        button_produktionsstatus.setBounds(890, 50, 200, 30);
+        title_produktionsStatus.setBounds(890, 100, 200, 30);
+        label_produktionsStatus.setBounds(890, 100, 400, 800);
         
         // Zum Panel hinzufügen
         this.add(welcomeLabel);
@@ -372,6 +385,9 @@ public class GUI extends JFrame {
         this.add(scrollPane_bestellUebersicht);
         this.add(button_lageruebersicht);
         this.add(label_lagerUebersicht);
+        this.add(button_produktionsstatus);
+        this.add(title_produktionsStatus);
+        this.add(label_produktionsStatus);
         
         // Sichtbar machen
         this.setVisible(true);
