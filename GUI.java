@@ -333,8 +333,9 @@ public class GUI extends JFrame {
         JButton button_lageruebersicht = new JButton("Lagerübersicht anzeigen");
         JLabel label_lagerUebersicht = new JLabel("");
         
+        String hinweis = "Drücken Sie auf den Button um den aktuellsten Produktionsstatus einzusehen <br/>";
         JButton button_produktionsstatus = new JButton("Produktionsstatus");
-        JLabel title_produktionsStatus = new JLabel("Produktionsstatus der Roboter");
+        JLabel title_produktionsStatus = new JLabel("<html>Produktionsstatus der Roboter<br/><br/>"+ hinweis + "</html>");
         JLabel label_produktionsStatus = new JLabel("");
 
 
@@ -376,7 +377,7 @@ public class GUI extends JFrame {
         button_lageruebersicht.setBounds(450, 50, 200, 30);
         label_lagerUebersicht.setBounds(460, 50, 1000, 200);
         button_produktionsstatus.setBounds(890, 50, 200, 30);
-        title_produktionsStatus.setBounds(890, 100, 200, 30);
+        title_produktionsStatus.setBounds(890, 100, 400, 100);
         label_produktionsStatus.setBounds(890, 100, 400, 800);
         
         // Zum Panel hinzufügen

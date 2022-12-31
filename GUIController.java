@@ -80,7 +80,6 @@ public class GUIController {
       
       for (Roboter roboter : roboters) {
         produktionsStatus += roboter.gibName() + "<br/>";
-        produktionsStatus += "Drücken Sie auf den Button um den aktuellsten Produktionsstatus einzusehen <br/>";
         produktionsStatus += "Status: " + roboter.gibStatus() + "<br/>";
         produktionsStatus += "Anzahl Produkte in der Warteschlange: " + roboter.gibWarteschlange().size() + "<br/>";
         produktionsStatus += "<br/>" + "<br/>";
