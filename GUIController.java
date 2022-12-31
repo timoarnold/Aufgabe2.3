@@ -27,7 +27,7 @@ public class GUIController {
     /**
      * GUIController für die Fabrik wird instanziert
      * 
-     * @param Fabrik: die Fabrik wird initialisiert
+     * @param fabrik: die Fabrik wird initialisiert
      */
     public GUIController(Fabrik fabrik){
         this.fabrik = fabrik;
