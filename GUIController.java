@@ -1,33 +1,58 @@
 import java.util.ArrayList;
 import java.util.List;
 
-// stimmt dieser GUIController- Beschrieb? :D
 /**
- * Der GUIController macht die andere Hälfte der Komponentenschnittstelle aus und
- * ist hauptsächlich die Interaktionshälfte.
- * Er kümmert sich um Maus- und Tastaturereignisse.
+ * Der GUIController ist die Schnittstelle zwischen der GUI und dem Modell Fabrik. 
+ * Er hört auf Maus- und Tastaturereignisse, die vom GUI ausgelöst werden und teilt diese der Fabrik mit. 
  *
  * @author Gruppe 29
  * @version 4.1 (31. Dezember 2022)
  */
 public class GUIController {
+  
+  /**
+   * Instanzvariablen:
+   * 
+   * - fabrik: Instanzvariable vom Type Fabrik, die Bestellungen entgegen nimmt und verwaltet.
+   * - lager: Das zur Fabrik gehörende Lager (jeweils eines).
+   * - bestellung: Die Bestellung, welche vom Produktionsmanager verabeitet wird.
+   * - produktionsManager: Der Manager, welcher neu eintreffende Bestellungen verarbeitet und den jeweiligen Robotern zuweist.
+   * 
+   */
     private Fabrik fabrik;
     private Lager lager;
     private Bestellung bestellung;
     private Produktions_Manager produktionsManager;
     
+    /**
+     * Konstruktor der Klasse GUIController
+     * 
+     * @param fabrik: Sie nimmt Bestellungen entgegen und verwaltet diese.
+     */
     public GUIController(Fabrik fabrik){
         this.fabrik = fabrik;
         lager = fabrik.getLager();
         produktionsManager = fabrik.gibProduktionsManager();
     }
     
+    /**
+     * Diese Methode nimmt die Anzahl Stühle und Sofas, die von der Kundin oder
+     * vom Kunden im GUI eingegeben werden, entgegen und leitet diese Information der Fabrik weiter.
+     * 
+     * @param sofa: Anzahl Sofas die im GUI eingeben und bestellt werden.
+     * @param stuhl: Anzahl Stühle die im GUI eingeben und bestellt werden.
+     */
     public void onOrder(int sofa, int stuhl){
         bestellung = fabrik.bestellungAufgeben(sofa, stuhl);
         fabrik.bestellungVerarbeiten(bestellung);
         fabrik.bestellungenAusgeben();
     }
 
+    /**
+     * Diese Methode gibt eine Bestellbestätigung in Form einer kurzen Nachricht zurück, falls die Bestellung erfolgreich war.
+     * 
+     * @return die Bestellbestätigung in Form einer kurzen Nachricht.
+     */
     public String gibBestellBestaetigung(){
         String bestellBestaetigung = "";
 
@@ -41,6 +66,11 @@ public class GUIController {
         return bestellBestaetigung;
     }
 
+    /**
+     * Diese Methode gibt die Anzahl Bestellungen zurück, die im GUI dargestellt werden soll.
+     * 
+     * @return Anzahl Bestellungen
+     */
     public String gibAnzahlBestellungen(){
         String anzahlBestellungen = "";
         if ((bestellung != null) && (bestellung.gibBestellBestaetigung())){
@@ -49,6 +79,12 @@ public class GUIController {
         return anzahlBestellungen;
     }
 
+    /**
+     * Mit dieser Methode werden die Informationen aller bisherigen erfolgreichen Bestellungen zurückgegeben,
+     * die im GUI dargestellt werden soll. 
+     * 
+     * @return Bestellinformationen der bisherigen Bestellungen.
+     */
     public String gibBestellInformationen(){
         String bestellInformationen = "";
         if ((bestellung != null) && (bestellung.gibBestellBestaetigung())){
@@ -60,10 +96,21 @@ public class GUIController {
         return bestellInformationen;
     }
 
+    /**
+     * Diese Methode gibt die Informationen zum Lagerbestand zurück, die im GUI angezeigt werden soll.
+     * 
+     * @return Informationen zum Lagerbestand
+     */
     public String gibLagerInformationen(){
         return lager.toString();
     }
     
+    /**
+     * Mit dieser Methode werden die Produktionsstatus-Informationen der einzelnen Roboter züruckgegeben,
+     * die im GUI angezeigt werden soll. 
+     * 
+     * @return Produktionsstatus-Informationen der einzelnen Roboter.
+     */
     public String gibProduktionsStatus() {
       Roboter holzRoboter = produktionsManager.getHolzRoboter();
       Roboter montageRoboter = produktionsManager.getMontageRoboter();

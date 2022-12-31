@@ -143,18 +143,38 @@ public class Produktions_Manager extends Thread {
 
     }
 
+    /**
+     * Diese Methode gibt den Holzbearbeitungs-Roboter zurück.
+     * 
+     * @return Holzbearbeitungs_Roboter
+     */
     public Holzbearbeitungs_Roboter getHolzRoboter() {
       return holzRoboter;
     }
 
+    /**
+     * Diese Methode gibt den Montage-Roboter zurück.
+     * 
+     * @return Montage-Roboter
+     */
     public Montage_Roboter getMontageRoboter() {
       return montageRoboter;
     }
 
+    /**
+     * Diese Methode gibt den Verpackungsroboter zurück.
+     * 
+     * @return Verpackungs_Roboter
+     */
     public Verpackungs_Roboter getVerpackungsRoboter() {
       return verpackungsRoboter;
     }
 
+    /**
+     * Diese Methode gibt den Lackierroboter zurück.
+     * 
+     * @return Lackier_Roboter
+     */
     public Lackier_Roboter getLackierRoboter() {
       return lackierRoboter;
     }

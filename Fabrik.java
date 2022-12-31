@@ -32,7 +32,6 @@ public class Fabrik {
         produktionsManager.start();
     }
 
-    //TODO: JavaDoc updaten
     /**
      * Die Main-Methode ermöglicht den Einstieg in das Programm. Dabei werden eine Fabrik, ein GUIController
      * und ein GUI instanziert. Dadurch öffnet sich das Userinterface, auf welchem mit dem Programm interagiert werden
@@ -145,6 +144,11 @@ public class Fabrik {
         return lager;
     }
     
+    /**
+     * Mit dieser Method wird der Produktions-Manager zurückgegeben.
+     * 
+     * @return Produktions_Manager
+     */
     public Produktions_Manager gibProduktionsManager() {
       return produktionsManager;
     }

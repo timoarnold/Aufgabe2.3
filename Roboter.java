@@ -53,7 +53,7 @@ public class Roboter extends Thread {
     }
 
      /**
-      * Mit der Methode gibNamen wir der Name des Roboters zurückgegeben.
+      * Mit der Methode gibNamen wird der Name des Roboters zurückgegeben.
       *
       * @return Namen des Roboters
       */
@@ -61,6 +61,11 @@ public class Roboter extends Thread {
         return name;
     }
     
+    /**
+     * Mit dieser Methode wird der Produktionsstatus des Roboters zurückgegeben.
+     * 
+     * @return Produktionsstatus des Roboters.
+     */
     public String gibStatus() {
       if(warteschlange.isEmpty()) {
         return "Nicht in Produktion";
@@ -69,7 +74,11 @@ public class Roboter extends Thread {
       return "In Produktion";
     }
     
-
+    /**
+     * Diese Methode gibt die Liste aller Produkte, die in der Warteschlange sind.
+     * 
+     * @return Liste aller Produkte in der Warteschlange.
+     */
     public LinkedList<Produkt> gibWarteschlange() {
       return warteschlange;
     }
