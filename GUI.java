@@ -373,7 +373,7 @@ public class GUI extends JFrame {
         // Positionieren
         welcomeLabel.setBounds(10, 10, 1000, 25);
         button_bestelluebersicht.setBounds(10, 50, 220, 30);
-        scrollPane_bestellUebersicht.setBounds(10, 100, 400, 800);
+        scrollPane_bestellUebersicht.setBounds(10, 80, 400, 200);
         button_lageruebersicht.setBounds(450, 50, 200, 30);
         label_lagerUebersicht.setBounds(460, 50, 1000, 200);
         button_produktionsstatus.setBounds(890, 50, 200, 30);
