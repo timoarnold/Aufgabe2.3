@@ -404,25 +404,10 @@ public class GUI extends JFrame {
         JLabel teamLabel = new JLabel("Das AEKI-Team ist 365 Tage im Jahr für Sie da.");
         teamLabel.setForeground(new Color(120, 90, 40));
         JLabel timoLabel = new JLabel("Timo Arnold - Produktion");
-        timoLabel.setForeground(new Color(247, 213, 21));
-        timoLabel.setOpaque(true);
-        timoLabel.setBackground(new Color(3, 81, 186));
         JLabel florianneLabel = new JLabel("Florianne Walliser - Sales");
-        florianneLabel.setForeground(new Color(247, 213, 21));
-        florianneLabel.setOpaque(true);
-        florianneLabel.setBackground(new Color(3, 81, 186));
         JLabel timLabel = new JLabel("Tim Ilgenstein - IT");
-        timLabel.setForeground(new Color(247, 213, 21));
-        timLabel.setOpaque(true);
-        timLabel.setBackground(new Color(3, 81, 186));
         JLabel jeffLabel = new JLabel("Jeff Mulavarikkal - Lager");
-        jeffLabel.setForeground(new Color(247, 213, 21));
-        jeffLabel.setOpaque(true);
-        jeffLabel.setBackground(new Color(3, 81, 186));
         JLabel charlotteLabel = new JLabel("Charlotte Müller - Marketing");
-        charlotteLabel.setForeground(new Color(247, 213, 21));
-        charlotteLabel.setOpaque(true);
-        charlotteLabel.setBackground(new Color(3, 81, 186));
         
         // Fügt ein Bild von Timo ein
         Image timoBild = null;
@@ -494,8 +479,8 @@ public class GUI extends JFrame {
         timoLabel.setBounds(150, 500, 400, 30);
         florianneLabel.setBounds(650, 500, 400, 30);
         timLabel.setBounds(1150, 500, 400, 30);
-        jeffLabel.setBounds(405, 825, 400, 30);
-        charlotteLabel.setBounds(905, 825, 400, 30);
+        jeffLabel.setBounds(405, 855, 400, 30);
+        charlotteLabel.setBounds(905, 855, 400, 30);
         
         label_bild_timo.setBounds(1, 200, 700, 300);
         label_bild_florianne.setBounds(500, 200, 700, 300);   
