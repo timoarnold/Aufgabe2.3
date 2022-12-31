@@ -578,22 +578,7 @@ public class GUI extends JFrame {
         this.repaint();
         
         JLabel infoLabel = new JLabel("<html>Bitte wenden Sie sich bei Fragen an unseren IT-Kontakt Tim, der unter der folgenden Nummer täglich von 8:00 - 16:00 Uhr erreichbar ist: 0824 67 76</html>");
-        
-        //hier noch GIF einfügen.
-        // Jeff: Kannst du hier evtl helfen? Wenn nicht, machen wir einfach ein Bild draus. :)
-        /*URL urlsd;
-        try {
-            URL urlsd = new URL("https://i.gifer.com/PJxF.gif");
-            ImageIcon gif_help = new ImageIcon(urlsd);
-            JLabel label_gif_help = new JLabel(gif_help);
-        } 
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-        ImageIcon gif_help = new ImageIcon(urlsd);
-        JLabel label_gif_help = new JLabel(gif_help);*/
-        
+
         // Positionieren
         infoLabel.setBounds(50, 25, 800, 50);
         //label_gif_help.setBounds(5, 20, 66, 66);

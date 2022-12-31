@@ -15,19 +15,32 @@ public class GUIController {
     private Lager lager;
     private Bestellung bestellung;
     private Produktions_Manager produktionsManager;
-    
+
+    /**
+     * GUIController für die Fabrik wird instanziert
+     * @param Fabrik: die Fabrik wird initialisiert
+     */
     public GUIController(Fabrik fabrik){
         this.fabrik = fabrik;
         lager = fabrik.getLager();
         produktionsManager = fabrik.gibProduktionsManager();
     }
-    
+
+    /**
+     * Die Methode onOrder gibt eine Bestellung auf, welche verarbeitet wird und schliesslich kann die Bestellung aus-
+     * gegeben werden.
+     */
     public void onOrder(int sofa, int stuhl){
         bestellung = fabrik.bestellungAufgeben(sofa, stuhl);
         fabrik.bestellungVerarbeiten(bestellung);
         fabrik.bestellungenAusgeben();
     }
 
+    /**
+     * In der Methode gibBestellBestaetigung wird geprüft, ob die Eingabe valide ist. Falls ja, wird eine Bestellbestätigung
+     * wiedergegeben
+     * @return gibt ene Bestätigung der Bestellung
+     */
     public String gibBestellBestaetigung(){
         String bestellBestaetigung = "";
 
@@ -41,6 +54,10 @@ public class GUIController {
         return bestellBestaetigung;
     }
 
+    /**
+     * Die Methode gibAnzahlBestellungen gibt eine Anzahl vorgenommener Bestellungen wieder.
+     * @return gibt die Anzahl Bestellungen
+     */
     public String gibAnzahlBestellungen(){
         String anzahlBestellungen = "";
         if ((bestellung != null) && (bestellung.gibBestellBestaetigung())){
@@ -49,6 +66,10 @@ public class GUIController {
         return anzahlBestellungen;
     }
 
+    /**
+     * Die Methode gibBestellInformationen gibt detaillierte Informationen zur Bestellung.
+     * @return gibt Informationen zur Bestellung
+     */
     public String gibBestellInformationen(){
         String bestellInformationen = "";
         if ((bestellung != null) && (bestellung.gibBestellBestaetigung())){
@@ -60,10 +81,18 @@ public class GUIController {
         return bestellInformationen;
     }
 
+    /**
+     * Die Methode gibt Informationen zum Lager aus.
+     * @return gibt Informationen zum Lager als String
+     */
     public String gibLagerInformationen(){
         return lager.toString();
     }
-    
+
+    /**
+     * Die Methode gibProduktionsStatus ermöglicht, den Status der einzelnen Roboter nach einer Bestellung abzurufen
+     * @return gibt den Status der Roboter in der Produktion
+     */
     public String gibProduktionsStatus() {
       Roboter holzRoboter = produktionsManager.getHolzRoboter();
       Roboter montageRoboter = produktionsManager.getMontageRoboter();
